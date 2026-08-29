@@ -37,8 +37,12 @@
       --accent-cyan: #0891B2;
       --accent-cyan-light: #0E7490;
       --accent-crimson: #FF0050;
-      --color-eager-green: #58cc02;
-      --color-spark-blue: #1cb0f6;
+      
+      /* Srievi Solid Brand Accents */
+      --srievi-green: #58cc02;
+      --srievi-blue: #1cb0f6;
+      --color-eager-green: var(--srievi-green);
+      --color-spark-blue: var(--srievi-blue);
       
       /* High-Contrast Bold Slate Typography for White Canvas */
       --text-main: #0F172A;
@@ -998,13 +1002,13 @@
           </div>
         </div>
 
-        <!-- 7. Eager Green -->
-        <div class="color-card" onclick="copyVal('#58cc02', 'Eager Green')">
+        <!-- 7. Srievi Eager Green -->
+        <div class="color-card" onclick="copyVal('#58cc02', 'Srievi Eager Green')">
           <div class="swatch" style="background-color: #58cc02;">
             <span class="swatch-tag">#58cc02</span>
           </div>
           <div class="color-info">
-            <h3 class="color-name">Eager Green (Duolingo Style)</h3>
+            <h3 class="color-name">Srievi Eager Green</h3>
             <p class="color-role">Progress badges, sticker CTA fills, and energetic status accents.</p>
             <div class="code-row">
               <span class="code-label">HEX</span>
@@ -1017,13 +1021,13 @@
           </div>
         </div>
 
-        <!-- 8. Spark Blue -->
-        <div class="color-card" onclick="copyVal('#1cb0f6', 'Spark Blue')">
+        <!-- 8. Srievi Spark Blue -->
+        <div class="color-card" onclick="copyVal('#1cb0f6', 'Srievi Spark Blue')">
           <div class="swatch" style="background-color: #1cb0f6;">
             <span class="swatch-tag">#1cb0f6</span>
           </div>
           <div class="color-info">
-            <h3 class="color-name">Spark Blue (Duolingo Style)</h3>
+            <h3 class="color-name">Srievi Spark Blue</h3>
             <p class="color-role">Interactive secondary links, outlined tactile buttons, curiosity tags.</p>
             <div class="code-row">
               <span class="code-label">HEX</span>
@@ -1111,7 +1115,7 @@
     <!-- SECTION 3: TACTILE PHYSICS & SPACING RULES -->
     <section id="section-tactile" style="margin-bottom: 60px;">
       <h2 class="section-title">
-        <i data-lucide="sparkles"></i> 3. Duolingo-Inspired Tactile UI & Spacing Standards
+        <i data-lucide="sparkles"></i> 3. Srievi Tactile UI & Spacing Standards
       </h2>
 
       <div style="background-color: var(--bg-surface); border: 1px solid var(--border-glass); border-radius: var(--radius-xl); padding: 24px; backdrop-filter: blur(16px);">
@@ -1497,7 +1501,7 @@
               <h3 class="comp-title"><i data-lucide="mouse-pointer-click"></i> Button</h3>
               <span class="comp-tag">Action</span>
             </div>
-            <p class="comp-desc">Primary CTA, Duolingo tactile sticker, spark ghost outline, and glass buttons.</p>
+            <p class="comp-desc">Primary CTA, Srievi tactile sticker, spark ghost outline, and glass buttons.</p>
             <div class="comp-preview-box">
               <div style="display: flex; flex-wrap: wrap; gap: 8px;">
                 <button class="btn btn-primary btn-sm">Primary</button>
@@ -2539,18 +2543,20 @@
   /* Solid Brand Primaries */
   --primary: #10B981;
   --primary-dark: #059669;
-  --primary-light: #A7F3D0;
-  --primary-glow: rgba(16, 185, 129, 0.3);
-  --accent-cyan: #06B6D4;
+  --primary-light: #065F46;
+  --primary-glow: rgba(16, 185, 129, 0.25);
+  --accent-cyan: #0891B2;
   --accent-crimson: #FF0050;
 
-  /* Duolingo-Inspired Accents */
-  --color-eager-green: #58cc02;
-  --color-spark-blue: #1cb0f6;
+  /* Srievi Brand Accents */
+  --srievi-green: #58cc02;
+  --srievi-blue: #1cb0f6;
+  --color-eager-green: var(--srievi-green);
+  --color-spark-blue: var(--srievi-blue);
 
   /* Typography & Spacing Scale */
-  --text-main: #F1F5F9;
-  --text-muted: #94A3B8;
+  --text-main: #0F172A;
+  --text-muted: #475569;
   --text-dim: #64748B;
   --spacing-unit: 4px;
   --radius-buttons: 12px;

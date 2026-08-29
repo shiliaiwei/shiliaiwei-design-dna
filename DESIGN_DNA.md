@@ -4,15 +4,15 @@ This document encodes the permanent, immutable Design & Engineering DNA for all 
 
 ---
 
-## 1. Aesthetic DNA: Obsidian Liquid Glass + Tactile Stickers
+## 1. Aesthetic DNA: Frosted Liquid Crystal Glass + Srievi Tactile Stickers
 
-* **Canvas Foundation**: Deep Obsidian `#080B11` with dark OLED contrast.
-* **Surface Materials**: Solid liquid glass cards (`rgba(18, 24, 38, 0.70)`) with `backdrop-filter: blur(16px)` and specular top/edge border reflections (`rgba(255, 255, 255, 0.08)`).
-* **Button Physics (Duolingo Tactile DNA)**:
-  - 12px border radius across all buttons and tags.
-  - Solid bottom-offset depth shadow (`box-shadow: 0 4px 0 #46a302` for green, `0 4px 0 #059669` for emerald).
+* **Canvas Foundation**: Crisp White `#FAFCFF` / `#FFFFFF` with high-contrast Slate-900 typography.
+* **Surface Materials**: Solid liquid crystal glass cards (`rgba(255, 255, 255, 0.85)`) with `backdrop-filter: blur(20px) saturate(180%)` and 360-degree specular top/edge border reflections (`border: 1px solid rgba(0,0,0,0.08); border-top: 1px solid #FFFFFF`).
+* **Button Physics (Srievi Tactile DNA)**:
+  - 12px border radius across all buttons and inputs.
+  - Solid bottom-offset depth shadow (`box-shadow: 0 4px 0 #46a302` for eager green, `0 4px 14px rgba(16,185,129,0.35)` for emerald).
   - Tactile press animation (`transform: translateY(2px); box-shadow: 0 2px 0 ...`).
-  - Ghost outlined secondary buttons with `2px solid #afafaf` and `#1cb0f6` hover fill.
+  - Ghost outlined secondary buttons with `2px solid #BAE6FD` and `#0284C7` text/hover fill.
 
 ---
 
@@ -21,13 +21,17 @@ This document encodes the permanent, immutable Design & Engineering DNA for all 
 * **Directives**:
   - **NO MULTI-COLOR GRADIENTS**: Linear/radial gradients are strictly prohibited on text, buttons, tags, cards, and borders.
   - **NO COLOR MIXING**: Every element must use exactly ONE solid palette token.
+  - **ZERO EXTERNAL BRAND REFERENCES**: The design system is 100% owned and branded under **Srievi**.
 * **Color Registry**:
-  - Main Background: `#080B11` (Obsidian)
-  - Glass Surface: `rgba(18, 24, 38, 0.70)`
-  - Surface Hover: `rgba(28, 38, 60, 0.85)`
-  - Glass Border: `rgba(255, 255, 255, 0.08)`
-  - Border Glow Hover: `rgba(16, 185, 129, 0.40)`
+  - Main Background: `#FAFCFF` (White Canvas)
+  - Glass Surface: `rgba(255, 255, 255, 0.85)`
+  - Surface Hover: `rgba(255, 255, 255, 0.96)`
+  - Glass Border: `rgba(0, 0, 0, 0.08)`
+  - Specular Top Rim: `rgba(255, 255, 255, 1.00)`
+  - Border Glow Hover: `rgba(16, 185, 129, 0.50)`
   - Primary Brand: `#10B981` (Emerald)
+  - Srievi Green: `#58cc02` (Eager Green)
+  - Srievi Blue: `#1cb0f6` (Spark Blue)
   - Dark Primary / CTA: `#059669` (Deep Emerald)
   - Light Text / Outline: `#A7F3D0` (Mint)
   - Technical Accent: `#06B6D4` (Electric Cyan)

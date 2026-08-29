@@ -15,8 +15,12 @@
   --primary-glow: rgba(16, 185, 129, 0.25);
   --accent-cyan: #0891B2;
   --accent-crimson: #FF0050;
-  --color-eager-green: #58cc02;
-  --color-spark-blue: #1cb0f6;
+  
+  /* Srievi Brand Accents */
+  --srievi-green: #58cc02;
+  --srievi-blue: #1cb0f6;
+  --color-eager-green: var(--srievi-green);
+  --color-spark-blue: var(--srievi-blue);
   
   --text-main: #0F172A;
   --text-muted: #475569;

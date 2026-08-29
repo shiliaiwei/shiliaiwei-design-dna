@@ -1,7 +1,7 @@
 ---
 name: srievi-liquid-glass-standards
 description: >
-  Authoritative design standard and architectural rules for Srievi Liquid Glass Portfolio, 14 Design System UI Elements, and 25 Website Concept Modules. Enforces STRICT SOLID COLORS ONLY (NO gradients, NO mixed color blends), ZERO-EMOJI / ZERO-SYMBOL POLICY (NO emojis or Unicode symbols anywhere), and MANDATORY Google Sans for all Khmer language text. Defines exact palette tokens, 4px spacing engine, 12px tactile sticker button physics, 360-degree specular glass surfaces, typography hierarchy, white canvas foundation, and all 25 web patterns. Trigger on: "srievi", "color", "palette", "design system", "glass", "solid color", "standards", "tokens", "button", "theme", "checklist", "duolingo", "record skill", "google sans".
+  Authoritative design standard and architectural rules for Srievi Liquid Glass Portfolio, 14 Design System UI Elements, and 25 Website Concept Modules. Enforces STRICT SOLID COLORS ONLY (NO gradients, NO mixed color blends), ZERO-EMOJI / ZERO-SYMBOL POLICY (NO emojis or Unicode symbols anywhere), and MANDATORY Google Sans for all Khmer language text. Defines exact palette tokens, 4px spacing engine, 12px tactile sticker button physics, 360-degree specular glass surfaces, typography hierarchy, white canvas foundation, and all 25 web patterns. Trigger on: "srievi", "color", "palette", "design system", "glass", "solid color", "standards", "tokens", "button", "theme", "checklist", "record skill", "google sans".
 ---
 
 # Srievi Liquid Glass Design System & Standards Master Specification
@@ -16,7 +16,7 @@ This skill acts as the permanent, authoritative architectural reference, token r
 * **Never use linear-gradient or radial-gradient on text, buttons, tags, or cards.**
 * **Never mix contrasting colors** in a single background fill or border blend.
 * Every element must use **one crisp solid color token** or a **translucent liquid glass surface** (`rgba(255, 255, 255, 0.85)`).
-* Primary buttons must be solid `#10B981` (Emerald) or `#58cc02` (Eager Green) with high-contrast text.
+* Primary buttons must be solid `#10B981` (Emerald) or `#58cc02` (Srievi Eager Green) with high-contrast text.
 
 ### Directive 2: Strict Zero-Emoji & Zero-Symbol Policy
 * **Never use emojis** under any circumstances (no checkmark emojis, rocket, fire, sparkles, green dots, or warning symbols).
@@ -34,6 +34,10 @@ This skill acts as the permanent, authoritative architectural reference, token r
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
   ```
+
+### Directive 4: Strict Srievi Brand Identity (Zero External Brand Names)
+* The entire design architecture is exclusively owned and branded under **Srievi**.
+* Root tokens, classes, components, and documentation must only use Srievi brand naming (`--srievi-green`, `--srievi-blue`, `--primary`, etc.).
 
 ---
 
@@ -57,8 +61,8 @@ This skill acts as the permanent, authoritative architectural reference, token r
 | `--accent-cyan` | `#0891B2` | `rgb(8, 145, 178)` | Cyan technical accent |
 | `--accent-cyan-light`| `#0E7490` | `rgb(14, 116, 144)` | Cyan badge text & code highlights |
 | `--accent-crimson` | `#FF0050` | `rgb(255, 0, 80)` | Neon crimson alert badge, hot highlights, error states |
-| `--color-eager-green`| `#58cc02` | `rgb(88, 204, 2)` | Duolingo-style sticker CTA fill & progress indicator |
-| `--color-spark-blue` | `#1cb0f6` | `rgb(28, 176, 246)` | Duolingo-style interactive link & ghost outline button |
+| `--srievi-green` | `#58cc02` | `rgb(88, 204, 2)` | Srievi tactile sticker CTA fill & progress indicator |
+| `--srievi-blue` | `#1cb0f6` | `rgb(28, 176, 246)` | Srievi interactive link & ghost outline button |
 | `--text-main` | `#0F172A` | `rgb(15, 23, 42)` | Slate-900 high-contrast primary text & headings |
 | `--text-muted` | `#475569` | `rgb(71, 85, 105)` | Slate-600 secondary descriptive text |
 | `--text-dim` | `#64748B` | `rgb(100, 116, 139)` | Slate-500 meta information, timestamps, footnotes |
@@ -122,9 +126,11 @@ This skill acts as the permanent, authoritative architectural reference, token r
   --accent-cyan-light: #0E7490;
   --accent-crimson: #FF0050;
 
-  /* Duolingo-Inspired Accents */
-  --color-eager-green: #58cc02;
-  --color-spark-blue: #1cb0f6;
+  /* Srievi Brand Accents */
+  --srievi-green: #58cc02;
+  --srievi-blue: #1cb0f6;
+  --color-eager-green: var(--srievi-green);
+  --color-spark-blue: var(--srievi-blue);
 
   /* Typography */
   --text-main: #0F172A;
@@ -162,7 +168,7 @@ This skill acts as the permanent, authoritative architectural reference, token r
 8. **Icon**: Standard SVG vector icons exclusively (zero emojis) across 16px, 20px, 24px, 32px scales.
 9. **Table**: High-contrast header row, row hover highlights, aligned numeric and status columns.
 10. **Card**: 20px backdrop-filter glass blur, specular top border highlight, hover elevation.
-11. **Button**: 12px border radius, active press physics, primary emerald, eager green sticker, spark ghost outline.
+11. **Button**: 12px border radius, active press physics, primary emerald, Srievi eager green sticker, spark ghost outline.
 12. **Badge**: Semantic color tokens (green, cyan, crimson), pill radius (9999px), pulsing live dot.
 13. **Avatar**: 2-letter fallback initials, online/busy presence indicator, overlapping team stack (-10px margin).
 14. **Dropdown Menu**: Floating liquid glass panel with menu actions, separators, icons, and keyboard shortcuts.
@@ -202,7 +208,7 @@ This skill acts as the permanent, authoritative architectural reference, token r
 ## 7. Extensibility & Future Design Iterations Guide
 
 When you continue designing, adjusting, or introducing new elements:
-- **Preserve Directives**: Keep 100% solid colors and zero emojis/decorative symbols.
+- **Preserve Directives**: Keep 100% solid colors, zero emojis/decorative symbols, and 100% Srievi brand ownership.
 - **Maintain Spacing & Radius Hierarchy**: Use the 4px base spacing scale and squircle radiuses (`8px`, `12px`, `16px`, `22px`, `9999px`).
 - **Khmer Typography Enforcement**: Any new Khmer text must always utilize `var(--font-km)` (`Google Sans`).
 - **Iterative Additions**: Add new UI components to section 4 and new website concept patterns to section 5.
