@@ -37,7 +37,7 @@ Built with a **Pure White Canvas (`#FAFCFF`)** foundation, **Frosted Liquid Crys
 
 ---
 
-## 📁 Repository Structure
+## 📁 Repository & Typed Assets Structure
 
 ```text
 pf-srievi/
@@ -47,13 +47,17 @@ pf-srievi/
 │   └── skills/
 │       └── srievi-liquid-glass-standards/
 │           └── SKILL.md               # Master design system skill specification
+├── assets/
+│   ├── audio/                         # Sound FX, UI clicks, ambient tracks (.wav, .mp3)
+│   ├── images/                        # Photography, brand graphics, thumbnails (.jpg, .png)
+│   ├── videos/                        # Video demos, background motion clips (.mp4)
+│   ├── css/                           # Compiled/modular stylesheets (.css)
+│   └── js/                            # Modular scripts & interaction controllers (.js)
 ├── DESIGN_DNA.md                      # Root design & engineering standards
 ├── README.md                          # Repository documentation & store record
-├── index.html                         # Srievi portfolio main landing page
 ├── palette.html                       # Real-time interactive design system studio
 ├── style.css                          # Master stylesheet & CSS variables
-├── script.js                          # Audio, animations, and interactive handlers
-└── ...                                # Media & audio assets
+└── script.js                          # Audio, animations, and interactive handlers
 ```
 
 ---
