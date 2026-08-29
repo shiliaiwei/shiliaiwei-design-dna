@@ -1,12 +1,12 @@
 ---
 name: srievi-liquid-glass-standards
 description: >
-  Authoritative design standard and architectural rules for Srievi Liquid Glass Portfolio, 14 Design System UI Elements, and 25 Website Concept Modules. Enforces STRICT SOLID COLORS ONLY (NO gradients, NO mixed color blends) and a ZERO-EMOJI / ZERO-SYMBOL POLICY (NO emojis or Unicode symbols anywhere). Defines exact palette tokens (#080B11, #10B981, #059669, #A7F3D0, #06B6D4, #FF0050, #58cc02, #1cb0f6), 4px spacing engine, 12px tactile sticker button physics, specular glass surfaces, typography hierarchy, and all 25 web patterns. Trigger on: "srievi", "color", "palette", "design system", "glass", "solid color", "standards", "tokens", "button", "theme", "checklist", "duolingo", "record skill".
+  Authoritative design standard and architectural rules for Srievi Liquid Glass Portfolio, 14 Design System UI Elements, and 25 Website Concept Modules. Enforces STRICT SOLID COLORS ONLY (NO gradients, NO mixed color blends), ZERO-EMOJI / ZERO-SYMBOL POLICY (NO emojis or Unicode symbols anywhere), and MANDATORY Google Sans for all Khmer language text. Defines exact palette tokens, 4px spacing engine, 12px tactile sticker button physics, 360-degree specular glass surfaces, typography hierarchy, white canvas foundation, and all 25 web patterns. Trigger on: "srievi", "color", "palette", "design system", "glass", "solid color", "standards", "tokens", "button", "theme", "checklist", "duolingo", "record skill", "google sans".
 ---
 
 # Srievi Liquid Glass Design System & Standards Master Specification
 
-This skill acts as the permanent, authoritative architectural reference, token registry, and implementation standard for the **Srievi Developer Portfolio, 14 Core UI Elements, and 25 Website Architecture Patterns**.
+This skill acts as the permanent, authoritative architectural reference, token registry, and implementation standard for the **Srievi Developer Portfolio, 14 Core UI Elements, and 25 Website Architecture Patterns**. It is structured for rapid extensibility and continuous design evolution.
 
 ---
 
@@ -15,7 +15,7 @@ This skill acts as the permanent, authoritative architectural reference, token r
 ### Directive 1: Solid Colors Only (Strictly Zero Gradients & Zero Color Mixing)
 * **Never use linear-gradient or radial-gradient on text, buttons, tags, or cards.**
 * **Never mix contrasting colors** in a single background fill or border blend.
-* Every element must use **one crisp solid color token** or a **translucent liquid glass surface** (`rgba(18, 24, 38, 0.70)`).
+* Every element must use **one crisp solid color token** or a **translucent liquid glass surface** (`rgba(255, 255, 255, 0.85)`).
 * Primary buttons must be solid `#10B981` (Emerald) or `#58cc02` (Eager Green) with high-contrast text.
 
 ### Directive 2: Strict Zero-Emoji & Zero-Symbol Policy
@@ -23,32 +23,44 @@ This skill acts as the permanent, authoritative architectural reference, token r
 * **Never use decorative Unicode glyphs** in UI text, code comments, or agent responses.
 * Use **standard library SVG vector icons** exclusively (Lucide `<i data-lucide="..."></i>` or FontAwesome `<i class="fa-solid fa-..."></i>`).
 
+### Directive 3: Mandatory Google Sans for Khmer Typography
+* **Always use Google Sans as the primary font for all Khmer language text**:
+  ```css
+  --font-km: 'Google Sans', 'Kantumruy Pro', sans-serif;
+  ```
+* Google Fonts Link for HTML `<head>`:
+  ```html
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+  ```
+
 ---
 
-## 2. Master Color Token Registry
+## 2. Master Color Token Registry (White Canvas Foundation)
 
 | Token | HEX / Value | RGB | Role / Usage |
 | :--- | :--- | :--- | :--- |
-| `--bg-main` | `#080B11` | `rgb(8, 11, 17)` | Deep obsidian dark canvas background |
-| `--bg-surface` | `rgba(18, 24, 38, 0.68)` | — | Solid liquid glass card surface (`backdrop-filter: blur(20px) saturate(180%)`) |
-| `--bg-surface-hover`| `rgba(28, 38, 60, 0.82)` | — | Interactive card/element hover state |
-| `--bg-surface-elevated`| `rgba(24, 32, 50, 0.94)` | — | Floating modal & dropdown overlay surface |
-| `--bg-inner-glass` | `rgba(8, 12, 20, 0.65)` | — | Nested preview box & input background |
-| `--border-glass` | `rgba(255, 255, 255, 0.10)`| — | Specular glass edge reflection border |
-| `--border-glass-top` | `rgba(255, 255, 255, 0.24)`| — | Top specular light-rim highlight |
-| `--border-glass-hover`| `rgba(16, 185, 129, 0.45)`| — | Emerald-tinted border glow on hover |
-| `--glass-shadow` | `inset 0 1px 0 rgba(255,255,255,0.18), 0 20px 48px rgba(0,0,0,0.60)` | — | True 360° refractive liquid glass depth |
+| `--bg-main` | `#FAFCFF` | `rgb(250, 252, 255)` | Crisp white canvas background |
+| `--bg-surface` | `rgba(255, 255, 255, 0.85)` | — | Frosted liquid crystal glass card surface (`backdrop-filter: blur(20px) saturate(180%)`) |
+| `--bg-surface-hover`| `rgba(255, 255, 255, 0.96)` | — | Interactive card/element hover state |
+| `--bg-surface-elevated`| `rgba(255, 255, 255, 0.98)` | — | Floating modal & dropdown overlay surface |
+| `--bg-inner-glass` | `rgba(241, 245, 249, 0.85)` | — | Nested preview box & input background |
+| `--border-glass` | `rgba(0, 0, 0, 0.08)` | — | Specular glass edge refraction border |
+| `--border-glass-top` | `rgba(255, 255, 255, 1.00)` | — | Top specular light-rim highlight |
+| `--border-glass-hover`| `rgba(16, 185, 129, 0.50)` | — | Emerald-tinted border glow on hover |
+| `--glass-shadow` | `inset 0 1px 0 rgba(255,255,255,1), 0 10px 30px rgba(0,0,0,0.04)` | — | True 360° refractive liquid glass depth |
 | `--primary` | `#10B981` | `rgb(16, 185, 129)` | Emerald solid brand primary, active states, key icons |
-| `--primary-dark` | `#059669` | `rgb(5, 150, 105)` | Deep emerald solid button hover state |
-| `--primary-light` | `#A7F3D0` | `rgb(167, 243, 208)` | Mint solid light text & high-contrast outlines |
-| `--primary-glow` | `rgba(16, 185, 129, 0.3)`| — | Focused glowing shadow |
-| `--accent-cyan` | `#06B6D4` | `rgb(6, 182, 212)` | Electric cyan technical accent |
-| `--accent-cyan-light`| `#67E8F9` | `rgb(103, 232, 249)` | Cyan badge text & code highlights |
+| `--primary-dark` | `#059669` | `rgb(5, 150, 105)` | Deep emerald solid button hover state & high-contrast headers |
+| `--primary-light` | `#065F46` | `rgb(6, 95, 70)` | Deep emerald high-contrast text on light surfaces |
+| `--primary-glow` | `rgba(16, 185, 129, 0.25)` | — | Focused glowing shadow |
+| `--accent-cyan` | `#0891B2` | `rgb(8, 145, 178)` | Cyan technical accent |
+| `--accent-cyan-light`| `#0E7490` | `rgb(14, 116, 144)` | Cyan badge text & code highlights |
 | `--accent-crimson` | `#FF0050` | `rgb(255, 0, 80)` | Neon crimson alert badge, hot highlights, error states |
 | `--color-eager-green`| `#58cc02` | `rgb(88, 204, 2)` | Duolingo-style sticker CTA fill & progress indicator |
 | `--color-spark-blue` | `#1cb0f6` | `rgb(28, 176, 246)` | Duolingo-style interactive link & ghost outline button |
-| `--text-main` | `#F1F5F9` | `rgb(241, 245, 249)` | Slate-100 primary text & headings |
-| `--text-muted` | `#94A3B8` | `rgb(148, 163, 184)` | Slate-400 secondary descriptive text |
+| `--text-main` | `#0F172A` | `rgb(15, 23, 42)` | Slate-900 high-contrast primary text & headings |
+| `--text-muted` | `#475569` | `rgb(71, 85, 105)` | Slate-600 secondary descriptive text |
 | `--text-dim` | `#64748B` | `rgb(100, 116, 139)` | Slate-500 meta information, timestamps, footnotes |
 
 ---
@@ -65,7 +77,7 @@ This skill acts as the permanent, authoritative architectural reference, token r
 - **Uppercase Nav Labels & Badges (13px - 15px)**: `letter-spacing: 0.0530em; text-transform: uppercase;`
 - **Body Text (15px - 17px)**: `letter-spacing: normal; line-height: 1.6;`
 
-### 4px Base Spacing Scale
+### 4px Base Spacing Scale & Squircle Radiuses
 ```css
 --spacing-unit: 4px;
 --spacing-8: 8px;
@@ -73,15 +85,12 @@ This skill acts as the permanent, authoritative architectural reference, token r
 --spacing-16: 16px;
 --spacing-24: 24px;
 --spacing-32: 32px;
---spacing-40: 40px;
 --spacing-48: 48px;
---spacing-64: 64px;
---spacing-96: 96px;
 
 --radius-sm: 8px;
 --radius-md: 12px;
---radius-lg: 18px;
---radius-xl: 24px;
+--radius-lg: 16px;
+--radius-xl: 22px;
 --radius-pill: 9999px;
 ```
 
@@ -91,20 +100,26 @@ This skill acts as the permanent, authoritative architectural reference, token r
 
 ```css
 :root {
-  /* Obsidian Canvas & Solid Liquid Glass */
-  --bg-main: #080B11;
-  --bg-surface: rgba(18, 24, 38, 0.70);
-  --bg-surface-hover: rgba(28, 38, 60, 0.85);
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glass-hover: rgba(16, 185, 129, 0.40);
+  /* Crisp White Canvas & Frosted Liquid Crystal Glass */
+  --bg-main: #FAFCFF;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-surface-hover: rgba(255, 255, 255, 0.96);
+  --bg-surface-elevated: rgba(255, 255, 255, 0.98);
+  --bg-inner-glass: rgba(241, 245, 249, 0.85);
+  
+  --border-glass: rgba(0, 0, 0, 0.08);
+  --border-glass-top: rgba(255, 255, 255, 1.00);
+  --border-glass-hover: rgba(16, 185, 129, 0.50);
+  --glass-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 1), 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+  --glass-shadow-hover: inset 0 1px 0 0 rgba(255, 255, 255, 1), 0 18px 44px rgba(16, 185, 129, 0.14), 0 4px 12px rgba(0, 0, 0, 0.05);
 
   /* Solid Brand Primaries */
   --primary: #10B981;
   --primary-dark: #059669;
-  --primary-light: #A7F3D0;
-  --primary-glow: rgba(16, 185, 129, 0.3);
-  --accent-cyan: #06B6D4;
-  --accent-cyan-light: #67E8F9;
+  --primary-light: #065F46;
+  --primary-glow: rgba(16, 185, 129, 0.25);
+  --accent-cyan: #0891B2;
+  --accent-cyan-light: #0E7490;
   --accent-crimson: #FF0050;
 
   /* Duolingo-Inspired Accents */
@@ -112,12 +127,12 @@ This skill acts as the permanent, authoritative architectural reference, token r
   --color-spark-blue: #1cb0f6;
 
   /* Typography */
-  --text-main: #F1F5F9;
-  --text-muted: #94A3B8;
+  --text-main: #0F172A;
+  --text-muted: #475569;
   --text-dim: #64748B;
 
   /* Fonts */
-  --font-km: 'Kantumruy Pro', sans-serif;
+  --font-km: 'Google Sans', 'Kantumruy Pro', sans-serif;
   --font-en: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
@@ -137,16 +152,16 @@ This skill acts as the permanent, authoritative architectural reference, token r
 
 ## 5. 14 Core Design System UI Elements Standards
 
-1. **Radio**: 18px hit target, solid center dot on check (`box-shadow: inset 0 0 0 3px #080B11`), group name association.
+1. **Radio**: 18px hit target, solid center dot on check (`box-shadow: inset 0 0 0 3px #FFFFFF`), group name association.
 2. **Searchbar**: Leading search lens icon, quick clear button, hotkey indicator (`CMD+K`).
-3. **Tooltip**: Non-blocking dark solid background with 1px glass border and collision detection.
+3. **Tooltip**: Non-blocking dark solid background (`#0F172A`) with 1px glass border and collision detection.
 4. **Modal**: Focused dialog overlay with backdrop blur, ESC key / outside click dismiss, primary & cancel button pairing.
 5. **Loading**: CSS border-top circular spinner (zero gif/image bloat), skeleton pulse shimmer, linear progress bar.
 6. **Toggle**: 44x24px standardized switch footprint, emerald active state, spacebar toggleable.
 7. **Input Field**: Persistent label, emerald focus ring token, inline error / success feedback messages.
 8. **Icon**: Standard SVG vector icons exclusively (zero emojis) across 16px, 20px, 24px, 32px scales.
 9. **Table**: High-contrast header row, row hover highlights, aligned numeric and status columns.
-10. **Card**: 16px backdrop-filter glass blur, specular reflection border, hover elevation.
+10. **Card**: 20px backdrop-filter glass blur, specular top border highlight, hover elevation.
 11. **Button**: 12px border radius, active press physics, primary emerald, eager green sticker, spark ghost outline.
 12. **Badge**: Semantic color tokens (green, cyan, crimson), pill radius (9999px), pulsing live dot.
 13. **Avatar**: 2-letter fallback initials, online/busy presence indicator, overlapping team stack (-10px margin).
@@ -181,3 +196,13 @@ This skill acts as the permanent, authoritative architectural reference, token r
 23. **FAQ**: Accordion collapsible questions with instant keyword search filter.
 24. **404 Error**: Terminal-style broken link diagnostics, quick recovery navigation buttons.
 25. **Login / Auth**: Two-factor auth flow, Passkey support, OAuth single-sign-on, password reset.
+
+---
+
+## 7. Extensibility & Future Design Iterations Guide
+
+When you continue designing, adjusting, or introducing new elements:
+- **Preserve Directives**: Keep 100% solid colors and zero emojis/decorative symbols.
+- **Maintain Spacing & Radius Hierarchy**: Use the 4px base spacing scale and squircle radiuses (`8px`, `12px`, `16px`, `22px`, `9999px`).
+- **Khmer Typography Enforcement**: Any new Khmer text must always utilize `var(--font-km)` (`Google Sans`).
+- **Iterative Additions**: Add new UI components to section 4 and new website concept patterns to section 5.
