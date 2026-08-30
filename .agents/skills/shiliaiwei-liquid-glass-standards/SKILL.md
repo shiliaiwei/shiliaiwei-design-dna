@@ -120,6 +120,15 @@ This skill provides authoritative architectural rules, strict visual directives,
       7. **Soft Badge Fills & Tint Insets**: Mint (`#ECFDF5`), Cyan (`#E0F2FE`), Rose (`#FFF1F2`).
       8. **Strict Zero Gradient & Zero Mix Mandate**: 100% single-token solid fills, zero muddy grays.
 
+21. **Directive 21: TOKENS DESIGN SYSTEM & MULTI-LANGUAGE 1:1 EXPORT (6-PILLAR STANDARD)**
+    - The defined variable layer across all platforms enabling consistency, theming, and code alignment (6 of 6 pillars):
+      1. **Three-Tier Architecture**: Tier 1 Primitives (raw values), Tier 2 Semantic (purpose & intent), Tier 3 Component (element-scoped).
+      2. **Predictable Naming Convention**: `[category]-[context]-[variant]-[state]`.
+      3. **Token Documentation**: Explicit usage rules and restrictions.
+      4. **Token Governance Policy**: Strict prohibition of hardcoded values.
+      5. **1:1 Design Tool & Multi-Language Sync**: Instant export across CSS, Android Compose (Kotlin), iOS SwiftUI (Swift), Flutter (Dart), TypeScript, and JSON DTCG.
+      6. **Semantic Versioning & Changelog**: Tracked under `v2.4.0`.
+
 ---
 
 ## 2. Multi-Platform Implementation Guide

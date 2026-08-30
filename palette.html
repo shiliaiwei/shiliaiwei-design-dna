@@ -1651,6 +1651,76 @@
       color: var(--primary-dark);
     }
 
+  
+    /* Tokens Design System Styles */
+    .tokens-hero {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      border-top: 1px solid var(--border-glass-top);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .tier-box {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .token-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background: var(--bg-inner-glass);
+      border-radius: var(--radius-sm);
+      font-size: 0.80rem;
+      font-family: var(--font-mono);
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .export-lang-tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin: 14px 0 10px;
+    }
+    .export-tab-btn {
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.10);
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .export-tab-btn.active {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary-dark);
+    }
+    .code-export-box {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-main);
+      overflow-x: auto;
+      max-height: 240px;
+      white-space: pre-wrap;
+    }
+
   </style>
 </head>
 <body>
@@ -1684,6 +1754,9 @@
           </a>
           <a href="#section-spacing" class="dock-item" data-i18n="nav_spacing">
             Spacing & Grid
+          </a>
+          <a href="#section-design-tokens" class="dock-item" data-i18n="nav_tokens_system">
+            Tokens System
           </a>
           <a href="#section-tactile" class="dock-item" data-i18n="nav_identity">
             Visual Identity
@@ -2545,6 +2618,156 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    
+    <!-- SECTION 5: TOKENS DESIGN SYSTEM -->
+    <section id="section-design-tokens" style="margin-bottom: 60px;">
+      <div class="tokens-hero">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span class="ui-badge badge-green" style="font-weight: 800; font-size: 0.82rem;">{ } TOKENS LAYER</span>
+              <span class="ui-badge badge-cyan">6 OF 6 PILLARS</span>
+            </div>
+            <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="sec_tokens_title">
+              5. Tokens Design System
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 780px;" data-i18n="sec_tokens_desc">
+              The layer of a design system where defined variables are outlined across the platform to enable consistency, theming and alignment with code.
+            </p>
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <button class="btn btn-primary btn-sm" onclick="copyActiveCodeExport()">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="showToast('Token Governance: All 16 tokens strictly locked')">View Policy</button>
+          </div>
+        </div>
+
+        <!-- 1. Three-Tier Token Architecture & Naming Convention -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 18px;">
+          
+          <!-- Tier 1: Primitives -->
+          <div class="tier-box">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-main);">Tier 1: Primitives</span>
+              <span class="ui-badge">RAW VALUES</span>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">Stores raw hex, pixel values, and font family strings.</p>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <div class="token-row">
+                <span>--emerald-500</span><span style="color: var(--primary);">#10B981</span>
+              </div>
+              <div class="token-row">
+                <span>--slate-900</span><span style="color: var(--text-main);">#0F172A</span>
+              </div>
+              <div class="token-row">
+                <span>--space-4</span><span>16px</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tier 2: Semantic Tokens -->
+          <div class="tier-box">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-main);">Tier 2: Semantic</span>
+              <span class="ui-badge badge-cyan">PURPOSE INTENT</span>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">Describes when, where, and why to use the variable.</p>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <div class="token-row">
+                <span>--color-interactive-primary</span><span>var(--emerald-500)</span>
+              </div>
+              <div class="token-row">
+                <span>--color-text-headline</span><span>var(--slate-900)</span>
+              </div>
+              <div class="token-row">
+                <span>--spacing-container-pad</span><span>var(--space-4)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tier 3: Component Tokens -->
+          <div class="tier-box">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-main);">Tier 3: Component</span>
+              <span class="ui-badge badge-green">ELEMENT SCOPE</span>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">Scopes decisions to a specific component element.</p>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <div class="token-row">
+                <span>--btn-primary-bg</span><span>var(--color-interactive-primary)</span>
+              </div>
+              <div class="token-row">
+                <span>--btn-sticker-radius</span><span>9px</span>
+              </div>
+              <div class="token-row">
+                <span>--badge-text-size</span><span>11px</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 2. Multi-Language Program Code Exporter -->
+        <div style="margin-top: 24px; padding: 18px; background: var(--bg-inner-glass); border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.06);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <span style="font-size: 0.82rem; font-weight: 700; color: var(--text-main); text-transform: uppercase;">Multi-Language Code Exporter (1:1 Tool Sync)</span>
+              <p style="font-size: 0.78rem; color: var(--text-dim); margin-top: 2px;">Export 100% synchronized tokens to any programming language or framework.</p>
+            </div>
+            <span class="ui-badge badge-green">v2.4.0 SYNC</span>
+          </div>
+
+          <div class="export-lang-tabs">
+            <button class="export-tab-btn active" onclick="switchTokenLang('css', this)">CSS Variables</button>
+            <button class="export-tab-btn" onclick="switchTokenLang('kotlin', this)">Android Compose</button>
+            <button class="export-tab-btn" onclick="switchTokenLang('swift', this)">iOS SwiftUI</button>
+            <button class="export-tab-btn" onclick="switchTokenLang('dart', this)">Flutter</button>
+            <button class="export-tab-btn" onclick="switchTokenLang('json', this)">JSON / DTCG</button>
+            <button class="export-tab-btn" onclick="switchTokenLang('ts', this)">TypeScript</button>
+          </div>
+
+          <pre id="tokenExportBox" class="code-export-box">:root {
+  /* Tier 1: Primitives */
+  --emerald-500: #10B981;
+  --emerald-700: #059669;
+  --slate-900: #0F172A;
+  --slate-600: #475569;
+  --white-canvas: #FAFCFF;
+
+  /* Tier 2: Semantic */
+  --color-interactive-primary: var(--emerald-500);
+  --color-interactive-depth: var(--emerald-700);
+  --color-text-main: var(--slate-900);
+  --color-text-muted: var(--slate-600);
+  --color-surface-canvas: var(--white-canvas);
+
+  /* Tier 3: Component Scope */
+  --btn-primary-bg: var(--color-interactive-primary);
+  --btn-radius: 9px;
+  --card-radius: 16px;
+  --font-family-en: 'Outfit', sans-serif;
+  --font-family-km: 'Google Sans', sans-serif;
+}</pre>
+        </div>
+
+        <!-- 3. Token Governance, Documentation & Changelog -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 18px;">
+          <div class="tier-box">
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-main);">Token Governance Policy</span>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">
+              Hardcoded values are prohibited in component styles. New tokens require proven multi-component reusability and explicit PR approval before addition.
+            </p>
+          </div>
+          <div class="tier-box">
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-main);">Versioning & Changelog</span>
+            <p style="font-size: 0.78rem; color: var(--text-muted);">
+              <strong>v2.4.0</strong>: Added 2FA security tokens, 8-layer typography tokens, 7-layer spatial scale tokens, and multi-language exports.
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -3509,6 +3732,9 @@
         nav_typography: 'Typography System',
         nav_a11y: 'Accessibility System',
         nav_spacing: 'Spacing & Grid',
+        nav_tokens_system: 'Tokens System',
+        sec_tokens_title: '5. Tokens Design System (6 of 6)',
+        sec_tokens_desc: 'The layer of a design system where defined variables are outlined across the platform to enable consistency, theming and alignment with code.',
         sec_spacing_title: '4. Spacing / Grid Design System',
         sec_spacing_desc: 'The spatial layer of a design system, defining a consistent scale for spacing, a grid for layout, and the rules that make both feel deliberate and coherent across all surfaces.',
         sec_a11y_title: '3. Accessibility Design System (a11y)',
@@ -3536,6 +3762,9 @@
         nav_typography: 'ប្រព័ន្ធអក្សរ (Typography)',
         nav_a11y: 'ភាពងាយស្រួលប្រើ (Accessibility)',
         nav_spacing: 'គម្លាត & ក្រឡាចត្រង្គ (Spacing & Grid)',
+        nav_tokens_system: 'ប្រព័ន្ធថូខឹន (Tokens System)',
+        sec_tokens_title: '៥. ប្រព័ន្ធថូខឹន Tokens Design System (៦ នៃ ៦)',
+        sec_tokens_desc: 'ស្រទាប់នៃប្រព័ន្ធរចនាដែលអថេរត្រូវបានកំណត់នៅទូទាំងវេទិកា ដើម្បីអនុញ្ញាតឱ្យមានភាពស៊ីសង្វាក់គ្នា ការប្តូររចនាប័ទ្ម និងការតម្រឹមកូដ 1:1។',
         sec_spacing_title: '៤. ប្រព័ន្ធគម្លាត & ក្រឡាចត្រង្គ Spacing/Grid (៧ នៃ ៧)',
         sec_spacing_desc: 'ស្រទាប់លំហនៃប្រព័ន្ធរចនា ដែលកំណត់ទំហំគម្លាតស្របគ្នា ក្រឡាចត្រង្គសម្រាប់ប្លង់ និងច្បាប់ដែលធ្វើឱ្យទាំងពីរមានអារម្មណ៍ច្បាស់លាស់ និងស៊ីសង្វាក់គ្នានៅលើគ្រប់ផ្ទៃទាំងអស់។',
         sec_a11y_title: '៣. ប្រព័ន្ធភាពងាយស្រួលប្រើប្រាស់ Accessibility (៨ នៃ ៨)',
@@ -3641,6 +3870,127 @@
       document.getElementById('txtLiveSpecimen').value = 'Solid Liquid Glass Design Architecture - 施莱威';
       updateLiveTypeSpecimen();
       showToast('Reset type scale to default');
+    }
+
+
+    // Multi-Language Token Export Dictionary
+    const tokenExports = {
+      css: `:root {
+  /* Tier 1: Primitives */
+  --emerald-500: #10B981;
+  --emerald-700: #059669;
+  --slate-900: #0F172A;
+  --slate-600: #475569;
+  --white-canvas: #FAFCFF;
+
+  /* Tier 2: Semantic */
+  --color-interactive-primary: var(--emerald-500);
+  --color-interactive-depth: var(--emerald-700);
+  --color-text-main: var(--slate-900);
+  --color-text-muted: var(--slate-600);
+  --color-surface-canvas: var(--white-canvas);
+
+  /* Tier 3: Component Scope */
+  --btn-primary-bg: var(--color-interactive-primary);
+  --btn-radius: 9px;
+  --card-radius: 16px;
+  --font-family-en: 'Outfit', sans-serif;
+  --font-family-km: 'Google Sans', sans-serif;
+}`,
+      kotlin: `// Android Jetpack Compose Tokens (v2.4.0)
+package com.shiliaiwei.design.tokens
+
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+
+object ShiliaiweiTokens {
+    val Primary = Color(0xFF10B981)
+    val PrimaryDark = Color(0xFF059669)
+    val BackgroundMain = Color(0xFFFAFCFF)
+    val TextMain = Color(0xFF0F172A)
+    val TextMuted = Color(0xFF475569)
+    
+    val ButtonRadius = 9.dp
+    val CardRadius = 16.dp
+    val SpaceUnit = 4.dp
+}`,
+      swift: `// iOS SwiftUI Design Tokens (v2.4.0)
+import SwiftUI
+
+public enum ShiliaiweiTokens {
+    public static let primary = Color(red: 0x10/255, green: 0xB9/255, blue: 0x81/255)
+    public static let primaryDark = Color(red: 0x05/255, green: 0x96/255, blue: 0x69/255)
+    public static let bgMain = Color(red: 0xFA/255, green: 0xFC/255, blue: 0xFF/255)
+    public static let textMain = Color(red: 0x0F/255, green: 0x17/255, blue: 0x2A/255)
+    
+    public static let buttonRadius: CGFloat = 9.0
+    public static let cardRadius: CGFloat = 16.0
+}`,
+      dart: `// Flutter Design Tokens (v2.4.0)
+import 'package:flutter/material.dart';
+
+class ShiliaiweiTokens {
+  static const Color primary = Color(0xFF10B981);
+  static const Color primaryDark = Color(0xFF059669);
+  static const Color bgMain = Color(0xFFFAFCFF);
+  static const Color textMain = Color(0xFF0F172A);
+  
+  static const double buttonRadius = 9.0;
+  static const double cardRadius = 16.0;
+}`,
+      json: `{
+  "color": {
+    "primitive": {
+      "emerald": { "500": { "$value": "#10B981", "$type": "color" } },
+      "slate": { "900": { "$value": "#0F172A", "$type": "color" } }
+    },
+    "semantic": {
+      "interactive": { "primary": { "$value": "{color.primitive.emerald.500}", "$type": "color" } }
+    }
+  },
+  "dimension": {
+    "buttonRadius": { "$value": "9px", "$type": "dimension" },
+    "cardRadius": { "$value": "16px", "$type": "dimension" }
+  }
+}`,
+      ts: `// TypeScript Design Tokens (v2.4.0)
+export const tokens = {
+  colors: {
+    primary: '#10B981',
+    primaryDark: '#059669',
+    bgMain: '#FAFCFF',
+    textMain: '#0F172A',
+    textMuted: '#475569',
+  },
+  radii: {
+    button: '9px',
+    card: '16px',
+    pill: '9999px',
+  },
+  fonts: {
+    en: 'Outfit, sans-serif',
+    km: 'Google Sans, sans-serif',
+    mono: 'JetBrains Mono, monospace',
+  }
+} as const;`
+    };
+
+    let activeTokenLang = 'css';
+
+    function switchTokenLang(lang, btnEl) {
+      activeTokenLang = lang;
+      document.querySelectorAll('.export-tab-btn').forEach(btn => btn.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      
+      const box = document.getElementById('tokenExportBox');
+      if (box && tokenExports[lang]) {
+        box.textContent = tokenExports[lang];
+      }
+    }
+
+    function copyActiveCodeExport() {
+      const code = tokenExports[activeTokenLang];
+      copyVal(code, `Copied ${activeTokenLang.toUpperCase()} Tokens`);
     }
 
     let currentLang = localStorage.getItem('shiliaiwei_lang') || 'en';

@@ -105,6 +105,14 @@ This document defines the permanent, immutable Design & Engineering DNA for all 
       6. **Specular Liquid Glass Highlights**: `--border-glass` (`rgba(0,0,0,0.10)`), `--border-glass-top` (`#FFFFFF` 100% specular reflection lip).
       7. **Soft Badge Fills & Tint Insets**: Mint (`#ECFDF5` / `#A7F3D0`), Cyan (`#E0F2FE` / `#BAE6FD`), Rose (`#FFF1F2` / `#FECDD3`).
       8. **Strict Zero Gradient & Zero Mix Mandate**: 100% single-token solid fills per component, zero muddy grays, zero rainbow blends.
+21. **TOKENS DESIGN SYSTEM & MULTI-LANGUAGE 1:1 EXPORT (6-PILLAR STANDARD)**:
+    - The defined variable layer across all platforms enabling consistency, theming, and multi-language alignment with code (6 of 6 pillars):
+      1. **Three-Tier Architecture**: Tier 1 Primitives (raw values), Tier 2 Semantic (purpose & intent), Tier 3 Component (element-scoped).
+      2. **Predictable Naming Convention**: Structured as `[category]-[context]-[variant]-[state]` (e.g. `color-interactive-primary-default`).
+      3. **Token Documentation**: Explicit usage rules, context restrictions, and valid combinations.
+      4. **Token Governance Policy**: Strict prohibition of hardcoded values; new tokens require multi-component reuse rationale.
+      5. **1:1 Design Tool & Multi-Language Sync**: Instant 1:1 synchronized export across CSS, Android Compose (Kotlin), iOS SwiftUI (Swift), Flutter (Dart), TypeScript, and JSON DTCG.
+      6. **Semantic Versioning & Changelog**: Tracked under `v2.4.0` with clear communication of token adjustments.
 
 ---
 
