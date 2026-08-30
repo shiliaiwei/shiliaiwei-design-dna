@@ -9,9 +9,9 @@ description: Authoritative design standard and architectural rules for Shiliaiwe
 
 # Shiliaiwei Guideline Design DNA Skill
 
-- **Primary Live Production URL**: [`https://vibrandhub.pages.dev`](https://vibrandhub.pages.dev)
+- **Primary Live Production URL**: [`https://shiliaiwei.pages.dev`](https://shiliaiwei.pages.dev)
 - **GitHub Repository**: [`https://github.com/shiliaiwei/shiliaiwei-design-dna`](https://github.com/shiliaiwei/shiliaiwei-design-dna)
-- **Cloudflare Pages Project**: `vibrandhub`
+- **Cloudflare Pages Project**: `shiliaiwei`
 
 This skill provides authoritative architectural rules, strict visual directives, and multi-platform implementation blueprints (Web/CSS, Android/Compose, iOS/SwiftUI, Flutter/Dart) for **Shiliaiwei Guideline Design DNA Skill** across all platforms, frameworks, and programming languages.
 

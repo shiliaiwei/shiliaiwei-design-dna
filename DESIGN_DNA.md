@@ -2,9 +2,9 @@
 
 This document defines the permanent, immutable Design & Engineering DNA for all **Shiliaiwei Guideline Design DNA Skill** digital products, interfaces, web applications, mobile platforms, and design system components across **ALL programming languages and frameworks** (Web/HTML/CSS, React/Next.js/Vue, Android/Compose, iOS/SwiftUI, and Flutter).
 
-- **Primary Live Production URL**: [`https://vibrandhub.pages.dev`](https://vibrandhub.pages.dev)
+- **Primary Live Production URL**: [`https://shiliaiwei.pages.dev`](https://shiliaiwei.pages.dev)
 - **GitHub Repository**: [`https://github.com/shiliaiwei/shiliaiwei-design-dna`](https://github.com/shiliaiwei/shiliaiwei-design-dna)
-- **Cloudflare Pages Project**: `vibrandhub`
+- **Cloudflare Pages Project**: `shiliaiwei`
 
 22. **SINGLE-VIEW STUDIO ARCHITECTURE & 1-CLICK SKILL.MD EXPORT (DIRECTIVE 22)**:
     - The design studio operates as a zero-forced-scrolling Single-View architecture with 3 dedicated views (`1. Visual Identity`, `2. UI Elements`, `3. Web App Suite`) controlled directly from the Left Sidebar Dock.

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "Shiliaiwei Guideline Design DNA Tokens",
+  "version": "2.4.0",
+  "color": {
+    "bg": {
+      "main": {
+        "$value": "#FAFCFF",
+        "$type": "color"
+      },
+      "surface": {
+        "$value": "rgba(255, 255, 255, 0.85)",
+        "$type": "color"
+      },
+      "innerGlass": {
+        "$value": "rgba(241, 245, 249, 0.85)",
+        "$type": "color"
+      }
+    },
+    "brand": {
+      "primary": {
+        "$value": "#10B981",
+        "$type": "color"
+      },
+      "primaryDark": {
+        "$value": "#059669",
+        "$type": "color"
+      },
+      "eagerGreen": {
+        "$value": "#58CC02",
+        "$type": "color"
+      },
+      "sparkBlue": {
+        "$value": "#1CB0F6",
+        "$type": "color"
+      },
+      "crimson": {
+        "$value": "#FF0050",
+        "$type": "color"
+      }
+    },
+    "text": {
+      "main": {
+        "$value": "#0F172A",
+        "$type": "color"
+      },
+      "muted": {
+        "$value": "#475569",
+        "$type": "color"
+      },
+      "dim": {
+        "$value": "#64748B",
+        "$type": "color"
+      }
+    }
+  },
+  "borderRadius": {
+    "button": {
+      "$value": "9px",
+      "$type": "dimension"
+    },
+    "buttonSm": {
+      "$value": "6px",
+      "$type": "dimension"
+    },
+    "chip": {
+      "$value": "7px",
+      "$type": "dimension"
+    },
+    "card": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "pill": {
+      "$value": "9999px",
+      "$type": "dimension"
+    }
+  },
+  "font": {
+    "sans": {
+      "$value": "Outfit, sans-serif",
+      "$type": "fontFamily"
+    },
+    "khmer": {
+      "$value": "Google Sans, Kantumruy Pro, sans-serif",
+      "$type": "fontFamily"
+    },
+    "mono": {
+      "$value": "JetBrains Mono, monospace",
+      "$type": "fontFamily"
+    }
+  }
+}
