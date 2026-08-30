@@ -606,66 +606,20 @@
 
     
     /* ==========================================================================
-       Creative Screen-Fitting Hero Headline & Entrance Animations
+       Massive Screen-Fitting "វី" Iconic Hero Typography & Kinetic Animation
        ========================================================================== */
-    .hero-container {
+    .vi-hero-container {
       text-align: center;
-      margin: 18px auto 44px;
-      max-width: 1100px;
+      margin: 10px auto 36px;
+      max-width: 1000px;
       padding: 0 12px;
-    }
-
-    .hero-big-title {
-      font-size: clamp(2.2rem, 6.2vw, 4.6rem);
-      font-weight: 900;
-      letter-spacing: -0.045em;
-      line-height: 1.06;
-      color: var(--text-main);
-      margin: 0 auto 16px;
-      text-wrap: balance;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 4px;
     }
 
-    .hero-word-line {
-      display: inline-flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.28em;
-      overflow: hidden;
-    }
-
-    .hero-word {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(35px) scale(0.96);
-      filter: blur(8px);
-      animation: heroWordReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .hero-word.w1 { animation-delay: 0.08s; }
-    .hero-word.w2 { animation-delay: 0.18s; }
-    .hero-word.w3 { animation-delay: 0.28s; }
-    .hero-word.w4 { animation-delay: 0.38s; }
-    .hero-word.w5 { animation-delay: 0.48s; }
-
-    @keyframes heroWordReveal {
-      0% {
-        opacity: 0;
-        transform: translateY(35px) scale(0.96);
-        filter: blur(8px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-      }
-    }
-
-    .hero-badge-tag {
+    .vi-hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -676,25 +630,81 @@
       font-size: 0.76rem;
       font-weight: 800;
       color: var(--primary-dark);
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 14px;
+      margin-bottom: 8px;
       opacity: 0;
-      animation: heroFadeIn 0.6s ease 0.02s forwards;
+      animation: viFadeIn 0.5s ease 0.05s forwards;
     }
 
-    .hero-lead-text {
+    .vi-hero-massive {
+      font-family: 'Google Sans', 'Kantumruy Pro', 'Outfit', sans-serif;
+      font-size: clamp(6.5rem, 22vw, 14rem);
+      font-weight: 900;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      color: var(--text-main);
+      margin: 0;
+      user-select: none;
+      display: inline-block;
+      opacity: 0;
+      transform: scale(0.85) translateY(40px);
+      filter: blur(16px);
+      animation: viHeroKineticReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+      transition: transform 0.2s ease;
+    }
+    .vi-hero-massive:hover {
+      transform: scale(1.03);
+    }
+
+    .vi-hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 6px;
+      font-family: var(--font-sans);
+      font-size: clamp(0.95rem, 2.2vw, 1.35rem);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-main);
+      opacity: 0;
+      animation: viFadeIn 0.6s ease 0.45s forwards;
+    }
+
+    .vi-hero-meta .vi-accent {
+      color: var(--primary);
+    }
+
+    .vi-hero-desc {
+      font-family: var(--font-sans);
+      font-size: clamp(0.85rem, 1.8vw, 1.05rem);
       color: var(--text-muted);
-      font-size: clamp(0.92rem, 1.8vw, 1.15rem);
-      line-height: 1.55;
-      max-width: 760px;
-      margin: 0 auto;
+      max-width: 680px;
+      margin: 12px auto 0;
+      line-height: 1.5;
       opacity: 0;
-      animation: heroFadeIn 0.75s ease 0.45s forwards;
+      animation: viFadeIn 0.6s ease 0.6s forwards;
     }
 
-    @keyframes heroFadeIn {
+    @keyframes viHeroKineticReveal {
+      0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(40px);
+        filter: blur(16px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes viFadeIn {
       from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -2095,27 +2105,25 @@
       <!-- Main Content Area -->
       <main class="main-content" style="max-width: 1200px; margin: 0 auto;">
         
-        <!-- Creative Screen-Fitting Hero Header -->
-        <header class="hero-container">
-          <div class="hero-badge-tag">
+        <!-- Massive Screen-Fitting "វី" Hero Header -->
+        <header class="vi-hero-container">
+          <div class="vi-hero-badge">
             <span class="badge-dot" style="width: 7px; height: 7px; background: var(--primary); border-radius: 50%;"></span>
-            <span>SHILIAIWEI DESIGN SYSTEM</span>
+            <span>SRIEVI GUIDELINE DESIGN DNA</span>
           </div>
 
-          <h1 class="hero-big-title">
-            <span class="hero-word-line">
-              <span class="hero-word w1">SHILIAIWEI</span>
-              <span class="hero-word w2">GUIDELINE</span>
-            </span>
-            <span class="hero-word-line">
-              <span class="hero-word w3 solid-emerald">DESIGN</span>
-              <span class="hero-word w4 solid-emerald">DNA</span>
-              <span class="hero-word w5">STUDIO</span>
-            </span>
+          <h1 class="vi-hero-massive">
+            <span class="solid-emerald">វី</span>
           </h1>
 
-          <p class="hero-lead-text" data-i18n="header_subtitle">
-            Authoritative tactile Solid Liquid Glass design architecture. Master all 14 core UI components, 9px tactile sticker button physics, closed single-color tokens, and multi-platform standards.
+          <div class="vi-hero-meta">
+            <span>SRIEVI</span>
+            <span class="vi-accent">•</span>
+            <span class="solid-emerald">DESIGN DNA STUDIO</span>
+          </div>
+
+          <p class="vi-hero-desc">
+            Solid Liquid Glass Design Architecture • 14 Core UI Elements • 9px Tactile Button Physics
           </p>
         </header>
 
