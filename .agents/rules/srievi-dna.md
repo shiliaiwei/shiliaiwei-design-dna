@@ -6,7 +6,9 @@ This document encodes the permanent, immutable Design & Engineering DNA for all 
 
 ## 1. Aesthetic DNA: Frosted Liquid Crystal Glass + Srievi Tactile Stickers
 
-* **Canvas Foundation**: Crisp White `#FAFCFF` / `#FFFFFF` with high-contrast Slate-900 typography.
+* **Canvas Foundation (STRICT LIGHT MODE ONLY - NEVER USE DARK MODE)**:
+  - Crisp White `#FAFCFF` / `#FFFFFF` with high-contrast Slate-900 typography (`#0F172A`).
+  - **Dark mode is strictly prohibited**: No dark mode styles, no dark themes, no `prefers-color-scheme: dark`, and no inverted dark palettes under any circumstances.
 * **Surface Materials**: Solid liquid crystal glass cards (`rgba(255, 255, 255, 0.85)`) with `backdrop-filter: blur(20px) saturate(180%)` and 360-degree specular top/edge border reflections (`border: 1px solid rgba(0,0,0,0.08); border-top: 1px solid #FFFFFF`).
 * **Button Physics (Srievi Tactile DNA)**:
   - 12px border radius across all buttons and inputs.
@@ -77,3 +79,14 @@ This document encodes the permanent, immutable Design & Engineering DNA for all 
 
 * **14 UI Elements**: Radio, Searchbar, Tooltip, Modal, Loading, Toggle, Input Field, Icon, Table, Card, Button, Badge, Avatar, Dropdown Menu.
 * **25 Website Concepts**: Security, Event Page, About, Privacy/Legal, Features, Testimonials, Affiliate, Coming Soon, Compare, Status, Billing, Landing Page, Waitlist, Press/Media, Team, Cart, Search, Careers, Blog Hub, Blog Post, Contact Us, Pricing, FAQ, 404 Error, Login/Auth.
+
+---
+
+## 6. Responsive DNA: Desktop-Grade Mobile Parity
+
+* **Mobile Like PC Web**: Mobile devices must deliver the exact same high-fidelity visual elegance, tactile sticker physics, and complete feature set as the PC web desktop interface.
+* **Touch & Layout Standards**:
+  - Sticky Apple-Style Floating Capsule Dock with full view switching (`Identity`, `UI Elements`, `Web App`) and 1-tap `Skill MD` / `Tokens` copy actions.
+  - Zero Horizontal Clipping: All text, cards, tables, badges, and modals must wrap cleanly (`overflow-wrap: break-word; word-break: break-word;`).
+  - Tactile Sticker Button Physics: Retain 9px / 12px border-radius with solid bottom-depth shadows and 3D active compression on mobile touch.
+  - Single-View Studio Architecture: Seamless zero-forced-scrolling tab switching on mobile without layout jumping.

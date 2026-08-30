@@ -85,7 +85,7 @@
       line-height: 1.6;
       padding: 30px 20px 120px;
       position: relative;
-      overflow-x: hidden;
+      overflow-x: clip;
       overflow-wrap: break-word;
       word-wrap: break-word;
       word-break: break-word;
@@ -133,7 +133,7 @@
     .container {
       max-width: 1440px;
       margin: 0 auto;
-      padding: 24px 16px;
+      padding: 72px 16px 24px;
       position: relative;
       z-index: 1;
       width: 100%;
@@ -151,16 +151,17 @@
 
     
     /* ==========================================================================
-       Apple-Style Floating Capsule Dock & Liquid Glass Popup
+       Creative Liquid Glass Floating Docker Menu & Capsule Navigation
        ========================================================================== */
     .apple-dock-wrapper {
-      position: sticky;
+      position: fixed;
       top: 14px;
-      z-index: 1000;
+      left: 0;
+      right: 0;
+      z-index: 99999;
       display: flex;
       justify-content: center;
-      margin-bottom: 28px;
-      width: 100%;
+      padding: 0 16px;
       pointer-events: none;
     }
 
@@ -170,30 +171,34 @@
       align-items: center;
       gap: 10px;
       padding: 6px 8px;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(0, 0, 0, 0.10);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-top: 1.5px solid #FFFFFF;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
       border-radius: 9999px;
       max-width: 660px;
       width: 100%;
       justify-content: space-between;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06), 0 2px 8px rgba(16, 185, 129, 0.05);
     }
 
     .apple-dock-brand {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 3px 12px 3px 4px;
-      background: rgba(241, 245, 249, 0.85);
+      padding: 4px 12px 4px 4px;
+      background: rgba(241, 245, 249, 0.95);
       border: 1px solid rgba(0, 0, 0, 0.06);
       border-top: 1px solid #FFFFFF;
       border-radius: 9999px;
       cursor: pointer;
       user-select: none;
-      transition: transform 0.1s ease;
+      transition: transform 0.12s ease, background-color 0.15s ease;
+    }
+    .apple-dock-brand:hover {
+      background: rgba(230, 238, 248, 0.95);
     }
     .apple-dock-brand:active {
       transform: scale(0.97);
@@ -226,11 +231,12 @@
     }
 
     .dock-brand-title {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 800;
       color: var(--text-main);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       font-family: var(--font-sans);
+      text-transform: uppercase;
     }
 
     .apple-dock-nav {
@@ -266,7 +272,7 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
       border-top: 1px solid #FFFFFF;
       font-weight: 700;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     }
 
     .apple-dock-actions {
@@ -280,7 +286,7 @@
       font-family: var(--font-sans);
       font-size: 0.74rem;
       font-weight: 700;
-      border-radius: 8px;
+      border-radius: var(--radius-buttons);
       cursor: pointer;
       user-select: none;
       white-space: nowrap;
@@ -378,12 +384,25 @@
     }
 
     @media (max-width: 640px) {
+      .container {
+        padding-top: 58px;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      .apple-dock-wrapper {
+        top: 8px;
+        padding: 0 8px;
+      }
       .apple-dock {
         padding: 4px 6px;
         gap: 4px;
+        max-width: 100%;
       }
       .dock-brand-title {
         display: none;
+      }
+      .apple-dock-brand {
+        padding: 3px 6px 3px 4px;
       }
       .dock-tab {
         padding: 6px 9px;
@@ -392,6 +411,21 @@
       .dock-action-btn {
         padding: 6px 9px;
         font-size: 0.72rem;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .apple-dock {
+        padding: 3px 4px;
+        gap: 3px;
+      }
+      .dock-tab {
+        padding: 5px 6px;
+        font-size: 0.68rem;
+      }
+      .dock-action-btn {
+        padding: 5px 6px;
+        font-size: 0.66rem;
       }
     }
 
@@ -636,74 +670,253 @@
     
 
     /* ==========================================================================
-       Pure Solid 3D "វី" Hero (Clean Static Identity)
+       iPhone App Icon Style Brand Hero
        ========================================================================== */
-    .vi-pure-hero {
+    /* ==========================================================================
+       Authentic Apple iPhone & macOS Desktop App Icon Hero
+       ========================================================================== */
+    .hero-brand-app-section {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin: 36px auto 44px;
-      padding: 56px 20px 20px; /* Ample breathing room below floating menu dock */
       text-align: center;
+      margin: 28px auto 38px;
+      padding: 48px 20px 16px;
       user-select: none;
       position: relative;
-      overflow: visible;
+      perspective: 1000px;
     }
 
-    .vi-glass-display {
+    .ios-app-icon-wrapper {
       position: relative;
       display: inline-flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 16px 36px;
-      border-radius: var(--radius-xl);
       cursor: grab;
       user-select: none;
       touch-action: none;
       will-change: transform;
       z-index: 50;
-      transition: box-shadow 0.15s ease;
+      margin-bottom: 20px;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
-    .vi-glass-display.is-dragging {
+    .ios-app-icon-wrapper:hover .ios-app-icon {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 0 #059669;
+    }
+
+    .ios-app-icon-wrapper.is-dragging {
       cursor: grabbing;
-      filter: drop-shadow(0 18px 30px rgba(16, 185, 129, 0.35));
+      filter: drop-shadow(0 24px 36px rgba(16, 185, 129, 0.35));
     }
 
-    .vi-glass-display.is-rebounding {
+    .ios-app-icon-wrapper.is-rebounding {
       transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .vi-massive-char {
+    .ios-app-icon-wrapper:active .ios-app-icon {
+      transform: scale(0.96) translateY(4px);
+      box-shadow: 0 2px 0 #059669;
+    }
+
+    /* Main Apple Continuous Superellipse App Icon */
+    .ios-app-icon {
+      width: 116px;
+      height: 116px;
+      background-color: #10B981;
+      border-radius: 27px; /* Apple iOS Continuous Superellipse Curvature */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: visible;
+      box-shadow: 0 6px 0 #059669;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-top: 2.5px solid #FFFFFF;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    /* Inner Geometric Guide Grid (Authentic Apple Design Grid) */
+    .ios-app-grid {
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 19px;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ios-app-grid-circle {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .ios-app-grid-crosshair-h {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .ios-app-grid-crosshair-v {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Center 3D Plate */
+    .ios-app-core-plate {
+      width: 78px;
+      height: 78px;
+      background-color: #059669;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-top: 2px solid #FFFFFF;
+      box-shadow: 0 3px 0 #047857;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ios-app-emblem {
       font-family: 'Google Sans', 'Kantumruy Pro', sans-serif;
-      font-size: clamp(7.5rem, 22vw, 15rem);
+      font-size: 3.4rem;
       font-weight: 900;
-      line-height: 1.02;
-      letter-spacing: -0.02em;
-      color: var(--primary);
-      text-shadow: 0 5px 0 #059669;
+      line-height: 1;
+      color: #FFFFFF;
+      text-shadow: 0 3px 0 #047857;
       display: inline-block;
       margin: 0;
       padding: 0;
-      position: relative;
-      z-index: 2;
       pointer-events: none;
-      opacity: 1;
-      transform: none;
-      filter: none;
-      animation: none;
+      transform: translateY(-2px);
+    }
+
+    /* Authentic iOS Notification Badge */
+    .ios-app-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      width: 26px;
+      height: 26px;
+      background-color: #FF0050;
+      color: #FFFFFF;
+      border: 2.5px solid #FFFFFF;
+      border-radius: 50%;
+      font-size: 0.72rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      z-index: 10;
+    }
+
+    /* macOS Desktop Launchpad Dock Reflection Plate */
+    .mac-app-pedestal {
+      width: 84px;
+      height: 6px;
+      background: rgba(0, 0, 0, 0.08);
+      border-radius: 50%;
+      margin-top: 8px;
+      transition: width 0.15s ease, background 0.15s ease;
+    }
+
+    .ios-app-icon-wrapper:hover .mac-app-pedestal {
+      width: 96px;
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-brand-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-brand-title {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-main);
+      margin: 0;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .hero-brand-subtitle {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: 0.053em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+    }
+
+    .hero-brand-badge-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
     }
 
     @media (max-width: 640px) {
-      .vi-pure-hero {
-        margin: 20px auto 28px;
-        padding: 40px 10px 14px;
+      .hero-brand-app-section {
+        margin: 16px auto 24px;
+        padding: 36px 10px 12px;
       }
-      .vi-glass-display {
-        padding: 10px 16px;
+      .ios-app-icon {
+        width: 94px;
+        height: 94px;
+        border-radius: 22px;
+        box-shadow: 0 5px 0 #059669;
       }
-      .vi-massive-char {
-        font-size: clamp(6.5rem, 30vw, 11rem);
+      .ios-app-grid {
+        inset: 6px;
+        border-radius: 16px;
+      }
+      .ios-app-grid-circle {
+        width: 54px;
+        height: 54px;
+      }
+      .ios-app-core-plate {
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
+      }
+      .ios-app-emblem {
+        font-size: 2.8rem;
+      }
+      .ios-app-badge {
+        width: 22px;
+        height: 22px;
+        font-size: 0.65rem;
+        top: -4px;
+        right: -4px;
+      }
+      .mac-app-pedestal {
+        width: 68px;
+      }
+      .hero-brand-title {
+        font-size: 1.85rem;
+      }
+      .hero-brand-subtitle {
+        font-size: 0.82rem;
       }
     }
 
@@ -2039,23 +2252,23 @@
           <span class="dock-brand-title">SHILIAIWEI</span>
         </div>
 
-        <!-- Center: 3 Capsule Segmented Tabs (Zero Numbers - Pure Typography) -->
+        <!-- Center: 3 Capsule Segmented Tabs (Strict 1-Word Pure Typography) -->
         <div class="apple-dock-nav">
           <button class="dock-tab active" onclick="switchStudioView('identity', this)" data-view="identity" data-i18n="nav_identity">
             Identity
           </button>
           <button class="dock-tab" onclick="switchStudioView('elements', this)" data-view="elements" data-i18n="nav_elements">
-            UI Elements
+            Elements
           </button>
           <button class="dock-tab" onclick="switchStudioView('webapp', this)" data-view="webapp" data-i18n="nav_webapp">
-            Web App
+            Apps
           </button>
         </div>
 
-        <!-- Right: Action Buttons -->
+        <!-- Right: Action Buttons (Strict 1-Word Labels) -->
         <div class="apple-dock-actions">
           <button class="dock-action-btn dock-btn-glass" onclick="copySkillMarkdown()" title="Copy Agent Skill Markdown">
-            Skill MD
+            Skill
           </button>
           <button class="dock-action-btn dock-btn-primary" onclick="copyAllTokens()" title="Copy Design Tokens">
             Tokens
@@ -2104,10 +2317,32 @@
       <!-- Main Content Area -->
       <main class="main-content" style="max-width: 1200px; margin: 0 auto;">
         
-        <!-- Pure Solid 3D "វី" Hero Display (Interactive Cursor Drag & Throw Physics) -->
-        <header class="vi-pure-hero">
-          <div class="vi-glass-display" id="draggableViMark" title="Shiliaiwei (វី) — Drag & Throw anywhere! Double-click to reset.">
-            <h1 class="vi-massive-char">វី</h1>
+        <!-- Authentic Apple iPhone & macOS Desktop App Icon Hero -->
+        <header class="hero-brand-app-section">
+          <div class="ios-app-icon-wrapper" id="draggableViMark" onclick="openBrandPopup()" title="SHILIAIWEI (វី) — Tap to view details or drag with physics!">
+            <div class="ios-app-icon">
+              <!-- Authentic Apple Icon Grid -->
+              <div class="ios-app-grid">
+                <div class="ios-app-grid-circle"></div>
+                <div class="ios-app-grid-crosshair-h"></div>
+                <div class="ios-app-grid-crosshair-v"></div>
+              </div>
+              
+              <!-- 3D Core Glass Plate -->
+              <div class="ios-app-core-plate">
+                <span class="ios-app-emblem">វី</span>
+              </div>
+
+              <!-- Real iOS Notification Badge -->
+              <div class="ios-app-badge">1</div>
+            </div>
+            <!-- Desktop Launchpad Pedestal Reflection -->
+            <div class="mac-app-pedestal"></div>
+          </div>
+          
+          <div class="hero-brand-text">
+            <h1 class="hero-brand-title">SHILIAIWEI</h1>
+            <p class="hero-brand-subtitle" data-i18n="hero_brand_sub">Guideline Design DNA Skill</p>
           </div>
         </header>
 
@@ -2122,42 +2357,58 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
           
           <!-- Tactile Buttons Demo -->
-          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none;">
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; letter-spacing: 0.053em;">
-              Sticker Tactile Buttons (9px Radius)
+          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="margin-bottom: 14px;">
+                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.053em;">
+                  Sticker Tactile Buttons (9px Radius)
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
+                <button class="btn btn-eager" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 12px 20px;">
+                  Get Started
+                </button>
+                <button class="btn btn-spark" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 10px 20px;">
+                  Login Account
+                </button>
+              </div>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 12px;">
-              <button class="btn btn-eager" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 12px 20px;">
-                Get Started
-              </button>
-              <button class="btn btn-spark" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 10px 20px;">
-                Login Account
-              </button>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06);">
+              <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Tactile Buttons</span>
+              <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('tactile_buttons', this)">Prompt</button>
             </div>
           </div>
 
           <!-- Spacing & Typography Rules -->
-          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none;">
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.053em;">
-              4px Spacing Unit & Tracking Rules
+          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="margin-bottom: 12px;">
+                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.053em;">
+                  4px Spacing Unit & Tracking Rules
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.84rem; margin-bottom: 16px;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-muted);">Base Unit:</span>
+                  <span style="font-family: var(--font-mono); color: var(--color-eager-green); font-weight: 700;">4px Scale</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-muted);">Display Headline Tracking:</span>
+                  <span style="font-family: var(--font-mono); color: var(--color-spark-blue); font-weight: 700;">-0.0200em</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-muted);">Nav Label Uppercase Tracking:</span>
+                  <span style="font-family: var(--font-mono); color: var(--primary-dark); font-weight: 700;">+0.0530em</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: var(--text-muted);">Card Padding:</span>
+                  <span style="font-family: var(--font-mono); color: var(--text-main);">16px - 24px</span>
+                </div>
+              </div>
             </div>
-            <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.84rem;">
-              <div style="display: flex; justify-content: space-between;">
-                <span style="color: var(--text-muted);">Base Unit:</span>
-                <span style="font-family: var(--font-mono); color: var(--color-eager-green); font-weight: 700;">4px Scale</span>
-              </div>
-              <div style="display: flex; justify-content: space-between;">
-                <span style="color: var(--text-muted);">Display Headline Tracking:</span>
-                <span style="font-family: var(--font-mono); color: var(--color-spark-blue); font-weight: 700;">-0.0200em</span>
-              </div>
-              <div style="display: flex; justify-content: space-between;">
-                <span style="color: var(--text-muted);">Nav Label Uppercase Tracking:</span>
-                <span style="font-family: var(--font-mono); color: var(--primary-dark); font-weight: 700;">+0.0530em</span>
-              </div>
-              <div style="display: flex; justify-content: space-between;">
-                <span style="color: var(--text-muted);">Card Padding:</span>
-                <span style="font-family: var(--font-mono); color: var(--text-main);">16px - 24px</span>
-              </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06);">
+              <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Spacing & Rhythm</span>
+              <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('spacing_rules', this)">Prompt</button>
             </div>
           </div>
 
@@ -2177,7 +2428,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Radio</h3>
-              <span class="comp-tag">Input</span>
             </div>
             <p class="comp-desc">Single-choice selection control with checked, unchecked, and disabled states.</p>
             <div class="comp-preview-box">
@@ -2199,7 +2449,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Radio</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Radio Element', 'Copied Radio Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('radio', this)">Prompt</button>
           </div>
         </div>
 
@@ -2208,7 +2458,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Searchbar</h3>
-              <span class="comp-tag">Navigation</span>
             </div>
             <p class="comp-desc">Dedicated query input with leading icon, clear action, and shortcut pill.</p>
             <div class="comp-preview-box">
@@ -2220,7 +2469,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Searchbar</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Searchbar Element', 'Copied Searchbar Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('searchbar', this)">Prompt</button>
           </div>
         </div>
 
@@ -2229,7 +2478,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Tooltip</h3>
-              <span class="comp-tag">Feedback</span>
             </div>
             <p class="comp-desc">Contextual floating micro-label appearing on hover or keyboard focus.</p>
             <div class="comp-preview-box" style="align-items: center; justify-content: center;">
@@ -2243,7 +2491,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Tooltip</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Tooltip Element', 'Copied Tooltip Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('tooltip', this)">Prompt</button>
           </div>
         </div>
 
@@ -2252,7 +2500,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Modal Overlay</h3>
-              <span class="comp-tag">Overlay</span>
             </div>
             <p class="comp-desc">Focused dialog overlay trapping focus with frosted backdrop scrim for critical workflows.</p>
             <div class="comp-preview-box" style="background-color: rgba(15, 23, 42, 0.45); backdrop-filter: blur(8px); padding: 14px; border-radius: 12px;">
@@ -2274,7 +2521,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Modal Overlay</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Modal Overlay Element', 'Copied Modal Overlay Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('modal', this)">Prompt</button>
           </div>
         </div>
 
@@ -2283,7 +2530,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Loading</h3>
-              <span class="comp-tag">Feedback</span>
             </div>
             <p class="comp-desc">Spinners, skeleton shimmer lines, and linear progress meters.</p>
             <div class="comp-preview-box">
@@ -2299,7 +2545,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Loading</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Loading Element', 'Copied Loading Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('loading', this)">Prompt</button>
           </div>
         </div>
 
@@ -2308,9 +2554,8 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Toggle Switch</h3>
-              <span class="comp-tag">Input</span>
             </div>
-            <p class="comp-desc">Instant binary switch for toggling settings, dark mode, or preferences.</p>
+            <p class="comp-desc">Instant binary switch for toggling settings, live alerts, or preferences.</p>
             <div class="comp-preview-box">
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
                 <div>
@@ -2336,7 +2581,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Toggle</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Toggle Element', 'Copied Toggle Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('toggle', this)">Prompt</button>
           </div>
         </div>
 
@@ -2345,7 +2590,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Input Field</h3>
-              <span class="comp-tag">Input</span>
             </div>
             <p class="comp-desc">Single-line text input with label, placeholder, helper text, and error validation.</p>
             <div class="comp-preview-box">
@@ -2356,7 +2600,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Input Field</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Input Field Element', 'Copied Input Field Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('input', this)">Prompt</button>
           </div>
         </div>
 
@@ -2365,7 +2609,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Code & Tag Chip</h3>
-              <span class="comp-tag">Visual</span>
             </div>
             <p class="comp-desc">High-contrast monospace code tokens, semantic status labels, and key badges.</p>
             <div class="comp-preview-box">
@@ -2391,7 +2634,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Tag Chip</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Tag Chip Element', 'Copied Tag Chip Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('chip', this)">Prompt</button>
           </div>
         </div>
 
@@ -2400,7 +2643,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Table</h3>
-              <span class="comp-tag">Data</span>
             </div>
             <p class="comp-desc">Structured relational data presentation with headers, status chips, and actions.</p>
             <div class="comp-preview-box">
@@ -2429,7 +2671,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Table</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Table Element', 'Copied Table Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('table', this)">Prompt</button>
           </div>
         </div>
 
@@ -2438,7 +2680,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Card Container</h3>
-              <span class="comp-tag">Container</span>
             </div>
             <p class="comp-desc">Liquid glass content container with 16px blur, specular edge, and internal padding.</p>
             <div class="comp-preview-box" style="padding: 12px; background-color: var(--bg-inner-glass); border-radius: 14px; border: 1px solid rgba(0,0,0,0.08);">
@@ -2461,7 +2702,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Card Container</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Card Container Element', 'Copied Card Container Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('card', this)">Prompt</button>
           </div>
         </div>
 
@@ -2470,7 +2711,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Button</h3>
-              <span class="comp-tag">Action</span>
             </div>
             <p class="comp-desc">Primary CTA, Shiliaiwei tactile sticker, spark ghost outline, and glass buttons.</p>
             <div class="comp-preview-box">
@@ -2484,7 +2724,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Button</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Button Element', 'Copied Button Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('button', this)">Prompt</button>
           </div>
         </div>
 
@@ -2493,7 +2733,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Badge</h3>
-              <span class="comp-tag">Indicator</span>
             </div>
             <p class="comp-desc">Compact status pill with color semantics, dot indicators, and count numbers.</p>
             <div class="comp-preview-box">
@@ -2507,7 +2746,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Badge</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Badge Element', 'Copied Badge Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('badge', this)">Prompt</button>
           </div>
         </div>
 
@@ -2516,7 +2755,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Avatar & Identity</h3>
-              <span class="comp-tag">Identity</span>
             </div>
             <p class="comp-desc">User photo, initials fallback, active status dot, and stacked team group.</p>
             <div class="comp-preview-box" style="padding: 14px; background-color: var(--bg-inner-glass); border-radius: 14px; border: 1px solid rgba(0,0,0,0.08);">
@@ -2562,7 +2800,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Avatar Identity</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Avatar Identity Element', 'Copied Avatar Identity Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('avatar', this)">Prompt</button>
           </div>
         </div>
 
@@ -2571,7 +2809,6 @@
           <div>
             <div class="comp-header">
               <h3 class="comp-title">Dropdown Menu</h3>
-              <span class="comp-tag">Navigation</span>
             </div>
             <p class="comp-desc">Floating selection panel with menu items, separators, icons, and shortcuts.</p>
             <div class="comp-preview-box" style="padding: 12px; background-color: var(--bg-inner-glass); border-radius: 14px; border: 1px solid rgba(0,0,0,0.08);">
@@ -2604,7 +2841,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Dropdown</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Dropdown Element', 'Copied Dropdown')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('dropdown', this)">Prompt</button>
           </div>
         </div>
 
@@ -3026,6 +3263,120 @@
       });
     }
 
+    const componentPrompts = {
+      tactile_buttons: `/* Prompt: Shiliaiwei Tactile Sticker Buttons */
+Directive: Implement 9px border-radius sticker buttons with 3D bottom depth shadow.
+- Eager Green: background #58CC02, box-shadow: 0 4px 0 #46A302, color #FFFFFF.
+- Spark Blue: background #FFFFFF, border: 2px solid #BAE6FD, color: #0284C7, box-shadow: 0 4px 0 #BAE6FD.
+- Active Press: transform: translateY(3px), box-shadow: 0 1px 0 <depth-color>.
+- Solid colors only, zero gradients, zero emojis.`,
+
+      spacing_rules: `/* Prompt: Shiliaiwei Spacing & Rhythm System */
+Directive: Apply 4px base rhythm scale and strict typographic tracking.
+- Base scale: 4px, 8px, 12px, 16px, 20px, 24px, 32px, 48px.
+- Display Headline Tracking: -0.0200em with 1.20 line-height.
+- Nav & Badge Uppercase Tracking: +0.0530em with text-transform: uppercase.
+- Card padding: 16px to 24px; border-radius: 16px.`,
+
+      radio: `/* Prompt: Shiliaiwei Radio Component */
+Directive: Single-choice selection control with solid emerald checked state.
+- Unchecked: border 2px solid rgba(0,0,0,0.20), background #FFFFFF.
+- Checked: border 6px solid #10B981, background #FFFFFF, 50% circular radius.
+- Label: Slate-900 typography (#0F172A), font-weight 600, 8px gap.
+- Disabled state: opacity 0.45, cursor not-allowed. Zero emojis.`,
+
+      searchbar: `/* Prompt: Shiliaiwei Searchbar Component */
+Directive: Dedicated search query input with shortcut badge.
+- Surface: Crisp White #FFFFFF with 1px solid rgba(0,0,0,0.10) border.
+- Radius: 9px; padding: 10px 14px; text color: #0F172A.
+- Focus: border-color #10B981, box-shadow none.
+- Trailing shortcut: Monospace CMD+K badge with 4px radius and #F1F5F9 background.`,
+
+      tooltip: `/* Prompt: Shiliaiwei Tooltip Component */
+Directive: Floating contextual micro-label on hover/focus.
+- Background: Slate-900 (#0F172A) with crisp solid border rgba(255,255,255,0.15).
+- Text: Mint/White (#F1F5F9), font-size 0.75rem, font-weight 600.
+- Radius: 6px; padding: 6px 10px; zero blur shadows, pure typography.`,
+
+      modal: `/* Prompt: Shiliaiwei Modal Overlay Component */
+Directive: Focused dialog overlay with frosted liquid glass backdrop.
+- Backdrop: rgba(15, 23, 42, 0.45) with backdrop-filter: blur(24px).
+- Modal Card: Pure White (#FFFFFF), border 1px solid rgba(0,0,0,0.10), border-top 1.5px solid #FFFFFF, radius 20px, padding 24px.
+- Action Buttons: 9px tactile sticker Confirm (#10B981) and Cancel (#FFFFFF) buttons.`,
+
+      loading: `/* Prompt: Shiliaiwei Loading & Skeleton Component */
+Directive: High-contrast circular spinner and skeleton shimmer lines.
+- Spinner: 24px diameter, border 3px solid rgba(16,185,129,0.20), border-top-color #10B981, animation spin 0.8s linear infinite.
+- Skeleton line: height 10px, radius 4px, background rgba(0,0,0,0.06) with solid shimmer pass. Zero external GIFs.`,
+
+      toggle: `/* Prompt: Shiliaiwei Toggle Switch Component */
+Directive: Instant binary toggle switch.
+- Track: width 44px, height 24px, radius 9999px. Unchecked #E2E8F0, Checked #10B981.
+- Slider thumb: 18px diameter white circle (#FFFFFF), transform translateX(20px) on checked.
+- Transition: transform 0.15s ease. Zero gradients.`,
+
+      input: `/* Prompt: Shiliaiwei Input Field Component */
+Directive: Single-line text input with label, pre-filled realistic text, and auto-clear tap cursor.
+- Label: uppercase tracking +0.0530em, Slate-500 (#64748B), font-size 0.75rem.
+- Field: border 1px solid rgba(0,0,0,0.12), radius 9px, padding 10px 14px, text #0F172A.
+- Focus: border-color #10B981, outline none.
+- Behavior: Auto-clears pre-filled text on tap/focus, restores on empty blur.`,
+
+      chip: `/* Prompt: Shiliaiwei Code & Tag Chip Component */
+Directive: Monospace code token and status pill with dot indicator.
+- Radius: 9px; padding: 4px 10px; font-family: JetBrains Mono; font-weight: 700; font-size: 0.74rem.
+- Active variants: Emerald (#ECFDF5 / #059669), Spark Blue (#F0F9FF / #0284C7), Slate (#0F172A / #FAFCFF), Crimson (#FF0050 / #FFFFFF).
+- Dot: 6px circular indicator. Zero decorative icons.`,
+
+      table: `/* Prompt: Shiliaiwei Relational Table Component */
+Directive: Structured data table with header row and semantic status badges.
+- Table: width 100%, border-collapse collapse, background transparent.
+- Th: uppercase tracking +0.0530em, font-size 0.72rem, color #64748B, border-bottom 1px solid rgba(0,0,0,0.08), padding 10px 12px.
+- Td: font-size 0.84rem, color #0F172A, border-bottom 1px solid rgba(0,0,0,0.05), padding 12px.`,
+
+      card: `/* Prompt: Shiliaiwei Liquid Glass Card Component */
+Directive: Frosted liquid crystal glass card surface.
+- Surface: rgba(255, 255, 255, 0.85) with backdrop-filter: blur(20px) saturate(180%).
+- Border: 1px solid rgba(0,0,0,0.08), border-top 1.5px solid #FFFFFF.
+- Radius: 16px; padding: 20px; box-shadow: none (zero blurry drop shadows).`,
+
+      button: `/* Prompt: Shiliaiwei Button Family Component */
+Directive: 9px tactile sticker buttons, ghost outline, and glass variants.
+- Primary CTA: #10B981 fill, box-shadow: 0 4px 0 #059669, color #FFFFFF.
+- Eager Sticker: #58CC02 fill, box-shadow: 0 4px 0 #46A302, color #FFFFFF.
+- Outline: #FFFFFF fill, border: 2px solid #BAE6FD, color: #0284C7.
+- Glass: #FFFFFF fill, border: 1px solid #CBD5E1, box-shadow: 0 3px 0 #CBD5E1.
+- Active state: transform translateY(3px), box-shadow 0 1px 0 <base>.`,
+
+      badge: `/* Prompt: Shiliaiwei Status Badge Component */
+Directive: Compact status pills with color semantics.
+- Radius: 6px; padding: 3px 8px; font-weight: 700; font-size: 0.72rem.
+- Green Online: background #ECFDF5, color #059669, border 1px solid #A7F3D0.
+- Cyan Release: background #ECFEFF, color #0891B2, border 1px solid #A5F3FC.
+- Crimson Critical: background #FFF1F2, color #BE123C, border 1px solid #FECDD3.`,
+
+      avatar: `/* Prompt: Shiliaiwei Avatar & Identity Component */
+Directive: User photo avatar, initials fallback, active status dot, and stacked team stack.
+- Photo: 50% circular radius, border 2px solid #FFFFFF, object-fit cover.
+- Active status dot: 11px diameter, #10B981, border 2px solid #FFFFFF cutout.
+- Initials fallback: 2-character bold uppercase on semantic tint background.
+- Overlapping stack: -10px negative margin with +N count chip.`,
+
+      dropdown: `/* Prompt: Shiliaiwei Floating Dropdown Menu Component */
+Directive: Floating selection dropdown panel with keyboard shortcuts.
+- Panel: Pure White (#FFFFFF), border 1px solid rgba(0,0,0,0.10), border-top 1.5px solid #FFFFFF, radius 12px, padding 6px.
+- Items: padding 8px 12px, radius 8px, color #0F172A. Hover/Active background #F1F5F9.
+- Shortcut badge: Monospace font, background #F8FAFC, border 1px solid rgba(0,0,0,0.08).
+- Divider: height 1px, background rgba(0,0,0,0.06), margin 4px 0.`
+    };
+
+    function copyComponentPrompt(key, btnEl) {
+      const promptText = componentPrompts[key];
+      if (promptText) {
+        copyVal(promptText, `Copied ${key.replace('_', ' ').toUpperCase()} AI Prompt!`, btnEl);
+      }
+    }
+
     function copyAllTokens(btnEl) {
       const button = btnEl || (window.event ? window.event.currentTarget : null);
       const css = `:root {
@@ -3096,8 +3447,8 @@
         sec_typo_title: 'Aa Typography Design System',
         sec_typo_desc: 'The type layer of a design system that defines a scale, hierarchy, and set of text styles that is consistent, accessible, and expressive across the full range of product contexts.',
         nav_identity: 'Identity',
-        nav_elements: 'UI Elements',
-        nav_webapp: 'Web App',
+        nav_elements: 'Elements',
+        nav_webapp: 'Apps',
         tab_identity: 'Visual Identity',
         tab_elements: 'UI Elements',
         tab_webapp: 'Web App Suite',
@@ -3110,6 +3461,7 @@
         sec_1_desc: 'The color layer of a design system - defining a palette that is purposeful, accessible, themeable, and expressed as tokens rather than raw values.',
         sec_2_title: 'Visual Identity & Tactile UI',
         sec_3_title: 'Core UI Elements Architecture',
+        hero_brand_sub: 'Guideline Design DNA Skill',
         toast_copy_tokens: 'Copied CSS Tokens!',
         toast_copied: 'Copied: '
       },
@@ -3128,9 +3480,9 @@
         sec_a11y_desc: 'មូលដ្ឋានគ្រឹះនៃភាពងាយស្រួលប្រើប្រាស់នៃប្រព័ន្ធរចនា រួមទាំងស្តង់ដារ ឧបករណ៍ និងអនុសញ្ញារួមដែលធានាថារាល់សមាសធាតុ និងទម្រង់ទាំងអស់ត្រូវបានបង្កើតឡើងប្រកបដោយបរិយាប័ន្នតាំងពីដំបូង។',
         sec_typo_title: 'ប្រព័ន្ធអក្សរ Aa Typography (៨ នៃ ៨)',
         sec_typo_desc: 'ស្រទាប់ពុម្ពអក្សរនៃប្រព័ន្ធរចនាដែលកំណត់ទំហំ ឋានានុក្រម និងរចនាប័ទ្មអត្ថបទប្រកបដោយភាពស៊ីសង្វាក់ ងាយស្រួលអាន និងបង្ហាញយ៉ាងច្បាស់លើគ្រប់បរិបទផលិតផល។',
-        nav_identity: 'អត្តសញ្ញាណ (Identity)',
-        nav_elements: 'ធាតុ UI (UI Elements)',
-        nav_webapp: 'ឈុត Web App',
+        nav_identity: 'Identity',
+        nav_elements: 'Elements',
+        nav_webapp: 'Apps',
         tab_identity: 'អត្តសញ្ញាណ (Identity)',
         tab_elements: 'សមាសធាតុ UI (Elements)',
         tab_webapp: 'កម្មវិធី Web App Suite',
@@ -3143,6 +3495,7 @@
         sec_1_desc: 'ស្រទាប់ពណ៌នៃប្រព័ន្ធរចនា ដែលកំណត់ក្ដារលាយពណ៌ប្រកបដោយគោលបំណង ងាយស្រួលចូលប្រើប្រាស់ អាចប្តូររចនាប័ទ្មបាន និងត្រូវបានបង្ហាញជាថូខឹន (Tokens) ជាជាងតម្លៃឆៅ។',
         sec_2_title: 'អត្តសញ្ញាណ & រូបវិទ្យាប៉ះ (Visual Identity)',
         sec_3_title: 'ធាតុផ្សំ UI ស្នូលទាំង ១៤ (UI Elements)',
+        hero_brand_sub: 'ជំនាញរចនា Design DNA Skill',
         toast_copy_tokens: 'បានចម្លងកូដ CSS!',
         toast_copied: 'បានចម្លង៖ '
       }
@@ -3387,9 +3740,9 @@ export const tokens = {
         }
       });
 
-      // Update URL without causing browser anchor jump
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState(null, '', window.location.pathname + '#' + viewId);
+      // Keep URL clean without forcing anchor hashes into browser address bar
+      if (window.history && window.history.replaceState && window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
       }
 
       // Only scroll if explicitly requested by user interaction
@@ -3403,18 +3756,17 @@ export const tokens = {
       }
     }
 
-    // Initial load: Always default to Identity at top of page, comfortable & zero forced scroll
+    // Initial load: Always default to clean Homepage (Identity View) at top of page, free & comfortable
     window.addEventListener('load', () => {
-      window.scrollTo(0, 0);
-      const hash = (window.location.hash || '').replace('#', '');
-      if (hash === 'elements' || hash === 'section-elements' || hash === 'section-components') {
-        switchStudioView('elements', null, false);
-      } else if (hash === 'webapp' || hash === 'section-webapp') {
-        switchStudioView('webapp', null, false);
-      } else {
-        switchStudioView('identity', null, false);
+      // Clean any accidental or bookmarked hash so user lands freely on default clean homepage
+      if (window.location.hash) {
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
       }
-      // Guarantee scroll position stays at top on entrance
+      window.scrollTo(0, 0);
+      switchStudioView('identity', null, false);
+      // Guarantee scroll position stays comfortably at top on entrance
       setTimeout(() => window.scrollTo(0, 0), 10);
     });
 

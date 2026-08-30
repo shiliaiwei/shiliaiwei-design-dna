@@ -389,3 +389,13 @@ class _ShiliaiweiButtonState extends State<ShiliaiweiButton> {
 - **Latin Font**: `'Outfit', sans-serif`.
 - **Zero-Emoji Switcher**: Vector globe icon `<i class="fa-solid fa-globe"></i>` with zero country flags.
 - **Persistence**: `localStorage.getItem('shiliaiwei_lang')`.
+
+---
+
+## 8. 1-Click AI Skill Prompt Architecture
+
+Every single design card and UI element includes a dedicated **`Copy Prompt`** button linked directly to the centralized `componentPrompts` dictionary:
+- Allows developers and AI assistants to copy production-ready directives and constraints directly to their clipboard.
+- Ensures immediate adherence to the Shiliaiwei Light Canvas, 9px sticker tactile button physics, solid token constraints, and zero-emoji policies.
+- Automatically synchronized with all updates to the design system.
+
