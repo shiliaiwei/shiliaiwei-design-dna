@@ -611,9 +611,21 @@
       justify-content: center;
       padding: 16px 36px;
       border-radius: var(--radius-xl);
-      cursor: pointer;
+      cursor: grab;
       user-select: none;
-      transition: none;
+      touch-action: none;
+      will-change: transform;
+      z-index: 50;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .vi-glass-display.is-dragging {
+      cursor: grabbing;
+      filter: drop-shadow(0 18px 30px rgba(16, 185, 129, 0.35));
+    }
+
+    .vi-glass-display.is-rebounding {
+      transition: transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .vi-massive-char {
@@ -629,6 +641,7 @@
       padding: 0;
       position: relative;
       z-index: 2;
+      pointer-events: none;
       opacity: 1;
       transform: none;
       filter: none;
@@ -2044,9 +2057,9 @@
       <!-- Main Content Area -->
       <main class="main-content" style="max-width: 1200px; margin: 0 auto;">
         
-        <!-- Pure Solid 3D "វី" Hero Display (Clean Static Identity) -->
+        <!-- Pure Solid 3D "វី" Hero Display (Interactive Cursor Drag & Throw Physics) -->
         <header class="vi-pure-hero">
-          <div class="vi-glass-display" onclick="openBrandPopup()" title="Shiliaiwei / Srievi (វី) — Tap for Brand & Skill Export">
+          <div class="vi-glass-display" id="draggableViMark" title="Shiliaiwei (វី) — Drag & Throw anywhere! Double-click to reset.">
             <h1 class="vi-massive-char">វី</h1>
           </div>
         </header>
@@ -3471,12 +3484,164 @@ description: Authoritative design standard and architectural rules for Shiliaiwe
       });
     }
 
+    // High-Performance Drag & Throw Physics Engine for វី Logo Mark
+    function initDraggableViLogo() {
+      const logo = document.getElementById('draggableViMark');
+      if (!logo) return;
+
+      let isDragging = false;
+      let startX = 0, startY = 0;
+      let targetX = 0, targetY = 0;
+      let lastPointerX = 0, lastPointerY = 0;
+      let lastTime = 0;
+      let vx = 0, vy = 0;
+      let animFrameId = null;
+      let totalDragDist = 0;
+
+      function onPointerDown(e) {
+        if (e.button !== 0 && e.pointerType === 'mouse') return;
+        
+        isDragging = true;
+        logo.classList.remove('is-rebounding');
+        logo.classList.add('is-dragging');
+        
+        if (animFrameId) {
+          cancelAnimationFrame(animFrameId);
+          animFrameId = null;
+        }
+
+        startX = e.clientX - targetX;
+        startY = e.clientY - targetY;
+        lastPointerX = e.clientX;
+        lastPointerY = e.clientY;
+        lastTime = performance.now();
+        vx = 0;
+        vy = 0;
+        totalDragDist = 0;
+
+        try {
+          logo.setPointerCapture(e.pointerId);
+        } catch (err) {}
+      }
+
+      function onPointerMove(e) {
+        if (!isDragging) return;
+
+        const now = performance.now();
+        const dt = Math.max(now - lastTime, 1);
+        const dx = e.clientX - lastPointerX;
+        const dy = e.clientY - lastPointerY;
+
+        totalDragDist += Math.hypot(dx, dy);
+
+        // Exponential moving average for smooth release velocity
+        vx = (dx / dt) * 16.6;
+        vy = (dy / dt) * 16.6;
+
+        lastPointerX = e.clientX;
+        lastPointerY = e.clientY;
+        lastTime = now;
+
+        targetX = e.clientX - startX;
+        targetY = e.clientY - startY;
+
+        // Dynamic tilt based on horizontal velocity
+        const tilt = Math.max(-18, Math.min(18, vx * 0.45));
+        logo.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) rotate(${tilt}deg) scale(1.04)`;
+      }
+
+      function onPointerUp(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        logo.classList.remove('is-dragging');
+        
+        try {
+          logo.releasePointerCapture(e.pointerId);
+        } catch (err) {}
+
+        // If it was a simple tap without drag, open Brand & Skill Export Popup
+        if (totalDragDist < 6) {
+          openBrandPopup();
+          return;
+        }
+
+        // Clamp maximum throw velocity
+        const maxV = 45;
+        vx = Math.max(-maxV, Math.min(maxV, vx));
+        vy = Math.max(-maxV, Math.min(maxV, vy));
+
+        // Start inertia throw physics loop
+        startThrowPhysics();
+      }
+
+      function startThrowPhysics() {
+        const friction = 0.945;
+        const bounce = 0.68;
+
+        function step() {
+          targetX += vx;
+          targetY += vy;
+
+          vx *= friction;
+          vy *= friction;
+
+          // Viewport boundary collision with elastic bounce
+          const rect = logo.getBoundingClientRect();
+          const pad = 10;
+          
+          if (rect.left < pad && vx < 0) {
+            vx = -vx * bounce;
+          }
+          if (rect.right > window.innerWidth - pad && vx > 0) {
+            vx = -vx * bounce;
+          }
+          if (rect.top < pad && vy < 0) {
+            vy = -vy * bounce;
+          }
+          if (rect.bottom > window.innerHeight - pad && vy > 0) {
+            vy = -vy * bounce;
+          }
+
+          const tilt = Math.max(-15, Math.min(15, vx * 0.35));
+          logo.style.transform = `translate3d(${targetX}px, ${targetY}px, 0) rotate(${tilt}deg)`;
+
+          if (Math.hypot(vx, vy) > 0.08) {
+            animFrameId = requestAnimationFrame(step);
+          } else {
+            animFrameId = null;
+          }
+        }
+
+        animFrameId = requestAnimationFrame(step);
+      }
+
+      // Double-click / double-tap to reset position
+      logo.addEventListener('dblclick', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (animFrameId) cancelAnimationFrame(animFrameId);
+        logo.classList.add('is-rebounding');
+        targetX = 0;
+        targetY = 0;
+        vx = 0;
+        vy = 0;
+        logo.style.transform = `translate3d(0, 0, 0) rotate(0deg)`;
+        showToast(currentLang === 'km' ? 'បានកំណត់ទីតាំងឡូហ្គោ វី ឡើងវិញ' : 'Reset វី Logo Position');
+      });
+
+      logo.addEventListener('pointerdown', onPointerDown);
+      logo.addEventListener('pointermove', onPointerMove);
+      logo.addEventListener('pointerup', onPointerUp);
+      logo.addEventListener('pointercancel', onPointerUp);
+    }
+
     // Initialize Language & Interactive Listeners on DOM Load
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage(currentLang);
       attachButtonMicroAnimations();
       attachInputTapClear();
       attachTableCrosshairHover();
+      initDraggableViLogo();
     });
   </script>
 </body>
