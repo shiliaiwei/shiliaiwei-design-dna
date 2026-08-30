@@ -719,6 +719,28 @@
       transform: scale(0.96);
     }
 
+    @keyframes macPopBounce {
+      0% {
+        transform: scale(1);
+      }
+      28% {
+        transform: scale(0.91) translateY(3px);
+      }
+      60% {
+        transform: scale(1.08) translateY(-4px);
+      }
+      82% {
+        transform: scale(0.98) translateY(1px);
+      }
+      100% {
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .ios-app-glass-frame.mac-pop-anim {
+      animation: macPopBounce 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
     /* Outer Liquid Glass Bezel Frame */
     .ios-app-glass-frame {
       width: 122px;
@@ -2210,7 +2232,7 @@
       <nav class="apple-dock" id="appleDock">
         
         <!-- Left: Avatar Brand Pill (Taps open Brand & Export Popup) -->
-        <div class="apple-dock-brand" onclick="openBrandPopup()" title="Click for Shiliaiwei Brand & Skill Actions">
+        <div class="apple-dock-brand" onclick="handleAppIconTap(event)" title="Click for Shiliaiwei Brand & Skill Actions">
           <div class="dock-avatar-box">
             <img src="https://github.com/shiliaiwei.png" alt="Shiliaiwei" class="dock-avatar-img">
             <span class="dock-status-dot"></span>
@@ -2285,7 +2307,7 @@
         
         <!-- Authentic Apple iPhone & macOS Desktop App Icon Hero (Liquid Glass Bezel) -->
         <header class="hero-brand-app-section">
-          <div class="ios-app-icon-wrapper" id="draggableViMark" onclick="openBrandPopup()" title="SHILIAIWEI (វី) — Tap to view details or drag with physics!">
+          <div class="ios-app-icon-wrapper" id="draggableViMark" onclick="handleAppIconTap(event)" title="SHILIAIWEI (វី) — Tap to view details or drag with physics!">
             <!-- Outer Liquid Glass Frame -->
             <div class="ios-app-glass-frame">
               <!-- Inner Solid Emerald App Canvas -->
@@ -3764,6 +3786,105 @@ description: Authoritative design standard and architectural rules for Shiliaiwe
       copyVal(skillMd, 'Copied Shiliaiwei SKILL.md to Clipboard');
     }
 
+    // Authentic Apple macOS Glass Notification Chime Synthesizer (Web Audio API)
+    function playMacNotificationSound() {
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        const ctx = new AudioCtx();
+        if (ctx.state === 'suspended') {
+          ctx.resume();
+        }
+
+        const now = ctx.currentTime;
+
+        // Primary E6 -> A6 glass tone (Dual-harmonic ping)
+        const osc1 = ctx.createOscillator();
+        const gain1 = ctx.createGain();
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(1318.51, now); // E6
+        osc1.frequency.exponentialRampToValueAtTime(1760.00, now + 0.08); // A6
+
+        gain1.gain.setValueAtTime(0.32, now);
+        gain1.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+
+        osc1.connect(gain1);
+        gain1.connect(ctx.destination);
+
+        // High crystal shimmer overtone E7
+        const osc2 = ctx.createOscillator();
+        const gain2 = ctx.createGain();
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(2637.02, now); // E7
+
+        gain2.gain.setValueAtTime(0.18, now);
+        gain2.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
+
+        osc2.connect(gain2);
+        gain2.connect(ctx.destination);
+
+        // Tactile bass pop
+        const osc3 = ctx.createOscillator();
+        const gain3 = ctx.createGain();
+        osc3.type = 'triangle';
+        osc3.frequency.setValueAtTime(220, now);
+        osc3.frequency.exponentialRampToValueAtTime(110, now + 0.06);
+
+        gain3.gain.setValueAtTime(0.22, now);
+        gain3.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
+
+        osc3.connect(gain3);
+        gain3.connect(ctx.destination);
+
+        osc1.start(now);
+        osc2.start(now);
+        osc3.start(now);
+        osc1.stop(now + 0.45);
+        osc2.stop(now + 0.35);
+        osc3.stop(now + 0.08);
+      } catch (err) {}
+    }
+
+    // Brand & Export Popup Controls
+    function openBrandPopup() {
+      const modal = document.getElementById('brandPopupModal');
+      if (modal) modal.classList.add('show');
+    }
+
+    function closeBrandPopup() {
+      const modal = document.getElementById('brandPopupModal');
+      if (modal) modal.classList.remove('show');
+    }
+
+    function handlePopupBackdropClick(e) {
+      if (e.target && e.target.id === 'brandPopupModal') {
+        closeBrandPopup();
+      }
+    }
+
+    // Interactive App Icon Tap & macOS Notification Transition
+    function handleAppIconTap(e) {
+      if (e) {
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+      }
+      
+      // Play crisp glass chime
+      playMacNotificationSound();
+
+      // Trigger spring ripple animation on the glass bezel
+      const frame = document.querySelector('.ios-app-glass-frame');
+      if (frame) {
+        frame.classList.remove('mac-pop-anim');
+        void frame.offsetWidth;
+        frame.classList.add('mac-pop-anim');
+        setTimeout(() => frame.classList.remove('mac-pop-anim'), 480);
+      }
+
+      setTimeout(() => {
+        openBrandPopup();
+      }, 160);
+    }
+
     let currentLang = localStorage.getItem('shiliaiwei_lang') || 'en';
 
     function setLanguage(lang) {
@@ -3925,7 +4046,7 @@ description: Authoritative design standard and architectural rules for Shiliaiwe
 
         // If it was a simple tap without drag, open Brand & Skill Export Popup
         if (totalDragDist < 6) {
-          openBrandPopup();
+          handleAppIconTap(e);
           return;
         }
 
