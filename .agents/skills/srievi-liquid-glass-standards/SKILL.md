@@ -1,5 +1,5 @@
 22. **Directive 22: SINGLE-VIEW STUDIO ARCHITECTURE & 1-CLICK SKILL.MD EXPORT**
-    - The design studio operates as a zero-forced-scrolling Single-View architecture with 3 views (`1. Visual Identity`, `2. UI Elements`, `3. Web App Suite`) selectable in 1 click from the Left Sidebar Dock.
+    - The design studio operates as a zero-forced-scrolling Single-View architecture with 3 views (`Visual Identity`, `UI Elements`, `Web App Suite`) selectable in 1 click from the Floating Dock.
     - 1-click `Copy Tokens` and `Copy Skill MD` actions allow instant copying of full design tokens and agent skill specs.
 
 ---

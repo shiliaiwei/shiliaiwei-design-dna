@@ -193,13 +193,6 @@
       border-radius: 9999px;
       cursor: pointer;
       user-select: none;
-      transition: background-color 0.1s ease;
-    }
-    .apple-dock-brand:hover {
-      background: rgba(226, 232, 240, 0.90);
-    }
-    .apple-dock-brand:active {
-      transform: scale(0.97);
     }
 
     .dock-avatar-box {
@@ -214,16 +207,6 @@
       border-radius: 50%;
       object-fit: cover;
       display: block;
-    }
-    .dock-status-dot {
-      position: absolute;
-      bottom: -1px;
-      right: -1px;
-      width: 8px;
-      height: 8px;
-      background-color: var(--primary);
-      border: 1.5px solid #FFFFFF;
-      border-radius: 50%;
     }
 
     .dock-brand-title {
@@ -612,8 +595,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 12px auto 40px;
-      padding: 20px 10px;
+      margin: 36px auto 44px;
+      padding: 56px 20px 20px; /* Ample breathing room below floating menu dock */
       text-align: center;
       user-select: none;
       position: relative;
@@ -625,69 +608,39 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 40px;
+      padding: 16px 36px;
       border-radius: var(--radius-xl);
-      cursor: pointer;
-      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .vi-glass-display:hover {
-      transform: scale(1.04);
-    }
-    .vi-glass-display:active {
-      transform: scale(0.97);
+      cursor: default; /* No hover jump */
+      transition: none;
     }
 
     .vi-massive-char {
       font-family: 'Google Sans', 'Kantumruy Pro', sans-serif;
-      font-size: clamp(10rem, 36vw, 24rem);
+      font-size: clamp(7.5rem, 22vw, 15rem);
       font-weight: 900;
-      line-height: 0.88;
-      letter-spacing: -0.06em;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
       color: var(--primary);
       text-shadow: 0 4px 0 #059669;
       display: inline-block;
-      opacity: 0;
-      transform: scale(0.70) translateY(50px);
-      filter: blur(28px);
-      animation: viLiquidEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards, viFloatBreath 5s ease-in-out 1.1s infinite alternate;
-    }
-
-    @keyframes viLiquidEntrance {
-      0% {
-        opacity: 0;
-        transform: scale(0.70) translateY(50px);
-        filter: blur(28px);
-      }
-      60% {
-        filter: blur(4px);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes viFloatBreath {
-      0% {
-        transform: translateY(0) scale(1);
-      }
-      100% {
-        transform: translateY(-10px) scale(1.02);
-      }
+      margin: 0;
+      padding: 0;
+      opacity: 1;
+      transform: none;
+      filter: none;
+      animation: none; /* Zero distracting hover or breath animation */
     }
 
     @media (max-width: 640px) {
       .vi-pure-hero {
-        margin: 6px auto 24px;
-        padding: 10px 4px;
+        margin: 20px auto 28px;
+        padding: 40px 10px 14px;
       }
       .vi-glass-display {
-        padding: 6px 16px;
+        padding: 10px 16px;
       }
       .vi-massive-char {
-        font-size: clamp(8.5rem, 42vw, 15rem);
+        font-size: clamp(6.5rem, 30vw, 11rem);
       }
     }
       to { opacity: 1; transform: translateY(0); }
@@ -2022,21 +1975,20 @@
         <div class="apple-dock-brand" onclick="openBrandPopup()" title="Click for Shiliaiwei Brand & Skill Actions">
           <div class="dock-avatar-box">
             <img src="https://github.com/shiliaiwei.png" alt="Shiliaiwei" class="dock-avatar-img">
-            <span class="dock-status-dot"></span>
           </div>
           <span class="dock-brand-title">SHILIAIWEI</span>
         </div>
 
-        <!-- Center: 3 Capsule Segmented Tabs -->
+        <!-- Center: 3 Capsule Segmented Tabs (Zero Numbers - Pure Typography) -->
         <div class="apple-dock-nav">
           <button class="dock-tab active" onclick="switchStudioView('identity', this)" data-view="identity" data-i18n="nav_identity">
-            1. Identity
+            Identity
           </button>
           <button class="dock-tab" onclick="switchStudioView('elements', this)" data-view="elements" data-i18n="nav_elements">
-            2. UI Elements
+            UI Elements
           </button>
           <button class="dock-tab" onclick="switchStudioView('webapp', this)" data-view="webapp" data-i18n="nav_webapp">
-            3. Web App
+            Web App
           </button>
         </div>
 
@@ -2103,7 +2055,7 @@
 
         <section id="section-tactile" class="studio-view active" style="margin-bottom: 60px;">
       <h2 class="section-title" data-i18n="sec_2_title">
-        1. Visual Identity & Tactile UI Standards
+        Visual Identity & Tactile UI Standards
       </h2>
 
       <div style="background-color: var(--bg-surface); border: 1px solid var(--border-glass); border-radius: var(--radius-xl); padding: 24px; backdrop-filter: blur(16px);">
@@ -2153,10 +2105,10 @@
       </div>
     </section>
 
-    <!-- SECTION 3: 14 CORE DESIGN SYSTEM UI ELEMENTS -->
-    <section id="section-elements" style="margin-bottom: 60px;">
+    <!-- CORE DESIGN SYSTEM UI ELEMENTS -->
+    <section id="section-elements" class="studio-view" style="margin-bottom: 60px;">
       <h2 class="section-title" data-i18n="sec_3_title">
-        3. 14 Core Design System UI Elements
+        Core UI Elements Architecture
       </h2>
 
       <div class="ds-grid">
@@ -2379,7 +2331,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Tag Chip</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('<div class="tactile-chip chip-primary"><span class="tactile-chip-dot"></span><span>ACTIVE</span></div>', 'Copied Chip Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Tag Chip Element', 'Copied Tag Chip Code')">Copy Code</button>
           </div>
         </div>
 
@@ -2600,12 +2552,12 @@
     </section>
 
 
-    <!-- SECTION 4: WEB APP & 2FA MULTI-MODULE SUITE -->
+    <!-- SECTION: WEB APP & APPLICATION SUITE -->
     <section id="section-webapp" class="studio-view" style="margin-bottom: 60px;">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
         <div>
           <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="sec_4_title">
-            4. Web App 2FA & Multi-Module Application Suite
+            Web App Architecture & Application Suite
           </h2>
           <p style="color: var(--text-dim); font-size: 0.88rem;">
             Production-ready interactive flows for authentication, 2FA security, billing, management, and workspace collaboration.
@@ -3075,31 +3027,29 @@
         nav_a11y: 'Accessibility System',
         nav_spacing: 'Spacing & Grid',
         nav_tokens_system: 'Tokens System',
-        sec_tokens_title: '2. Tokens Design System (6 of 6)',
+        sec_tokens_title: 'Tokens Design System (6 of 6)',
         sec_tokens_desc: 'The layer of a design system where defined variables are outlined across the platform to enable consistency, theming and alignment with code.',
-        sec_spacing_title: '4. Spacing / Grid Design System',
+        sec_spacing_title: 'Spacing / Grid Design System',
         sec_spacing_desc: 'The spatial layer of a design system, defining a consistent scale for spacing, a grid for layout, and the rules that make both feel deliberate and coherent across all surfaces.',
-        sec_a11y_title: '3. Accessibility Design System (a11y)',
+        sec_a11y_title: 'Accessibility Design System (a11y)',
         sec_a11y_desc: 'The accessibility foundation of a design system including the standards, tooling, and shared conventions that ensure every component and pattern is built inclusively from the start.',
-        sec_typo_title: '2. Aa Typography Design System',
+        sec_typo_title: 'Aa Typography Design System',
         sec_typo_desc: 'The type layer of a design system that defines a scale, hierarchy, and set of text styles that is consistent, accessible, and expressive across the full range of product contexts.',
-        nav_identity: '1. Visual Identity',
-        nav_elements: '2. UI Elements',
-        nav_webapp: '3. Web App Suite',
-        tab_identity: '1. Visual Identity',
-        tab_elements: '2. UI Elements',
-        tab_webapp: '3. Web App Suite',
+        nav_identity: 'Identity',
         nav_elements: 'UI Elements',
-        nav_webapp: 'Web App Suite',
-        sec_4_title: '4. Web App 2FA & Multi-Module Application Suite',
+        nav_webapp: 'Web App',
+        tab_identity: 'Visual Identity',
+        tab_elements: 'UI Elements',
+        tab_webapp: 'Web App Suite',
+        sec_4_title: 'Web App Architecture & Application Suite',
         btn_copy_tokens: 'Copy Tokens',
         header_badge: '<span class="badge-dot"></span> Solid Liquid Glass Design System',
         header_title: 'Real-Time <span class="solid-emerald">Design System Studio</span>',
         header_subtitle: 'Interactive real-time learning environment for Solid Liquid Glass architecture. Master all 14 core UI components and tactile sticker button physics with zero emojis and zero gradients.',
-        sec_1_title: '1. Color System Design System (8 of 8)',
+        sec_1_title: 'Color System Tokens (8 of 8)',
         sec_1_desc: 'The color layer of a design system - defining a palette that is purposeful, accessible, themeable, and expressed as tokens rather than raw values.',
-        sec_2_title: '2. Visual Identity & Tactile UI',
-        sec_3_title: '3. 14 Core UI Elements',
+        sec_2_title: 'Visual Identity & Tactile UI',
+        sec_3_title: 'Core UI Elements Architecture',
         toast_copy_tokens: 'Copied CSS Tokens!',
         toast_copied: 'Copied: '
       },
@@ -3110,31 +3060,29 @@
         nav_a11y: 'ភាពងាយស្រួលប្រើ (Accessibility)',
         nav_spacing: 'គម្លាត & ក្រឡាចត្រង្គ (Spacing & Grid)',
         nav_tokens_system: 'ប្រព័ន្ធថូខឹន (Tokens System)',
-        sec_tokens_title: '២. ប្រព័ន្ធថូខឹន Tokens Design System (៦ នៃ ៦)',
+        sec_tokens_title: 'ប្រព័ន្ធថូខឹន Tokens Design System (៦ នៃ ៦)',
         sec_tokens_desc: 'ស្រទាប់នៃប្រព័ន្ធរចនាដែលអថេរត្រូវបានកំណត់នៅទូទាំងវេទិកា ដើម្បីអនុញ្ញាតឱ្យមានភាពស៊ីសង្វាក់គ្នា ការប្តូររចនាប័ទ្ម និងការតម្រឹមកូដ 1:1។',
-        sec_spacing_title: '៤. ប្រព័ន្ធគម្លាត & ក្រឡាចត្រង្គ Spacing/Grid (៧ នៃ ៧)',
+        sec_spacing_title: 'ប្រព័ន្ធគម្លាត & ក្រឡាចត្រង្គ Spacing/Grid (៧ នៃ ៧)',
         sec_spacing_desc: 'ស្រទាប់លំហនៃប្រព័ន្ធរចនា ដែលកំណត់ទំហំគម្លាតស្របគ្នា ក្រឡាចត្រង្គសម្រាប់ប្លង់ និងច្បាប់ដែលធ្វើឱ្យទាំងពីរមានអារម្មណ៍ច្បាស់លាស់ និងស៊ីសង្វាក់គ្នានៅលើគ្រប់ផ្ទៃទាំងអស់។',
-        sec_a11y_title: '៣. ប្រព័ន្ធភាពងាយស្រួលប្រើប្រាស់ Accessibility (៨ នៃ ៨)',
+        sec_a11y_title: 'ប្រព័ន្ធភាពងាយស្រួលប្រើប្រាស់ Accessibility (៨ នៃ ៨)',
         sec_a11y_desc: 'មូលដ្ឋានគ្រឹះនៃភាពងាយស្រួលប្រើប្រាស់នៃប្រព័ន្ធរចនា រួមទាំងស្តង់ដារ ឧបករណ៍ និងអនុសញ្ញារួមដែលធានាថារាល់សមាសធាតុ និងទម្រង់ទាំងអស់ត្រូវបានបង្កើតឡើងប្រកបដោយបរិយាប័ន្នតាំងពីដំបូង។',
-        sec_typo_title: '២. ប្រព័ន្ធអក្សរ Aa Typography (៨ នៃ ៨)',
+        sec_typo_title: 'ប្រព័ន្ធអក្សរ Aa Typography (៨ នៃ ៨)',
         sec_typo_desc: 'ស្រទាប់ពុម្ពអក្សរនៃប្រព័ន្ធរចនាដែលកំណត់ទំហំ ឋានានុក្រម និងរចនាប័ទ្មអត្ថបទប្រកបដោយភាពស៊ីសង្វាក់ ងាយស្រួលអាន និងបង្ហាញយ៉ាងច្បាស់លើគ្រប់បរិបទផលិតផល។',
-        nav_identity: '១. អត្តសញ្ញាណ (Visual Identity)',
-        nav_elements: '២. សមាសធាតុ UI (UI Elements)',
-        nav_webapp: '៣. កម្មវិធី Web App Suite',
-        tab_identity: '១. អត្តសញ្ញាណ (Identity)',
-        tab_elements: '២. សមាសធាតុ UI (Elements)',
-        tab_webapp: '៣. កម្មវិធី Web App Suite',
+        nav_identity: 'អត្តសញ្ញាណ (Identity)',
         nav_elements: 'ធាតុ UI (UI Elements)',
-        nav_webapp: 'ឈុតកម្មវិធី (Web App Suite)',
-        sec_4_title: '៤. ឈុតកម្មវិធី 2FA & ប្រព័ន្ធគ្រប់គ្រង (Web App Suite)',
+        nav_webapp: 'ឈុត Web App',
+        tab_identity: 'អត្តសញ្ញាណ (Identity)',
+        tab_elements: 'សមាសធាតុ UI (Elements)',
+        tab_webapp: 'កម្មវិធី Web App Suite',
+        sec_4_title: 'ឈុតកម្មវិធី 2FA & ប្រព័ន្ធគ្រប់គ្រង (Web App Suite)',
         btn_copy_tokens: 'ចម្លងថូខឹន (Copy Tokens)',
         header_badge: '<span class="badge-dot"></span> ប្រព័ន្ធរចនា Liquid Glass រឹងមាំ',
         header_title: 'ស្ទូឌីយោប្រព័ន្ធរចនា <span class="solid-emerald">ពេលវេលាជាក់ស្តែង</span>',
         header_subtitle: 'បរិស្ថានសិក្សាជាក់ស្តែងសម្រាប់ស្ថាបត្យកម្ម Solid Liquid Glass។ សិក្សាស្វែងយល់ធាតុផ្សំ UI ស្នូលទាំង ១៤ និងរូបវិទ្យាប៊ូតុងស្ទីគ័រប៉ះ ដោយគ្មានរូបភាពអារម្មណ៍ និងគ្មានជម្រាលពណ៌។',
-        sec_1_title: '១. ប្រព័ន្ធពណ៌ Color System (៨ នៃ ៨)',
+        sec_1_title: 'ប្រព័ន្ធពណ៌ Color System (៨ នៃ ៨)',
         sec_1_desc: 'ស្រទាប់ពណ៌នៃប្រព័ន្ធរចនា ដែលកំណត់ក្ដារលាយពណ៌ប្រកបដោយគោលបំណង ងាយស្រួលចូលប្រើប្រាស់ អាចប្តូររចនាប័ទ្មបាន និងត្រូវបានបង្ហាញជាថូខឹន (Tokens) ជាជាងតម្លៃឆៅ។',
-        sec_2_title: '២. អត្តសញ្ញាណ & រូបវិទ្យាប៉ះ (Visual Identity)',
-        sec_3_title: '៣. ធាតុផ្សំ UI ស្នូលទាំង ១៤ (UI Elements)',
+        sec_2_title: 'អត្តសញ្ញាណ & រូបវិទ្យាប៉ះ (Visual Identity)',
+        sec_3_title: 'ធាតុផ្សំ UI ស្នូលទាំង ១៤ (UI Elements)',
         toast_copy_tokens: 'បានចម្លងកូដ CSS!',
         toast_copied: 'បានចម្លង៖ '
       }
@@ -3356,7 +3304,7 @@ export const tokens = {
     function switchStudioView(viewId, triggerBtn, shouldScroll) {
       const views = {
         identity: document.getElementById('section-tactile'),
-        elements: document.getElementById('section-components'),
+        elements: document.getElementById('section-elements'),
         webapp: document.getElementById('section-webapp')
       };
 
@@ -3399,7 +3347,7 @@ export const tokens = {
     window.addEventListener('load', () => {
       window.scrollTo(0, 0);
       const hash = (window.location.hash || '').replace('#', '');
-      if (hash === 'elements' || hash === 'section-components') {
+      if (hash === 'elements' || hash === 'section-elements' || hash === 'section-components') {
         switchStudioView('elements', null, false);
       } else if (hash === 'webapp' || hash === 'section-webapp') {
         switchStudioView('webapp', null, false);

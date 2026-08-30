@@ -17,7 +17,7 @@ Shiliaiwei (施莱威) embodies a high-contrast, tactile Solid Liquid Glass desi
 4. **Zero Gradient Policy**: 100% solid single-token colors per element.
 5. **Zero Blur Shadow / Zero Glow**: Clean 1px solid borders (`border: 1px solid rgba(0,0,0,0.10)`) with 100% white top specular highlight (`border-top: 1px solid #FFFFFF`).
 6. **Tactile Sticker Physics**: Standard button radius `9px`, compact `6px`. 3D bottom depth layer with active click translation (`transform: translateY(2px)`).
-7. **Single-View Studio Navigation**: 3 primary views (`1. Visual Identity`, `2. UI Elements`, `3. Web App Suite`) selectable in 1 click from the Left Sidebar Dock without long vertical scrolling.
+7. **Single-View Studio Navigation**: 3 primary views (`Visual Identity`, `UI Elements`, `Web App Suite`) selectable in 1 click from the Floating Dock without long vertical scrolling.
 8. **1-Click Token & Skill Distribution**: Instant clipboard export for design tokens (`Copy Tokens`) and Agent Skill specification (`Copy Skill MD`).
 
 ---
