@@ -590,7 +590,7 @@
     
 
     /* ==========================================================================
-       Liquid Crystal Specular Glint & Kinetic Morph Logo System
+       Kinetic Optical Flash & Strobe Logo System (High-Speed Flash Reveal)
        ========================================================================== */
     .vi-pure-hero {
       display: flex;
@@ -613,11 +613,11 @@
       border-radius: var(--radius-xl);
       cursor: pointer;
       user-select: none;
-      transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.08s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .vi-glass-display:active {
-      transform: scale(0.96) translateY(2px);
+      transform: scale(0.95) translateY(2px);
     }
 
     .vi-morph-container {
@@ -628,43 +628,77 @@
       isolation: isolate;
     }
 
-    /* Concentric Fluid Sonic Ripples */
-    .vi-sonar-ring {
+    /* Optical Flash Light Disc */
+    .vi-optical-flash {
       position: absolute;
-      inset: -14px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      border: 1.5px solid rgba(16, 185, 129, 0.45);
+      background: radial-gradient(circle, #FFFFFF 0%, rgba(16, 185, 129, 0.85) 45%, transparent 70%);
       pointer-events: none;
       opacity: 0;
-    }
-    .vi-sonar-ring-2 {
-      position: absolute;
-      inset: -30px;
-      border-radius: 50%;
-      border: 1px solid rgba(16, 185, 129, 0.22);
-      pointer-events: none;
-      opacity: 0;
+      z-index: 6;
     }
 
-    .liquid-morph-active .vi-sonar-ring {
-      animation: sonarPulse 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-    .liquid-morph-active .vi-sonar-ring-2 {
-      animation: sonarPulse 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
+    .liquid-morph-active .vi-optical-flash {
+      animation: opticalFlashBurst 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    @keyframes sonarPulse {
+    @keyframes opticalFlashBurst {
       0% {
+        opacity: 1;
+        transform: scale(0.2);
+      }
+      40% {
         opacity: 0.9;
-        transform: scale(0.65);
+        transform: scale(1.6);
       }
       100% {
         opacity: 0;
-        transform: scale(1.35);
+        transform: scale(2.4);
       }
     }
 
-    /* Massive Solid 3D វី Glyph */
+    /* Fast Optical Shockwave Rings */
+    .vi-flash-shockwave {
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 2px solid #10B981;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .vi-flash-shockwave-2 {
+      position: absolute;
+      inset: -24px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(16, 185, 129, 0.5);
+      pointer-events: none;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .liquid-morph-active .vi-flash-shockwave {
+      animation: shockwaveBurst 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .liquid-morph-active .vi-flash-shockwave-2 {
+      animation: shockwaveBurst 0.38s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
+    }
+
+    @keyframes shockwaveBurst {
+      0% {
+        opacity: 0.95;
+        transform: scale(0.35);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(1.45);
+      }
+    }
+
+    /* Massive Solid 3D វី Glyph with Flash Strobe */
     .vi-massive-char {
       font-family: 'Google Sans', 'Kantumruy Pro', sans-serif;
       font-size: clamp(7.5rem, 22vw, 15rem);
@@ -681,24 +715,25 @@
       transform-origin: center center;
     }
 
-    /* Kinetic Snap & Fluid Re-crystallization */
+    /* High-Speed Flash Strobe & Elastic Rebound */
     .liquid-morph-active .vi-massive-char {
-      animation: kineticGlassSnap 0.52s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      animation: kineticFlashStrobe 0.36s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
 
-    @keyframes kineticGlassSnap {
+    @keyframes kineticFlashStrobe {
       0% {
-        opacity: 0.15;
-        transform: scale(0.55) translateY(24px);
-        filter: blur(8px);
+        opacity: 0.4;
+        transform: scale(0.65) translateY(16px);
+        filter: brightness(3.5) contrast(1.6) drop-shadow(0 0 32px #10B981);
       }
-      48% {
+      35% {
         opacity: 1;
-        transform: scale(1.12) translateY(-6px);
-        filter: blur(0);
+        transform: scale(1.10) translateY(-6px);
+        filter: brightness(1.8) contrast(1.2) drop-shadow(0 0 16px #10B981);
       }
-      78% {
-        transform: scale(0.97) translateY(2px);
+      75% {
+        transform: scale(0.98) translateY(1px);
+        filter: brightness(1.1);
       }
       100% {
         opacity: 1;
@@ -707,7 +742,7 @@
       }
     }
 
-    /* Specular Light Sheen Beam Sweeping across Glyph */
+    /* Fast Optical Glint Streak */
     .vi-specular-glint {
       position: absolute;
       inset: -10px;
@@ -719,10 +754,10 @@
     }
 
     .liquid-morph-active .vi-specular-glint {
-      animation: specularGlintSweep 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+      animation: flashGlintStreak 0.38s cubic-bezier(0.16, 1, 0.3, 1) 0.04s forwards;
     }
 
-    @keyframes specularGlintSweep {
+    @keyframes flashGlintStreak {
       0% {
         opacity: 1;
         transform: translateX(-120%) rotate(25deg);
@@ -738,9 +773,9 @@
       position: absolute;
       top: -50%;
       left: 0;
-      width: 45px;
+      width: 50px;
       height: 200%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+      background: linear-gradient(90deg, transparent, #FFFFFF, transparent);
     }
 
     @media (max-width: 640px) {
@@ -2170,12 +2205,13 @@
           </defs>
         </svg>
 
-        <!-- Liquid Crystal Specular Glint & Kinetic Morph វី Hero Display -->
+        <!-- Kinetic Optical Flash & Strobe វី Hero Display -->
         <header class="vi-pure-hero">
-          <div class="vi-glass-display" id="viHeroDisplay" onclick="triggerLiquidMorph()" title="Shiliaiwei / Srievi (វី) — Tap to replay Morph & Specular Sweep">
+          <div class="vi-glass-display" id="viHeroDisplay" onclick="triggerLiquidMorph()" title="Shiliaiwei / Srievi (វី) — Tap to Trigger Flash Strobe">
             <div class="vi-morph-container liquid-morph-active" id="viMorphContainer">
-              <div class="vi-sonar-ring"></div>
-              <div class="vi-sonar-ring-2"></div>
+              <div class="vi-optical-flash"></div>
+              <div class="vi-flash-shockwave"></div>
+              <div class="vi-flash-shockwave-2"></div>
               <div class="vi-specular-glint"></div>
               <h1 class="vi-massive-char" id="viMassiveLogo">វី</h1>
             </div>
