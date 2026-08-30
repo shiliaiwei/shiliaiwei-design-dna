@@ -1,6 +1,10 @@
 # SHILIAIWEI LIQUID GLASS DESIGN DNA & MULTI-PLATFORM SYSTEM SPECIFICATION
 
-This document defines the permanent, immutable Design & Engineering DNA for all **Shiliaiwei (施莱威)** digital products, interfaces, web applications, mobile platforms, and design system components across **ALL programming languages and frameworks** (Web/HTML/CSS, React/Next.js/Vue, Android/Compose, iOS/SwiftUI, and Flutter).
+This document defines the permanent, immutable Design & Engineering DNA for all **Shiliaiwei (施莱威)** / **VibrandHub** digital products, interfaces, web applications, mobile platforms, and design system components across **ALL programming languages and frameworks** (Web/HTML/CSS, React/Next.js/Vue, Android/Compose, iOS/SwiftUI, and Flutter).
+
+- **Primary Live Production URL**: [`https://vibrandhub.pages.dev`](https://vibrandhub.pages.dev)
+- **GitHub Repository**: [`https://github.com/shiliaiwei/shiliaiwei-design-dna`](https://github.com/shiliaiwei/shiliaiwei-design-dna)
+- **Cloudflare Pages Project**: `vibrandhub`
 
 ---
 
