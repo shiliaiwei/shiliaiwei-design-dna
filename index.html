@@ -149,6 +149,223 @@
       width: 100%;
     }
 
+    
+    /* ==========================================================================
+       Apple-Style Floating Capsule Dock & Liquid Glass Popup
+       ========================================================================== */
+    .apple-dock-wrapper {
+      position: sticky;
+      top: 14px;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 28px;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    .apple-dock {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-top: 1px solid #FFFFFF;
+      border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      max-width: 620px;
+      width: 100%;
+      justify-content: space-between;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .apple-dock-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px 4px 4px;
+      background: rgba(241, 245, 249, 0.70);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 9999px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.1s ease;
+    }
+    .apple-dock-brand:hover {
+      background: rgba(226, 232, 240, 0.90);
+    }
+    .apple-dock-brand:active {
+      transform: scale(0.97);
+    }
+
+    .dock-avatar-box {
+      position: relative;
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+    }
+    .dock-avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+    .dock-status-dot {
+      position: absolute;
+      bottom: -1px;
+      right: -1px;
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary);
+      border: 1.5px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .dock-brand-title {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: 0.02em;
+    }
+
+    .apple-dock-nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .dock-tab {
+      padding: 7px 12px;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 9999px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.12s ease;
+      white-space: nowrap;
+    }
+    .dock-tab:hover {
+      color: var(--text-main);
+      background: rgba(0, 0, 0, 0.04);
+    }
+    .dock-tab.active {
+      color: var(--primary-dark);
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      font-weight: 700;
+    }
+
+    .apple-dock-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .dock-action-btn {
+      padding: 6px 12px;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.05s ease, box-shadow 0.05s ease;
+      white-space: nowrap;
+    }
+
+    /* Brand Popup Modal */
+    .brand-popup-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.40);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .brand-popup-backdrop.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .brand-popup-card {
+      width: 100%;
+      max-width: 440px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      border-top: 1px solid #FFFFFF;
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.15s ease;
+    }
+    .brand-popup-backdrop.show .brand-popup-card {
+      transform: scale(1);
+    }
+
+    .popup-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.06);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .popup-close-btn:hover {
+      background: rgba(0, 0, 0, 0.12);
+      color: var(--text-main);
+    }
+
+    @media (max-width: 640px) {
+      .apple-dock {
+        padding: 4px 6px;
+        gap: 4px;
+      }
+      .dock-brand-title {
+        display: none;
+      }
+      .dock-tab {
+        padding: 6px 9px;
+        font-size: 0.72rem;
+      }
+      .dock-action-btn {
+        padding: 6px 9px;
+        font-size: 0.72rem;
+      }
+    }
+
     /* Left Menu Dock */
     
     .left-dock-top-row {
@@ -1705,47 +1922,84 @@
 <body>
 
   <div class="container">
-    <div class="app-layout">
-
-      <!-- Left Menu Dock (Desktop Fixed / Mobile Clean Responsive Header) -->
-      <aside class="left-dock" id="leftDock">
-        <div class="left-dock-top-row">
-          <div class="left-dock-brand">
-            <div class="brand-avatar-box">
-              <img src="https://github.com/shiliaiwei.png" alt="Shiliaiwei" class="brand-avatar-img">
-              <span class="brand-status-dot"></span>
-            </div>
-            <div class="brand-meta">
-              <div class="brand-name">SHILIAIWEI</div>
-              <div class="brand-tag">DESIGN DNA SKILL</div>
-            </div>
+    
+    <!-- Apple-Style Floating Capsule Dock -->
+    <div class="apple-dock-wrapper">
+      <nav class="apple-dock" id="appleDock">
+        
+        <!-- Left: Avatar Brand Pill (Taps open Brand & Export Popup) -->
+        <div class="apple-dock-brand" onclick="openBrandPopup()" title="Click for Shiliaiwei Brand & Skill Actions">
+          <div class="dock-avatar-box">
+            <img src="https://github.com/shiliaiwei.png" alt="Shiliaiwei" class="dock-avatar-img">
+            <span class="dock-status-dot"></span>
           </div>
-          <div style="display: flex; gap: 6px; align-items: center;">
-            <button class="btn btn-glass btn-sm" style="padding: 6px 12px; font-size: 0.78rem;" onclick="copySkillMarkdown()" title="Copy Agent Skill Markdown">
-              Skill MD
-            </button>
-            <button class="btn btn-primary btn-sm" style="padding: 6px 12px; font-size: 0.78rem;" onclick="copyAllTokens()" title="Copy Design Tokens">
-              Tokens
-            </button>
+          <span class="dock-brand-title">SHILIAIWEI</span>
+        </div>
+
+        <!-- Center: 3 Capsule Segmented Tabs -->
+        <div class="apple-dock-nav">
+          <button class="dock-tab active" onclick="switchStudioView('identity', this)" data-view="identity" data-i18n="nav_identity">
+            1. Identity
+          </button>
+          <button class="dock-tab" onclick="switchStudioView('elements', this)" data-view="elements" data-i18n="nav_elements">
+            2. UI Elements
+          </button>
+          <button class="dock-tab" onclick="switchStudioView('webapp', this)" data-view="webapp" data-i18n="nav_webapp">
+            3. Web App
+          </button>
+        </div>
+
+        <!-- Right: Action Buttons -->
+        <div class="apple-dock-actions">
+          <button class="dock-action-btn btn-glass" onclick="copySkillMarkdown()" title="Copy Agent Skill Markdown">
+            Skill MD
+          </button>
+          <button class="dock-action-btn btn-primary" onclick="copyAllTokens()" title="Copy Design Tokens">
+            Tokens
+          </button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Liquid Glass Brand & Export Popup Modal -->
+    <div class="brand-popup-backdrop" id="brandPopupModal" onclick="handlePopupBackdropClick(event)">
+      <div class="brand-popup-card">
+        <button class="popup-close-btn" onclick="closeBrandPopup()" title="Close">✕</button>
+        
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+          <div style="position: relative; width: 46px; height: 46px; flex-shrink: 0;">
+            <img src="https://github.com/shiliaiwei.png" alt="Shiliaiwei" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+            <span style="position: absolute; bottom: 0; right: 0; width: 11px; height: 11px; background: #10B981; border: 2px solid #FFFFFF; border-radius: 50%;"></span>
+          </div>
+          <div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--text-main);">SHILIAIWEI</div>
+            <div style="font-size: 0.72rem; font-weight: 700; color: var(--primary-dark); letter-spacing: 0.05em;">GUIDELINE DESIGN DNA SKILL</div>
           </div>
         </div>
 
-        <nav class="left-dock-nav">
-          <span class="nav-label">VIEWS</span>
-          <button class="dock-item active" onclick="switchStudioView('identity', this)" data-view="identity" data-i18n="nav_identity">
-            1. Identity
-          </button>
-          <button class="dock-item" onclick="switchStudioView('elements', this)" data-view="elements" data-i18n="nav_elements">
-            2. UI Elements
-          </button>
-          <button class="dock-item" onclick="switchStudioView('webapp', this)" data-view="webapp" data-i18n="nav_webapp">
-            3. Web App
-          </button>
-        </nav>
-      </aside>
+        <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px;">
+          Master Solid Liquid Glass Design System. Closed single-color tokens, tactile sticker physics (9px radius), and zero emojis.
+        </p>
 
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
+          <button class="btn btn-primary" style="justify-content: center; width: 100%; padding: 12px;" onclick="copyAllTokens()">
+            Copy Complete Design Tokens (CSS)
+          </button>
+          <button class="btn btn-glass" style="justify-content: center; width: 100%; padding: 12px;" onclick="copySkillMarkdown()">
+            Copy Agent Skill Prompt (SKILL.md)
+          </button>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--text-dim); border-top: 1px solid rgba(0,0,0,0.06); padding-top: 12px;">
+          <span>Release v2.4.0 (Solid Architecture)</span>
+          <a href="https://github.com/shiliaiwei/shiliaiwei-design-dna" target="_blank" style="color: var(--primary-dark); font-weight: 700; text-decoration: none;">GitHub Repository ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-layout" style="display: block;">
       <!-- Main Content Area -->
-      <main class="main-content">
+      <main class="main-content" style="max-width: 1200px; margin: 0 auto;">
         
         <!-- Header -->
         <header class="header">
