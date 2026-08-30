@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vibrandhub",
+  "compatibility_date": "2026-08-30",
+  "assets": {
+    "directory": "./"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
