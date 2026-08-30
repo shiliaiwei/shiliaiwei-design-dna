@@ -140,7 +140,7 @@ function initTerminal() {
       <div class="t-line t-emerald">Available Commands:</div>
       <div class="t-line">  <span class="t-yellow">about</span>       - Print biography & developer background</div>
       <div class="t-line">  <span class="t-yellow">skills</span>      - List core CS & Web programming skills</div>
-      <div class="t-line">  <span class="t-yellow">philosophy</span>  - Read Srievi's thoughts on AI & ICT Ethics</div>
+      <div class="t-line">  <span class="t-yellow">philosophy</span>  - Read Shiliaiwei's thoughts on AI & ICT Ethics</div>
       <div class="t-line">  <span class="t-yellow">timeline</span>    - View academic & personal milestones</div>
       <div class="t-line">  <span class="t-yellow">quote</span>       - Display a random mindful quote</div>
       <div class="t-line">  <span class="t-yellow">contact</span>     - Display official contact email & channels</div>
@@ -148,7 +148,7 @@ function initTerminal() {
     `,
     about: () => `
       <div class="t-line t-cyan">== SRIEVi DEV PROFILE ==</div>
-      <div class="t-line">Name: វី (Srievi)</div>
+      <div class="t-line">Name: វី (Shiliaiwei)</div>
       <div class="t-line">Degree: Bachelor of Computer Science & ICT</div>
       <div class="t-line">Role: Software Developer & Creative Innovator</div>
       <div class="t-line">Location: Phnom Penh, Cambodia</div>
@@ -175,7 +175,7 @@ function initTerminal() {
       <div class="t-line t-yellow">«អ្វីដែលខ្ញុំត្រូវធ្វើគឺការស្តាប់ពាក្យទូន្មានប្រៀនប្រដៅមនុស្សនៅជុំវិញខ្លួន ជាជាងការនិយាយបកស្រាយ»</div>
     `,
     contact: () => `
-      <div class="t-line t-emerald">Email: srievi.developer@gmail.com</div>
+      <div class="t-line t-emerald">Email: shiliaiwei.developer@gmail.com</div>
       <div class="t-line">Location: Phnom Penh, Cambodia</div>
     `,
     clear: () => {
@@ -194,7 +194,7 @@ function initTerminal() {
       // Echo input
       const echo = document.createElement('div');
       echo.className = 't-line';
-      echo.innerHTML = `<span class="terminal-prompt">srievi@dev:~$</span> ${escapeHTML(rawVal)}`;
+      echo.innerHTML = `<span class="terminal-prompt">shiliaiwei@dev:~$</span> ${escapeHTML(rawVal)}`;
       body.appendChild(echo);
 
       // Execute command

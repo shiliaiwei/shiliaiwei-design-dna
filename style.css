@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SRIEVI DEVELOPER PORTFOLIO - LIQUID GLASS DESIGN SYSTEM
+   SHILIAIWEI DEVELOPER PORTFOLIO - LIQUID GLASS DESIGN SYSTEM
    ========================================================================== */
 
 :root {
@@ -16,11 +16,11 @@
   --accent-cyan: #0891B2;
   --accent-crimson: #FF0050;
   
-  /* Srievi Brand Accents */
-  --srievi-green: #58cc02;
-  --srievi-blue: #1cb0f6;
-  --color-eager-green: var(--srievi-green);
-  --color-spark-blue: var(--srievi-blue);
+  /* Shiliaiwei Solid Brand Accents */
+  --shiliaiwei-green: #58CC02;
+  --shiliaiwei-blue: #1CB0F6;
+  --color-eager-green: #58CC02;
+  --color-spark-blue: #1CB0F6;
   
   --text-main: #0F172A;
   --text-muted: #475569;
@@ -164,7 +164,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 12px 24px;
-  border-radius: 12px;
+  border-radius: 9px;
   font-family: var(--font-km);
   font-size: 0.95rem;
   font-weight: 600;
@@ -203,7 +203,7 @@ body {
   background-color: var(--color-eager-green);
   color: #FFFFFF;
   font-weight: 700;
-  border-radius: 12px;
+  border-radius: 9px;
   box-shadow: 0 4px 0 #46a302;
 }
 

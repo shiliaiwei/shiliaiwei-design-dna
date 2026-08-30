@@ -10,8 +10,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=JetBrains+Mono:wght@400;500;600;700&family=Kantumruy+Pro:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Primary Icon Library: Font Awesome 6 (Solid, Regular, Brands) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Material Symbols (https://fonts.google.com/icons) - Outlined & Rounded with 0/1 Fill Support -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
 
   <style>
     :root {
@@ -23,26 +26,25 @@
       --bg-inner-glass: rgba(241, 245, 249, 0.85);
       
       /* Frosted Liquid Crystal Glass Highlights on White */
-      --border-glass: rgba(0, 0, 0, 0.08);
+      --border-glass: rgba(0, 0, 0, 0.10);
       --border-glass-top: rgba(255, 255, 255, 1);
-      --border-glass-hover: rgba(16, 185, 129, 0.50);
-      --glass-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 1), 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
-      --glass-shadow-hover: inset 0 1px 0 0 rgba(255, 255, 255, 1), 0 18px 44px rgba(16, 185, 129, 0.14), 0 4px 12px rgba(0, 0, 0, 0.05);
+      --border-glass-hover: rgba(16, 185, 129, 0.70);
+      --glass-shadow: none;
+      --glass-shadow-hover: none;
       
       --primary: #10B981;
       --primary-dark: #059669;
       --primary-light: #065F46;
-      --primary-glow: rgba(16, 185, 129, 0.25);
 
       --accent-cyan: #0891B2;
       --accent-cyan-light: #0E7490;
       --accent-crimson: #FF0050;
       
-      /* Srievi Solid Brand Accents */
-      --srievi-green: #58cc02;
-      --srievi-blue: #1cb0f6;
-      --color-eager-green: var(--srievi-green);
-      --color-spark-blue: var(--srievi-blue);
+      /* Shiliaiwei Solid Brand Accents */
+      --shiliaiwei-green: #58CC02;
+      --shiliaiwei-blue: #1CB0F6;
+      --color-eager-green: #58CC02;
+      --color-spark-blue: #1CB0F6;
       
       /* High-Contrast Bold Slate Typography for White Canvas */
       --text-main: #0F172A;
@@ -55,19 +57,22 @@
       
       /* Liquid Glass Squircle Radius Hierarchy */
       --spacing-unit: 4px;
-      --radius-sm: 8px;
-      --radius-md: 12px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
       --radius-lg: 16px;
       --radius-xl: 22px;
       --radius-pill: 9999px;
+      --radius-buttons: 9px;
       
-      --transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition: all 0.20s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     html {
@@ -83,48 +88,94 @@
       padding: 30px 20px 120px;
       position: relative;
       overflow-x: hidden;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+      transition: font-family 0.2s ease;
     }
 
-    /* Ambient Subtle Diffuse Glows for White Background */
-    .ambient-glow {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(140px);
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.12;
+    /* Mandatory Google Sans for Khmer Typography & Natural Boundary Text Wrapping */
+    body.lang-km, html[lang="km"] body {
+      font-family: var(--font-km);
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    body.lang-km .title {
+      font-family: var(--font-km);
+      line-height: 1.35;
+    }
+    body.lang-km .section-title,
+    body.lang-km .comp-title,
+    body.lang-km .btn,
+    body.lang-km .dock-link,
+    body.lang-km .filter-btn,
+    body.lang-km .color-name,
+    body.lang-km .badge-pill,
+    body.lang-km .ui-badge {
+      font-family: var(--font-km);
     }
 
-    .glow-1 {
-      width: 500px;
-      height: 500px;
-      background-color: var(--primary);
-      top: -100px;
-      left: -100px;
+    /* Vector Icon System: Font Awesome 6 (Primary) & Google Material Symbols */
+    .fa-solid, .fa-regular, .fa-brands {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      line-height: 1;
     }
 
-    .glow-2 {
-      width: 600px;
-      height: 600px;
-      background-color: var(--accent-cyan);
-      top: 45%;
-      right: -150px;
+    /* Google Material Symbols (Outlined & Solid/Filled) */
+    .material-symbols-outlined,
+    .material-symbols-rounded {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .material-symbols-rounded {
+      font-family: 'Material Symbols Rounded';
+    }
+
+    /* Solid / Filled Material Symbols Variant */
+    .material-symbols-outlined.fill,
+    .material-symbols-outlined.solid,
+    .material-symbols-rounded.fill,
+    .material-symbols-rounded.solid,
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24 !important;
     }
 
     .container {
       max-width: 1300px;
       margin: 0 auto;
+      padding: 24px 20px;
       position: relative;
       z-index: 1;
+      width: 100%;
+      box-sizing: border-box;
     }
 
-    /* Sticky Floating Liquid Glass Quick-Dock */
+    /* Sticky Floating Liquid Glass Quick-Dock - Pure Solid Border, Zero Blur Shadow */
     .quick-dock {
       position: sticky;
       top: 16px;
       z-index: 50;
-      background-color: rgba(255, 255, 255, 0.88);
-      border: 1px solid var(--border-glass);
+      background-color: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(0, 0, 0, 0.12);
       border-top: 1px solid rgba(255, 255, 255, 1);
       border-radius: var(--radius-pill);
       backdrop-filter: blur(24px) saturate(180%);
@@ -134,65 +185,83 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+      box-shadow: none;
       gap: 12px;
       flex-wrap: wrap;
-      transition: var(--transition);
-    }
-
-    .quick-dock:hover {
-      border-top-color: #FFFFFF;
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.08);
     }
 
     .dock-brand {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      font-size: 0.92rem;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.05rem;
       color: var(--text-main);
       text-decoration: none;
+      letter-spacing: -0.0100em;
+    }
+
+    .dock-logo {
+      width: 28px;
+      height: 28px;
+      background-color: var(--primary);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      font-size: 13px;
+      font-weight: 800;
     }
 
     .dock-nav {
       display: flex;
-      gap: 6px;
       align-items: center;
+      gap: 6px;
+      list-style: none;
       flex-wrap: wrap;
     }
 
     .dock-link {
-      padding: 6px 12px;
-      border-radius: var(--radius-pill);
-      font-size: 0.8rem;
-      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       color: var(--text-muted);
       text-decoration: none;
-      transition: var(--transition);
+      font-size: 0.86rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
     }
 
-    .dock-link:hover {
+    .dock-link.active {
       color: var(--primary-dark);
-      background-color: rgba(0, 0, 0, 0.04);
+      background-color: #ECFDF5;
+      border: 1px solid #A7F3D0;
+    }
+
+    .dock-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     /* Header */
     .header {
       text-align: center;
-      margin-bottom: 50px;
+      margin-bottom: 48px;
     }
 
-    .badge-pill {
+    .header-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 6px 16px;
       background-color: #ECFDF5;
       border: 1px solid #A7F3D0;
-      border-top: 1px solid #D1FAE5;
       border-radius: var(--radius-pill);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 2px 6px rgba(16, 185, 129, 0.08);
+      box-shadow: none;
       color: #065F46;
       font-size: 0.85rem;
       font-weight: 600;
@@ -230,68 +299,50 @@
       margin: 0 auto 24px;
     }
 
-    /* Buttons with Liquid Glass Physics */
+    /* Shiliaiwei / Duolingo 3D Tactile Sticker Button Physics (9px Radius, 3D Bottom Depth, Active Compression) */
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       padding: 10px 20px;
-      border-radius: var(--radius-md);
-      font-size: 0.92rem;
-      font-weight: 600;
+      border-radius: var(--radius-buttons);
+      font-size: 0.88rem;
+      font-weight: 700;
       text-decoration: none;
       cursor: pointer;
-      transition: var(--transition);
       border: 1px solid transparent;
       outline: none;
-    }
-
-    .btn-primary {
-      background-color: var(--primary);
-      color: #FFFFFF;
-      border-top: 1px solid rgba(255, 255, 255, 0.45);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.40), 0 4px 14px rgba(16, 185, 129, 0.35);
-    }
-
-    .btn-primary:hover {
-      background-color: var(--primary-dark);
-      color: #FFFFFF;
-      transform: translateY(-2px);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 20px rgba(16, 185, 129, 0.40);
-    }
-
-    .btn-glass {
-      background-color: rgba(248, 250, 252, 0.90);
-      color: var(--text-main);
-      border: 1px solid rgba(0, 0, 0, 0.10);
-      border-top: 1px solid #FFFFFF;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 2px 6px rgba(0, 0, 0, 0.04);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-    }
-
-    .btn-glass:hover {
-      background-color: #FFFFFF;
-      border-color: rgba(0, 0, 0, 0.16);
-      transform: translateY(-2px);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 6px 16px rgba(0, 0, 0, 0.08);
+      text-transform: uppercase;
+      letter-spacing: 0.053em;
+      user-select: none;
+      transition: transform 0.08s ease, box-shadow 0.08s ease;
     }
 
     .btn-eager {
       background-color: var(--color-eager-green);
       color: #FFFFFF;
-      font-weight: 700;
-      border-radius: var(--radius-md);
-      border-top: 1px solid rgba(255, 255, 255, 0.40);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 4px 0 #46a302;
-      text-transform: uppercase;
-      letter-spacing: 0.053em;
+      border: 1px solid #46a302;
+      border-top: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 4px 0 #46a302;
     }
 
-    .btn-eager:hover {
-      background-color: #46a302;
-      transform: translateY(2px);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 2px 0 #3b8a02;
+    .btn-eager:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #46a302;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      border: 1px solid var(--primary-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 4px 0 #059669;
+    }
+
+    .btn-primary:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #059669;
     }
 
     .btn-spark {
@@ -299,36 +350,74 @@
       color: #0284C7;
       border: 2px solid #BAE6FD;
       border-top: 2px solid #FFFFFF;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90);
-      font-weight: 700;
-      border-radius: var(--radius-md);
-      text-transform: uppercase;
-      letter-spacing: 0.053em;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 4px 0 #BAE6FD;
     }
 
-    .btn-spark:hover {
-      border-color: #0284C7;
-      background-color: #E0F2FE;
+    .btn-spark:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #BAE6FD;
+    }
+
+    .btn-glass {
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-top: 1px solid #FFFFFF;
+      box-shadow: 0 4px 0 #CBD5E1;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .btn-glass:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #CBD5E1;
     }
 
     .btn-crimson {
       background-color: var(--accent-crimson);
       color: #FFFFFF;
-      border-top: 1px solid rgba(255, 255, 255, 0.35);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.30), 0 4px 14px rgba(255, 0, 80, 0.30);
+      border: 1px solid #D60043;
+      border-top: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 4px 0 #D60043;
     }
 
-    .btn-crimson:hover {
-      background-color: #D60043;
-      transform: translateY(-2px);
+    .btn-crimson:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #D60043;
     }
 
     .btn-sm {
       padding: 6px 14px;
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       border-radius: var(--radius-sm);
+    }
+
+    .btn-sm.btn-primary {
+      box-shadow: 0 3px 0 #059669;
+    }
+
+    .btn-sm.btn-glass {
+      box-shadow: 0 3px 0 #CBD5E1;
+    }
+
+    .btn-sm.btn-eager {
+      box-shadow: 0 3px 0 #46a302;
+    }
+
+    .btn-sm:active {
+      transform: translateY(2px);
+    }
+
+    .btn-sm.btn-primary:active {
+      box-shadow: 0 1px 0 #059669;
+    }
+
+    .btn-sm.btn-glass:active {
+      box-shadow: 0 1px 0 #CBD5E1;
+    }
+
+    .btn-sm.btn-eager:active {
+      box-shadow: 0 1px 0 #46a302;
     }
 
     /* Section Structure */
@@ -346,7 +435,7 @@
       color: var(--primary-dark);
     }
 
-    /* Grid of Color Cards with Liquid Glass on White Canvas */
+    /* Grid of Color Cards with Pure Solid Border on White Canvas */
     .palette-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -356,22 +445,18 @@
 
     .color-card {
       background-color: var(--bg-surface);
-      border: 1px solid var(--border-glass);
+      border: 1px solid rgba(0, 0, 0, 0.10);
       border-top: 1px solid var(--border-glass-top);
       border-radius: var(--radius-xl);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: var(--glass-shadow);
+      box-shadow: none;
       overflow: hidden;
-      transition: var(--transition);
       cursor: pointer;
     }
 
-    .color-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-glass-hover);
-      border-top-color: #FFFFFF;
-      box-shadow: var(--glass-shadow-hover);
+    .color-card:active {
+      transform: scale(0.98);
     }
 
     .swatch {
@@ -384,15 +469,14 @@
 
     .swatch-tag {
       padding: 3px 8px;
-      background-color: rgba(255, 255, 255, 0.92);
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      background-color: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.12);
       border-radius: 6px;
       font-size: 0.75rem;
       font-weight: 700;
       color: #0F172A;
       font-family: var(--font-mono);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      box-shadow: none;
     }
 
     .color-info {
@@ -418,8 +502,8 @@
       justify-content: space-between;
       align-items: center;
       background-color: var(--bg-inner-glass);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: none;
       padding: 6px 10px;
       border-radius: var(--radius-sm);
       font-family: var(--font-mono);
@@ -438,72 +522,6 @@
       font-weight: 700;
     }
 
-    /* REAL-TIME TOKEN SANDBOX with Liquid Glass on White */
-    .sandbox-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-glass);
-      border-top: 1px solid var(--border-glass-top);
-      border-radius: var(--radius-xl);
-      padding: 26px;
-      margin-bottom: 50px;
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      box-shadow: var(--glass-shadow);
-    }
-
-    .sandbox-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-
-    @media (max-width: 850px) {
-      .sandbox-layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .sandbox-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .sandbox-control-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .sandbox-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .sandbox-slider {
-      width: 100%;
-      accent-color: var(--primary);
-    }
-
-    .sandbox-target-box {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-glass);
-      border-top: 1px solid var(--border-glass-top);
-      border-radius: var(--radius-xl);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: var(--glass-shadow);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 14px;
-      transition: all 0.1s ease;
-    }
-
     /* 14 DESIGN SYSTEM & 25 CONCEPTS LIQUID GLASS CARDS ON WHITE */
     .ds-grid, .components-grid {
       display: grid;
@@ -513,24 +531,16 @@
 
     .comp-card {
       background-color: var(--bg-surface);
-      border: 1px solid var(--border-glass);
+      border: 1px solid rgba(0, 0, 0, 0.10);
       border-top: 1px solid var(--border-glass-top);
       border-radius: var(--radius-xl);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: var(--glass-shadow);
+      box-shadow: none;
       padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: var(--transition);
-    }
-
-    .comp-card:hover {
-      border-color: var(--border-glass-hover);
-      border-top-color: #FFFFFF;
-      box-shadow: var(--glass-shadow-hover);
-      transform: translateY(-4px);
     }
 
     .comp-header {
@@ -539,21 +549,21 @@
       align-items: flex-start;
       margin-bottom: 12px;
       padding-bottom: 12px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .comp-tag {
       padding: 3px 10px;
       background-color: #ECFDF5;
       border: 1px solid #A7F3D0;
-      border-top: 1px solid #D1FAE5;
+      border-top: 1px solid #FFFFFF;
       border-radius: var(--radius-pill);
       color: #065F46;
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.053em;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
+      box-shadow: none;
     }
 
     .comp-title {
@@ -571,12 +581,12 @@
       margin-bottom: 16px;
     }
 
-    /* Inner Specular Preview Box */
+    /* Inner Specular Preview Box - Zero Shadows, Pure Flat Solid Borders */
     .comp-preview-box {
       background-color: var(--bg-inner-glass);
-      border: 1px solid rgba(0, 0, 0, 0.06);
-      border-top: 1px solid rgba(255, 255, 255, 0.95);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90), 0 2px 6px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-top: 1px solid rgba(255, 255, 255, 1);
+      box-shadow: none;
       border-radius: var(--radius-lg);
       padding: 18px;
       margin-bottom: 16px;
@@ -586,30 +596,8 @@
       justify-content: center;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-    }
-
-    /* Checklist List & Interactive Checkbox */
-    .checklist-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-
-    .checklist-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .checklist-item input[type="checkbox"] {
-      accent-color: var(--primary-dark);
-      cursor: pointer;
+      overflow-x: auto;
+      max-width: 100%;
     }
 
     .comp-footer {
@@ -617,7 +605,7 @@
       justify-content: space-between;
       align-items: center;
       padding-top: 12px;
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     /* Universal UI Elements */
@@ -625,21 +613,26 @@
       width: 100%;
       padding: 9px 14px;
       background-color: #FFFFFF;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      border-top: 1px solid rgba(0, 0, 0, 0.14);
+      border: 1px solid rgba(0, 0, 0, 0.15);
       border-radius: var(--radius-md);
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+      box-shadow: none;
       color: var(--text-main);
       font-family: var(--font-en);
       font-size: 0.86rem;
       outline: none;
       margin-bottom: 10px;
-      transition: var(--transition);
     }
 
     .ui-input:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.20);
+      box-shadow: none;
+    }
+
+    /* Auto-hide placeholder text when user taps/focuses into field */
+    input:focus::placeholder,
+    textarea:focus::placeholder {
+      color: transparent !important;
+      opacity: 0 !important;
     }
 
     .ui-badge {
@@ -649,79 +642,288 @@
       padding: 4px 10px;
       border-radius: var(--radius-pill);
       font-size: 0.75rem;
-      font-weight: 600;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.053em;
       border: 1px solid transparent;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      border-top: 1px solid #FFFFFF;
+      box-shadow: none;
     }
 
     .badge-green { 
       background-color: #ECFDF5; 
       color: #065F46; 
       border: 1px solid #A7F3D0;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
+      border-top: 1px solid #FFFFFF;
     }
 
     .badge-cyan { 
       background-color: #ECFEFF; 
       color: #0E7490; 
       border: 1px solid #A5F3FC;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
+      border-top: 1px solid #FFFFFF;
     }
 
     .badge-crimson { 
       background-color: #FFF1F2; 
       color: #BE123C; 
       border: 1px solid #FECDD3;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1);
+      border-top: 1px solid #FFFFFF;
     }
 
-    /* Custom Form & Feedback Controls with Liquid Glass on White */
+    /* Custom Form & Feedback Controls with Pure Solid Borders */
     .ui-radio-group { display: flex; flex-direction: column; gap: 8px; }
     .ui-radio-label { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.84rem; color: var(--text-main); }
-    .ui-radio { appearance: none; width: 18px; height: 18px; border: 2px solid #CBD5E1; border-radius: 50%; outline: none; background: #FFFFFF; cursor: pointer; transition: var(--transition); }
-    .ui-radio:checked { border-color: var(--primary); background-color: var(--primary); box-shadow: inset 0 0 0 3px #FFFFFF, 0 0 8px rgba(16, 185, 129, 0.3); }
+    .ui-radio { appearance: none; width: 18px; height: 18px; border: 2px solid #94A3B8; border-radius: 50%; outline: none; background: #FFFFFF; cursor: pointer; }
+    .ui-radio:checked { border-color: var(--primary); background-color: var(--primary); box-shadow: inset 0 0 0 3px #FFFFFF; }
 
     .tooltip-wrap { position: relative; display: inline-flex; align-items: center; justify-content: center; }
-    .tooltip-box { visibility: hidden; background-color: #0F172A; border: 1px solid rgba(255, 255, 255, 0.1); color: #FFFFFF; text-align: center; border-radius: var(--radius-sm); padding: 6px 12px; position: absolute; z-index: 20; bottom: 130%; left: 50%; transform: translateX(-50%); font-size: 0.75rem; white-space: nowrap; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); opacity: 0; transition: opacity 0.2s; }
-    .tooltip-wrap:hover .tooltip-box { visibility: visible; opacity: 1; }
+    .tooltip-box { visibility: hidden; background-color: #0F172A; border: 1px solid rgba(255, 255, 255, 0.2); color: #FFFFFF; text-align: center; border-radius: var(--radius-sm); padding: 6px 12px; position: absolute; z-index: 20; bottom: 130%; left: 50%; transform: translateX(-50%); font-size: 0.75rem; white-space: nowrap; box-shadow: none; opacity: 0; }
 
-    .toggle-switch { position: relative; display: inline-block; width: 44px; height: 24px; }
-    .toggle-switch input { opacity: 0; width: 0; height: 0; }
-    .toggle-slider { position: absolute; cursor: pointer; inset: 0; background-color: #E2E8F0; border: 1px solid #CBD5E1; transition: .2s; border-radius: 24px; }
-    .toggle-slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 3px; bottom: 3px; background-color: #FFFFFF; transition: .2s; border-radius: 50%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
-    input:checked + .toggle-slider { background-color: var(--primary); border-color: var(--primary); }
-    input:checked + .toggle-slider:before { transform: translateX(20px); background-color: #FFFFFF; }
+    .toggle-switch { 
+      position: relative; 
+      display: inline-block; 
+      width: 48px; 
+      height: 26px; 
+      cursor: pointer;
+      user-select: none;
+    }
+    .toggle-switch input { 
+      opacity: 0; 
+      width: 0; 
+      height: 0; 
+    }
+    .toggle-slider { 
+      position: absolute; 
+      cursor: pointer; 
+      inset: 0; 
+      background-color: #E2E8F0; 
+      border: 1px solid #CBD5E1; 
+      border-radius: 26px; 
+      box-shadow: none;
+      transition: background-color 0.28s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .toggle-slider:before { 
+      position: absolute; 
+      content: ""; 
+      height: 18px; 
+      width: 18px; 
+      left: 3px; 
+      bottom: 3px; 
+      background-color: #FFFFFF; 
+      border-radius: 50%; 
+      border: 1px solid rgba(0, 0, 0, 0.12); 
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.15s ease, background-color 0.28s ease; 
+    }
+    .toggle-switch input:checked + .toggle-slider { 
+      background-color: var(--primary); 
+      border-color: var(--primary-dark); 
+    }
+    .toggle-switch input:checked + .toggle-slider:before { 
+      transform: translateX(22px); 
+      background-color: #FFFFFF; 
+    }
+    .toggle-switch:active .toggle-slider:before {
+      width: 22px;
+    }
 
     .spinner-circle { width: 24px; height: 24px; border: 3px solid #E2E8F0; border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; }
     @keyframes spin { 100% { transform: rotate(360deg); } }
     .skeleton-line { height: 10px; background-color: #E2E8F0; border-radius: 4px; animation: pulseSkel 1.5s infinite; }
     @keyframes pulseSkel { 0%, 100% { opacity: 0.4; } 50% { opacity: 0.9; } }
 
-    .avatar-stack { display: flex; align-items: center; }
-    .avatar-stack-item { width: 34px; height: 34px; border-radius: 50%; border: 2px solid #FFFFFF; margin-left: -10px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; color: #FFFFFF; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
-    .avatar-stack-item:first-child { margin-left: 0; }
+    /* Avatar & Avatar Stack System */
+    .avatar-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    .ui-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
-    .ui-table th { text-align: left; padding: 8px 6px; color: var(--text-dim); border-bottom: 1px solid #E2E8F0; font-size: 0.72rem; text-transform: uppercase; }
-    .ui-table td { padding: 8px 6px; border-bottom: 1px solid #F1F5F9; color: var(--text-main); }
-    .ui-table tr:hover td { background-color: #F8FAFC; }
+    .avatar-item {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      border: 2px solid #FFFFFF;
+      box-shadow: none;
+      user-select: none;
+      position: relative;
+    }
 
-    .dropdown-box { background-color: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.08); border-top: 1px solid #FFFFFF; border-radius: var(--radius-md); padding: 6px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.10); }
-    .dropdown-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 10px; border-radius: 6px; font-size: 0.8rem; color: var(--text-main); cursor: pointer; transition: var(--transition); }
-    .dropdown-item:hover { background-color: #ECFDF5; color: #065F46; }
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
 
-    /* Search & Filter Controls with Liquid Glass on White */
+    .avatar-status-dot {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      border: 2px solid #FFFFFF;
+    }
+
+    .avatar-stack { 
+      display: inline-flex; 
+      align-items: center; 
+    }
+
+    .avatar-stack-item { 
+      width: 34px; 
+      height: 34px; 
+      border-radius: 50%; 
+      border: 2px solid #FFFFFF; 
+      margin-left: -10px; 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-weight: 700; 
+      font-size: 0.74rem; 
+      color: #FFFFFF; 
+      box-shadow: none; 
+    }
+    .avatar-stack-item:first-child { 
+      margin-left: 0; 
+    }
+
+    /* Interactive Data Table with Row and Column Hover Highlighting */
+    .ui-table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      font-size: 0.8rem; 
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .ui-table th { 
+      text-align: left; 
+      padding: 9px 8px; 
+      color: var(--text-dim); 
+      border-bottom: 2px solid #E2E8F0; 
+      font-size: 0.72rem; 
+      font-weight: 700;
+      text-transform: uppercase; 
+      letter-spacing: 0.053em;
+      background-color: var(--bg-inner-glass);
+    }
+
+    .ui-table td { 
+      padding: 9px 8px; 
+      border-bottom: 1px solid #F1F5F9; 
+      color: var(--text-main); 
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    /* Row Hover Styling - Shiliaiwei Spark Tint */
+    .ui-table tbody tr:hover td { 
+      background-color: #F0F9FF; 
+      color: var(--text-main);
+    }
+
+    /* Column Hover Highlighting - Ice Slate */
+    .ui-table td.col-hover {
+      background-color: #F8FAFC !important;
+    }
+
+    /* Active Cell Crosshair Intersection - Solid Spark Sky */
+    .ui-table td:hover { 
+      background-color: #E0F2FE !important; 
+      color: #0284C7 !important;
+      font-weight: 700;
+    }
+
+    /* Dropdown Floating Panel System */
+    .dropdown-box { 
+      background-color: #FFFFFF; 
+      border: 1px solid rgba(0, 0, 0, 0.12); 
+      border-top: 1px solid #FFFFFF; 
+      border-radius: var(--radius-md); 
+      padding: 8px; 
+      box-shadow: none; 
+      width: 100%;
+    }
+
+    .dropdown-header-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.053em;
+      padding: 4px 8px 6px;
+    }
+
+    .dropdown-item { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 7px 10px; 
+      border-radius: var(--radius-sm); 
+      font-size: 0.82rem; 
+      color: var(--text-main); 
+      cursor: pointer; 
+      transition: background-color 0.12s ease, color 0.12s ease;
+      user-select: none;
+    }
+
+    .dropdown-item:hover, .dropdown-item.active {
+      background-color: #F0F9FF;
+      color: #0284C7;
+      font-weight: 600;
+    }
+
+    .dropdown-item:active {
+      transform: scale(0.98);
+    }
+
+    .dropdown-item.danger {
+      color: var(--accent-crimson);
+    }
+
+    .dropdown-item.danger:hover {
+      background-color: #FFF1F2;
+      color: #BE123C;
+    }
+
+    .dropdown-divider {
+      height: 1px;
+      background-color: #F1F5F9;
+      margin: 6px 0;
+    }
+
+    .kbd-badge {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      background-color: #F1F5F9;
+      color: var(--text-dim);
+      border: 1px solid #E2E8F0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* Search & Filter Controls with Pure Solid Border on White */
     .suite-controls {
       background-color: var(--bg-surface);
-      border: 1px solid var(--border-glass);
+      border: 1px solid rgba(0, 0, 0, 0.10);
       border-top: 1px solid var(--border-glass-top);
       border-radius: var(--radius-xl);
       padding: 20px;
       margin-bottom: 30px;
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
-      box-shadow: var(--glass-shadow);
+      box-shadow: none;
     }
 
     .search-input-wrap {
@@ -741,20 +943,18 @@
       width: 100%;
       padding: 12px 16px 12px 46px;
       background-color: #FFFFFF;
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      border-top: 1px solid rgba(0, 0, 0, 0.14);
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.14);
       border-radius: var(--radius-md);
+      box-shadow: none;
       color: var(--text-main);
       font-family: var(--font-en);
       font-size: 0.95rem;
       outline: none;
-      transition: var(--transition);
     }
 
     .search-input:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.20);
+      box-shadow: none;
     }
 
     .filter-tabs {
@@ -766,25 +966,27 @@
     .filter-btn {
       padding: 7px 14px;
       background-color: #F1F5F9;
-      border: 1px solid #E2E8F0;
-      border-top: 1px solid #FFFFFF;
+      border: 1px solid #CBD5E1;
       border-radius: var(--radius-pill);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      box-shadow: none;
       color: var(--text-muted);
       font-size: 0.84rem;
       font-weight: 600;
       cursor: pointer;
-      transition: var(--transition);
+      user-select: none;
     }
 
-    .filter-btn:hover, .filter-btn.active {
+    .filter-btn:active {
+      transform: scale(0.96);
+    }
+
+    .filter-btn.active {
       background-color: var(--primary);
       color: #FFFFFF;
-      border-color: var(--primary);
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.30);
+      border-color: var(--primary-dark);
     }
 
-    /* Modal Inspector with Liquid Glass on White */
+    /* Modal Inspector */
     .inspector-modal {
       position: fixed;
       inset: 0;
@@ -804,34 +1006,35 @@
 
     .inspector-content {
       background-color: #FFFFFF;
-      border: 1px solid rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.14);
       border-radius: var(--radius-xl);
       max-width: 680px;
       width: 100%;
       padding: 28px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.20);
+      box-shadow: none;
       max-height: 90vh;
       overflow-y: auto;
     }
 
-    /* Toast */
+    /* Toast Notification - Solid Flat Border */
     .toast {
       position: fixed;
       bottom: 30px;
       right: 30px;
-      background-color: var(--primary-dark);
+      background-color: #0F172A;
+      border: 1px solid var(--primary);
       color: #FFFFFF;
       font-weight: 700;
       padding: 12px 22px;
       border-radius: var(--radius-md);
-      box-shadow: 0 10px 30px rgba(5, 150, 105, 0.35);
+      box-shadow: none;
       display: flex;
       align-items: center;
       gap: 8px;
       z-index: 300;
       transform: translateY(100px);
       opacity: 0;
-      transition: all 0.25s ease;
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
       pointer-events: none;
     }
 
@@ -839,52 +1042,159 @@
       transform: translateY(0);
       opacity: 1;
     }
+
+    /* RESPONSIVE DESIGN SYSTEM MEDIA QUERIES */
+    @media (max-width: 1024px) {
+      .container {
+        padding: 20px 16px;
+      }
+      .ds-grid, .components-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 16px 12px;
+      }
+      .quick-dock {
+        top: 8px;
+        padding: 8px 10px;
+        border-radius: var(--radius-lg);
+        gap: 8px;
+        margin-bottom: 24px;
+        justify-content: center;
+      }
+      .dock-nav {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        width: 100%;
+        padding: 4px 2px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        justify-content: flex-start;
+        gap: 4px;
+      }
+      .dock-nav::-webkit-scrollbar {
+        display: none;
+      }
+      .dock-link {
+        white-space: nowrap;
+        flex-shrink: 0;
+        padding: 6px 10px;
+        font-size: 0.76rem;
+      }
+      .header {
+        margin-bottom: 28px;
+      }
+      .title {
+        font-size: clamp(1.75rem, 6.5vw, 2.5rem);
+      }
+      .subtitle {
+        font-size: 0.95rem;
+        padding: 0 4px;
+      }
+      .palette-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+      .color-card {
+        padding: 12px;
+      }
+      .color-preview {
+        height: 64px;
+      }
+      .ds-grid, .components-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .comp-card {
+        padding: 16px;
+        border-radius: var(--radius-lg);
+      }
+      .comp-preview-box {
+        padding: 14px;
+        min-height: auto;
+      }
+      .inspector-content {
+        padding: 18px 14px;
+        width: 95%;
+        border-radius: var(--radius-lg);
+      }
+      .toast {
+        bottom: 16px;
+        right: 16px;
+        left: 16px;
+        justify-content: center;
+        padding: 10px 16px;
+        font-size: 0.88rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 12px 8px;
+      }
+      .palette-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .color-card {
+        padding: 10px;
+      }
+      .color-preview {
+        height: 52px;
+      }
+      .btn {
+        padding: 8px 14px;
+        font-size: 0.84rem;
+      }
+      .section-title {
+        font-size: 1.15rem;
+        flex-wrap: wrap;
+      }
+    }
   </style>
 </head>
 <body>
-
-  <!-- Ambient Glow Orbs -->
-  <div class="ambient-glow glow-1"></div>
-  <div class="ambient-glow glow-2"></div>
 
   <div class="container">
 
     <!-- Sticky Quick Dock -->
     <nav class="quick-dock">
-      <a href="#" class="dock-brand">
-        <span style="width: 10px; height: 10px; background-color: var(--primary); border-radius: 50%;"></span>
-        Srievi Liquid Glass Studio
-      </a>
       <div class="dock-nav">
-        <a href="#section-tokens" class="dock-link">Tokens</a>
-        <a href="#section-sandbox" class="dock-link">Live Sandbox</a>
-        <a href="#section-tactile" class="dock-link">Tactile Physics</a>
-        <a href="#section-elements" class="dock-link">14 UI Elements</a>
-        <a href="#section-concepts" class="dock-link">25 Web Concepts</a>
-        <button class="btn btn-primary btn-sm" onclick="copyAllTokens()">
-          <i data-lucide="copy" size="14"></i> Copy CSS Tokens
+        <a href="#section-tokens" class="dock-link" data-i18n="nav_tokens"><i class="fa-solid fa-palette"></i> Tokens</a>
+        <a href="#section-tactile" class="dock-link" data-i18n="nav_tactile"><i class="fa-solid fa-hand-pointer"></i> Tactile Physics</a>
+        <a href="#section-elements" class="dock-link" data-i18n="nav_elements"><i class="fa-solid fa-cubes"></i> 14 UI Elements</a>
+        <button id="btnLang" class="btn btn-glass btn-sm" onclick="toggleLanguage()" title="ប្តូរភាសា / Switch Language">
+          <i class="fa-solid fa-globe"></i> <span id="langText">ភាសាខ្មែរ (KM)</span>
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="copyAllTokens()" data-i18n="btn_copy_tokens">
+          <i class="fa-solid fa-copy"></i> Copy CSS Tokens
         </button>
       </div>
     </nav>
     
     <!-- Header -->
     <header class="header">
-      <div class="badge-pill">
+      <div class="badge-pill" data-i18n="header_badge">
         <span class="badge-dot"></span>
         Solid Liquid Glass Design System
       </div>
-      <h1 class="title">
+      <h1 class="title" data-i18n="header_title">
         Real-Time <span class="solid-emerald">Design System Studio</span>
       </h1>
-      <p class="subtitle">
+      <p class="subtitle" data-i18n="header_subtitle">
         Interactive real-time learning environment for Solid Liquid Glass architecture. Master all 14 core UI components, 25 website patterns, and tactile sticker button physics with zero emojis and zero gradients.
       </p>
     </header>
 
     <!-- SECTION 1: SOLID COLOR TOKENS -->
     <section id="section-tokens" style="margin-bottom: 60px;">
-      <h2 class="section-title">
-        <i data-lucide="palette"></i> 1. Solid Color Tokens Registry
+      <h2 class="section-title" data-i18n="sec_1_title">
+        <i class="fa-solid fa-palette"></i> 1. Solid Color Tokens Registry
       </h2>
       
       <div class="palette-grid">
@@ -1002,13 +1312,13 @@
           </div>
         </div>
 
-        <!-- 7. Srievi Eager Green -->
-        <div class="color-card" onclick="copyVal('#58cc02', 'Srievi Eager Green')">
+        <!-- 7. Shiliaiwei Eager Green -->
+        <div class="color-card" onclick="copyVal('#58cc02', 'Shiliaiwei Eager Green')">
           <div class="swatch" style="background-color: #58cc02;">
             <span class="swatch-tag">#58cc02</span>
           </div>
           <div class="color-info">
-            <h3 class="color-name">Srievi Eager Green</h3>
+            <h3 class="color-name">Shiliaiwei Eager Green</h3>
             <p class="color-role">Progress badges, sticker CTA fills, and energetic status accents.</p>
             <div class="code-row">
               <span class="code-label">HEX</span>
@@ -1021,13 +1331,13 @@
           </div>
         </div>
 
-        <!-- 8. Srievi Spark Blue -->
-        <div class="color-card" onclick="copyVal('#1cb0f6', 'Srievi Spark Blue')">
+        <!-- 8. Shiliaiwei Spark Blue -->
+        <div class="color-card" onclick="copyVal('#1cb0f6', 'Shiliaiwei Spark Blue')">
           <div class="swatch" style="background-color: #1cb0f6;">
             <span class="swatch-tag">#1cb0f6</span>
           </div>
           <div class="color-info">
-            <h3 class="color-name">Srievi Spark Blue</h3>
+            <h3 class="color-name">Shiliaiwei Spark Blue</h3>
             <p class="color-role">Interactive secondary links, outlined tactile buttons, curiosity tags.</p>
             <div class="code-row">
               <span class="code-label">HEX</span>
@@ -1042,102 +1352,32 @@
       </div>
     </section>
 
-    <!-- SECTION 2: REAL-TIME TOKEN SANDBOX -->
-    <section id="section-sandbox" style="margin-bottom: 60px;">
-      <h2 class="section-title">
-        <i data-lucide="sliders"></i> 2. Real-Time Token Physics Sandbox
-      </h2>
-      
-      <div class="sandbox-card">
-        <div class="sandbox-layout">
-          
-          <!-- Controls -->
-          <div class="sandbox-controls">
-            <div class="sandbox-control-group">
-              <div class="sandbox-label">
-                <span>Backdrop Blur:</span>
-                <span id="valBlur" style="font-family: var(--font-mono); color: var(--primary);">16px</span>
-              </div>
-              <input type="range" class="sandbox-slider" id="sliderBlur" min="0" max="40" value="16" oninput="updateSandbox()">
-            </div>
-
-            <div class="sandbox-control-group">
-              <div class="sandbox-label">
-                <span>Glass Surface Opacity:</span>
-                <span id="valOpacity" style="font-family: var(--font-mono); color: var(--accent-cyan);">0.70</span>
-              </div>
-              <input type="range" class="sandbox-slider" id="sliderOpacity" min="0.2" max="0.95" step="0.05" value="0.70" oninput="updateSandbox()">
-            </div>
-
-            <div class="sandbox-control-group">
-              <div class="sandbox-label">
-                <span>Border Radius:</span>
-                <span id="valRadius" style="font-family: var(--font-mono); color: var(--color-eager-green);">18px</span>
-              </div>
-              <input type="range" class="sandbox-slider" id="sliderRadius" min="4" max="32" value="18" oninput="updateSandbox()">
-            </div>
-
-            <div class="sandbox-control-group">
-              <div class="sandbox-label">
-                <span>Tactile Sticker Depth:</span>
-                <span id="valDepth" style="font-family: var(--font-mono); color: var(--accent-crimson);">4px</span>
-              </div>
-              <input type="range" class="sandbox-slider" id="sliderDepth" min="0" max="8" value="4" oninput="updateSandbox()">
-            </div>
-          </div>
-
-          <!-- Live Target Box -->
-          <div id="sandboxBox" class="sandbox-target-box">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-              <span class="ui-badge badge-green"><i data-lucide="check-circle" size="12"></i> Real-Time Hydration</span>
-              <span style="font-size: 0.75rem; color: var(--text-dim);">Live Token Preview</span>
-            </div>
-            <h4 style="font-size: 1.1rem; font-weight: 700; color: var(--text-main);">
-              High-Concurrence PostgreSQL Engine
-            </h4>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">
-              Adjust the sliders to see glass specular reflections, blur diffusion, and tactile depth change live.
-            </p>
-            <div style="display: flex; gap: 8px;">
-              <button id="sandboxBtn" class="btn btn-eager btn-sm" style="flex: 1; justify-content: center;">
-                Tactile Action
-              </button>
-              <button class="btn btn-spark btn-sm" style="flex: 1; justify-content: center;">
-                Ghost Action
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: TACTILE PHYSICS & SPACING RULES -->
+    <!-- SECTION 2: TACTILE PHYSICS & SPACING RULES -->
     <section id="section-tactile" style="margin-bottom: 60px;">
-      <h2 class="section-title">
-        <i data-lucide="sparkles"></i> 3. Srievi Tactile UI & Spacing Standards
+      <h2 class="section-title" data-i18n="sec_2_title">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> 2. Shiliaiwei Tactile UI & Spacing Standards
       </h2>
 
       <div style="background-color: var(--bg-surface); border: 1px solid var(--border-glass); border-radius: var(--radius-xl); padding: 24px; backdrop-filter: blur(16px);">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
           
           <!-- Tactile Buttons Demo -->
-          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.06); box-shadow: inset 0 1px 0 #FFFFFF;">
+          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none;">
             <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 14px; letter-spacing: 0.053em;">
-              Sticker Tactile Buttons (12px Radius)
+              Sticker Tactile Buttons (9px Radius)
             </div>
             <div style="display: flex; flex-direction: column; gap: 12px;">
               <button class="btn btn-eager" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 12px 20px;">
-                <i data-lucide="play" size="16"></i> Get Started Free
+                <i class="fa-solid fa-play"></i> Get Started Free
               </button>
               <button class="btn btn-spark" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 10px 20px;">
-                <i data-lucide="user" size="16"></i> Already Have An Account
+                <i class="fa-solid fa-user"></i> Already Have An Account
               </button>
             </div>
           </div>
 
           <!-- Spacing & Typography Rules -->
-          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.06); box-shadow: inset 0 1px 0 #FFFFFF;">
+          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none;">
             <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.053em;">
               4px Spacing Unit & Tracking Rules
             </div>
@@ -1165,10 +1405,10 @@
       </div>
     </section>
 
-    <!-- SECTION 4: 14 CORE DESIGN SYSTEM UI ELEMENTS -->
+    <!-- SECTION 3: 14 CORE DESIGN SYSTEM UI ELEMENTS -->
     <section id="section-elements" style="margin-bottom: 60px;">
-      <h2 class="section-title">
-        <i data-lucide="component"></i> 4. 14 Core Design System UI Elements
+      <h2 class="section-title" data-i18n="sec_3_title">
+        <i class="fa-solid fa-cubes"></i> 3. 14 Core Design System UI Elements
       </h2>
 
       <div class="ds-grid">
@@ -1176,7 +1416,7 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="circle-dot"></i> Radio</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-circle-dot"></i> Radio</h3>
               <span class="comp-tag">Input</span>
             </div>
             <p class="comp-desc">Single-choice selection control with checked, unchecked, and disabled states.</p>
@@ -1196,15 +1436,10 @@
                 </label>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> 18px hit target with solid center dot</li>
-              <li class="checklist-item"><input type="checkbox" checked> Group name association</li>
-              <li class="checklist-item"><input type="checkbox" checked> Disabled & focus ring states</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Radio</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Radio Element', 'Copied Radio Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Radio Element', 'Copied Radio Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1212,26 +1447,21 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="search"></i> Searchbar</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-magnifying-glass"></i> Searchbar</h3>
               <span class="comp-tag">Navigation</span>
             </div>
             <p class="comp-desc">Dedicated query input with leading icon, clear action, and shortcut pill.</p>
             <div class="comp-preview-box">
               <div style="position: relative;">
-                <i data-lucide="search" size="16" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-dim);"></i>
+                <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-dim); font-size: 14px;"></i>
                 <input type="text" class="ui-input" value="Find API routes..." style="padding-left: 38px; padding-right: 64px; margin-bottom: 0;">
                 <span style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 0.7rem; background-color: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); color: var(--text-dim);">CMD+K</span>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Leading search lens icon</li>
-              <li class="checklist-item"><input type="checkbox" checked> Quick clear button</li>
-              <li class="checklist-item"><input type="checkbox" checked> Global hotkey indicator</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Searchbar</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Searchbar Element', 'Copied Searchbar Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Searchbar Element', 'Copied Searchbar Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1239,27 +1469,22 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="message-square"></i> Tooltip</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-message"></i> Tooltip</h3>
               <span class="comp-tag">Feedback</span>
             </div>
             <p class="comp-desc">Contextual floating micro-label appearing on hover or keyboard focus.</p>
             <div class="comp-preview-box" style="align-items: center; justify-content: center;">
               <div class="tooltip-wrap">
-                <button class="btn btn-glass btn-sm"><i data-lucide="info" size="14"></i> Hover for Tooltip</button>
+                <button class="btn btn-glass btn-sm"><i class="fa-solid fa-circle-info"></i> Hover for Tooltip</button>
                 <div class="tooltip-box">
                   Verified SSL Connection (256-Bit)
                 </div>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Dark solid background with 1px glass border</li>
-              <li class="checklist-item"><input type="checkbox" checked> Precise collision detection</li>
-              <li class="checklist-item"><input type="checkbox" checked> Non-blocking hover delay</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Tooltip</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Tooltip Element', 'Copied Tooltip Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Tooltip Element', 'Copied Tooltip Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1267,32 +1492,31 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="maximize-2"></i> Modal</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-window-restore"></i> Modal Overlay</h3>
               <span class="comp-tag">Overlay</span>
             </div>
-            <p class="comp-desc">Focused dialog overlay trapping focus for critical confirmations or workflows.</p>
-            <div class="comp-preview-box">
-              <div style="background-color: rgba(24, 32, 50, 0.95); border: 1px solid var(--border-glass); border-radius: 10px; padding: 14px;">
+            <p class="comp-desc">Focused dialog overlay trapping focus with frosted backdrop scrim for critical workflows.</p>
+            <div class="comp-preview-box" style="background-color: rgba(15, 23, 42, 0.45); backdrop-filter: blur(8px); padding: 14px; border-radius: 12px;">
+              <div style="background-color: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.12); border-top: 1px solid #FFFFFF; border-radius: 12px; padding: 14px; box-shadow: none;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                  <strong style="font-size: 0.88rem;">Confirm Database Deployment</strong>
-                  <i data-lucide="x" size="14" style="color: var(--text-dim); cursor: pointer;"></i>
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 0.88rem; font-weight: 700; color: var(--text-main);">
+                    <i class="fa-solid fa-shield-halved" style="color: var(--primary);"></i> Confirm System Update
+                  </div>
+                  <i class="fa-solid fa-xmark" style="color: var(--text-dim); cursor: pointer; font-size: 0.9rem;"></i>
                 </div>
-                <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px;">This will apply 14 pending SQL migrations.</p>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.4;">
+                  Apply 14 database schema migrations to production cluster?
+                </p>
                 <div style="display: flex; justify-content: flex-end; gap: 8px;">
-                  <button class="btn btn-glass btn-sm" style="padding: 4px 10px; font-size: 0.75rem;">Cancel</button>
-                  <button class="btn btn-primary btn-sm" style="padding: 4px 10px; font-size: 0.75rem;">Confirm</button>
+                  <button class="btn btn-glass btn-sm"><i class="fa-solid fa-ban"></i> Cancel</button>
+                  <button class="btn btn-primary btn-sm"><i class="fa-solid fa-check"></i> Confirm</button>
                 </div>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Backdrop blur container</li>
-              <li class="checklist-item"><input type="checkbox" checked> ESC key & click-outside close</li>
-              <li class="checklist-item"><input type="checkbox" checked> Primary & destructive button pairing</li>
-            </ul>
           </div>
           <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Modal</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Modal Element', 'Copied Modal Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Modal Overlay</span>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Modal Overlay Element', 'Copied Modal Overlay Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1300,7 +1524,7 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="loader"></i> Loading</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-spinner fa-spin"></i> Loading</h3>
               <span class="comp-tag">Feedback</span>
             </div>
             <p class="comp-desc">Spinners, skeleton shimmer lines, and linear progress meters.</p>
@@ -1314,15 +1538,10 @@
                 <div class="skeleton-line" style="width: 70%;"></div>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> CSS border-top spinner (no gif)</li>
-              <li class="checklist-item"><input type="checkbox" checked> Skeleton pulse layout match</li>
-              <li class="checklist-item"><input type="checkbox" checked> Accessible loading ARIA tags</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Loading</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Loading Element', 'Copied Loading Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Loading Element', 'Copied Loading Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1330,7 +1549,7 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="toggle-left"></i> Toggle Switch</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-toggle-on"></i> Toggle Switch</h3>
               <span class="comp-tag">Input</span>
             </div>
             <p class="comp-desc">Instant binary switch for toggling settings, dark mode, or preferences.</p>
@@ -1356,15 +1575,10 @@
                 </label>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> 44x24px standardized switch footprint</li>
-              <li class="checklist-item"><input type="checkbox" checked> Emerald active indicator state</li>
-              <li class="checklist-item"><input type="checkbox" checked> Keyboard spacebar toggleable</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Toggle</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Toggle Element', 'Copied Toggle Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Toggle Element', 'Copied Toggle Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1372,24 +1586,19 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="type"></i> Input Field</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-font"></i> Input Field</h3>
               <span class="comp-tag">Input</span>
             </div>
             <p class="comp-desc">Single-line text input with label, placeholder, helper text, and error validation.</p>
             <div class="comp-preview-box">
               <label style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; font-weight: 700; display: block; margin-bottom: 4px;">Developer Email</label>
-              <input type="email" class="ui-input" value="srievi@dev.kh" style="border-color: var(--primary); margin-bottom: 4px;">
-              <span style="font-size: 0.72rem; color: var(--primary-light);"><i data-lucide="check" size="12"></i> Email format verified</span>
+              <input type="email" class="ui-input" value="shiliaiwei@dev.kh" style="border-color: var(--primary); margin-bottom: 4px;">
+              <span style="font-size: 0.72rem; color: var(--primary-light);"><i class="fa-solid fa-check"></i> Email format verified</span>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Clear persistent label</li>
-              <li class="checklist-item"><input type="checkbox" checked> Focus ring with emerald token</li>
-              <li class="checklist-item"><input type="checkbox" checked> Inline validation error / success feedback</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Input Field</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Input Field Element', 'Copied Input Field Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Input Field Element', 'Copied Input Field Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1397,28 +1606,23 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="smile"></i> Icon</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-icons" style="color: var(--primary);"></i> Icon</h3>
               <span class="comp-tag">Visual</span>
             </div>
-            <p class="comp-desc">Crisp vector icons (Lucide / SVG) across standardized sizing & color tokens.</p>
+            <p class="comp-desc">Font Awesome 6 (Primary) & Google Icons (Material Symbols) vector library integration.</p>
             <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-around; align-items: center;">
-                <i data-lucide="cpu" size="16" style="color: var(--accent-cyan);"></i>
-                <i data-lucide="database" size="20" style="color: var(--primary);"></i>
-                <i data-lucide="zap" size="24" style="color: var(--color-eager-green);"></i>
-                <i data-lucide="flame" size="28" style="color: var(--accent-crimson);"></i>
-                <i data-lucide="shield" size="32" style="color: var(--color-spark-blue);"></i>
+              <div style="display: flex; justify-content: space-around; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-microchip" style="font-size: 16px; color: var(--accent-cyan);" title="Font Awesome 16px"></i>
+                <i class="fa-solid fa-database" style="font-size: 20px; color: var(--primary);" title="Font Awesome 20px"></i>
+                <i class="fa-solid fa-bolt" style="font-size: 24px; color: var(--color-eager-green);" title="Font Awesome 24px"></i>
+                <span class="material-symbols-outlined" style="font-size: 24px; color: var(--accent-crimson);" title="Google Icons (Material Symbols)">terminal</span>
+                <i class="fa-solid fa-shield-halved" style="font-size: 30px; color: var(--color-spark-blue);" title="Font Awesome 30px"></i>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> SVG vector icons exclusively (zero emojis)</li>
-              <li class="checklist-item"><input type="checkbox" checked> Standard sizes: 16px, 20px, 24px, 32px</li>
-              <li class="checklist-item"><input type="checkbox" checked> Palette token color alignment</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Icon</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Icon Element', 'Copied Icon Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Icon Element', 'Copied Icon Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1426,7 +1630,7 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="table"></i> Table</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-table"></i> Table</h3>
               <span class="comp-tag">Data</span>
             </div>
             <p class="comp-desc">Structured relational data presentation with headers, status chips, and actions.</p>
@@ -1442,55 +1646,53 @@
                 <tbody>
                   <tr>
                     <td>POS Sync</td>
-                    <td><span class="ui-badge badge-green">Active</span></td>
+                    <td><span class="ui-badge badge-green"><i class="fa-solid fa-circle-check"></i> Active</span></td>
                     <td>18ms</td>
                   </tr>
                   <tr>
                     <td>Auth API</td>
-                    <td><span class="ui-badge badge-cyan">Ready</span></td>
+                    <td><span class="ui-badge badge-cyan"><i class="fa-solid fa-circle-info"></i> Ready</span></td>
                     <td>24ms</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> High-contrast sticky header row</li>
-              <li class="checklist-item"><input type="checkbox" checked> Row hover highlight</li>
-              <li class="checklist-item"><input type="checkbox" checked> Aligned numeric & status columns</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Table</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Table Element', 'Copied Table Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Table Element', 'Copied Table Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
-        <!-- 10. Card -->
+        <!-- 10. Card Container -->
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="square"></i> Card</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-layer-group"></i> Card Container</h3>
               <span class="comp-tag">Container</span>
             </div>
             <p class="comp-desc">Liquid glass content container with 16px blur, specular edge, and internal padding.</p>
-            <div class="comp-preview-box">
-              <div style="background-color: rgba(18, 24, 38, 0.7); border: 1px solid var(--border-glass); border-radius: 12px; padding: 12px;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-                  <strong style="font-size: 0.85rem;">PostgreSQL Architecture</strong>
-                  <span class="ui-badge badge-green">v16.2</span>
+            <div class="comp-preview-box" style="padding: 12px; background-color: var(--bg-inner-glass); border-radius: 14px; border: 1px solid rgba(0,0,0,0.08);">
+              <div style="background-color: #FFFFFF; border: 1px solid rgba(0, 0, 0, 0.10); border-top: 1px solid #FFFFFF; border-radius: 12px; padding: 14px; backdrop-filter: blur(16px) saturate(180%); -webkit-backdrop-filter: blur(16px); box-shadow: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <div style="display: flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 700; color: var(--text-main);">
+                    <i class="fa-solid fa-server" style="color: var(--primary);"></i> PostgreSQL Cluster Alpha
+                  </div>
+                  <span class="ui-badge badge-green"><i class="fa-solid fa-circle-check"></i> Healthy</span>
                 </div>
-                <p style="font-size: 0.78rem; color: var(--text-muted);">Relational schema with zero-loss ACID transactions.</p>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 12px; line-height: 1.45;">
+                  High-availability relational database cluster with zero-loss ACID replication and automatic failover.
+                </p>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 8px; border-top: 1px solid #F1F5F9;">
+                  <span style="font-size: 0.72rem; color: var(--text-dim); font-family: var(--font-mono);"><i class="fa-solid fa-bolt text-emerald"></i> 12ms Latency</span>
+                  <button class="btn btn-glass btn-sm" style="padding: 4px 10px; font-size: 0.72rem;"><i class="fa-solid fa-arrow-up-right-from-square"></i> Inspect</button>
+                </div>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> 16px backdrop-filter glass blur</li>
-              <li class="checklist-item"><input type="checkbox" checked> Specular top/edge reflection border</li>
-              <li class="checklist-item"><input type="checkbox" checked> Hover elevation & border glow</li>
-            </ul>
           </div>
           <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Card</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Card Element', 'Copied Card Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Card Container</span>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Card Container Element', 'Copied Card Container Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1498,27 +1700,22 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="mouse-pointer-click"></i> Button</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-hand-pointer"></i> Button</h3>
               <span class="comp-tag">Action</span>
             </div>
-            <p class="comp-desc">Primary CTA, Srievi tactile sticker, spark ghost outline, and glass buttons.</p>
+            <p class="comp-desc">Primary CTA, Shiliaiwei tactile sticker, spark ghost outline, and glass buttons.</p>
             <div class="comp-preview-box">
               <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                <button class="btn btn-primary btn-sm">Primary</button>
-                <button class="btn btn-eager btn-sm">Sticker</button>
-                <button class="btn btn-spark btn-sm">Outline</button>
-                <button class="btn btn-glass btn-sm">Glass</button>
+                <button class="btn btn-primary btn-sm"><i class="fa-solid fa-bolt"></i> Primary</button>
+                <button class="btn btn-eager btn-sm"><i class="fa-solid fa-play"></i> Sticker</button>
+                <button class="btn btn-spark btn-sm"><i class="fa-solid fa-arrow-right"></i> Outline</button>
+                <button class="btn btn-glass btn-sm"><i class="fa-solid fa-cube"></i> Glass</button>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> 12px border radius standard</li>
-              <li class="checklist-item"><input type="checkbox" checked> Active press & hover transforms</li>
-              <li class="checklist-item"><input type="checkbox" checked> Sizing: sm (32px), md (40px), lg (48px)</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Button</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Button Element', 'Copied Button Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Button Element', 'Copied Button Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1526,27 +1723,22 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="tag"></i> Badge</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-tag"></i> Badge</h3>
               <span class="comp-tag">Indicator</span>
             </div>
             <p class="comp-desc">Compact status pill with color semantics, dot indicators, and count numbers.</p>
             <div class="comp-preview-box">
               <div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">
-                <span class="ui-badge badge-green"><i data-lucide="check-circle" size="12"></i> Online</span>
-                <span class="ui-badge badge-cyan">New Release</span>
-                <span class="ui-badge badge-crimson"><i data-lucide="alert-circle" size="12"></i> Critical</span>
+                <span class="ui-badge badge-green"><i class="fa-solid fa-circle-check"></i> Online</span>
+                <span class="ui-badge badge-cyan"><i class="fa-solid fa-sparkles"></i> New Release</span>
+                <span class="ui-badge badge-crimson"><i class="fa-solid fa-triangle-exclamation"></i> Critical</span>
                 <span class="badge-pill" style="margin-bottom: 0; padding: 3px 8px; font-size: 0.7rem;"><span class="badge-dot"></span> Live</span>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Semantic color tokens (green, cyan, crimson)</li>
-              <li class="checklist-item"><input type="checkbox" checked> Pill radius (9999px) and chip radius (6px)</li>
-              <li class="checklist-item"><input type="checkbox" checked> Pulsing live status dot</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Badge</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Badge Element', 'Copied Badge Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Badge Element', 'Copied Badge Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1554,35 +1746,54 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="user-check"></i> Avatar</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-user-check"></i> Avatar & Identity</h3>
               <span class="comp-tag">Identity</span>
             </div>
             <p class="comp-desc">User photo, initials fallback, active status dot, and stacked team group.</p>
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; align-items: center;">
-                <!-- Single with Status -->
-                <div style="position: relative; width: 40px; height: 40px; border-radius: 50%; background-color: var(--primary); color: #052E16; display: flex; align-items: center; justify-content: center; font-weight: 800;">
-                  SV
-                  <span style="position: absolute; bottom: 0; right: 0; width: 10px; height: 10px; border-radius: 50%; background-color: #10B981; border: 2px solid #080B11;"></span>
+            <div class="comp-preview-box" style="padding: 14px; background-color: var(--bg-inner-glass); border-radius: 14px; border: 1px solid rgba(0,0,0,0.08);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <!-- 1. Real User Photo Avatar with Active Status Dot -->
+                <div class="avatar-wrap" title="Shiliaiwei Profile Photo">
+                  <div class="avatar-item" style="overflow: hidden; background-color: #F1F5F9;">
+                    <img src="https://github.com/shiliaiwei.png" alt="Shiliaiwei" class="avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <span style="display: none; width: 100%; height: 100%; align-items: center; justify-content: center; background-color: var(--primary); color: #FFFFFF;">SL</span>
+                  </div>
+                  <span class="avatar-status-dot"></span>
                 </div>
-                <!-- Stack -->
-                <div class="avatar-stack">
-                  <div class="avatar-stack-item" style="background-color: var(--primary);">SV</div>
-                  <div class="avatar-stack-item" style="background-color: var(--accent-cyan);">AK</div>
+                
+                <!-- 2. Initials Fallback Avatar -->
+                <div class="avatar-wrap" title="Initials Fallback (Kosal Chan)">
+                  <div class="avatar-item" style="background-color: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0;">
+                    KC
+                  </div>
+                </div>
+
+                <!-- 3. Spark Outlined Avatar -->
+                <div class="avatar-wrap" title="Spark Blue Identity">
+                  <div class="avatar-item" style="background-color: #F0F9FF; color: #0284C7; border: 2px solid #BAE6FD;">
+                    SL
+                  </div>
+                </div>
+
+                <!-- 4. Overlapping Team Stack with Photo + Initials + Count -->
+                <div class="avatar-stack" title="Team Stack">
+                  <div class="avatar-stack-item" style="overflow: hidden; background-color: #F1F5F9;">
+                    <img src="https://github.com/shiliaiwei.png" alt="Shiliaiwei" class="avatar-img" onerror="this.parentElement.textContent='SL'">
+                  </div>
+                  <div class="avatar-stack-item" style="background-color: var(--accent-cyan);">KC</div>
                   <div class="avatar-stack-item" style="background-color: var(--color-eager-green);">DL</div>
-                  <div class="avatar-stack-item" style="background-color: rgba(255,255,255,0.1); color: var(--text-main);">+4</div>
+                  <div class="avatar-stack-item" style="background-color: #F1F5F9; color: var(--text-main); font-weight: 700;">+5</div>
                 </div>
               </div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; padding-top: 6px; border-top: 1px solid #F1F5F9;">
+                <span><i class="fa-solid fa-circle text-emerald" style="font-size: 8px;"></i> Shiliaiwei (Lead)</span>
+                <span style="color: var(--text-dim);">5 Engineers Online</span>
+              </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> 2-letter fallback initials</li>
-              <li class="checklist-item"><input type="checkbox" checked> Online/Busy presence badge</li>
-              <li class="checklist-item"><input type="checkbox" checked> Overlapping stack with -10px margin</li>
-            </ul>
           </div>
           <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Avatar</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Avatar Element', 'Copied Avatar Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Avatar Identity</span>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Avatar Identity Element', 'Copied Avatar Identity Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
@@ -1590,928 +1801,58 @@
         <div class="comp-card">
           <div>
             <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="menu"></i> Dropdown Menu</h3>
+              <h3 class="comp-title"><i class="fa-solid fa-list-ul"></i> Dropdown Menu</h3>
               <span class="comp-tag">Navigation</span>
             </div>
             <p class="comp-desc">Floating selection panel with menu items, separators, icons, and shortcuts.</p>
-            <div class="comp-preview-box">
+            <div class="comp-preview-box" style="padding: 12px; background-color: var(--bg-inner-glass); border-radius: 14px; border: 1px solid rgba(0,0,0,0.08);">
               <div class="dropdown-box">
-                <div class="dropdown-item">
-                  <span style="display: flex; align-items: center; gap: 6px;"><i data-lucide="file-code" size="14"></i> Export SQL Schema</span>
-                  <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim);">CMD+E</span>
+                <div class="dropdown-header-label">Quick Actions</div>
+                
+                <div class="dropdown-item active">
+                  <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-file-export" style="color: var(--primary);"></i> Export SQL Schema</span>
+                  <span class="kbd-badge">CMD+E</span>
                 </div>
+                
                 <div class="dropdown-item">
-                  <span style="display: flex; align-items: center; gap: 6px;"><i data-lucide="copy" size="14"></i> Copy Tokens</span>
-                  <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-dim);">CMD+C</span>
+                  <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-copy" style="color: var(--accent-cyan);"></i> Copy Palette Tokens</span>
+                  <span class="kbd-badge">CMD+C</span>
+                </div>
+
+                <div class="dropdown-item">
+                  <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-sliders" style="color: var(--text-dim);"></i> Workspace Config</span>
+                  <span class="kbd-badge">CMD+,</span>
+                </div>
+
+                <div class="dropdown-divider"></div>
+
+                <div class="dropdown-item danger">
+                  <span style="display: flex; align-items: center; gap: 8px;"><i class="fa-solid fa-trash-can"></i> Purge Build Cache</span>
+                  <span class="kbd-badge" style="color: var(--accent-crimson); border-color: #FECDD3;">DEL</span>
                 </div>
               </div>
             </div>
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Liquid glass dropdown surface</li>
-              <li class="checklist-item"><input type="checkbox" checked> Keyboard arrow navigation</li>
-              <li class="checklist-item"><input type="checkbox" checked> Keyboard shortcut indicators</li>
-            </ul>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Dropdown Menu</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Dropdown Element', 'Copied Dropdown Code')"><i data-lucide="code" size="14"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Dropdown Element', 'Copied Dropdown Code')"><i class="fa-solid fa-code"></i> Copy</button>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- SECTION 5: 25 WEBSITE CONCEPTS & CHECKLIST SUITE -->
-    <section id="section-concepts" class="suite-section">
-      <h2 class="section-title">
-        <i data-lucide="layers"></i> 5. 25 Website Concepts & Component Suite
-      </h2>
 
-      <!-- Controls -->
-      <div class="suite-controls">
-        <div class="search-input-wrap">
-          <i data-lucide="search" size="18"></i>
-          <input type="text" id="suiteSearch" class="search-input" placeholder="Search across 25 website components (e.g., Blog, Security, Pricing, Cart, FAQ, Login)..." oninput="filterComponents()">
-        </div>
-
-        <div class="filter-tabs">
-          <button class="filter-btn active" onclick="setFilter('all', this)">All (25)</button>
-          <button class="filter-btn" onclick="setFilter('conversion', this)">Marketing & Conversion (8)</button>
-          <button class="filter-btn" onclick="setFilter('product', this)">Product & E-Commerce (5)</button>
-          <button class="filter-btn" onclick="setFilter('company', this)">Company & Brand (5)</button>
-          <button class="filter-btn" onclick="setFilter('utility', this)">Content & Utility (7)</button>
-        </div>
-      </div>
-
-      <!-- 25 Components Grid -->
-      <div class="components-grid" id="componentsGrid">
-
-        <!-- 1. Security -->
-        <div class="comp-card" data-cat="utility" data-name="security">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="shield-check"></i> Security</h3>
-              <span class="comp-tag">Utility</span>
-            </div>
-            <p class="comp-desc">Security posture, vulnerability disclosure, compliance standards, and bug bounty.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <span class="ui-badge badge-green"><i data-lucide="lock" size="12"></i> 256-Bit SSL Encrypted</span>
-                <span class="ui-badge badge-cyan">SOC2 Certified</span>
-              </div>
-              <div style="background-color: rgba(255,255,255,0.03); padding: 10px; border-radius: 8px; font-size: 0.8rem; margin-bottom: 10px;">
-                <strong style="color: var(--primary);">Vulnerability Disclosure:</strong> Responsible reporting with guaranteed 24h SLA.
-              </div>
-              <button class="btn btn-glass btn-sm" style="width: 100%;"><i data-lucide="download"></i> Download Audit Report</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Compliance certifications</li>
-              <li class="checklist-item"><input type="checkbox" checked> Bug bounty & disclosure terms</li>
-              <li class="checklist-item"><input type="checkbox" checked> Incident response protocol</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Security Center</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Security Component', 'Copied Security Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 2. Event Page -->
-        <div class="comp-card" data-cat="conversion" data-name="event page">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="calendar"></i> Event Page</h3>
-              <span class="comp-tag">Marketing</span>
-            </div>
-            <p class="comp-desc">Tech conference schedule, speaker cards, venue details, and registration passes.</p>
-            
-            <div class="comp-preview-box">
-              <div style="font-size: 0.8rem; color: var(--accent-cyan); font-weight: 700; margin-bottom: 4px;">SEPTEMBER 15, 2026</div>
-              <div style="font-size: 1.05rem; font-weight: 700; margin-bottom: 8px;">Global Developer Summit 2026</div>
-              <div style="display: flex; gap: 6px; margin-bottom: 12px;">
-                <span class="ui-badge badge-green">Keynote</span>
-                <span class="ui-badge badge-cyan">30+ Speakers</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="width: 100%;"><i data-lucide="ticket"></i> Reserve VIP Pass</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Date, venue, and live stream link</li>
-              <li class="checklist-item"><input type="checkbox" checked> Speaker headshots and session agenda</li>
-              <li class="checklist-item"><input type="checkbox" checked> Tiered ticketing options</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Conference / Meetup</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Event Component', 'Copied Event Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 3. About -->
-        <div class="comp-card" data-cat="company" data-name="about">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="user"></i> About</h3>
-              <span class="comp-tag">Company</span>
-            </div>
-            <p class="comp-desc">Origin story, engineering principles, mission statement, and core milestones.</p>
-            
-            <div class="comp-preview-box">
-              <div style="font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; color: var(--text-main);">Building Resilient Software</div>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">
-                Crafting robust web architectures and database systems with extreme craftsmanship.
-              </p>
-              <div style="display: flex; gap: 8px;">
-                <span class="ui-badge badge-green">5+ Years CS Experience</span>
-                <span class="ui-badge badge-cyan">Cambodia</span>
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Clear mission and story</li>
-              <li class="checklist-item"><input type="checkbox" checked> Visual milestones timeline</li>
-              <li class="checklist-item"><input type="checkbox" checked> Core tech stack highlights</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Bio & Mission</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('About Component', 'Copied About Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 4. Privacy / Legal -->
-        <div class="comp-card" data-cat="utility" data-name="privacy legal">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="file-text"></i> Privacy & Legal</h3>
-              <span class="comp-tag">Utility</span>
-            </div>
-            <p class="comp-desc">GDPR compliance, data retention terms, cookie policies, and user rights.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.8rem; color: var(--text-dim);">
-                <span>Effective Date: 2026-08-30</span>
-                <span class="ui-badge badge-green">GDPR Ready</span>
-              </div>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 10px;">
-                We respect your personal data. We never sell user data or deploy tracking scripts without consent.
-              </p>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
-                <span>Analytics Cookies</span>
-                <span class="ui-badge badge-cyan">Opt-In Only</span>
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Table of contents navigation</li>
-              <li class="checklist-item"><input type="checkbox" checked> Plain-English summary headers</li>
-              <li class="checklist-item"><input type="checkbox" checked> Data request & deletion form</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Legal Hub</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Privacy Component', 'Copied Privacy Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 5. Features -->
-        <div class="comp-card" data-cat="conversion" data-name="features">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="cpu"></i> Features</h3>
-              <span class="comp-tag">Marketing</span>
-            </div>
-            <p class="comp-desc">Bento grid layout, technical capability breakdowns, and performance benchmarks.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
-                <div style="background-color: rgba(255,255,255,0.03); padding: 8px; border-radius: 6px;">
-                  <i data-lucide="zap" size="14" style="color: var(--primary);"></i>
-                  <div style="font-size: 0.8rem; font-weight: 700; margin-top: 4px;">Zero Latency</div>
-                </div>
-                <div style="background-color: rgba(255,255,255,0.03); padding: 8px; border-radius: 6px;">
-                  <i data-lucide="database" size="14" style="color: var(--accent-cyan);"></i>
-                  <div style="font-size: 0.8rem; font-weight: 700; margin-top: 4px;">ACID SQL</div>
-                </div>
-              </div>
-              <div style="font-size: 0.8rem; color: var(--text-dim);">Live throughput: 100,000 req/sec</div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Bento card visual hierarchy</li>
-              <li class="checklist-item"><input type="checkbox" checked> Interactive feature demonstration</li>
-              <li class="checklist-item"><input type="checkbox" checked> Concrete performance metrics</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Bento Feature Matrix</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Features Component', 'Copied Features Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 6. Testimonials -->
-        <div class="comp-card" data-cat="conversion" data-name="testimonials">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="message-square"></i> Testimonials</h3>
-              <span class="comp-tag">Marketing</span>
-            </div>
-            <p class="comp-desc">Verified peer reviews, partner endorsements, rating metrics, and case quotes.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; gap: 4px; margin-bottom: 8px; color: var(--primary);">
-                <i data-lucide="star" size="14"></i>
-                <i data-lucide="star" size="14"></i>
-                <i data-lucide="star" size="14"></i>
-                <i data-lucide="star" size="14"></i>
-                <i data-lucide="star" size="14"></i>
-              </div>
-              <p style="font-size: 0.84rem; color: var(--text-main); font-style: italic; margin-bottom: 10px;">
-                "Srievi delivered our core database architecture ahead of schedule with zero downtime."
-              </p>
-              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; color: var(--text-dim);">
-                <span>Tech Lead, Phnom Penh</span>
-                <span class="ui-badge badge-green">Verified</span>
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Reviewer name, role, and organization</li>
-              <li class="checklist-item"><input type="checkbox" checked> Quantitative outcome metrics</li>
-              <li class="checklist-item"><input type="checkbox" checked> Verified badge indicator</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Social Proof Grid</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Testimonials Component', 'Copied Testimonials Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 7. Affiliate -->
-        <div class="comp-card" data-cat="conversion" data-name="affiliate">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="share-2"></i> Affiliate</h3>
-              <span class="comp-tag">Marketing</span>
-            </div>
-            <p class="comp-desc">Commission structure, referral link generator, payout frequency, and partner kit.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <span style="font-size: 0.85rem; font-weight: 700;">30% Recurring Commission</span>
-                <span class="ui-badge badge-green">Monthly Payout</span>
-              </div>
-              <input type="text" class="ui-input" value="https://srievi.dev/ref?id=partner_2026" readonly>
-              <button class="btn btn-primary btn-sm" style="width: 100%;"><i data-lucide="copy"></i> Copy Referral Link</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Transparent commission tier table</li>
-              <li class="checklist-item"><input type="checkbox" checked> Real-time earnings calculator</li>
-              <li class="checklist-item"><input type="checkbox" checked> Marketing banner pack downloads</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Partner Hub</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Affiliate Component', 'Copied Affiliate Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 8. Coming Soon -->
-        <div class="comp-card" data-cat="conversion" data-name="coming soon">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="clock"></i> Coming Soon</h3>
-              <span class="comp-tag">Marketing</span>
-            </div>
-            <p class="comp-desc">Pre-launch teaser, live countdown timer, and early access email capture form.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 12px; text-align: center;">
-                <div style="background-color: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px;">
-                  <strong style="font-size: 1.1rem; color: var(--primary);">14</strong>
-                  <div style="font-size: 0.65rem; color: var(--text-dim);">DAYS</div>
-                </div>
-                <div style="background-color: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px;">
-                  <strong style="font-size: 1.1rem; color: var(--accent-cyan);">08</strong>
-                  <div style="font-size: 0.65rem; color: var(--text-dim);">HOURS</div>
-                </div>
-                <div style="background-color: rgba(255,255,255,0.05); padding: 6px 12px; border-radius: 6px;">
-                  <strong style="font-size: 1.1rem; color: var(--primary-light);">45</strong>
-                  <div style="font-size: 0.65rem; color: var(--text-dim);">MINS</div>
-                </div>
-              </div>
-              <input type="email" class="ui-input" placeholder="developer@domain.com">
-              <button class="btn btn-primary btn-sm" style="width: 100%;">Notify Me on Launch</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Animated countdown timer</li>
-              <li class="checklist-item"><input type="checkbox" checked> Single-field email capture</li>
-              <li class="checklist-item"><input type="checkbox" checked> Value proposition teaser</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Pre-Launch Teaser</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Coming Soon Component', 'Copied Coming Soon Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 9. Compare -->
-        <div class="comp-card" data-cat="conversion" data-name="compare">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="columns"></i> Compare</h3>
-              <span class="comp-tag">Marketing</span>
-            </div>
-            <p class="comp-desc">Side-by-side feature comparison table with competitor differentiators.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; font-size: 0.8rem; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 6px;">
-                <span style="color: var(--text-dim);">Feature</span>
-                <span style="font-weight: 700; color: var(--primary);">Our App</span>
-                <span style="color: var(--text-dim);">Others</span>
-              </div>
-              <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; font-size: 0.78rem; margin-bottom: 6px;">
-                <span>SQL Transactions</span>
-                <i data-lucide="check" size="14" style="color: var(--primary);"></i>
-                <i data-lucide="x" size="14" style="color: var(--accent-crimson);"></i>
-              </div>
-              <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; font-size: 0.78rem;">
-                <span>Zero Latency Sync</span>
-                <i data-lucide="check" size="14" style="color: var(--primary);"></i>
-                <i data-lucide="x" size="14" style="color: var(--accent-crimson);"></i>
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Clear side-by-side table rows</li>
-              <li class="checklist-item"><input type="checkbox" checked> Competitor objection handling</li>
-              <li class="checklist-item"><input type="checkbox" checked> Highlighted winning features</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Feature Comparison</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Compare Component', 'Copied Compare Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 10. Status -->
-        <div class="comp-card" data-cat="product" data-name="status">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="activity"></i> Status</h3>
-              <span class="comp-tag">Product</span>
-            </div>
-            <p class="comp-desc">Live system uptime 99.99%, API latency metrics, and incident history log.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                <span class="ui-badge badge-green"><i data-lucide="check-circle" size="12"></i> All Systems Operational</span>
-                <span style="font-size: 0.75rem; color: var(--text-dim);">99.99% Uptime</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 6px;">
-                <span>REST API Endpoint</span>
-                <span style="color: var(--primary);">28ms</span>
-              </div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
-                <span>Database Cluster</span>
-                <span style="color: var(--primary);">Operational</span>
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> System uptime indicators</li>
-              <li class="checklist-item"><input type="checkbox" checked> Regional server response times</li>
-              <li class="checklist-item"><input type="checkbox" checked> Incident subscribe notifications</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Infrastructure Status</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Status Component', 'Copied Status Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 11. Billing -->
-        <div class="comp-card" data-cat="product" data-name="billing">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="credit-card"></i> Billing</h3>
-              <span class="comp-tag">Product</span>
-            </div>
-            <p class="comp-desc">Payment method manager, subscription tier details, invoice download history.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                <span style="font-weight: 700; font-size: 0.9rem;">Pro Developer Plan</span>
-                <span class="ui-badge badge-green">$29/mo</span>
-              </div>
-              <div style="background-color: rgba(255,255,255,0.03); padding: 8px; border-radius: 6px; font-size: 0.8rem; display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <span>Next invoice: Sept 30, 2026</span>
-                <a href="#" style="color: var(--accent-cyan); text-decoration: none;">Download PDF</a>
-              </div>
-              <button class="btn btn-glass btn-sm" style="width: 100%;"><i data-lucide="settings"></i> Manage Payment Method</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Card ending & expiry display</li>
-              <li class="checklist-item"><input type="checkbox" checked> Clear renewal date notice</li>
-              <li class="checklist-item"><input type="checkbox" checked> One-click PDF invoice export</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Account Billing</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Billing Component', 'Copied Billing Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 12. Landing Page -->
-        <div class="comp-card" data-cat="conversion" data-name="landing page">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="layout"></i> Landing Page</h3>
-              <span class="comp-tag">Marketing</span>
-            </div>
-            <p class="comp-desc">High-impact hero section, social proof logos, value proposition, and primary CTA.</p>
-            
-            <div class="comp-preview-box">
-              <div class="ui-badge badge-green" style="margin-bottom: 8px;">Full-Stack Portfolio v2</div>
-              <h4 style="font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; color: var(--text-main);">
-                Engineered for Modern Web Speed
-              </h4>
-              <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
-                Obsidian dark theme, solid emerald accents, and zero third-party bloat.
-              </p>
-              <div style="display: flex; gap: 8px;">
-                <button class="btn btn-primary btn-sm">Explore Code</button>
-                <button class="btn btn-glass btn-sm">Read Docs</button>
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Clear H1 headline & benefit subtitle</li>
-              <li class="checklist-item"><input type="checkbox" checked> Dual call-to-action buttons</li>
-              <li class="checklist-item"><input type="checkbox" checked> Social proof customer logos</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Hero Section</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Landing Component', 'Copied Landing Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 13. Waitlist -->
-        <div class="comp-card" data-cat="conversion" data-name="waitlist">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="user-plus"></i> Waitlist</h3>
-              <span class="comp-tag">Marketing</span>
-            </div>
-            <p class="comp-desc">Priority queue position counter, referral incentive boost, and instant email signup.</p>
-            
-            <div class="comp-preview-box">
-              <div style="text-align: center; margin-bottom: 10px;">
-                <span class="ui-badge badge-green">You are #142 in line</span>
-              </div>
-              <p style="font-size: 0.82rem; color: var(--text-muted); text-align: center; margin-bottom: 12px;">
-                Invite 3 fellow developers to skip the queue and get instant Beta access.
-              </p>
-              <input type="email" class="ui-input" placeholder="Enter work email">
-              <button class="btn btn-primary btn-sm" style="width: 100%;">Join Priority Queue</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Live position counter</li>
-              <li class="checklist-item"><input type="checkbox" checked> Viral referral link generator</li>
-              <li class="checklist-item"><input type="checkbox" checked> Spam-free verification email</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Early Access Queue</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Waitlist Component', 'Copied Waitlist Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 14. Press / Media -->
-        <div class="comp-card" data-cat="company" data-name="press media">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="newspaper"></i> Press / Media</h3>
-              <span class="comp-tag">Company</span>
-            </div>
-            <p class="comp-desc">Official brand asset kit, vector logos, executive headshots, and press releases.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <span style="font-size: 0.88rem; font-weight: 700;">Media Kit & Brand Kit 2026</span>
-                <span class="ui-badge badge-cyan">ZIP (4.2 MB)</span>
-              </div>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">
-                Includes official vector SVGs, color specifications, and product screenshots.
-              </p>
-              <button class="btn btn-glass btn-sm" style="width: 100%;"><i data-lucide="download"></i> Download Media Kit</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> High-resolution logo downloads</li>
-              <li class="checklist-item"><input type="checkbox" checked> Approved boilerplate company text</li>
-              <li class="checklist-item"><input type="checkbox" checked> Direct PR media contact line</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Press Kit</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Press Component', 'Copied Press Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 15. Team -->
-        <div class="comp-card" data-cat="company" data-name="team">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="users"></i> Team</h3>
-              <span class="comp-tag">Company</span>
-            </div>
-            <p class="comp-desc">Engineer profiles, technical roles, GitHub / LinkedIn links, and departmental tags.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; gap: 12px; align-items: center;">
-                <div style="width: 44px; height: 44px; border-radius: 50%; background-color: var(--primary); color: #052E16; display: flex; align-items: center; justify-content: center; font-weight: 800;">
-                  SV
-                </div>
-                <div>
-                  <div style="font-size: 0.95rem; font-weight: 700;">វី (Srievi)</div>
-                  <div style="font-size: 0.78rem; color: var(--primary-light);">Lead Full-Stack Architect</div>
-                </div>
-              </div>
-              <div style="margin-top: 12px; display: flex; gap: 6px;">
-                <span class="ui-badge badge-green">Laravel</span>
-                <span class="ui-badge badge-cyan">MySQL</span>
-                <span class="ui-badge badge-green">React</span>
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Member photo, role, and location</li>
-              <li class="checklist-item"><input type="checkbox" checked> Verified social links</li>
-              <li class="checklist-item"><input type="checkbox" checked> Tech specialty chips</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Staff Profiles</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Team Component', 'Copied Team Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 16. Cart -->
-        <div class="comp-card" data-cat="product" data-name="cart">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="shopping-cart"></i> Cart</h3>
-              <span class="comp-tag">Product</span>
-            </div>
-            <p class="comp-desc">Item list with quantity steppers, coupon discount code input, and subtotal breakdown.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 8px;">
-                <span>Developer License (x1)</span>
-                <strong style="color: var(--primary);">$49.00</strong>
-              </div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-dim); margin-bottom: 12px;">
-                <span>Discount (PROMO)</span>
-                <span style="color: var(--accent-crimson);">-$10.00</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="width: 100%;"><i data-lucide="credit-card"></i> Proceed to Checkout ($39)</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Quantity adjustments and delete item</li>
-              <li class="checklist-item"><input type="checkbox" checked> Live subtotal & tax recalculation</li>
-              <li class="checklist-item"><input type="checkbox" checked> Promo voucher input</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: E-Commerce Cart</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Cart Component', 'Copied Cart Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 17. Search -->
-        <div class="comp-card" data-cat="product" data-name="search">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="search"></i> Search</h3>
-              <span class="comp-tag">Product</span>
-            </div>
-            <p class="comp-desc">Instant search modal with keyboard shortcut (CMD+K), filters, and query highlights.</p>
-            
-            <div class="comp-preview-box">
-              <div style="position: relative; margin-bottom: 10px;">
-                <input type="text" class="ui-input" value="laravel auth" style="margin-bottom: 0; padding-right: 60px;">
-                <span style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-size: 0.7rem; background-color: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 4px; color: var(--text-dim);">CMD+K</span>
-              </div>
-              <div style="font-size: 0.78rem; color: var(--text-muted);">
-                Found <strong>14 results</strong> across Documentation & Code.
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Instant fuzzy match suggestions</li>
-              <li class="checklist-item"><input type="checkbox" checked> Category filter tags</li>
-              <li class="checklist-item"><input type="checkbox" checked> Keyboard arrow navigation</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Global Search Modal</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Search Component', 'Copied Search Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 18. Careers -->
-        <div class="comp-card" data-cat="company" data-name="careers">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="briefcase"></i> Careers</h3>
-              <span class="comp-tag">Company</span>
-            </div>
-            <p class="comp-desc">Job openings list, department filter, salary brackets, and one-click application.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
-                <div>
-                  <div style="font-size: 0.92rem; font-weight: 700;">Senior Backend Engineer</div>
-                  <div style="font-size: 0.75rem; color: var(--text-dim);">Remote • Full-time</div>
-                </div>
-                <span class="ui-badge badge-green">$3,000 - $4,500</span>
-              </div>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">
-                Architect high-concurrency Laravel & MySQL services.
-              </p>
-              <button class="btn btn-primary btn-sm" style="width: 100%;">Apply Now</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Department & location filters</li>
-              <li class="checklist-item"><input type="checkbox" checked> Transparent salary range</li>
-              <li class="checklist-item"><input type="checkbox" checked> Company culture & benefits grid</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Job Board</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Careers Component', 'Copied Careers Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 19. Blog (Hub & Archive) -->
-        <div class="comp-card" data-cat="utility" data-name="blog blog hub blog listing archive">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="newspaper"></i> Blog (Hub & Archive)</h3>
-              <span class="comp-tag">Utility</span>
-            </div>
-            <p class="comp-desc">Chronological article feed, topic navigation, density layout, search bar, and subscriber opt-in.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <span style="font-size: 0.88rem; font-weight: 700;">Engineering Insights & Log</span>
-                <span class="ui-badge badge-green">24 Articles</span>
-              </div>
-              <div style="display: flex; gap: 4px; margin-bottom: 10px; flex-wrap: wrap;">
-                <span class="ui-badge badge-cyan" style="font-size: 0.7rem;">Architecture</span>
-                <span class="ui-badge badge-green" style="font-size: 0.7rem;">Database</span>
-                <span class="ui-badge" style="background-color: rgba(255,255,255,0.08); font-size: 0.7rem;">Performance</span>
-              </div>
-              <div style="background-color: rgba(255,255,255,0.03); padding: 8px; border-radius: 6px; margin-bottom: 8px;">
-                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-main);">Building Resilient POS Stock Engines</div>
-                <div style="font-size: 0.72rem; color: var(--text-dim);">Aug 28, 2026 • 5 min read</div>
-              </div>
-              <div style="display: flex; gap: 6px;">
-                <input type="email" class="ui-input" placeholder="Join newsletter" style="margin-bottom: 0; font-size: 0.75rem; padding: 6px 8px;">
-                <button class="btn btn-primary btn-sm" style="padding: 6px 10px; font-size: 0.75rem; white-space: nowrap;">Subscribe</button>
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Hero with clear blog indicator & description</li>
-              <li class="checklist-item"><input type="checkbox" checked> Navigational sub-topics & search filter</li>
-              <li class="checklist-item"><input type="checkbox" checked> High-density grid with newest/trending order</li>
-              <li class="checklist-item"><input type="checkbox" checked> Post preview with strong hierarchy & thumbnail</li>
-              <li class="checklist-item"><input type="checkbox" checked> Topic tags & category filtering</li>
-              <li class="checklist-item"><input type="checkbox" checked> Newsletter subscription opt-in box</li>
-              <li class="checklist-item"><input type="checkbox" checked> Sidebar with popular posts & trending tags</li>
-              <li class="checklist-item"><input type="checkbox" checked> Clear pagination (10-20 items per page)</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Blog Archive Hub</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Blog Hub Component', 'Copied Blog Hub Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 20. Blog Post -->
-        <div class="comp-card" data-cat="utility" data-name="blog post">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="book-open"></i> Blog Post</h3>
-              <span class="comp-tag">Utility</span>
-            </div>
-            <p class="comp-desc">Technical article layout, reading progress bar, table of contents, and author bio.</p>
-            
-            <div class="comp-preview-box">
-              <div style="font-size: 0.75rem; color: var(--accent-cyan); margin-bottom: 4px;">SYSTEM ARCHITECTURE • 6 MIN READ</div>
-              <div style="font-size: 0.95rem; font-weight: 700; margin-bottom: 8px;">Designing Zero-Loss Point-of-Sale Transactions</div>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 8px;">
-                How to structure database constraints and balance logs to guarantee inventory consistency.
-              </p>
-              <span style="font-size: 0.75rem; color: var(--text-dim);">Published August 2026</span>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Estimated reading time badge</li>
-              <li class="checklist-item"><input type="checkbox" checked> Sticky table of contents</li>
-              <li class="checklist-item"><input type="checkbox" checked> Code syntax highlighting block</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Technical Article</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Blog Component', 'Copied Blog Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 21. Contact Us -->
-        <div class="comp-card" data-cat="company" data-name="contact us">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="mail"></i> Contact Us</h3>
-              <span class="comp-tag">Company</span>
-            </div>
-            <p class="comp-desc">Direct inquiry form with department routing, response SLA guarantee, and email/chat links.</p>
-            
-            <div class="comp-preview-box">
-              <input type="text" class="ui-input" placeholder="Your Name">
-              <input type="email" class="ui-input" placeholder="Email Address">
-              <button class="btn btn-primary btn-sm" style="width: 100%;"><i data-lucide="send"></i> Send Message (24h SLA)</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Response time guarantee banner</li>
-              <li class="checklist-item"><input type="checkbox" checked> Alternative email & Telegram channels</li>
-              <li class="checklist-item"><input type="checkbox" checked> Client timezone indicator</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Contact Matrix</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Contact Component', 'Copied Contact Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 22. Pricing -->
-        <div class="comp-card" data-cat="conversion" data-name="pricing">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="tag"></i> Pricing</h3>
-              <span class="comp-tag">Marketing</span>
-            </div>
-            <p class="comp-desc">Tiered pricing cards (Starter, Pro, Enterprise), monthly/annual toggle, and FAQ link.</p>
-            
-            <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                <span style="font-weight: 700; font-size: 0.95rem;">Pro Tier</span>
-                <span class="ui-badge badge-green">Recommended</span>
-              </div>
-              <div style="font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: 8px;">
-                $29 <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: normal;">/ month</span>
-              </div>
-              <button class="btn btn-primary btn-sm" style="width: 100%;">Start 14-Day Free Trial</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Annual discount toggle (Save 20%)</li>
-              <li class="checklist-item"><input type="checkbox" checked> Comprehensive feature checklist</li>
-              <li class="checklist-item"><input type="checkbox" checked> No credit card required notice</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: SaaS Pricing Table</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Pricing Component', 'Copied Pricing Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 23. FAQ -->
-        <div class="comp-card" data-cat="utility" data-name="faq">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="help-circle"></i> FAQ</h3>
-              <span class="comp-tag">Utility</span>
-            </div>
-            <p class="comp-desc">Accordion questions with instant filter search, categorised help, and support link.</p>
-            
-            <div class="comp-preview-box">
-              <div style="background-color: rgba(255,255,255,0.03); padding: 10px; border-radius: 6px; margin-bottom: 8px;">
-                <div style="font-size: 0.82rem; font-weight: 700; display: flex; justify-content: space-between;">
-                  <span>How are database migrations handled?</span>
-                  <i data-lucide="chevron-down" size="14" style="color: var(--primary);"></i>
-                </div>
-              </div>
-              <div style="background-color: rgba(255,255,255,0.03); padding: 10px; border-radius: 6px;">
-                <div style="font-size: 0.82rem; font-weight: 700; display: flex; justify-content: space-between;">
-                  <span>What is the average API response SLA?</span>
-                  <i data-lucide="chevron-down" size="14" style="color: var(--primary);"></i>
-                </div>
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Interactive smooth accordion toggle</li>
-              <li class="checklist-item"><input type="checkbox" checked> Live keyword search filter</li>
-              <li class="checklist-item"><input type="checkbox" checked> Direct support escalation CTA</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Question Accordion</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('FAQ Component', 'Copied FAQ Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 24. 404 -->
-        <div class="comp-card" data-cat="utility" data-name="404 error">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="alert-triangle"></i> 404 Error</h3>
-              <span class="comp-tag">Utility</span>
-            </div>
-            <p class="comp-desc">Terminal-style error diagnostic, helpful recovery links, and search fallback input.</p>
-            
-            <div class="comp-preview-box">
-              <div style="font-size: 1.6rem; font-weight: 800; color: var(--accent-crimson); margin-bottom: 4px;">
-                404
-              </div>
-              <div style="font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">Resource Not Found</div>
-              <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px;">
-                The requested URL path does not exist on this server.
-              </p>
-              <button class="btn btn-primary btn-sm" style="width: 100%;"><i data-lucide="home"></i> Return to Homepage</button>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Plain-English error description</li>
-              <li class="checklist-item"><input type="checkbox" checked> Search fallback bar</li>
-              <li class="checklist-item"><input type="checkbox" checked> Popular site destination links</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Error Page</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('404 Component', 'Copied 404 Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-        <!-- 25. Login / Auth -->
-        <div class="comp-card" data-cat="product" data-name="login auth">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i data-lucide="log-in"></i> Login & Auth</h3>
-              <span class="comp-tag">Product</span>
-            </div>
-            <p class="comp-desc">Two-factor auth flow, Passkey support, OAuth single-sign-on, and password reset.</p>
-            
-            <div class="comp-preview-box">
-              <input type="text" class="ui-input" placeholder="developer@srievi.dev">
-              <input type="password" class="ui-input" placeholder="••••••••••••">
-              <button class="btn btn-primary btn-sm" style="width: 100%; margin-bottom: 8px;">Sign In with Passkey</button>
-              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-dim);">
-                <a href="#" style="color: var(--accent-cyan); text-decoration: none;">Forgot password?</a>
-                <span>2FA Protected</span>
-              </div>
-            </div>
-
-            <ul class="checklist-list">
-              <li class="checklist-item"><input type="checkbox" checked> Passkey & OAuth 2.0 options</li>
-              <li class="checklist-item"><input type="checkbox" checked> Clear error validation feedback</li>
-              <li class="checklist-item"><input type="checkbox" checked> Remember session toggle</li>
-            </ul>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Pattern: Authentication Hub</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Login Component', 'Copied Login Template Code')"><i data-lucide="code" size="14"></i> Copy</button>
-          </div>
-        </div>
-
-      </div>
-    </section>
 
   </div>
 
   <!-- Toast Notification -->
   <div id="toast" class="toast">
-    <i data-lucide="check-circle-2"></i>
+    <i class="fa-solid fa-circle-check"></i>
     <span id="toast-text">Copied to clipboard!</span>
   </div>
 
   <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
     const toast = document.getElementById('toast');
     const toastText = document.getElementById('toast-text');
     let toastTimeout;
@@ -2525,98 +1866,203 @@
       }, 2200);
     }
 
-    function copyVal(val, label) {
+    function copyVal(val, label, btnEl) {
+      const button = btnEl || (window.event ? window.event.currentTarget : null);
       navigator.clipboard.writeText(val).then(() => {
-        showToast(label || `Copied ${val}`);
+        const isKm = (currentLang === 'km');
+        showToast(label || (isKm ? `បានចម្លង ${val}` : `Copied ${val}`));
+        
+        if (button && button.tagName === 'BUTTON') {
+          const originalHTML = button.innerHTML;
+          button.innerHTML = `<i class="fa-solid fa-check"></i> ${isKm ? 'បានចម្លង!' : 'Copied!'}`;
+          button.style.transform = 'translateY(2px)';
+          button.style.boxShadow = '0 1px 0 #CBD5E1';
+          setTimeout(() => {
+            button.innerHTML = originalHTML;
+            button.style.transform = '';
+            button.style.boxShadow = '';
+          }, 1200);
+        }
       });
     }
 
-    function copyAllTokens() {
+    function copyAllTokens(btnEl) {
+      const button = btnEl || (window.event ? window.event.currentTarget : null);
       const css = `:root {
-  /* Obsidian Canvas & Solid Glass */
-  --bg-main: #080B11;
-  --bg-surface: rgba(18, 24, 38, 0.70);
-  --bg-surface-hover: rgba(28, 38, 60, 0.85);
-  --border-glass: rgba(255, 255, 255, 0.08);
-  --border-glass-hover: rgba(16, 185, 129, 0.40);
+  /* Crisp White Canvas & Frosted Liquid Crystal Glass */
+  --bg-main: #FAFCFF;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-surface-hover: rgba(255, 255, 255, 0.96);
+  --bg-surface-elevated: rgba(255, 255, 255, 0.98);
+  --bg-inner-glass: rgba(241, 245, 249, 0.85);
+  
+  --border-glass: rgba(0, 0, 0, 0.10);
+  --border-glass-top: rgba(255, 255, 255, 1.00);
+  --border-glass-hover: rgba(16, 185, 129, 0.70);
+  --glass-shadow: none;
 
   /* Solid Brand Primaries */
   --primary: #10B981;
   --primary-dark: #059669;
   --primary-light: #065F46;
-  --primary-glow: rgba(16, 185, 129, 0.25);
   --accent-cyan: #0891B2;
   --accent-crimson: #FF0050;
 
-  /* Srievi Brand Accents */
-  --srievi-green: #58cc02;
-  --srievi-blue: #1cb0f6;
-  --color-eager-green: var(--srievi-green);
-  --color-spark-blue: var(--srievi-blue);
+  /* Shiliaiwei Brand Accents */
+  --shiliaiwei-green: #58cc02;
+  --shiliaiwei-blue: #1cb0f6;
+  --color-eager-green: var(--shiliaiwei-green);
+  --color-spark-blue: var(--shiliaiwei-blue);
 
   /* Typography & Spacing Scale */
   --text-main: #0F172A;
   --text-muted: #475569;
   --text-dim: #64748B;
   --spacing-unit: 4px;
-  --radius-buttons: 12px;
+  --radius-buttons: 9px;
 }`;
       navigator.clipboard.writeText(css).then(() => {
-        showToast("Copied complete CSS variables!");
-      });
-    }
-
-    // Real-Time Token Sandbox Live Update
-    function updateSandbox() {
-      const blurVal = document.getElementById('sliderBlur').value;
-      const opacityVal = document.getElementById('sliderOpacity').value;
-      const radiusVal = document.getElementById('sliderRadius').value;
-      const depthVal = document.getElementById('sliderDepth').value;
-
-      document.getElementById('valBlur').textContent = blurVal + 'px';
-      document.getElementById('valOpacity').textContent = opacityVal;
-      document.getElementById('valRadius').textContent = radiusVal + 'px';
-      document.getElementById('valDepth').textContent = depthVal + 'px';
-
-      const target = document.getElementById('sandboxBox');
-      target.style.backdropFilter = `blur(${blurVal}px)`;
-      target.style.webkitBackdropFilter = `blur(${blurVal}px)`;
-      target.style.backgroundColor = `rgba(18, 24, 38, ${opacityVal})`;
-      target.style.borderRadius = `${radiusVal}px`;
-
-      const btn = document.getElementById('sandboxBtn');
-      btn.style.boxShadow = `0 ${depthVal}px 0 #46a302`;
-    }
-
-    // Filter Logic
-    let currentCategory = 'all';
-
-    function setFilter(cat, btn) {
-      currentCategory = cat;
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      filterComponents();
-    }
-
-    function filterComponents() {
-      const q = document.getElementById('suiteSearch').value.toLowerCase().trim();
-      const cards = document.querySelectorAll('#componentsGrid .comp-card');
-
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-cat');
-        const name = card.getAttribute('data-name');
-        const text = card.textContent.toLowerCase();
-
-        const matchCat = (currentCategory === 'all' || cat === currentCategory);
-        const matchSearch = (!q || name.includes(q) || text.includes(q));
-
-        if (matchCat && matchSearch) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
+        const isKm = (currentLang === 'km');
+        showToast(isKm ? "បានចម្លងកូដអថេរ CSS ទាំងអស់ដោយជោគជ័យ!" : "Copied complete CSS variables!");
+        if (button && button.tagName === 'BUTTON') {
+          const originalHTML = button.innerHTML;
+          button.innerHTML = `<i class="fa-solid fa-check"></i> ${isKm ? 'បានចម្លង!' : 'Copied!'}`;
+          button.style.transform = 'translateY(3px)';
+          button.style.boxShadow = '0 1px 0 #059669';
+          setTimeout(() => {
+            button.innerHTML = originalHTML;
+            button.style.transform = '';
+            button.style.boxShadow = '';
+          }, 1200);
         }
       });
     }
+
+    // Bilingual Translation Dictionary (English & Khmer - Google Sans)
+    const i18nData = {
+      en: {
+        lang_btn: 'ភាសាខ្មែរ (KM)',
+        nav_tokens: '<i class="fa-solid fa-palette"></i> Tokens',
+        nav_tactile: '<i class="fa-solid fa-hand-pointer"></i> Tactile Physics',
+        nav_elements: '<i class="fa-solid fa-cubes"></i> 14 UI Elements',
+        btn_copy_tokens: '<i class="fa-solid fa-copy"></i> Copy CSS Tokens',
+        header_badge: '<span class="badge-dot"></span> Solid Liquid Glass Design System',
+        header_title: 'Real-Time <span class="solid-emerald">Design System Studio</span>',
+        header_subtitle: 'Interactive real-time learning environment for Solid Liquid Glass architecture. Master all 14 core UI components and tactile sticker button physics with zero emojis and zero gradients.',
+        sec_1_title: '<i class="fa-solid fa-palette"></i> 1. Solid Color Tokens Registry',
+        sec_2_title: '<i class="fa-solid fa-wand-magic-sparkles"></i> 2. Shiliaiwei Tactile UI & Spacing Standards',
+        sec_3_title: '<i class="fa-solid fa-cubes"></i> 3. 14 Core Design System UI Elements',
+        toast_copy_tokens: 'Copied complete CSS variables!',
+        toast_copied: 'Copied: '
+      },
+      km: {
+        lang_btn: 'English (EN)',
+        nav_tokens: '<i class="fa-solid fa-palette"></i> ថូខឹនពណ៌',
+        nav_tactile: '<i class="fa-solid fa-hand-pointer"></i> រូបវិទ្យាប៉ះ',
+        nav_elements: '<i class="fa-solid fa-cubes"></i> ធាតុ UI ទាំង ១៤',
+        btn_copy_tokens: '<i class="fa-solid fa-copy"></i> ចម្លងកូដ CSS Tokens',
+        header_badge: '<span class="badge-dot"></span> ប្រព័ន្ធរចនា Liquid Glass រឹងមាំ',
+        header_title: 'ស្ទូឌីយោប្រព័ន្ធរចនា <span class="solid-emerald">ពេលវេលាជាក់ស្តែង</span>',
+        header_subtitle: 'បរិស្ថានសិក្សាជាក់ស្តែងសម្រាប់ស្ថាបត្យកម្ម Solid Liquid Glass។ សិក្សាស្វែងយល់ធាតុផ្សំ UI ស្នូលទាំង ១៤ និងរូបវិទ្យាប៊ូតុងស្ទីគ័រប៉ះ ដោយគ្មានរូបភាពអារម្មណ៍ និងគ្មានជម្រាលពណ៌។',
+        sec_1_title: '<i class="fa-solid fa-palette"></i> ១. បញ្ជីឈ្មោះថូខឹនពណ៌រឹង (Solid Color Tokens)',
+        sec_2_title: '<i class="fa-solid fa-wand-magic-sparkles"></i> ២. បទដ្ឋានរូបវិទ្យាប៉ះ & គម្លាត Spacing របស់ Shiliaiwei',
+        sec_3_title: '<i class="fa-solid fa-cubes"></i> ៣. ធាតុផ្សំ UI ស្នូលទាំង ១៤ នៃប្រព័ន្ធរចនា',
+        toast_copy_tokens: 'បានចម្លងកូដអថេរ CSS ទាំងអស់ដោយជោគជ័យ!',
+        toast_copied: 'បានចម្លង៖ '
+      }
+    };
+
+    let currentLang = localStorage.getItem('shiliaiwei_lang') || 'en';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('shiliaiwei_lang', lang);
+      document.documentElement.lang = lang;
+      document.body.classList.toggle('lang-km', lang === 'km');
+
+      const dict = i18nData[lang];
+      document.getElementById('langText').textContent = dict.lang_btn;
+
+      // Update Navigation & Header
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerHTML = dict[key];
+        }
+      });
+    }
+
+    function toggleLanguage() {
+      const newLang = (currentLang === 'en') ? 'km' : 'en';
+      setLanguage(newLang);
+      showToast(newLang === 'km' ? 'បានប្តូរទៅជាភាសាខ្មែរ (Google Sans)' : 'Switched to English (Outfit)');
+    }
+
+    // Auto-clear prefilled message values when user taps / places cursor into the field
+    function attachInputTapClear() {
+      document.querySelectorAll('.ui-input, .search-input').forEach(input => {
+        const defaultVal = input.value;
+        if (defaultVal) {
+          input.dataset.defaultVal = defaultVal;
+        }
+
+        input.addEventListener('focus', function() {
+          if (this.dataset.defaultVal && this.value === this.dataset.defaultVal) {
+            this.value = '';
+          }
+        });
+
+        input.addEventListener('blur', function() {
+          if (this.dataset.defaultVal && this.value.trim() === '') {
+            this.value = this.dataset.defaultVal;
+          }
+        });
+      });
+    }
+
+    // Attach interactive micro-animations & feedback to all demo buttons
+    function attachButtonMicroAnimations() {
+      document.querySelectorAll('.comp-card .btn:not([onclick])').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isKm = (currentLang === 'km');
+          const btnText = btn.textContent.trim();
+          btn.style.transform = 'translateY(3px)';
+          setTimeout(() => {
+            btn.style.transform = '';
+          }, 150);
+          showToast(isKm ? `បានដំណើរការសកម្មភាព៖ ${btnText}` : `Triggered action: ${btnText}`);
+        });
+      });
+    }
+
+    // Interactive Table Row & Column Crosshair Hover Highlighter
+    function attachTableCrosshairHover() {
+      document.querySelectorAll('.ui-table').forEach(table => {
+        const cells = table.querySelectorAll('th, td');
+        cells.forEach(cell => {
+          cell.addEventListener('mouseenter', () => {
+            const colIndex = cell.cellIndex;
+            table.querySelectorAll('tr').forEach(row => {
+              if (row.cells[colIndex]) {
+                row.cells[colIndex].classList.add('col-hover');
+              }
+            });
+          });
+          cell.addEventListener('mouseleave', () => {
+            table.querySelectorAll('.col-hover').forEach(c => c.classList.remove('col-hover'));
+          });
+        });
+      });
+    }
+
+    // Initialize Language & Interactive Listeners on DOM Load
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang);
+      attachButtonMicroAnimations();
+      attachInputTapClear();
+      attachTableCrosshairHover();
+    });
   </script>
 </body>
 </html>

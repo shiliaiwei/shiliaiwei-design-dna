@@ -1,5 +1,5 @@
 ---
-name: srievi-liquid-glass-standards
+name: shiliaiwei-liquid-glass-standards
 description: Authoritative design standard and architectural rules for Shiliaiwei Liquid Glass, 14 Design System UI Elements, 25 Website Concepts, 12px/9px tactile sticker button physics, strict SOLID COLORS ONLY, zero-emoji / zero-symbol / zero-signs / zero-gray / zero-shadow / zero-glow / zero-hover policy, multi-platform implementation (Web, React, Compose, SwiftUI, Flutter), and mandatory Google Sans for Khmer.
 ---
 
