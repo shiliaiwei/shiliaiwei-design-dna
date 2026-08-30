@@ -741,23 +741,21 @@
       animation: macPopBounce 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
     }
 
-    /* Outer Liquid Glass Bezel Frame */
+    /* Outer Brand App Frame (Solid Brand Color with Crisp Black Outline, Zero White Rim) */
     .ios-app-glass-frame {
-      width: 122px;
-      height: 122px;
-      padding: 7px;
-      background-color: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: 29px; /* Continuous Apple Squircle */
-      border: 1.5px solid rgba(0, 0, 0, 0.09);
-      border-top: 2.5px solid #FFFFFF;
+      width: 118px;
+      height: 118px;
+      padding: 0;
+      background-color: #10B981;
+      border-radius: 28px; /* Continuous Apple Squircle */
+      border: 1.5px solid rgba(0, 0, 0, 0.14);
       box-shadow: none;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       box-sizing: border-box;
+      position: relative;
       transition: transform 0.15s ease;
     }
 
@@ -766,9 +764,8 @@
       width: 100%;
       height: 100%;
       background-color: #10B981;
-      border-radius: 22px;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-top: 1.5px solid rgba(255, 255, 255, 0.60);
+      border-radius: 26px;
+      border: none;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2399,6 +2396,53 @@
             </div>
           </div>
 
+          <!-- Closed 6-Color Brand Palette Tokens -->
+          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="margin-bottom: 14px;">
+                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.053em;">
+                  Closed 6-Color Brand Palette Tokens
+                </div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px;">
+                <div onclick="copyVal('#10B981', 'Copied #10B981 (Primary Emerald)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
+                  <div style="height: 28px; background: #10B981; border-radius: 6px;"></div>
+                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Emerald</span>
+                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#10B981</span>
+                </div>
+                <div onclick="copyVal('#059669', 'Copied #059669 (Deep Emerald)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
+                  <div style="height: 28px; background: #059669; border-radius: 6px;"></div>
+                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Deep</span>
+                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#059669</span>
+                </div>
+                <div onclick="copyVal('#58CC02', 'Copied #58CC02 (Eager Green)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
+                  <div style="height: 28px; background: #58CC02; border-radius: 6px;"></div>
+                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Eager</span>
+                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#58CC02</span>
+                </div>
+                <div onclick="copyVal('#1CB0F6', 'Copied #1CB0F6 (Spark Blue)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
+                  <div style="height: 28px; background: #1CB0F6; border-radius: 6px;"></div>
+                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Spark</span>
+                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#1CB0F6</span>
+                </div>
+                <div onclick="copyVal('#0891B2', 'Copied #0891B2 (Accent Cyan)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
+                  <div style="height: 28px; background: #0891B2; border-radius: 6px;"></div>
+                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Cyan</span>
+                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#0891B2</span>
+                </div>
+                <div onclick="copyVal('#FF0050', 'Copied #FF0050 (Accent Crimson)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
+                  <div style="height: 28px; background: #FF0050; border-radius: 6px;"></div>
+                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Crimson</span>
+                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#FF0050</span>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06);">
+              <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Color Palette</span>
+              <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('color_palette', this)">Prompt</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -3251,6 +3295,16 @@
     }
 
     const componentPrompts = {
+      color_palette: `/* Prompt: Shiliaiwei 6 Closed Color Palette Tokens */
+Directive: Implement the closed 6-token color system for Shiliaiwei Liquid Glass.
+- Primary Emerald: #10B981 (--primary) - Core brand interactive actions and confirmations.
+- Deep Emerald: #059669 (--primary-dark) - 3D depth extrusion and high-contrast text.
+- Eager Green: #58CC02 (--color-eager-green) - High-energy CTA buttons.
+- Spark Blue: #1CB0F6 (--color-spark-blue) - Secondary interactive accents.
+- Accent Cyan: #0891B2 (--accent-cyan) - Release tags and code chips.
+- Accent Crimson: #FF0050 (--accent-crimson) - Critical alerts and danger states.
+- Rule: 100% solid colors only, zero gradients, zero unlisted colors.`,
+
       tactile_buttons: `/* Prompt: Shiliaiwei Tactile Sticker Buttons */
 Directive: Implement 9px border-radius sticker buttons with 3D bottom depth shadow.
 - Eager Green: background #58CC02, box-shadow: 0 4px 0 #46A302, color #FFFFFF.
