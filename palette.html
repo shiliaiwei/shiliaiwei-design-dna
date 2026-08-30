@@ -590,7 +590,7 @@
     
 
     /* ==========================================================================
-       Ultra-Fast Kinetic Liquid Morph Logo System (Direct Text -> វី Morph)
+       Liquid Crystal Specular Glint & Kinetic Morph Logo System
        ========================================================================== */
     .vi-pure-hero {
       display: flex;
@@ -613,7 +613,11 @@
       border-radius: var(--radius-xl);
       cursor: pointer;
       user-select: none;
-      transition: none;
+      transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .vi-glass-display:active {
+      transform: scale(0.96) translateY(2px);
     }
 
     .vi-morph-container {
@@ -621,88 +625,46 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 180px;
+      isolation: isolate;
     }
 
-    /* Direct Text Origin that rapidly melts/contracts into វី */
-    .vi-morph-origin-text {
+    /* Concentric Fluid Sonic Ripples */
+    .vi-sonar-ring {
       position: absolute;
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 800;
-      letter-spacing: 0.24em;
-      color: var(--primary);
-      background: #ECFDF5;
-      border: 1.5px solid #A7F3D0;
-      padding: 8px 18px;
-      border-radius: 9999px;
-      white-space: nowrap;
-      pointer-events: none;
-      opacity: 0;
-      z-index: 10;
-      transform: scale(1);
-    }
-
-    .liquid-morph-active .vi-morph-origin-text {
-      animation: fastTextMeltInward 0.30s cubic-bezier(0.4, 0, 1, 1) forwards;
-    }
-
-    @keyframes fastTextMeltInward {
-      0% {
-        opacity: 1;
-        transform: scale(1.05) translateY(0);
-        filter: blur(0);
-      }
-      50% {
-        opacity: 0.85;
-        transform: scale(0.68) translateY(-4px);
-        filter: url(#liquidDisplacementHeavy) blur(3px);
-      }
-      100% {
-        opacity: 0;
-        transform: scale(0.15) translateY(0);
-        filter: blur(8px);
-      }
-    }
-
-    /* Fast High-Speed Liquid Droplets */
-    .liquid-drop {
-      position: absolute;
+      inset: -14px;
       border-radius: 50%;
-      background-color: var(--primary);
+      border: 1.5px solid rgba(16, 185, 129, 0.45);
       pointer-events: none;
       opacity: 0;
-      filter: blur(4px);
-      z-index: 5;
+    }
+    .vi-sonar-ring-2 {
+      position: absolute;
+      inset: -30px;
+      border-radius: 50%;
+      border: 1px solid rgba(16, 185, 129, 0.22);
+      pointer-events: none;
+      opacity: 0;
     }
 
-    .liquid-morph-active .liquid-drop {
-      animation: fastDropFuse 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    .liquid-morph-active .vi-sonar-ring {
+      animation: sonarPulse 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .liquid-morph-active .vi-sonar-ring-2 {
+      animation: sonarPulse 0.75s cubic-bezier(0.16, 1, 0.3, 1) 0.08s forwards;
     }
 
-    .drop-1 { width: 36px; height: 36px; top: -12px; left: 18%; animation-delay: 0.04s; }
-    .drop-2 { width: 28px; height: 28px; bottom: -8px; right: 22%; animation-delay: 0.08s; }
-    .drop-3 { width: 40px; height: 40px; top: 25%; right: -16px; animation-delay: 0.06s; }
-    .drop-4 { width: 30px; height: 30px; bottom: 15%; left: -14px; animation-delay: 0.1s; }
-
-    @keyframes fastDropFuse {
+    @keyframes sonarPulse {
       0% {
         opacity: 0.9;
-        transform: scale(0.4) translate(0, 0);
-        filter: blur(6px);
-      }
-      50% {
-        opacity: 1;
-        transform: scale(1.1) translate(0, 0);
-        filter: blur(2px);
+        transform: scale(0.65);
       }
       100% {
         opacity: 0;
-        transform: scale(0.1) translate(0, 0);
-        filter: blur(0);
+        transform: scale(1.35);
       }
     }
 
+    /* Massive Solid 3D វី Glyph */
     .vi-massive-char {
       font-family: 'Google Sans', 'Kantumruy Pro', sans-serif;
       font-size: clamp(7.5rem, 22vw, 15rem);
@@ -710,73 +672,75 @@
       line-height: 1.02;
       letter-spacing: -0.02em;
       color: var(--primary);
-      text-shadow: 0 4px 0 #059669;
+      text-shadow: 0 5px 0 #059669;
       display: inline-block;
       margin: 0;
       padding: 0;
       position: relative;
       z-index: 2;
-      will-change: filter, transform;
+      transform-origin: center center;
     }
 
-    /* Fast Direct Kinetic Morph for វី */
+    /* Kinetic Snap & Fluid Re-crystallization */
     .liquid-morph-active .vi-massive-char {
-      animation: fastLiquidMorphSnap 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      animation: kineticGlassSnap 0.52s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
     }
 
-    @keyframes fastLiquidMorphSnap {
+    @keyframes kineticGlassSnap {
       0% {
-        opacity: 0;
-        transform: scale(0.4) translateY(18px);
-        filter: url(#liquidDisplacementHeavy) blur(8px);
+        opacity: 0.15;
+        transform: scale(0.55) translateY(24px);
+        filter: blur(8px);
       }
-      35% {
-        opacity: 0.85;
-        transform: scale(1.14) translateY(-8px) skewX(2deg);
-        filter: url(#liquidDisplacementMedium) blur(2px);
-      }
-      70% {
+      48% {
         opacity: 1;
-        transform: scale(0.96) translateY(2px) skewX(-1deg);
-        filter: url(#liquidDisplacementLight);
+        transform: scale(1.12) translateY(-6px);
+        filter: blur(0);
+      }
+      78% {
+        transform: scale(0.97) translateY(2px);
       }
       100% {
         opacity: 1;
-        transform: scale(1) translateY(0) skewX(0deg);
+        transform: scale(1) translateY(0);
         filter: none;
       }
     }
 
-    /* Fast Ambient Liquid Wave Pulse */
-    .vi-liquid-wave {
+    /* Specular Light Sheen Beam Sweeping across Glyph */
+    .vi-specular-glint {
       position: absolute;
-      inset: -8px;
-      border-radius: var(--radius-xl);
-      border: 1.5px solid rgba(16, 185, 129, 0.35);
+      inset: -10px;
       pointer-events: none;
+      z-index: 5;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
       opacity: 0;
     }
 
-    .liquid-morph-active .vi-liquid-wave {
-      animation: fastWavePulse 0.52s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
+    .liquid-morph-active .vi-specular-glint {
+      animation: specularGlintSweep 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.12s forwards;
     }
 
-    @keyframes fastWavePulse {
+    @keyframes specularGlintSweep {
       0% {
-        opacity: 0.85;
-        transform: scale(0.88);
-        border-radius: 45% 55% 65% 35% / 40% 50% 60% 50%;
-      }
-      50% {
-        opacity: 0.4;
-        transform: scale(1.08);
-        border-radius: 60% 40% 35% 65% / 50% 60% 40% 60%;
+        opacity: 1;
+        transform: translateX(-120%) rotate(25deg);
       }
       100% {
         opacity: 0;
-        transform: scale(1.18);
-        border-radius: var(--radius-xl);
+        transform: translateX(140%) rotate(25deg);
       }
+    }
+
+    .vi-specular-glint::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 0;
+      width: 45px;
+      height: 200%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
     }
 
     @media (max-width: 640px) {
@@ -2206,16 +2170,13 @@
           </defs>
         </svg>
 
-        <!-- Fast Kinetic Liquid Morph Massive "វី" Hero Display -->
+        <!-- Liquid Crystal Specular Glint & Kinetic Morph វី Hero Display -->
         <header class="vi-pure-hero">
-          <div class="vi-glass-display" id="viHeroDisplay" onclick="triggerLiquidMorph()" title="Shiliaiwei / Srievi (វី) — Tap to replay Fast Liquid Morph">
+          <div class="vi-glass-display" id="viHeroDisplay" onclick="triggerLiquidMorph()" title="Shiliaiwei / Srievi (វី) — Tap to replay Morph & Specular Sweep">
             <div class="vi-morph-container liquid-morph-active" id="viMorphContainer">
-              <span class="vi-morph-origin-text">SHILIAIWEI</span>
-              <span class="liquid-drop drop-1"></span>
-              <span class="liquid-drop drop-2"></span>
-              <span class="liquid-drop drop-3"></span>
-              <span class="liquid-drop drop-4"></span>
-              <div class="vi-liquid-wave"></div>
+              <div class="vi-sonar-ring"></div>
+              <div class="vi-sonar-ring-2"></div>
+              <div class="vi-specular-glint"></div>
               <h1 class="vi-massive-char" id="viMassiveLogo">វី</h1>
             </div>
           </div>
