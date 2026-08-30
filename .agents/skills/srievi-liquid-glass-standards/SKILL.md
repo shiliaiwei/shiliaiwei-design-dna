@@ -77,6 +77,17 @@ This skill provides authoritative architectural rules, strict visual directives,
 16. **Directive 16: MANDATORY PERSISTENT DESIGN RECORD RULE**
     - Every design decision, component rule, physics standard, and platform specification must **ALWAYS** be permanently recorded into `DESIGN_DNA.md` and synchronized across all agent skills.
 
+17. **Directive 17: Aa TYPOGRAPHY DESIGN SYSTEM & 8-LAYER TYPE SCALE**
+    - The type layer defines a scale, hierarchy, and set of text styles consistent, accessible, and expressive across the full range of product contexts (8 out of 8 core scales):
+      1. **Display Large**: `48px`, `font-weight: 800`, line-height `1.15`, letter-spacing `-0.03em` (Hero titles).
+      2. **Display Medium / H1**: `32px`, `font-weight: 700`, line-height `1.25`, letter-spacing `-0.02em` (Main headers).
+      3. **Heading H2 & H3**: `22px / 18px`, `font-weight: 700`, line-height `1.30` (Section & card titles).
+      4. **Subheading / Lead Text**: `18px`, `font-weight: 500`, line-height `1.50`, color `#475569`.
+      5. **Body Large & Regular**: `16px / 14px / 15px`, `font-weight: 400`, line-height `1.60`, color `#0F172A`.
+      6. **Monospace Code Tokens**: `JetBrains Mono`, `13px`, `font-weight: 500`, line-height `1.50` (API tokens, SQL).
+      7. **Microcopy & Overline Captions**: `11px / 10px`, `font-weight: 700`, uppercase, letter-spacing `0.08em`.
+      8. **Dual-Language Pairing (Outfit & Google Sans)**: Khmer requires line-height `1.45` to prevent diacritic clipping, paired seamlessly with English Outfit.
+
 ---
 
 ## 2. Multi-Platform Implementation Guide

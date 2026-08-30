@@ -1465,6 +1465,79 @@
       color: var(--text-dim);
     }
 
+  
+    /* Aa Typography Design System Styles */
+    .typo-hero {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      border-top: 1px solid var(--border-glass-top);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .typo-spec-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .typo-spec-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: var(--transition);
+    }
+    .typo-spec-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .typo-spec-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .typo-spec-tokens {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .typo-preview-text {
+      color: var(--text-main);
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .typo-tester-box {
+      background: var(--bg-inner-glass);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-top: 16px;
+    }
+    .typo-slider-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
   </style>
 </head>
 <body>
@@ -1489,6 +1562,9 @@
           <span class="nav-label">EXPLORE</span>
           <a href="#section-tokens" class="dock-item active" data-i18n="nav_brand">
             Our Brand
+          </a>
+          <a href="#section-typography" class="dock-item" data-i18n="nav_typography">
+            Typography System
           </a>
           <a href="#section-tactile" class="dock-item" data-i18n="nav_identity">
             Visual Identity
@@ -1690,6 +1766,227 @@
     </section>
 
     <!-- SECTION 2: TACTILE PHYSICS & SPACING RULES -->
+    
+    <!-- SECTION 2: AA TYPOGRAPHY DESIGN SYSTEM -->
+    <section id="section-typography" style="margin-bottom: 60px;">
+      <div class="typo-hero">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span class="ui-badge badge-cyan" style="font-weight: 800; font-size: 0.82rem;">Aa TYPE LAYER</span>
+              <span class="ui-badge badge-green">8 OF 8 STYLES</span>
+            </div>
+            <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="sec_typo_title">
+              2. Aa Typography Design System
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 780px;" data-i18n="sec_typo_desc">
+              The type layer of a design system that defines a scale, hierarchy, and set of text styles that is consistent, accessible, and expressive across the full range of product contexts.
+            </p>
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <button class="btn btn-primary btn-sm" onclick="copyVal(':root { --font-en: Outfit, sans-serif; --font-km: Google Sans, sans-serif; --font-mono: JetBrains Mono, monospace; }', 'Copied Typography CSS Tokens')">Copy Tokens</button>
+          </div>
+        </div>
+
+        <!-- Interactive Specimen Tester -->
+        <div class="typo-tester-box">
+          <div class="typo-slider-row">
+            <label style="font-size: 0.80rem; font-weight: 700; color: var(--text-main);">Size: <span id="lblSizeVal" style="font-family: var(--font-mono); color: var(--primary);">28px</span></label>
+            <input type="range" id="rngSize" min="12" max="64" value="28" style="flex: 1; max-width: 220px; accent-color: var(--primary);" oninput="updateLiveTypeSpecimen()">
+            
+            <label style="font-size: 0.80rem; font-weight: 700; color: var(--text-main); margin-left: 10px;">Weight: <span id="lblWeightVal" style="font-family: var(--font-mono); color: var(--primary);">700</span></label>
+            <input type="range" id="rngWeight" min="300" max="800" step="100" value="700" style="flex: 1; max-width: 180px; accent-color: var(--primary);" oninput="updateLiveTypeSpecimen()">
+            
+            <button class="btn btn-glass btn-sm" style="padding: 4px 10px; font-size: 0.75rem;" onclick="resetLiveTypeSpecimen()">Reset Scale</button>
+          </div>
+
+          <input type="text" id="txtLiveSpecimen" class="ui-input" value="Solid Liquid Glass Design Architecture - 施莱威" style="margin-bottom: 8px; font-weight: 600;" oninput="updateLiveTypeSpecimen()">
+          
+          <div id="boxLiveSpecimen" style="font-size: 28px; font-weight: 700; color: var(--text-main); line-height: 1.3; padding: 12px; background: #FFFFFF; border-radius: var(--radius-sm); border: 1px solid rgba(0,0,0,0.06); min-height: 54px; overflow-wrap: break-word;">
+            Solid Liquid Glass Design Architecture - 施莱威
+          </div>
+        </div>
+
+        <!-- 8 Core Typography Scale Layers -->
+        <div class="typo-spec-grid">
+          
+          <!-- 1. Display Large -->
+          <div class="typo-spec-card">
+            <div class="typo-spec-meta">
+              <div class="typo-spec-name">
+                <span class="ui-badge badge-green">01</span>
+                <span>Display Large (Hero Title)</span>
+              </div>
+              <div class="typo-spec-tokens">
+                <span>Size: 48px</span>
+                <span>Weight: 800</span>
+                <span>Line-Height: 1.15</span>
+                <span>Letter-Spacing: -0.03em</span>
+              </div>
+              <button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="copyVal('font-size: 48px; font-weight: 800; line-height: 1.15; letter-spacing: -0.03em;', 'Copied Display Large Spec')">Copy Spec</button>
+            </div>
+            <div class="typo-preview-text" style="font-size: 48px; font-weight: 800; line-height: 1.15; letter-spacing: -0.03em;">
+              Solid Liquid Glass Design Studio
+            </div>
+          </div>
+
+          <!-- 2. Display Medium / H1 -->
+          <div class="typo-spec-card">
+            <div class="typo-spec-meta">
+              <div class="typo-spec-name">
+                <span class="ui-badge badge-green">02</span>
+                <span>Display Medium / H1 Heading</span>
+              </div>
+              <div class="typo-spec-tokens">
+                <span>Size: 32px</span>
+                <span>Weight: 700</span>
+                <span>Line-Height: 1.25</span>
+                <span>Letter-Spacing: -0.02em</span>
+              </div>
+              <button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="copyVal('font-size: 32px; font-weight: 700; line-height: 1.25; letter-spacing: -0.02em;', 'Copied H1 Heading Spec')">Copy Spec</button>
+            </div>
+            <div class="typo-preview-text" style="font-size: 32px; font-weight: 700; line-height: 1.25; letter-spacing: -0.02em;">
+              Enterprise Architecture & Multi-Module Security
+            </div>
+          </div>
+
+          <!-- 3. Heading H2 & H3 -->
+          <div class="typo-spec-card">
+            <div class="typo-spec-meta">
+              <div class="typo-spec-name">
+                <span class="ui-badge badge-green">03</span>
+                <span>Heading H2 & H3 (Section & Card Titles)</span>
+              </div>
+              <div class="typo-spec-tokens">
+                <span>Size: 22px / 18px</span>
+                <span>Weight: 700</span>
+                <span>Line-Height: 1.30</span>
+                <span>Letter-Spacing: -0.01em</span>
+              </div>
+              <button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="copyVal('font-size: 22px; font-weight: 700; line-height: 1.30;', 'Copied H2/H3 Spec')">Copy Spec</button>
+            </div>
+            <div class="typo-preview-text" style="font-size: 22px; font-weight: 700; line-height: 1.30;">
+              Two-Factor Authentication & Identity Verification Matrix
+            </div>
+          </div>
+
+          <!-- 4. Subheading & Lead Paragraph -->
+          <div class="typo-spec-card">
+            <div class="typo-spec-meta">
+              <div class="typo-spec-name">
+                <span class="ui-badge badge-green">04</span>
+                <span>Subheading / Lead Text</span>
+              </div>
+              <div class="typo-spec-tokens">
+                <span>Size: 18px</span>
+                <span>Weight: 500</span>
+                <span>Line-Height: 1.50</span>
+                <span>Color: #475569</span>
+              </div>
+              <button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="copyVal('font-size: 18px; font-weight: 500; line-height: 1.50; color: #475569;', 'Copied Lead Text Spec')">Copy Spec</button>
+            </div>
+            <div class="typo-preview-text" style="font-size: 18px; font-weight: 500; line-height: 1.50; color: var(--text-muted);">
+              Consistent typography scale engineered for high legibility across web, mobile viewports, and native surfaces.
+            </div>
+          </div>
+
+          <!-- 5. Body Text Large & Regular -->
+          <div class="typo-spec-card">
+            <div class="typo-spec-meta">
+              <div class="typo-spec-name">
+                <span class="ui-badge badge-green">05</span>
+                <span>Body Text (Large 16px & Regular 14px)</span>
+              </div>
+              <div class="typo-spec-tokens">
+                <span>Size: 15px</span>
+                <span>Weight: 400</span>
+                <span>Line-Height: 1.60</span>
+                <span>Color: #0F172A</span>
+              </div>
+              <button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="copyVal('font-size: 15px; font-weight: 400; line-height: 1.60; color: #0F172A;', 'Copied Body Text Spec')">Copy Spec</button>
+            </div>
+            <div class="typo-preview-text" style="font-size: 15px; font-weight: 400; line-height: 1.60; color: var(--text-main);">
+              The type layer guarantees natural text wrapping at container boundaries, eliminating unconstrained horizontal stretching or clipping on compact screens.
+            </div>
+          </div>
+
+          <!-- 6. Monospace Code Tokens -->
+          <div class="typo-spec-card">
+            <div class="typo-spec-meta">
+              <div class="typo-spec-name">
+                <span class="ui-badge badge-green">06</span>
+                <span>Monospace Code & Secret Key Tokens</span>
+              </div>
+              <div class="typo-spec-tokens">
+                <span>Font: JetBrains Mono</span>
+                <span>Size: 13px</span>
+                <span>Weight: 500</span>
+                <span>Line-Height: 1.50</span>
+              </div>
+              <button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="copyVal('font-family: var(--font-mono); font-size: 13px; font-weight: 500;', 'Copied Monospace Spec')">Copy Spec</button>
+            </div>
+            <div class="typo-preview-text" style="font-family: var(--font-mono); font-size: 13px; font-weight: 500; line-height: 1.50; color: var(--primary-dark); background: var(--bg-inner-glass); padding: 10px 14px; border-radius: var(--radius-sm);">
+              sk_live_vibrand_89f4b23190e4 | 2FA_OTP: 849201 | STATUS: ACTIVE_PROD
+            </div>
+          </div>
+
+          <!-- 7. Microcopy, Badges & Overline Captions -->
+          <div class="typo-spec-card">
+            <div class="typo-spec-meta">
+              <div class="typo-spec-name">
+                <span class="ui-badge badge-green">07</span>
+                <span>Microcopy, Badges & Overline Captions</span>
+              </div>
+              <div class="typo-spec-tokens">
+                <span>Size: 11px / 10px</span>
+                <span>Weight: 700</span>
+                <span>Transform: Uppercase</span>
+                <span>Letter-Spacing: 0.08em</span>
+              </div>
+              <button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="copyVal('font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;', 'Copied Microcopy Spec')">Copy Spec</button>
+            </div>
+            <div class="typo-preview-text" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+              <span class="ui-badge badge-green">PROD LIVE</span>
+              <span class="ui-badge badge-cyan">ENFORCED 2FA</span>
+              <span class="ui-badge badge-crimson">SECURITY ALERT</span>
+              <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim);">LAST SYNC: JUST NOW</span>
+            </div>
+          </div>
+
+          <!-- 8. Dual-Language Pairing (English Outfit & Khmer Google Sans) -->
+          <div class="typo-spec-card">
+            <div class="typo-spec-meta">
+              <div class="typo-spec-name">
+                <span class="ui-badge badge-green">08</span>
+                <span>Dual-Language Pairing (English Outfit & Khmer Google Sans)</span>
+              </div>
+              <div class="typo-spec-tokens">
+                <span>EN: Outfit (300-800)</span>
+                <span>KM: Google Sans / Kantumruy Pro</span>
+                <span>Line-Height: 1.45 (Khmer Safe)</span>
+              </div>
+              <button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="copyVal('font-family: var(--font-km); line-height: 1.45; word-break: break-word;', 'Copied Khmer Typography Spec')">Copy Spec</button>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+              <div style="padding: 12px; background: var(--bg-inner-glass); border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--primary); margin-bottom: 4px;">English Specimen (Outfit)</div>
+                <div style="font-family: var(--font-en); font-size: 15px; font-weight: 600; line-height: 1.4;">
+                  Solid Liquid Glass establishes a unified visual rhythm with zero gradients and zero blur.
+                </div>
+              </div>
+              <div style="padding: 12px; background: var(--bg-inner-glass); border-radius: var(--radius-sm);">
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--shiliaiwei-green); margin-bottom: 4px;">Khmer Specimen (Google Sans)</div>
+                <div style="font-family: var(--font-km); font-size: 15px; font-weight: 600; line-height: 1.45;">
+                  ប្រព័ន្ធរចនា Solid Liquid Glass ផ្តល់នូវភាពច្បាស់លាស់ ដោយគ្មានជម្រាលពណ៌ និងគ្មានរូបភាពអារម្មណ៍។
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <section id="section-tactile" style="margin-bottom: 60px;">
       <h2 class="section-title" data-i18n="sec_2_title">
         2. Shiliaiwei Tactile UI & Spacing Standards
@@ -2648,6 +2945,9 @@
       en: {
         lang_btn: 'Switch KM',
         nav_brand: 'Our Brand',
+        nav_typography: 'Typography System',
+        sec_typo_title: '2. Aa Typography Design System',
+        sec_typo_desc: 'The type layer of a design system that defines a scale, hierarchy, and set of text styles that is consistent, accessible, and expressive across the full range of product contexts.',
         nav_identity: 'Visual Identity',
         nav_elements: 'UI Elements',
         nav_webapp: 'Web App Suite',
@@ -2665,6 +2965,9 @@
       km: {
         lang_btn: 'Switch EN',
         nav_brand: 'ម៉ាកយីហោ (Our Brand)',
+        nav_typography: 'ប្រព័ន្ធអក្សរ (Typography)',
+        sec_typo_title: '២. ប្រព័ន្ធអក្សរ Aa Typography (៨ នៃ ៨)',
+        sec_typo_desc: 'ស្រទាប់ពុម្ពអក្សរនៃប្រព័ន្ធរចនាដែលកំណត់ទំហំ ឋានានុក្រម និងរចនាប័ទ្មអត្ថបទប្រកបដោយភាពស៊ីសង្វាក់ ងាយស្រួលអាន និងបង្ហាញយ៉ាងច្បាស់លើគ្រប់បរិបទផលិតផល។',
         nav_identity: 'អត្តសញ្ញាណ (Visual Identity)',
         nav_elements: 'ធាតុ UI (UI Elements)',
         nav_webapp: 'ឈុតកម្មវិធី (Web App Suite)',
@@ -2739,6 +3042,30 @@
       box.appendChild(row);
       input.value = '';
       box.scrollTop = box.scrollHeight;
+    }
+
+
+    // Live Typography Specimen Tester
+    function updateLiveTypeSpecimen() {
+      const size = document.getElementById('rngSize').value;
+      const weight = document.getElementById('rngWeight').value;
+      const text = document.getElementById('txtLiveSpecimen').value;
+      
+      document.getElementById('lblSizeVal').textContent = size + 'px';
+      document.getElementById('lblWeightVal').textContent = weight;
+      
+      const box = document.getElementById('boxLiveSpecimen');
+      box.style.fontSize = size + 'px';
+      box.style.fontWeight = weight;
+      box.textContent = text || 'Solid Liquid Glass Typography';
+    }
+
+    function resetLiveTypeSpecimen() {
+      document.getElementById('rngSize').value = 28;
+      document.getElementById('rngWeight').value = 700;
+      document.getElementById('txtLiveSpecimen').value = 'Solid Liquid Glass Design Architecture - 施莱威';
+      updateLiveTypeSpecimen();
+      showToast('Reset type scale to default');
     }
 
     let currentLang = localStorage.getItem('shiliaiwei_lang') || 'en';
