@@ -1,32 +1,27 @@
-22. **Directive 22: SINGLE-VIEW STUDIO ARCHITECTURE & 1-CLICK SKILL.MD EXPORT**
-    - The design studio operates as a zero-forced-scrolling Single-View architecture with 3 views (`Visual Identity`, `UI Elements`, `Web App Suite`) selectable in 1 click from the Floating Dock.
-    - 1-click `Copy Tokens` and `Copy Skill MD` actions allow instant copying of full design tokens and agent skill specs.
-
 ---
 name: srievi-liquid-glass-standards
-description: Authoritative design standard and architectural rules for Shiliaiwei Liquid Glass, 14 Design System UI Elements, 25 Website Concepts, 12px/9px tactile sticker button physics, strict SOLID COLORS ONLY, zero-emoji / zero-symbol / zero-signs / zero-gray / zero-shadow / zero-glow / zero-hover policy, multi-platform implementation (Web, React, Compose, SwiftUI, Flutter), and mandatory Google Sans for Khmer.
+description: Authoritative design standard and architectural rules for Shiliaiwei Liquid Glass, 14 Design System UI Elements, 8 Color System Tokens, 25 Website Concepts, 9px tactile sticker button physics, strict SOLID COLORS ONLY, zero-emoji / zero-symbol / zero-signs / zero-gray / zero-shadow / zero-glow / zero-hover policy, Apple squircle app icon hero with Web Audio API chime, multi-platform implementation (Web, React, Compose, SwiftUI, Flutter), and mandatory Google Sans for Khmer.
 ---
 
 # Shiliaiwei Guideline Design DNA Skill
 
 - **Primary Live Production URL**: [`https://shiliaiwei.pages.dev`](https://shiliaiwei.pages.dev)
-- **GitHub Repository**: [`https://github.com/shiliaiwei/shiliaiwei-design-dna`](https://github.com/shiliaiwei/shiliaiwei-design-dna)
 - **Cloudflare Pages Project**: `shiliaiwei`
 
 This skill provides authoritative architectural rules, strict visual directives, and multi-platform implementation blueprints (Web/CSS, Android/Compose, iOS/SwiftUI, Flutter/Dart) for **Shiliaiwei Guideline Design DNA Skill** across all platforms, frameworks, and programming languages.
 
 ---
 
-## 1. The 16 Immutable Directives
+## 1. The 16 Immutable Architectural Directives
 
 1. **Directive 1: ZERO EMOJI POLICY**
    - Emojis (smileys, flames, rockets, checks, sparkles, flags) are strictly forbidden across UI code, documentation, and assistant responses.
 
-2. **Directive 2: ZERO ICONS & ZERO DECORATIVE GLYPHS POLICY (PURE TYPOGRAPHY)**
-   - No icon fonts, no arbitrary Unicode glyphs, and no decorative symbols.
+2. **Directive 2: ZERO ICONS & ZERO DECORATIVE GLYPHS (PURE TYPOGRAPHY)**
+   - No icon fonts (Font Awesome, Material Symbols, Lucide), no arbitrary Unicode glyphs, and no decorative symbols.
    - Use high-contrast monospace code tokens, semantic status pills (`ACTIVE`, `PROD`, `VERIFIED`, `ENABLED`, `PENDING`), and pure typography labels.
 
-3. **Directive 3: ZERO GRAY (No Dull/Muddy Grays)**
+3. **Directive 3: ZERO GRAY (NO MUDDY/DULL GRAYS)**
    - No generic dull grays (`#808080`, `#999999`, `#cccccc`).
    - High-contrast Canvas White (`#FAFCFF`, `#FFFFFF`) paired with Slate-900 typography (`#0F172A`), Slate-600 (`#475569`), and Slate-500 (`#64748B`).
 
@@ -34,17 +29,25 @@ This skill provides authoritative architectural rules, strict visual directives,
    - No linear, radial, mesh, or conic gradients. Every element uses single solid color tokens.
 
 5. **Directive 5: ZERO MIX COLOR**
-   - Exactly ONE solid color token per element. No color blending or overlays.
+   - Exactly ONE solid color token per element. No color blending or rainbow overlays.
 
-6. **Directive 6: STRICT CLOSED COLOR PALETTE**
+6. **Directive 6: STRICT CLOSED COLOR PALETTE (8 CORE TOKENS)**
    - NEVER use, invent, or introduce colors outside the explicit `:root` tokens.
-   - Permitted Palette: `#FAFCFF`, `#FFFFFF`, `#10B981`, `#059669`, `#065F46`, `#58CC02`, `#1CB0F6`, `#0891B2`, `#FF0050`, `#0F172A`, `#475569`, `#64748B`, `#A7F3D0`, `#BAE6FD`, `#FECDD3`, `#E2E8F0`, `#F1F5F9`.
+   - Closed Palette (8 of 8):
+     - `01. Canvas White`: `#FAFCFF` (`--bg-main`) - High-contrast canvas foundation.
+     - `02. Slate-900`: `#0F172A` (`--text-main`) - Master typography & solid borders (16.8:1 AAA contrast).
+     - `03. Primary Emerald`: `#10B981` (`--primary`) - Core brand interactive actions and confirmations.
+     - `04. Deep Emerald`: `#059669` (`--primary-dark`) - 3D depth extrusion and high-contrast text.
+     - `05. Eager Green`: `#58CC02` (`--color-eager-green`) - High-energy CTA buttons.
+     - `06. Spark Blue`: `#1CB0F6` (`--color-spark-blue`) - Secondary interactive accents.
+     - `07. Accent Cyan`: `#0891B2` (`--accent-cyan`) - Release tags and code chips.
+     - `08. Accent Crimson`: `#FF0050` (`--accent-crimson`) - Critical alerts and danger states.
 
 7. **Directive 7: ZERO SHADOW & ZERO GLOW**
    - No blurry drop shadows or ambient glow orbs. All elements use crisp solid borders (`border: 1px solid rgba(0,0,0,0.10); border-top: 1px solid #FFFFFF; box-shadow: none;`).
 
 8. **Directive 8: ZERO HOVER STYLE (No Floating/Lifting)**
-   - No hover lifts (`translateY`), shadow alterations, or background swaps. Layouts remain static and stable.
+   - No hover lifts (`translateY`), shadow alterations, or background swaps. Layouts remain static and stable until directly clicked or activated.
 
 9. **Directive 9: REALISTIC MESSAGE DATA & TAP-CURSOR AUTO-CLEAR**
    - Input fields pre-filled with realistic production messages that auto-clear on focus/tap and restore on empty blur.
@@ -54,202 +57,147 @@ This skill provides authoritative architectural rules, strict visual directives,
     - Standard Button radius: **`9px`** (`var(--radius-buttons)`), Compact: **`6px`** (`var(--radius-sm)`).
     - 3D bottom shadow depth (`0 4px 0 <depth-color>`) with active click compression (`transform: translateY(3px); box-shadow: 0 1px 0 <depth-color>;`).
 
-11. **Directive 11: AVATAR & IDENTITY ARCHITECTURE**
-    - User Photo: Round avatar with `border: 2px solid #FFFFFF` and `.avatar-img: object-fit: cover; border-radius: 50%;`. Example: `https://github.com/shiliaiwei.png`.
-    - Active Status Dot: 11px diameter, `#10B981`, with `border: 2px solid #FFFFFF` cutout.
-    - Initials Fallback: 2-character uppercase bold on semantic tint background (`KC`, `SL`).
-    - Stacked Team Group: `-10px` negative margin overlapping with `+N` count chip.
+11. **Directive 11: APPLE IPHONE & MACOS DESKTOP APP ICON HERO**
+    - Outer Squircle Frame: `118px × 118px` (`100px × 100px` mobile), `border-radius: 28px`, solid emerald `#10B981` with crisp `1.5px solid rgba(0,0,0,0.14)` outline (zero white rim).
+    - Inner Apple Geometry Guide Grid: Concentric circle and crosshairs.
+    - 3D Elevated Center Plate: `72px × 72px`, `#059669`, `border-radius: 16px`, `border-top: 2px solid #FFFFFF`.
+    - Emblem: Pure white Khmer **"វី"** typography (`font-size: 3.1rem; font-weight: 900`).
+    - Audio Synthesis: Web Audio API crystal glass chime sound effect on tap.
 
 12. **Directive 12: UNTRANSLATED PROPER NAMES POLICY**
-    - Proper names, personal names, brand identities, and technical product titles (`Shiliaiwei`, `Kosal Chan`, `PostgreSQL`, `GitHub`, `CSS`, `Google Sans`, `Outfit`) must **NEVER** be translated to Khmer. They must remain in their original Latin/English form.
+    - Proper names, personal names, brand identities, and technical product titles (`Shiliaiwei`, `Kosal Chan`, `PostgreSQL`, `CSS`, `Google Sans`, `Outfit`) must **NEVER** be translated to Khmer. They must remain in their original Latin/English form.
 
 13. **Directive 13: TEXT BOUNDARY LIMIT & AUTO-WRAP MANDATE**
-    - All text blocks, badges, table cells, and paragraphs must wrap naturally when reaching container limits (`overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;`). Single-line overflow and clipping are forbidden.
+    - All text blocks, badges, table cells, and paragraphs must wrap naturally (`overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;`). Single-line overflow and clipping are forbidden.
 
-14. **Directive 14: WEB APP & 2FA APPLICATION ARCHITECTURE STANDARD**
-    - **2FA Security**: Discrete 6-digit individual OTP input boxes with auto-tab progression, backspace retreat handling, and monospace secret backup key (`JBSWY3DPEHPK3PXP`) with 1-click copy.
-    - **Admin & RBAC**: User role matrices (`OWNER`, `ADMIN`, `MEMBER`) with seat utilization statistics and permission editing actions.
-    - **Billing & Subscriptions**: Plan tier comparison cards with active plan indicators and upgrade checkout triggers.
-    - **API Keys & Security Audit Log**: Secret token generators (`sk_live_...`), key revocation, and live IP-stamped security event tables.
-    - **Sprint Kanban & Timeline**: Multi-column sprint management (`Backlog`, `In Progress`, `Done`) with priority badges.
-    - **Live Team Chat & Activity Feed**: Real-time messaging conversation threads with self/received bubbles and tap-clear input composers.
-    - **Multi-Step Onboarding Form**: 4-stage visual progress tracker (`Profile` -> `Security 2FA` -> `Workspace` -> `Launch`) with validated step progression.
+14. **Directive 14: CONCISE 2–3 WORDS BUTTON TEXT MANDATE**
+    - Every interactive button across all applications, modules, and dialogs must strictly use **two or three words maximum** (`Verify Code`, `Resend Code`, `Save Settings`, `Create Key`, `Export CSV`, `Next Step`, `Back Step`, `Confirm Payment`, `Send Message`, `Invite User`, `Delete Key`, `Switch KM`, `Copy Tokens`, `Prompt`).
 
-15. **Directive 15: CONCISE 2–3 WORDS BUTTON TEXT MANDATE**
-    - Every interactive button across all applications, modules, and dialogs must strictly use **two or three words maximum** (`Verify Code`, `Resend Code`, `Save Settings`, `Create Key`, `Export CSV`, `Next Step`, `Back Step`, `Confirm Payment`, `Send Message`, `Invite User`, `Delete Key`, `Switch KM`, `Copy Tokens`).
+15. **Directive 15: SINGLE-VIEW STUDIO ARCHITECTURE**
+    - 3 dedicated views (`Visual Identity`, `UI Elements`, `Web App Suite`) selectable from the top sticky floating capsule dock.
 
 16. **Directive 16: MANDATORY PERSISTENT DESIGN RECORD RULE**
     - Every design decision, component rule, physics standard, and platform specification must **ALWAYS** be permanently recorded into `DESIGN_DNA.md` and synchronized across all agent skills.
 
-17. **Directive 17: Aa TYPOGRAPHY DESIGN SYSTEM & 8-LAYER TYPE SCALE**
-    - The type layer defines a scale, hierarchy, and set of text styles consistent, accessible, and expressive across the full range of product contexts (8 out of 8 core scales):
-      1. **Display Large**: `48px`, `font-weight: 800`, line-height `1.15`, letter-spacing `-0.03em` (Hero titles).
-      2. **Display Medium / H1**: `32px`, `font-weight: 700`, line-height `1.25`, letter-spacing `-0.02em` (Main headers).
-      3. **Heading H2 & H3**: `22px / 18px`, `font-weight: 700`, line-height `1.30` (Section & card titles).
-      4. **Subheading / Lead Text**: `18px`, `font-weight: 500`, line-height `1.50`, color `#475569`.
-      5. **Body Large & Regular**: `16px / 14px / 15px`, `font-weight: 400`, line-height `1.60`, color `#0F172A`.
-      6. **Monospace Code Tokens**: `JetBrains Mono`, `13px`, `font-weight: 500`, line-height `1.50` (API tokens, SQL).
-      7. **Microcopy & Overline Captions**: `11px / 10px`, `font-weight: 700`, uppercase, letter-spacing `0.08em`.
-      8. **Dual-Language Pairing (Outfit & Google Sans)**: Khmer requires line-height `1.45` to prevent diacritic clipping, paired seamlessly with English Outfit.
+---
 
-18. **Directive 18: ACCESSIBILITY DESIGN SYSTEM & 8-PILLAR a11y STANDARD**
-    - The accessibility foundation ensures every component and pattern is built inclusively (8 out of 8 pillars):
-      1. **WCAG 2.2 AAA Contrast**: Canvas White `#FAFCFF` vs Slate-900 `#0F172A` achieves 16.8:1 ratio.
-      2. **Visible Focus Rings**: High-visibility 2px solid `#10B981` outline with 2px offset on `:focus-visible`.
-      3. **ARIA Semantics & Live Regions**: Explicit `aria-live="polite"` and semantic `role="status"` on dynamic alerts.
-      4. **44x44px Touch Targets**: Minimum 44px tap targets on all mobile buttons and interactive links.
-      5. **Reduced Motion Compliance**: `@media (prefers-reduced-motion: reduce)` support.
-      6. **Semantic HTML5 Landmark Structure**: Sequential `header`, `nav`, `aside`, `main`, `section`, and `h1`-`h4`.
-      7. **Text Boundary Wrap & 200% Zoom Reflow**: `overflow-wrap: break-word` preventing horizontal overflow under 200% zoom.
-      8. **Dual-Language Khmer a11y**: Mandatory line-height `1.45` preventing stacked subscript (ជើង) and vowel clipping.
+## 2. The 14 Core UI Elements Specifications & AI Prompts
 
-19. **Directive 19: SPACING & GRID DESIGN SYSTEM (7-PILLAR SPATIAL STANDARD)**
-    - The spatial layer defines a consistent scale for spacing, a grid for layout, and layout rules across all surfaces (7 of 7 pillars):
-      1. **4px / 8px Base Scale**: `--space-1` (4px), `--space-2` (8px), `--space-3` (12px), `--space-4` (16px), `--space-6` (24px), `--space-8` (32px), `--space-12` (48px), `--space-16` (64px).
-      2. **Responsive 12-Column Grid**: 12-column desktop layout with 16px/24px gutters.
-      3. **Component Inset Hierarchy**: Card padding (`20px`/`24px`), recessed wells (`12px`/`16px`), standard buttons (`8px 14px`), badges (`3px 8px`).
-      4. **Squircle & Radius Geometry Scale**: `--radius-sm` (6px), `--radius-buttons` (9px), `--radius-md` (10px), `--radius-lg` (16px), `--radius-xl` (22px), `--radius-pill` (9999px).
-      5. **Flexbox & Grid Gap Scale**: Harmonic gaps (`gap: 6px`, `gap: 10px`, `gap: 16px`, `gap: 24px`).
-      6. **Viewport Breakpoints**: Mobile (`≤ 480px`), Tablet (`481px - 1023px`), Desktop (`≥ 1024px`).
-      7. **Z-Index Layer Architecture**: Base (0), Sticky Dock (100), Dropdown (500), Modal (1000), Toast (9999).
+### 1. Tactile Buttons (`.btn`)
+- **Primary CTA (`.btn-primary`)**: `#10B981` fill, `box-shadow: 0 4px 0 #059669`, color `#FFFFFF`.
+- **Eager Sticker (`.btn-eager`)**: `#58CC02` fill, `box-shadow: 0 4px 0 #46A302`, color `#FFFFFF`.
+- **Spark Blue (`.btn-spark`)**: `#FFFFFF` fill, `border: 2px solid #BAE6FD`, color `#0284C7`, `box-shadow: 0 4px 0 #BAE6FD`.
+- **Glass / Ghost (`.btn-glass`)**: `#FFFFFF` fill, `border: 1px solid #CBD5E1`, `box-shadow: 0 3px 0 #CBD5E1`.
+- **Active Press State**: `transform: translateY(3px); box-shadow: 0 1px 0 <depth-color>;`.
 
-20. **Directive 20: COLOR SYSTEM DESIGN SYSTEM (8-LAYER TOKEN ARCHITECTURE)**
-    - The color layer defines a purposeful, accessible, themeable palette expressed strictly as semantic tokens (8 of 8 pillars):
-      1. **Pure Canvas Foundation**: `--bg-main` (`#FAFCFF`), `--bg-surface` (`rgba(255,255,255,0.85)`), `--bg-inner-glass` (`rgba(241,245,249,0.85)`), `--bg-elevated` (`#FFFFFF`).
-      2. **Primary Brand Actions**: `--primary` (`#10B981`), `--primary-dark` (`#059669`), `--primary-light` (`#065F46`).
-      3. **Ecosystem Accents**: `--shiliaiwei-green` (`#58CC02`), `--shiliaiwei-blue` (`#1CB0F6`).
-      4. **Functional Semantic Status**: Success Mint (`#10B981`), Info Cyan (`#0891B2`), Danger Crimson (`#FF0050`), Pending Amber (`#F59E0B`).
-      5. **High-Contrast Slate Typography**: `--text-main` (`#0F172A`), `--text-muted` (`#475569`), `--text-dim` (`#64748B`).
-      6. **Specular Liquid Glass Highlights**: `--border-glass` (`rgba(0,0,0,0.10)`), `--border-glass-top` (`#FFFFFF`).
-      7. **Soft Badge Fills & Tint Insets**: Mint (`#ECFDF5`), Cyan (`#E0F2FE`), Rose (`#FFF1F2`).
-      8. **Strict Zero Gradient & Zero Mix Mandate**: 100% single-token solid fills, zero muddy grays.
+### 2. Radio Selection (`.ui-radio`)
+- Unchecked: `border: 2px solid rgba(0,0,0,0.20); background: #FFFFFF;`.
+- Checked: `border: 6px solid #10B981; background: #FFFFFF; border-radius: 50%;`.
 
-21. **Directive 21: TOKENS DESIGN SYSTEM & MULTI-LANGUAGE 1:1 EXPORT (6-PILLAR STANDARD)**
-    - The defined variable layer across all platforms enabling consistency, theming, and code alignment (6 of 6 pillars):
-      1. **Three-Tier Architecture**: Tier 1 Primitives (raw values), Tier 2 Semantic (purpose & intent), Tier 3 Component (element-scoped).
-      2. **Predictable Naming Convention**: `[category]-[context]-[variant]-[state]`.
-      3. **Token Documentation**: Explicit usage rules and restrictions.
-      4. **Token Governance Policy**: Strict prohibition of hardcoded values.
-      5. **1:1 Design Tool & Multi-Language Sync**: Instant export across CSS, Android Compose (Kotlin), iOS SwiftUI (Swift), Flutter (Dart), TypeScript, and JSON DTCG.
-      6. **Semantic Versioning & Changelog**: Tracked under `v2.4.0`.
+### 3. Searchbar (`.search-input`)
+- Surface: `#FFFFFF`, `border: 1px solid rgba(0,0,0,0.10); border-radius: 9px;`.
+- Trailing shortcut badge: Monospace `CMD+K`, `#F1F5F9` background, `border-radius: 4px`.
+
+### 4. Tooltip (`.ui-tooltip`)
+- Background: Slate-900 (`#0F172A`), `border: 1px solid rgba(255,255,255,0.15); border-radius: 6px;`.
+- Typography: `#F1F5F9`, `font-size: 0.75rem; font-weight: 600;`.
+
+### 5. Modal Dialog (`.brand-popup-card`, `.ui-modal`)
+- Backdrop: `rgba(15, 23, 42, 0.45)` with `backdrop-filter: blur(24px)`.
+- Card: Pure White (`#FFFFFF`), `border: 1px solid rgba(0,0,0,0.10); border-top: 1.5px solid #FFFFFF; border-radius: 20px; padding: 24px;`.
+- Actions: 9px tactile buttons for Confirm and Cancel.
+
+### 6. Loading Skeleton & Spinner
+- Spinner: `24px` diameter, `border: 3px solid rgba(16,185,129,0.20); border-top-color: #10B981; animation: spin 0.8s linear infinite;`.
+- Skeleton Line: `height: 10px; border-radius: 4px; background: rgba(0,0,0,0.06);`.
+
+### 7. Toggle Switch (`.ui-toggle`)
+- Track: `46px × 26px`, `background: #E2E8F0; border-radius: 9999px;`.
+- Active Track: `background: #10B981;`.
+- Thumb: `20px × 20px`, `#FFFFFF`, `border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.12);`.
+
+### 8. Progress Bar (`.progress-bar`)
+- Track: `height: 8px; background: #E2E8F0; border-radius: 9999px;`.
+- Fill: `#10B981` (or `#58CC02` / `#1CB0F6`), `border-radius: 9999px;`.
+
+### 9. Avatar & Stack (`.avatar-img`, `.avatar-stack`)
+- Image: `border-radius: 50%; border: 2px solid #FFFFFF; object-fit: cover;`.
+- Active Dot: `11px` diameter, `#10B981`, `border: 2px solid #FFFFFF;`.
+- Stack: `-10px` negative margin with `+N` count badge.
+
+### 10. Segmented Tabs (`.dock-tab`, `.tab-item`)
+- Pill container: `#F1F5F9`, `border-radius: 9999px; padding: 3px;`.
+- Active tab: `#FFFFFF`, `border: 1px solid rgba(0,0,0,0.08); border-top: 1px solid #FFFFFF; border-radius: 9999px; box-shadow: 0 2px 6px rgba(0,0,0,0.06); font-weight: 700;`.
+
+### 11. Range Slider (`.ui-range`)
+- Track: `height: 6px; background: #E2E8F0; border-radius: 9999px;`.
+- Thumb: `18px × 18px`, `#10B981`, `border: 2px solid #FFFFFF; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.15);`.
+
+### 12. Code Chip (`.code-chip`)
+- Monospace font, `background: #F1F5F9; border: 1px solid rgba(0,0,0,0.08); border-radius: 6px; padding: 3px 8px; color: #0F172A;`.
+
+### 13. Status Badge (`.badge`)
+- Mint Active: `background: #ECFDF5; color: #059669; border: 1px solid #A7F3D0; border-radius: 6px; font-weight: 700; font-size: 0.72rem;`.
+- Sky Info: `background: #ECFEFF; color: #0891B2; border: 1px solid #A5F3FC; border-radius: 6px;`.
+- Rose Danger: `background: #FFF1F2; color: #BE123C; border: 1px solid #FECDD3; border-radius: 6px;`.
+
+### 14. UI Table (`.ui-table`)
+- Header: `#F8FAFC`, `font-size: 0.75rem; font-weight: 700; color: #475569; border-bottom: 1px solid rgba(0,0,0,0.08);`.
+- Rows: `#FFFFFF`, `border-bottom: 1px solid rgba(0,0,0,0.04);`.
+- Interactive Column/Row Crosshair Highlighter.
 
 ---
 
-## 2. Multi-Platform Implementation Guide
+## 3. Web Audio API Notification Chime Implementation
 
-### Web (HTML/CSS/JS/React/Next.js/Vue)
-```css
-.btn-eager {
-  padding: 10px 20px;
-  background-color: #58CC02;
-  color: #FFFFFF;
-  font-weight: 700;
-  font-size: 0.88rem;
-  text-transform: uppercase;
-  letter-spacing: 0.053em;
-  border: 1px solid #46a302;
-  border-top: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 9px;
-  box-shadow: 0 4px 0 #46a302;
-  cursor: pointer;
-}
-.btn-eager:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 #46a302;
-}
-```
+```javascript
+function playMacNotificationSound() {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    if (ctx.state === 'suspended') ctx.resume();
 
-### Android (Jetpack Compose / Kotlin)
-```kotlin
-val ShiliaiweiEagerGreen = Color(0xFF58CC02)
-val ShiliaiweiEagerDepth = Color(0xFF46A302)
+    const now = ctx.currentTime;
 
-@Composable
-fun ShiliaiweiButton(text: String, onClick: () -> Unit) {
-    Box(
-        modifier = Modifier
-            .background(ShiliaiweiEagerDepth, shape = RoundedCornerShape(9.dp))
-            .padding(bottom = 4.dp)
-    ) {
-        Surface(
-            shape = RoundedCornerShape(9.dp),
-            color = ShiliaiweiEagerGreen,
-            border = BorderStroke(1.dp, Color.White.copy(alpha = 0.45f)),
-            modifier = Modifier.clickable { onClick() }
-        ) {
-            Text(
-                text = text.uppercase(),
-                color = Color.White,
-                fontWeight = FontWeight.Bold,
-                letterSpacing = 0.053.em,
-                modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)
-            )
-        }
-    }
-}
-```
+    // Primary E6 -> A6 glass tone
+    const osc1 = ctx.createOscillator();
+    const gain1 = ctx.createGain();
+    osc1.type = 'sine';
+    osc1.frequency.setValueAtTime(1318.51, now);
+    osc1.frequency.exponentialRampToValueAtTime(1760.00, now + 0.08);
+    gain1.gain.setValueAtTime(0.32, now);
+    gain1.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+    osc1.connect(gain1);
+    gain1.connect(ctx.destination);
 
-### iOS (SwiftUI / Swift)
-```swift
-struct ShiliaiweiEagerButton: View {
-    let title: String
-    let action: () -> Void
-    var body: some View {
-        Button(action: action) {
-            Text(title.uppercased())
-                .font(.system(size: 14, weight: .bold))
-                .tracking(0.053)
-                .foregroundColor(.white)
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                .background(Color(hex: "#58CC02"))
-                .cornerRadius(9)
-                .overlay(RoundedRectangle(cornerRadius: 9).stroke(Color.white.opacity(0.45), lineWidth: 1))
-        }
-        .shadow(color: Color(hex: "#46A302"), radius: 0, x: 0, y: 4)
-    }
+    // High crystal shimmer overtone E7
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(2637.02, now);
+    gain2.gain.setValueAtTime(0.18, now);
+    gain2.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
+    osc2.connect(gain2);
+    gain2.connect(ctx.destination);
+
+    // Tactile bass pop
+    const osc3 = ctx.createOscillator();
+    const gain3 = ctx.createGain();
+    osc3.type = 'triangle';
+    osc3.frequency.setValueAtTime(220, now);
+    osc3.frequency.exponentialRampToValueAtTime(110, now + 0.06);
+    gain3.gain.setValueAtTime(0.22, now);
+    gain3.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
+    osc3.connect(gain3);
+    gain3.connect(ctx.destination);
+
+    osc1.start(now);
+    osc2.start(now);
+    osc3.start(now);
+    osc1.stop(now + 0.45);
+    osc2.stop(now + 0.35);
+    osc3.stop(now + 0.08);
+  } catch (err) {}
 }
 ```
-
-### Flutter (Dart)
-```dart
-class ShiliaiweiButton extends StatelessWidget {
-  final String label;
-  final VoidCallback onPressed;
-  const ShiliaiweiButton({required this.label, required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color(0xFF58CC02),
-        borderRadius: BorderRadius.circular(9.0),
-        border: Border.all(color: Color(0xFF46A302), width: 1.0),
-        boxShadow: [
-          BoxShadow(color: Color(0xFF46A302), offset: Offset(0, 4), blurRadius: 0),
-        ],
-      ),
-      padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-      child: Text(label.toUpperCase(), style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, letterSpacing: 0.8)),
-    );
-  }
-}
-```
-
----
-
-## 3. The 14 Core UI Elements
-1. **Input Field**: Pre-filled message with focus auto-clear.
-2. **Pill Badge / Tag**: Base outline + top specular white rim.
-3. **Radio Selector**: Solid emerald center dot.
-4. **Tooltip**: Floating Slate-900 chip with solid arrow.
-5. **Toggle Switch**: Cubic-bezier spring glide (`0.28s`).
-6. **Loading Spinner**: Solid 360-degree rotation.
-7. **Skeleton Pulse**: `#E2E8F0` solid pulse.
-8. **Avatar & Stack**: Real GitHub photo + initials + active dot + team group.
-9. **Table**: Crosshair row (`#F0F9FF`), column (`#F8FAFC`), and cell (`#E0F2FE`) hover.
-10. **Card Container**: White liquid crystal glass with 16px blur & specular edge.
-11. **Button Suite**: The 5 core 3D bottom extrusion variants.
-12. **Progress Indicator**: Solid emerald fill `#10B981`.
-13. **Modal Overlay**: Frosted glass scrim `rgba(15, 23, 42, 0.45)` with 8px blur.
-14. **Dropdown Menu**: Floating panel with keyboard shortcuts (`.kbd-badge`) and separators.

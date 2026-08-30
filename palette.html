@@ -2273,11 +2273,14 @@
         </p>
 
         <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
-          <button class="btn btn-primary" style="justify-content: center; width: 100%; padding: 12px;" onclick="copyAllTokens()">
-            Copy Complete Design Tokens (CSS)
-          </button>
-          <button class="btn btn-glass" style="justify-content: center; width: 100%; padding: 12px;" onclick="copySkillMarkdown()">
+          <button class="btn btn-primary" style="justify-content: center; width: 100%; padding: 12px;" onclick="copySkillMarkdown()">
             Copy Agent Skill Prompt (SKILL.md)
+          </button>
+          <button class="btn btn-eager" style="justify-content: center; width: 100%; padding: 12px;" onclick="downloadSkillMarkdown()">
+            Download Agent Skill (SKILL.md)
+          </button>
+          <button class="btn btn-glass" style="justify-content: center; width: 100%; padding: 12px;" onclick="copyAllTokens()">
+            Copy Complete Design Tokens (CSS)
           </button>
         </div>
 
@@ -3925,32 +3928,62 @@ export const tokens = {
     });
 
 
-    // Copy Authoritative Skill Markdown (SKILL.md) to Clipboard
-    function copySkillMarkdown() {
-      const skillMd = `---
+    function getFullSkillMarkdown() {
+      return `---
 name: shiliaiwei-liquid-glass-standards
-description: Authoritative design standard and architectural rules for Shiliaiwei Liquid Glass, 14 Design System UI Elements, 25 Website Concepts, 12px/9px tactile sticker button physics, strict SOLID COLORS ONLY, zero-emoji / zero-symbol / zero-signs / zero-gray / zero-shadow / zero-glow / zero-hover policy, multi-platform implementation (Web, React, Compose, SwiftUI, Flutter), and mandatory Google Sans for Khmer.
+description: Authoritative design standard and architectural rules for Shiliaiwei Liquid Glass, 14 Design System UI Elements, 8 Color System Tokens, 25 Website Concepts, 9px tactile sticker button physics, strict SOLID COLORS ONLY, zero-emoji / zero-symbol / zero-signs / zero-gray / zero-shadow / zero-glow / zero-hover policy, Apple squircle app icon hero with Web Audio API chime, multi-platform implementation (Web, React, Compose, SwiftUI, Flutter), and mandatory Google Sans for Khmer.
 ---
 
 # Shiliaiwei Guideline Design DNA Skill
 
 - **Primary Production URL**: https://shiliaiwei.pages.dev
-- **GitHub Repository**: https://github.com/shiliaiwei/shiliaiwei-design-dna
 
-## Core Directives:
+## Core Architecture Directives:
 1. Zero Emojis (0 smileys/symbols)
 2. Zero Icons (Pure typography, high-contrast monospace tokens, status pills)
 3. Zero Gray (No dull/muddy grays; High-contrast Canvas White #FAFCFF + Slate-900 #0F172A)
 4. Zero Gradients (100% Solid Colors Only)
 5. Zero Mix Color (Single solid color token per element)
-6. Strict Closed Palette (:root tokens only)
+6. Strict Closed Palette (8 of 8 Core Tokens):
+   - 01. Canvas White: #FAFCFF (--bg-main)
+   - 02. Slate-900: #0F172A (--text-main)
+   - 03. Primary Emerald: #10B981 (--primary)
+   - 04. Deep Emerald: #059669 (--primary-dark)
+   - 05. Eager Green: #58CC02 (--color-eager-green)
+   - 06. Spark Blue: #1CB0F6 (--color-spark-blue)
+   - 07. Accent Cyan: #0891B2 (--accent-cyan)
+   - 08. Accent Crimson: #FF0050 (--accent-crimson)
 7. Zero Blur Shadow & Zero Glow (1px solid borders + top specular highlight)
 8. Zero Hover Style (No lifting/floating hover effects)
-9. Mandatory Google Sans for Khmer & 9px Tactile Sticker Button Physics
-10. Concise 2-3 Words Button Text Mandate
-11. Single-View Studio Architecture (Zero Forced Scrolling)
+9. Mandatory Google Sans for Khmer & 9px Tactile Sticker Button Physics (0 4px 0 <depth>)
+10. Apple iPhone & macOS Desktop App Icon Hero:
+    - Solid emerald #10B981 squircle (118x118px, radius 28px) with crisp 1.5px solid rgba(0,0,0,0.14) outline.
+    - Apple geometric guide grid, 3D center plate #059669, and pure white Khmer "វី" emblem.
+    - Web Audio API crystal glass chime sound on tap.
+11. 14 Core UI Elements: Radio, Searchbar, Tooltip, Modal, Loading Skeleton, Toggle Switch, Progress Bar, Avatar Stack, Tabs, Range Slider, Code Chip, Status Badge, 9px Tactile Button, UI Table.
+12. Concise 2-3 Words Button Text Mandate
+13. Single-View Studio Architecture (Zero Forced Scrolling)
 `;
-      copyVal(skillMd, 'Copied Shiliaiwei SKILL.md to Clipboard');
+    }
+
+    // Copy Authoritative Skill Markdown (SKILL.md) to Clipboard
+    function copySkillMarkdown() {
+      copyVal(getFullSkillMarkdown(), 'Copied Shiliaiwei Agent SKILL.md to Clipboard');
+    }
+
+    // Download Authoritative Skill Markdown (SKILL.md) File
+    function downloadSkillMarkdown() {
+      const skillText = getFullSkillMarkdown();
+      const blob = new Blob([skillText], { type: 'text/markdown;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'SKILL.md';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast(currentLang === 'km' ? 'បានទាញយកឯកសារ SKILL.md ដោយជោគជ័យ!' : 'Downloaded Agent SKILL.md file!');
     }
 
     // Authentic Apple macOS Glass Notification Chime Synthesizer (Web Audio API)
