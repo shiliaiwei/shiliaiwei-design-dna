@@ -1,0 +1,681 @@
+# Shiliaiwei Liquid Glass Design System — LLM Context & Agent Skill Specification (llms.txt)
+
+> **Authoritative Specification**: This document contains the complete, uncompressed architectural rules, design system tokens, visual standards, physics rules, audio synthesis blueprints, component implementations, and multi-platform standards for the Shiliaiwei Liquid Glass Design DNA.
+
+- **Production URL**: https://shiliaiwei.pages.dev
+- **Cloudflare Pages Project**: shiliaiwei
+- **Design Standard**: Shiliaiwei Solid Liquid Glass Architecture v2.4.0
+- **Typography**: Outfit (English/Latin), Google Sans & Kantumruy Pro (Khmer), JetBrains Mono (Code/Tokens)
+
+---
+
+## 1. The 16 Immutable Architectural Directives
+
+1. **Directive 1: ZERO EMOJI POLICY**
+   - Emojis (smileys, flames, rockets, checks, sparkles, flags, symbols) are strictly forbidden across all UI code, documentation, scripts, and assistant responses.
+
+2. **Directive 2: ZERO ICONS & ZERO DECORATIVE GLYPHS (PURE TYPOGRAPHY)**
+   - No icon fonts (Font Awesome, Material Symbols, Lucide, Heroicons), no arbitrary Unicode glyphs, and no decorative symbols.
+   - Use high-contrast monospace code tokens, semantic status pills (`ACTIVE`, `PROD`, `VERIFIED`, `ENABLED`, `PENDING`), and pure typography labels.
+
+3. **Directive 3: ZERO GRAY (NO MUDDY/DULL GRAYS)**
+   - No generic dull or muddy grays (`#808080`, `#999999`, `#cccccc`).
+   - High-contrast Canvas White (`#FAFCFF`, `#FFFFFF`) paired with Slate-900 typography (`#0F172A`), Slate-600 (`#475569`), and Slate-500 (`#64748B`).
+
+4. **Directive 4: ZERO GRADIENTS (100% SOLID COLORS ONLY)**
+   - No linear, radial, mesh, or conic gradients. Every element uses single solid color tokens.
+
+5. **Directive 5: ZERO MIX COLOR**
+   - Exactly ONE solid color token per element. No color blending, gradient fills, or rainbow overlays.
+
+6. **Directive 6: STRICT CLOSED COLOR PALETTE (8 CORE TOKENS)**
+   - NEVER use, invent, or introduce colors outside the explicit `:root` tokens.
+   - Closed Palette (8 of 8):
+     - `01. Canvas White`: `#FAFCFF` (`--bg-main`) — High-contrast canvas foundation.
+     - `02. Slate-900`: `#0F172A` (`--text-main`) — Master typography & solid borders (16.8:1 AAA contrast).
+     - `03. Primary Emerald`: `#10B981` (`--primary`) — Core brand interactive actions and confirmations.
+     - `04. Deep Emerald`: `#059669` (`--primary-dark`) — 3D depth extrusion and high-contrast text.
+     - `05. Eager Green`: `#58CC02` (`--color-eager-green`) — High-energy CTA buttons.
+     - `06. Spark Blue`: `#1CB0F6` (`--color-spark-blue`) — Secondary interactive accents.
+     - `07. Accent Cyan`: `#0891B2` (`--accent-cyan`) — Release tags and code chips.
+     - `08. Accent Crimson`: `#FF0050` (`--accent-crimson`) — Critical alerts and danger states.
+
+7. **Directive 7: ZERO SHADOW & ZERO GLOW**
+   - No blurry drop shadows or ambient glow orbs. All elements use crisp solid borders (`border: 1px solid rgba(0,0,0,0.10); border-top: 1px solid #FFFFFF; box-shadow: none;`).
+
+8. **Directive 8: ZERO HOVER STYLE (NO FLOATING/LIFTING HOVERS)**
+   - No hover lifts (`translateY`), shadow alterations, or background swaps. Layouts remain static and stable until directly clicked or activated.
+
+9. **Directive 9: REALISTIC MESSAGE DATA & TAP-CURSOR AUTO-CLEAR**
+   - Input fields pre-filled with realistic production messages that auto-clear on focus/tap and restore on empty blur.
+
+10. **Directive 10: MANDATORY GOOGLE SANS FOR KHMER & 9px TACTILE STICKER BUTTONS**
+    - All Khmer text strictly uses `'Google Sans', 'Kantumruy Pro', sans-serif`.
+    - Standard Button radius: **`9px`** (`var(--radius-buttons)`), Compact: **`6px`** (`var(--radius-sm)`).
+    - 3D bottom shadow depth (`0 4px 0 <depth-color>`) with active click compression (`transform: translateY(3px); box-shadow: 0 1px 0 <depth-color>;`).
+
+11. **Directive 11: APPLE IPHONE & MACOS DESKTOP APP ICON HERO**
+    - Outer Squircle Frame: `118px × 118px` (`100px × 100px` mobile), `border-radius: 28px`, solid emerald `#10B981` with crisp `1.5px solid rgba(0,0,0,0.14)` outline (zero white rim).
+    - Inner Apple Geometry Guide Grid: Concentric circle and crosshairs.
+    - 3D Elevated Center Plate: `72px × 72px`, `#059669`, `border-radius: 16px`, `border-top: 2px solid #FFFFFF`.
+    - Emblem: Pure white Khmer **"វី"** typography (`font-size: 3.1rem; font-weight: 900`).
+    - Audio Synthesis: Web Audio API crystal glass chime sound effect on tap.
+
+12. **Directive 12: UNTRANSLATED PROPER NAMES POLICY**
+    - Proper names, personal names, brand identities, and technical product titles (`Shiliaiwei`, `Kosal Chan`, `PostgreSQL`, `CSS`, `Google Sans`, `Outfit`) must **NEVER** be translated to Khmer. They must remain in their original Latin/English form.
+
+13. **Directive 13: TEXT BOUNDARY LIMIT & AUTO-WRAP MANDATE**
+    - All text blocks, badges, table cells, and paragraphs must wrap naturally (`overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;`). Single-line overflow and clipping are forbidden.
+
+14. **Directive 14: CONCISE 2–3 WORDS BUTTON TEXT MANDATE**
+    - Every interactive button across all applications, modules, and dialogs must strictly use **two or three words maximum** (`Verify Code`, `Resend Code`, `Save Settings`, `Create Key`, `Export CSV`, `Next Step`, `Back Step`, `Confirm Payment`, `Send Message`, `Invite User`, `Delete Key`, `Switch KM`, `Copy Tokens`, `Prompt`).
+
+15. **Directive 15: SINGLE-VIEW STUDIO ARCHITECTURE**
+    - 3 dedicated views (`Visual Identity`, `UI Elements`, `Web App Suite`) selectable from the top sticky floating capsule dock with zero forced scrolling.
+
+16. **Directive 16: MANDATORY PERSISTENT DESIGN RECORD RULE**
+    - Every design decision, component rule, physics standard, and platform specification must **ALWAYS** be permanently recorded into `DESIGN_DNA.md`, `llms.txt`, and synchronized across all agent skills.
+
+---
+
+## 2. Complete CSS Design Tokens (`:root`)
+
+```css
+:root {
+  /* Canvas & Glass Foundations */
+  --bg-main: #FAFCFF;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-surface-hover: rgba(255, 255, 255, 0.96);
+  --bg-surface-elevated: rgba(255, 255, 255, 0.98);
+  --bg-inner-glass: rgba(241, 245, 249, 0.85);
+  
+  /* Specular Highlight Borders */
+  --border-glass: rgba(0, 0, 0, 0.10);
+  --border-glass-top: rgba(255, 255, 255, 1);
+  --border-glass-hover: rgba(16, 185, 129, 0.70);
+  --glass-shadow: none;
+  --glass-shadow-hover: none;
+  
+  /* The 8 Closed Color System Tokens */
+  --primary: #10B981;
+  --primary-dark: #059669;
+  --primary-light: #065F46;
+  --color-eager-green: #58CC02;
+  --color-spark-blue: #1CB0F6;
+  --accent-cyan: #0891B2;
+  --accent-cyan-light: #0E7490;
+  --accent-crimson: #FF0050;
+  
+  /* High-Contrast Bold Slate Typography */
+  --text-main: #0F172A;
+  --text-muted: #475569;
+  --text-dim: #64748B;
+  
+  /* Typography Families */
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-en: 'Outfit', sans-serif;
+  --font-km: 'Google Sans', 'Kantumruy Pro', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Spatial Hierarchy & Radii */
+  --spacing-unit: 4px;
+  --radius-sm: 6px;
+  --radius-buttons: 9px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-pill: 9999px;
+}
+```
+
+---
+
+## 3. The 14 Core UI Elements Specifications
+
+### 1. Tactile Buttons (`.btn`)
+- **Primary CTA (`.btn-primary`)**:
+  ```css
+  background-color: #10B981;
+  color: #FFFFFF;
+  border-radius: 9px;
+  padding: 10px 18px;
+  font-weight: 700;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1.5px solid #FFFFFF;
+  box-shadow: 0 4px 0 #059669;
+  ```
+- **Eager Green Sticker (`.btn-eager`)**:
+  ```css
+  background-color: #58CC02;
+  color: #FFFFFF;
+  border-radius: 9px;
+  padding: 10px 18px;
+  font-weight: 700;
+  box-shadow: 0 4px 0 #46A302;
+  ```
+- **Spark Blue (`.btn-spark`)**:
+  ```css
+  background-color: #FFFFFF;
+  color: #0284C7;
+  border: 2px solid #BAE6FD;
+  border-radius: 9px;
+  padding: 10px 18px;
+  font-weight: 700;
+  box-shadow: 0 4px 0 #BAE6FD;
+  ```
+- **Active Press State**:
+  ```css
+  .btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 currentColor;
+  }
+  ```
+
+### 2. Radio Selection (`.ui-radio`)
+```css
+.ui-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.20);
+  background: #FFFFFF;
+  cursor: pointer;
+}
+.ui-radio.checked {
+  border: 6px solid #10B981;
+  background: #FFFFFF;
+}
+```
+
+### 3. Searchbar (`.search-input`)
+```css
+.search-container {
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 9px;
+  padding: 8px 14px;
+}
+.search-shortcut {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+```
+
+### 4. Tooltip (`.ui-tooltip`)
+```css
+.ui-tooltip {
+  background: #0F172A;
+  color: #F1F5F9;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+```
+
+### 5. Modal Dialog (`.brand-popup-card`)
+```css
+.brand-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+}
+.brand-popup-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-top: 1.5px solid #FFFFFF;
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 440px;
+  width: 90%;
+}
+```
+
+### 6. Loading Skeleton & Spinner
+```css
+.spinner-ring {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(16, 185, 129, 0.20);
+  border-top-color: #10B981;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+```
+
+### 7. Toggle Switch (`.ui-toggle`)
+```css
+.ui-toggle-track {
+  width: 46px;
+  height: 26px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.ui-toggle-track.active {
+  background: #10B981;
+}
+.ui-toggle-thumb {
+  width: 20px;
+  height: 20px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease;
+}
+.ui-toggle-track.active .ui-toggle-thumb {
+  transform: translateX(20px);
+}
+```
+
+### 8. Progress Bar (`.progress-bar`)
+```css
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: #10B981;
+  border-radius: 9999px;
+}
+```
+
+### 9. Avatar & Stack (`.avatar-img`, `.avatar-stack`)
+```css
+.avatar-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  object-fit: cover;
+}
+.avatar-stack {
+  display: flex;
+  align-items: center;
+}
+.avatar-stack .avatar-img:not(:first-child) {
+  margin-left: -10px;
+}
+```
+
+### 10. Segmented Tabs (`.dock-tab`)
+```css
+.apple-dock-nav {
+  display: inline-flex;
+  gap: 3px;
+  background: rgba(241, 245, 249, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 9999px;
+  padding: 3px;
+}
+.dock-tab {
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748B;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.dock-tab.active {
+  color: #0F172A;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-top: 1px solid #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+```
+
+### 11. Range Slider (`.ui-range`)
+```css
+input[type="range"] {
+  accent-color: #10B981;
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+}
+```
+
+### 12. Code Chip (`.code-chip`)
+```css
+.code-chip {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0F172A;
+  background: #F1F5F9;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+```
+
+### 13. Status Badge (`.badge`)
+```css
+.badge-mint {
+  background: #ECFDF5;
+  color: #059669;
+  border: 1px solid #A7F3D0;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+}
+.badge-sky {
+  background: #ECFEFF;
+  color: #0891B2;
+  border: 1px solid #A5F3FC;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+}
+.badge-rose {
+  background: #FFF1F2;
+  color: #BE123C;
+  border: 1px solid #FECDD3;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 3px 8px;
+}
+```
+
+### 14. UI Table (`.ui-table`)
+```css
+.ui-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #FFFFFF;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.ui-table th {
+  background: #F8FAFC;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.ui-table td {
+  padding: 12px 16px;
+  color: #0F172A;
+  font-size: 0.84rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+```
+
+---
+
+## 4. Web Audio API Notification Sound Synthesizer
+
+```javascript
+function playMacNotificationSound() {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    if (ctx.state === 'suspended') ctx.resume();
+
+    const now = ctx.currentTime;
+
+    // Primary E6 -> A6 crystal tone
+    const osc1 = ctx.createOscillator();
+    const gain1 = ctx.createGain();
+    osc1.type = 'sine';
+    osc1.frequency.setValueAtTime(1318.51, now);
+    osc1.frequency.exponentialRampToValueAtTime(1760.00, now + 0.08);
+    gain1.gain.setValueAtTime(0.32, now);
+    gain1.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
+    osc1.connect(gain1);
+    gain1.connect(ctx.destination);
+
+    // High shimmer overtone E7
+    const osc2 = ctx.createOscillator();
+    const gain2 = ctx.createGain();
+    osc2.type = 'sine';
+    osc2.frequency.setValueAtTime(2637.02, now);
+    gain2.gain.setValueAtTime(0.18, now);
+    gain2.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
+    osc2.connect(gain2);
+    gain2.connect(ctx.destination);
+
+    // Tactile transient bass pop
+    const osc3 = ctx.createOscillator();
+    const gain3 = ctx.createGain();
+    osc3.type = 'triangle';
+    osc3.frequency.setValueAtTime(220, now);
+    osc3.frequency.exponentialRampToValueAtTime(110, now + 0.06);
+    gain3.gain.setValueAtTime(0.22, now);
+    gain3.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
+    osc3.connect(gain3);
+    gain3.connect(ctx.destination);
+
+    osc1.start(now);
+    osc2.start(now);
+    osc3.start(now);
+    osc1.stop(now + 0.45);
+    osc2.stop(now + 0.35);
+    osc3.stop(now + 0.08);
+  } catch (err) {}
+}
+```
+
+---
+
+## 5. Multi-Platform Implementation References
+
+### React / TypeScript
+```tsx
+import React, { useState } from 'react';
+
+export const ShiliaiweiTactileButton: React.FC<{
+  label: string;
+  variant?: 'primary' | 'eager' | 'spark';
+  onClick?: () => void;
+}> = ({ label, variant = 'primary', onClick }) => {
+  const styles: Record<string, React.CSSProperties> = {
+    primary: {
+      backgroundColor: '#10B981',
+      color: '#FFFFFF',
+      boxShadow: '0 4px 0 #059669',
+      borderRadius: '9px',
+      padding: '10px 18px',
+      fontWeight: 700,
+      border: 'none',
+      cursor: 'pointer',
+    },
+    eager: {
+      backgroundColor: '#58CC02',
+      color: '#FFFFFF',
+      boxShadow: '0 4px 0 #46A302',
+      borderRadius: '9px',
+      padding: '10px 18px',
+      fontWeight: 700,
+      border: 'none',
+      cursor: 'pointer',
+    },
+    spark: {
+      backgroundColor: '#FFFFFF',
+      color: '#0284C7',
+      border: '2px solid #BAE6FD',
+      boxShadow: '0 4px 0 #BAE6FD',
+      borderRadius: '9px',
+      padding: '10px 18px',
+      fontWeight: 700,
+      cursor: 'pointer',
+    }
+  };
+
+  return (
+    <button style={styles[variant]} onClick={onClick}>
+      {label}
+    </button>
+  );
+};
+```
+
+### Android Jetpack Compose (Kotlin)
+```kotlin
+package com.shiliaiwei.design
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+object ShiliaiweiColors {
+    val CanvasWhite = Color(0xFFFAFCFF)
+    val Slate900 = Color(0xFF0F172A)
+    val PrimaryEmerald = Color(0xFF10B981)
+    val DeepEmerald = Color(0xFF059669)
+    val EagerGreen = Color(0xFF58CC02)
+    val SparkBlue = Color(0xFF1CB0F6)
+}
+
+@Composable
+fun ShiliaiweiTactileButton(
+    text: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Box(
+        modifier = modifier
+            .clip(RoundedCornerShape(9.dp))
+            .background(ShiliaiweiColors.PrimaryEmerald)
+            .clickable(onClick = onClick)
+            .padding(horizontal = 18.dp, vertical = 10.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = text,
+            color = Color.White,
+            fontSize = 14.sp,
+            fontWeight = FontWeight.Bold
+        )
+    }
+}
+```
+
+### iOS SwiftUI (Swift)
+```swift
+import SwiftUI
+
+struct ShiliaiweiColors {
+    static let canvasWhite = Color(red: 250/255, green: 252/255, blue: 255/255)
+    static let slate900 = Color(red: 15/255, green: 23/255, blue: 42/255)
+    static let primaryEmerald = Color(red: 16/255, green: 185/255, blue: 129/255)
+    static let deepEmerald = Color(red: 5/255, green: 150/255, blue: 105/255)
+    static let eagerGreen = Color(red: 88/255, green: 204/255, blue: 2/255)
+    static let sparkBlue = Color(red: 28/255, green: 176/255, blue: 246/255)
+}
+
+struct ShiliaiweiTactileButton: View {
+    let title: String
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            Text(title)
+                .font(.system(size: 14, weight: .bold))
+                .foregroundColor(.white)
+                .padding(.horizontal, 18)
+                .padding(.vertical, 10)
+                .background(ShiliaiweiColors.primaryEmerald)
+                .cornerRadius(9)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 9)
+                        .stroke(Color.white.opacity(0.4), lineWidth: 1)
+                )
+        }
+        .buttonStyle(PlainButtonStyle())
+    }
+}
+```
+
+### Flutter (Dart)
+```dart
+import 'package:flutter/material.dart';
+
+class ShiliaiweiColors {
+  static const Color canvasWhite = Color(0xFFFAFCFF);
+  static const Color slate900 = Color(0xFF0F172A);
+  static const Color primaryEmerald = Color(0xFF10B981);
+  static const Color deepEmerald = Color(0xFF059669);
+  static const Color eagerGreen = Color(0xFF58CC02);
+  static const Color sparkBlue = Color(0xFF1CB0F6);
+}
+
+class ShiliaiweiTactileButton extends StatelessWidget {
+  final String label;
+  final VoidCallback onPressed;
+
+  const ShiliaiweiTactileButton({
+    Key? key,
+    required this.label,
+    required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: ShiliaiweiColors.primaryEmerald,
+        foregroundColor: Colors.white,
+        elevation: 4,
+        shadowColor: ShiliaiweiColors.deepEmerald,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(9),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+      ),
+      onPressed: onPressed,
+      child: Text(
+        label,
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+      ),
+    );
+  }
+}
+```
