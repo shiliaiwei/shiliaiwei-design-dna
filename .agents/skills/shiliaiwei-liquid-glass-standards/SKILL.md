@@ -1,3 +1,7 @@
+22. **Directive 22: SINGLE-VIEW STUDIO ARCHITECTURE & 1-CLICK SKILL.MD EXPORT**
+    - The design studio operates as a zero-forced-scrolling Single-View architecture with 3 views (`1. Visual Identity`, `2. UI Elements`, `3. Web App Suite`) selectable in 1 click from the Left Sidebar Dock.
+    - 1-click `Copy Tokens` and `Copy Skill MD` actions allow instant copying of full design tokens and agent skill specs.
+
 ---
 name: shiliaiwei-liquid-glass-standards
 description: Authoritative design standard and architectural rules for Shiliaiwei Liquid Glass, 14 Design System UI Elements, 25 Website Concepts, 12px/9px tactile sticker button physics, strict SOLID COLORS ONLY, zero-emoji / zero-symbol / zero-signs / zero-gray / zero-shadow / zero-glow / zero-hover policy, multi-platform implementation (Web, React, Compose, SwiftUI, Flutter), and mandatory Google Sans for Khmer.

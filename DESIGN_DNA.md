@@ -6,6 +6,10 @@ This document defines the permanent, immutable Design & Engineering DNA for all 
 - **GitHub Repository**: [`https://github.com/shiliaiwei/shiliaiwei-design-dna`](https://github.com/shiliaiwei/shiliaiwei-design-dna)
 - **Cloudflare Pages Project**: `vibrandhub`
 
+22. **SINGLE-VIEW STUDIO ARCHITECTURE & 1-CLICK SKILL.MD EXPORT (DIRECTIVE 22)**:
+    - The design studio operates as a zero-forced-scrolling Single-View architecture with 3 dedicated views (`1. Visual Identity`, `2. UI Elements`, `3. Web App Suite`) controlled directly from the Left Sidebar Dock.
+    - Includes 1-click `Copy Tokens` and `Copy Skill MD` buttons in the sidebar dock allowing any developer to instantly copy the complete authoritative design tokens or Agent Skill specification directly to their clipboard.
+
 ---
 
 ## 1. The 16 Immutable Architectural Directives
