@@ -1640,6 +1640,57 @@
       background-color: #10B981;
     }
 
+  
+    /* Studio Single-View Architecture (Zero Forced Scrolling) */
+    .studio-view {
+      display: none;
+      animation: fadeInStudioView 0.18s ease-in-out;
+    }
+    .studio-view.active {
+      display: block;
+    }
+    @keyframes fadeInStudioView {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Top Studio Segmented Switcher */
+    .top-studio-nav {
+      display: flex;
+      gap: 8px;
+      margin: 18px 0 24px;
+      padding: 6px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      border-top: 1px solid var(--border-glass-top);
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      flex-wrap: wrap;
+    }
+    .top-nav-btn {
+      flex: 1;
+      min-width: 140px;
+      padding: 10px 16px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-align: center;
+      border-radius: var(--radius-buttons);
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.12s ease;
+    }
+    .top-nav-btn.active {
+      background: #FFFFFF;
+      color: var(--primary-dark);
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      border-top: 1px solid #FFFFFF;
+      box-shadow: 0 3px 0 var(--border-glass-top);
+    }
+
   </style>
 </head>
 <body>
@@ -1660,24 +1711,17 @@
           </div>
         </div>
 
-        <nav class="left-dock-nav">
-          <span class="nav-label">EXPLORE</span>
-          <a href="#section-tokens" class="dock-item active" data-i18n="nav_brand">
-            Our Brand
-          </a>
-
-          <a href="#section-design-tokens" class="dock-item" data-i18n="nav_tokens_system">
-            Tokens System
-          </a>
-          <a href="#section-tactile" class="dock-item active" data-i18n="nav_identity">
+                <nav class="left-dock-nav">
+          <span class="nav-label">VIEWS</span>
+          <button class="dock-item active" onclick="switchStudioView('identity', this)" data-view="identity" data-i18n="nav_identity">
             Visual Identity
-          </a>
-          <a href="#section-elements" class="dock-item" data-i18n="nav_elements">
+          </button>
+          <button class="dock-item" onclick="switchStudioView('elements', this)" data-view="elements" data-i18n="nav_elements">
             UI Elements
-          </a>
-          <a href="#section-webapp" class="dock-item" data-i18n="nav_webapp">
+          </button>
+          <button class="dock-item" onclick="switchStudioView('webapp', this)" data-view="webapp" data-i18n="nav_webapp">
             Web App Suite
-          </a>
+          </button>
         </nav>
 
         <div class="left-dock-footer">
@@ -1707,7 +1751,20 @@
           </p>
         </header>
 
-        <section id="section-tactile" style="margin-bottom: 60px;">
+        <!-- Top Studio View Switcher (Zero Forced Scrolling) -->
+        <div class="top-studio-nav" role="tablist" aria-label="Studio Views">
+          <button class="top-nav-btn active" onclick="switchStudioView('identity', this)" data-view="identity" role="tab" aria-selected="true" data-i18n="tab_identity">
+            1. Visual Identity
+          </button>
+          <button class="top-nav-btn" onclick="switchStudioView('elements', this)" data-view="elements" role="tab" aria-selected="false" data-i18n="tab_elements">
+            2. UI Elements
+          </button>
+          <button class="top-nav-btn" onclick="switchStudioView('webapp', this)" data-view="webapp" role="tab" aria-selected="false" data-i18n="tab_webapp">
+            3. Web App Suite
+          </button>
+        </div>
+
+        <section id="section-tactile" class="studio-view active" style="margin-bottom: 60px;">
       <h2 class="section-title" data-i18n="sec_2_title">
         2. Shiliaiwei Tactile UI & Spacing Standards
       </h2>
@@ -2207,7 +2264,7 @@
 
 
     <!-- SECTION 4: WEB APP & 2FA MULTI-MODULE SUITE -->
-    <section id="section-webapp" style="margin-bottom: 60px;">
+    <section id="section-webapp" class="studio-view" style="margin-bottom: 60px;">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
         <div>
           <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="sec_4_title">
@@ -2690,6 +2747,9 @@
         sec_typo_title: '2. Aa Typography Design System',
         sec_typo_desc: 'The type layer of a design system that defines a scale, hierarchy, and set of text styles that is consistent, accessible, and expressive across the full range of product contexts.',
         nav_identity: 'Visual Identity',
+        tab_identity: '1. Visual Identity',
+        tab_elements: '2. UI Elements',
+        tab_webapp: '3. Web App Suite',
         nav_elements: 'UI Elements',
         nav_webapp: 'Web App Suite',
         sec_4_title: '4. Web App 2FA & Multi-Module Application Suite',
@@ -2720,6 +2780,9 @@
         sec_typo_title: '២. ប្រព័ន្ធអក្សរ Aa Typography (៨ នៃ ៨)',
         sec_typo_desc: 'ស្រទាប់ពុម្ពអក្សរនៃប្រព័ន្ធរចនាដែលកំណត់ទំហំ ឋានានុក្រម និងរចនាប័ទ្មអត្ថបទប្រកបដោយភាពស៊ីសង្វាក់ ងាយស្រួលអាន និងបង្ហាញយ៉ាងច្បាស់លើគ្រប់បរិបទផលិតផល។',
         nav_identity: 'អត្តសញ្ញាណ (Visual Identity)',
+        tab_identity: '១. អត្តសញ្ញាណ (Identity)',
+        tab_elements: '២. សមាសធាតុ UI (Elements)',
+        tab_webapp: '៣. កម្មវិធី Web App Suite',
         nav_elements: 'ធាតុ UI (UI Elements)',
         nav_webapp: 'ឈុតកម្មវិធី (Web App Suite)',
         sec_4_title: '៤. ឈុតកម្មវិធី 2FA & ប្រព័ន្ធគ្រប់គ្រង (Web App Suite)',
@@ -2940,6 +3003,68 @@ export const tokens = {
       const code = tokenExports[activeTokenLang];
       copyVal(code, `Copied ${activeTokenLang.toUpperCase()} Tokens`);
     }
+
+
+    // Studio View Switcher Logic (Zero Forced Scrolling)
+    function switchStudioView(viewId, triggerBtn) {
+      // 1. Hide all views and show target view
+      const views = {
+        identity: document.getElementById('section-tactile'),
+        elements: document.getElementById('section-components'),
+        webapp: document.getElementById('section-webapp')
+      };
+
+      Object.keys(views).forEach(k => {
+        if (views[k]) {
+          if (k === viewId) {
+            views[k].classList.add('active');
+          } else {
+            views[k].classList.remove('active');
+          }
+        }
+      });
+
+      // 2. Synchronize active state across dock items and top switcher buttons
+      document.querySelectorAll('.dock-item[data-view]').forEach(item => {
+        if (item.getAttribute('data-view') === viewId) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      document.querySelectorAll('.top-nav-btn[data-view]').forEach(btn => {
+        if (btn.getAttribute('data-view') === viewId) {
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+        } else {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
+        }
+      });
+
+      // 3. Smoothly reset scroll to top of content without jarring jump
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // 4. Update hash without forcing page jump
+      if (history.pushState) {
+        history.pushState(null, null, '#' + viewId);
+      } else {
+        location.hash = '#' + viewId;
+      }
+    }
+
+    // Auto-activate view based on URL hash on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash === 'elements' || hash === 'section-components') {
+        switchStudioView('elements');
+      } else if (hash === 'webapp' || hash === 'section-webapp') {
+        switchStudioView('webapp');
+      } else {
+        switchStudioView('identity');
+      }
+    });
 
     let currentLang = localStorage.getItem('shiliaiwei_lang') || 'en';
 
