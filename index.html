@@ -160,91 +160,216 @@
     }
 
     .container {
-      max-width: 1300px;
+      max-width: 1440px;
       margin: 0 auto;
-      padding: 24px 20px;
+      padding: 24px 16px;
       position: relative;
       z-index: 1;
       width: 100%;
       box-sizing: border-box;
     }
 
-    /* Sticky Floating Liquid Glass Quick-Dock - Pure Solid Border, Zero Blur Shadow */
-    .quick-dock {
-      position: sticky;
-      top: 16px;
-      z-index: 50;
-      background-color: rgba(255, 255, 255, 0.95);
-      border: 1px solid rgba(0, 0, 0, 0.12);
-      border-top: 1px solid rgba(255, 255, 255, 1);
-      border-radius: var(--radius-pill);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      padding: 8px 18px;
+    /* Layout Framework: Left Menu Dock on Desktop, Responsive Sticky Dock on Mobile */
+    .app-layout {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-      box-shadow: none;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: 32px;
+      align-items: flex-start;
+      position: relative;
+      width: 100%;
     }
 
-    .dock-brand {
+    /* Left Menu Dock */
+    .left-dock {
+      width: 250px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 20px;
+      background-color: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(0, 0, 0, 0.10);
+      border-top: 1px solid #FFFFFF;
+      border-radius: var(--radius-2xl);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 18px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      z-index: 100;
+      box-shadow: none;
+    }
+
+    .left-dock-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .brand-avatar-box {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .brand-avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid #FFFFFF;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-status-dot {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 11px;
+      height: 11px;
+      background-color: var(--primary);
+      border: 2px solid #FFFFFF;
+      border-radius: 50%;
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand-name {
+      font-weight: 800;
+      font-size: 0.96rem;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .brand-tag {
+      font-size: 0.70rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .left-dock-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .nav-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      padding: 0 8px 4px;
+    }
+
+    .dock-item {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-weight: 800;
-      font-size: 1.05rem;
-      color: var(--text-main);
-      text-decoration: none;
-      letter-spacing: -0.0100em;
-    }
-
-    .dock-logo {
-      width: 28px;
-      height: 28px;
-      background-color: var(--primary);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #FFFFFF;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .dock-nav {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
-    .dock-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--text-muted);
-      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: var(--radius-md);
       font-size: 0.86rem;
       font-weight: 600;
-      padding: 6px 12px;
-      border-radius: var(--radius-pill);
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: background-color 0.12s ease, color 0.12s ease;
     }
 
-    .dock-link.active {
+    .dock-item i {
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      width: 18px;
+      text-align: center;
+    }
+
+    .dock-item.active, .dock-item:hover {
       color: var(--primary-dark);
       background-color: #ECFDF5;
       border: 1px solid #A7F3D0;
     }
 
-    .dock-actions {
+    .dock-item.active i, .dock-item:hover i {
+      color: var(--primary-dark);
+    }
+
+    .left-dock-footer {
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 8px;
-      flex-wrap: wrap;
+      padding-top: 14px;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .left-dock-footer .btn {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 0.80rem;
+    }
+
+    .main-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .app-layout {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .left-dock {
+        width: 100%;
+        position: sticky;
+        top: 8px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+        border-radius: var(--radius-pill);
+        max-height: none;
+        overflow-x: auto;
+        gap: 8px;
+      }
+      .nav-label {
+        display: none;
+      }
+      .left-dock-brand {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+      .brand-meta {
+        display: none;
+      }
+      .left-dock-nav {
+        flex-direction: row;
+        align-items: center;
+        gap: 4px;
+      }
+      .dock-item {
+        padding: 6px 10px;
+        font-size: 0.80rem;
+        white-space: nowrap;
+      }
+      .left-dock-footer {
+        flex-direction: row;
+        padding-top: 0;
+        border-top: none;
+      }
+      .left-dock-footer .btn {
+        width: auto;
+        white-space: nowrap;
+      }
     }
 
     /* Header */
@@ -1161,38 +1286,66 @@
 <body>
 
   <div class="container">
+    <div class="app-layout">
 
-    <!-- Sticky Quick Dock -->
-    <nav class="quick-dock">
-      <div class="dock-nav">
-        <a href="#section-tokens" class="dock-link" data-i18n="nav_tokens"><i class="fa-solid fa-palette"></i> Tokens</a>
-        <a href="#section-tactile" class="dock-link" data-i18n="nav_tactile"><i class="fa-solid fa-hand-pointer"></i> Tactile Physics</a>
-        <a href="#section-elements" class="dock-link" data-i18n="nav_elements"><i class="fa-solid fa-cubes"></i> 14 UI Elements</a>
-        <button id="btnLang" class="btn btn-glass btn-sm" onclick="toggleLanguage()" title="ប្តូរភាសា / Switch Language">
-          <i class="fa-solid fa-globe"></i> <span id="langText">ភាសាខ្មែរ (KM)</span>
-        </button>
-        <button class="btn btn-primary btn-sm" onclick="copyAllTokens()" data-i18n="btn_copy_tokens">
-          <i class="fa-solid fa-copy"></i> Copy CSS Tokens
-        </button>
-      </div>
-    </nav>
-    
-    <!-- Header -->
-    <header class="header">
-      <div class="badge-pill" data-i18n="header_badge">
-        <span class="badge-dot"></span>
-        Solid Liquid Glass Design System
-      </div>
-      <h1 class="title" data-i18n="header_title">
-        Real-Time <span class="solid-emerald">Design System Studio</span>
-      </h1>
-      <p class="subtitle" data-i18n="header_subtitle">
-        Interactive real-time learning environment for Solid Liquid Glass architecture. Master all 14 core UI components, 25 website patterns, and tactile sticker button physics with zero emojis and zero gradients.
-      </p>
-    </header>
+      <!-- Left Menu Dock (Desktop Fixed / Mobile Top-Scrollable) -->
+      <aside class="left-dock" id="leftDock">
+        <div class="left-dock-brand">
+          <div class="brand-avatar-box">
+            <img src="https://github.com/shiliaiwei.png" alt="Shiliaiwei" class="brand-avatar-img">
+            <span class="brand-status-dot"></span>
+          </div>
+          <div class="brand-meta">
+            <div class="brand-name">VIBRANDHUB</div>
+            <div class="brand-tag">DESIGN DNA</div>
+          </div>
+        </div>
 
-    <!-- SECTION 1: SOLID COLOR TOKENS -->
-    <section id="section-tokens" style="margin-bottom: 60px;">
+        <nav class="left-dock-nav">
+          <span class="nav-label">EXPLORE</span>
+          <a href="#section-tokens" class="dock-item active" data-i18n="nav_brand">
+            <i class="fa-solid fa-flag"></i> Our Brand
+          </a>
+          <a href="#section-tactile" class="dock-item" data-i18n="nav_identity">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Visual Identity
+          </a>
+          <a href="#section-elements" class="dock-item" data-i18n="nav_elements">
+            <i class="fa-solid fa-cubes"></i> UI Elements
+          </a>
+          <a href="#section-resources" class="dock-item" data-i18n="nav_resources">
+            <i class="fa-solid fa-code"></i> Resources
+          </a>
+        </nav>
+
+        <div class="left-dock-footer">
+          <button id="btnLang" class="btn btn-glass btn-sm" onclick="toggleLanguage()" title="Switch Language">
+            <i class="fa-solid fa-globe"></i> <span id="langText">Switch KM</span>
+          </button>
+          <button class="btn btn-primary btn-sm" onclick="copyAllTokens()" data-i18n="btn_copy_tokens">
+            <i class="fa-solid fa-copy"></i> Copy Tokens
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        
+        <!-- Header -->
+        <header class="header">
+          <div class="badge-pill" data-i18n="header_badge">
+            <span class="badge-dot"></span>
+            Solid Liquid Glass Design System
+          </div>
+          <h1 class="title" data-i18n="header_title">
+            Real-Time <span class="solid-emerald">Design System Studio</span>
+          </h1>
+          <p class="subtitle" data-i18n="header_subtitle">
+            Interactive real-time learning environment for Solid Liquid Glass architecture. Master all 14 core UI components and tactile sticker button physics with zero emojis and zero gradients.
+          </p>
+        </header>
+
+        <!-- SECTION 1: OUR BRAND & SOLID COLOR TOKENS -->
+        <section id="section-tokens" style="margin-bottom: 60px;">
       <h2 class="section-title" data-i18n="sec_1_title">
         <i class="fa-solid fa-palette"></i> 1. Solid Color Tokens Registry
       </h2>
@@ -1368,10 +1521,10 @@
             </div>
             <div style="display: flex; flex-direction: column; gap: 12px;">
               <button class="btn btn-eager" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 12px 20px;">
-                <i class="fa-solid fa-play"></i> Get Started Free
+                <i class="fa-solid fa-play"></i> Get Started
               </button>
               <button class="btn btn-spark" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 10px 20px;">
-                <i class="fa-solid fa-user"></i> Already Have An Account
+                <i class="fa-solid fa-user"></i> Login Account
               </button>
             </div>
           </div>
@@ -1439,7 +1592,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Radio</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Radio Element', 'Copied Radio Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Radio Element', 'Copied Radio Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1461,7 +1614,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Searchbar</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Searchbar Element', 'Copied Searchbar Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Searchbar Element', 'Copied Searchbar Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1484,7 +1637,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Tooltip</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Tooltip Element', 'Copied Tooltip Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Tooltip Element', 'Copied Tooltip Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1516,7 +1669,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Modal Overlay</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Modal Overlay Element', 'Copied Modal Overlay Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Modal Overlay Element', 'Copied Modal Overlay Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1541,7 +1694,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Loading</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Loading Element', 'Copied Loading Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Loading Element', 'Copied Loading Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1578,7 +1731,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Toggle</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Toggle Element', 'Copied Toggle Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Toggle Element', 'Copied Toggle Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1598,7 +1751,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Input Field</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Input Field Element', 'Copied Input Field Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Input Field Element', 'Copied Input Field Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1622,7 +1775,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Icon</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Icon Element', 'Copied Icon Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Icon Element', 'Copied Icon Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1660,7 +1813,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Table</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Table Element', 'Copied Table Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Table Element', 'Copied Table Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1692,7 +1845,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Card Container</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Card Container Element', 'Copied Card Container Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Card Container Element', 'Copied Card Container Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1715,7 +1868,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Button</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Button Element', 'Copied Button Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Button Element', 'Copied Button Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1738,7 +1891,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Badge</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Badge Element', 'Copied Badge Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Badge Element', 'Copied Badge Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1793,7 +1946,7 @@
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Avatar Identity</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Avatar Identity Element', 'Copied Avatar Identity Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Avatar Identity Element', 'Copied Avatar Identity Code')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
@@ -1834,16 +1987,90 @@
             </div>
           </div>
           <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Dropdown Menu</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Dropdown Element', 'Copied Dropdown Code')"><i class="fa-solid fa-code"></i> Copy</button>
+            <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Dropdown</span>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('Dropdown Element', 'Copied Dropdown')"><i class="fa-solid fa-code"></i> Copy Code</button>
           </div>
         </div>
 
       </div>
     </section>
 
+    <!-- SECTION 4: RESOURCES & EXPORT -->
+    <section id="section-resources" style="margin-bottom: 60px;">
+      <h2 class="section-title" data-i18n="sec_4_title">
+        <i class="fa-solid fa-code"></i> 4. Multi-Platform Resources & Cloudflare
+      </h2>
 
+      <div class="comp-grid">
+        <!-- Resource Card 1: Web CSS Tokens -->
+        <div class="comp-card">
+          <div>
+            <div class="comp-header">
+              <h3 class="comp-title"><i class="fa-brands fa-css3-alt"></i> Web CSS Tokens</h3>
+              <span class="comp-tag">Styling</span>
+            </div>
+            <p class="comp-desc">Full CSS variable token registry with solid liquid glass variables.</p>
+            <div class="comp-preview-box" style="padding: 12px; background-color: var(--bg-inner-glass); border-radius: 12px; border: 1px solid rgba(0,0,0,0.08);">
+              <code style="font-size: 0.80rem; color: var(--text-muted); font-family: monospace; display: block; white-space: pre-wrap;">:root {
+  --bg-main: #FAFCFF;
+  --primary: #10B981;
+  --primary-dark: #059669;
+  --shiliaiwei-green: #58CC02;
+  --shiliaiwei-blue: #1CB0F6;
+  --radius-buttons: 9px;
+}</code>
+            </div>
+          </div>
+          <div class="comp-footer">
+            <span style="font-size: 0.75rem; color: var(--text-dim);">Resource: CSS Tokens</span>
+            <button class="btn btn-primary btn-sm" onclick="copyAllTokens()"><i class="fa-solid fa-copy"></i> Copy Tokens</button>
+          </div>
+        </div>
 
+        <!-- Resource Card 2: Cloudflare Deployment -->
+        <div class="comp-card">
+          <div>
+            <div class="comp-header">
+              <h3 class="comp-title"><i class="fa-solid fa-cloud"></i> Cloudflare Deploy</h3>
+              <span class="comp-tag">Production</span>
+            </div>
+            <p class="comp-desc">Instant CLI commands for deploying to Cloudflare Workers & Pages.</p>
+            <div class="comp-preview-box" style="padding: 12px; background-color: var(--bg-inner-glass); border-radius: 12px; border: 1px solid rgba(0,0,0,0.08);">
+              <code style="font-size: 0.80rem; color: var(--primary-dark); font-family: monospace; display: block; white-space: pre-wrap;">npx wrangler deploy
+npx wrangler pages deploy .</code>
+            </div>
+          </div>
+          <div class="comp-footer">
+            <span style="font-size: 0.75rem; color: var(--text-dim);">CLI: Cloudflare</span>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('npx wrangler deploy', 'Copied Deploy Command')"><i class="fa-solid fa-terminal"></i> Copy Deploy</button>
+          </div>
+        </div>
+
+        <!-- Resource Card 3: Mobile & Native Blueprints -->
+        <div class="comp-card">
+          <div>
+            <div class="comp-header">
+              <h3 class="comp-title"><i class="fa-solid fa-mobile-screen"></i> Multi-Platform Specs</h3>
+              <span class="comp-tag">Native</span>
+            </div>
+            <p class="comp-desc">Implementation blueprints for Jetpack Compose, SwiftUI, and Flutter.</p>
+            <div class="comp-preview-box" style="padding: 12px; background-color: var(--bg-inner-glass); border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); display: flex; gap: 6px; flex-wrap: wrap;">
+              <span class="ui-badge emerald">Compose</span>
+              <span class="ui-badge cyan">SwiftUI</span>
+              <span class="ui-badge">Flutter</span>
+              <span class="ui-badge purple">Web CSS</span>
+            </div>
+          </div>
+          <div class="comp-footer">
+            <span style="font-size: 0.75rem; color: var(--text-dim);">Specs: Design DNA</span>
+            <button class="btn btn-eager btn-sm" onclick="copyVal('https://github.com/shiliaiwei/shiliaiwei-design-dna', 'Copied Repo Link')"><i class="fa-solid fa-book"></i> View Specs</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      </main>
+    </div>
   </div>
 
   <!-- Toast Notification -->
@@ -1941,33 +2168,37 @@
     // Bilingual Translation Dictionary (English & Khmer - Google Sans)
     const i18nData = {
       en: {
-        lang_btn: 'ភាសាខ្មែរ (KM)',
-        nav_tokens: '<i class="fa-solid fa-palette"></i> Tokens',
-        nav_tactile: '<i class="fa-solid fa-hand-pointer"></i> Tactile Physics',
-        nav_elements: '<i class="fa-solid fa-cubes"></i> 14 UI Elements',
-        btn_copy_tokens: '<i class="fa-solid fa-copy"></i> Copy CSS Tokens',
+        lang_btn: 'Switch KM',
+        nav_brand: '<i class="fa-solid fa-flag"></i> Our Brand',
+        nav_identity: '<i class="fa-solid fa-wand-magic-sparkles"></i> Visual Identity',
+        nav_elements: '<i class="fa-solid fa-cubes"></i> UI Elements',
+        nav_resources: '<i class="fa-solid fa-code"></i> Resources',
+        btn_copy_tokens: '<i class="fa-solid fa-copy"></i> Copy Tokens',
         header_badge: '<span class="badge-dot"></span> Solid Liquid Glass Design System',
         header_title: 'Real-Time <span class="solid-emerald">Design System Studio</span>',
         header_subtitle: 'Interactive real-time learning environment for Solid Liquid Glass architecture. Master all 14 core UI components and tactile sticker button physics with zero emojis and zero gradients.',
-        sec_1_title: '<i class="fa-solid fa-palette"></i> 1. Solid Color Tokens Registry',
-        sec_2_title: '<i class="fa-solid fa-wand-magic-sparkles"></i> 2. Shiliaiwei Tactile UI & Spacing Standards',
-        sec_3_title: '<i class="fa-solid fa-cubes"></i> 3. 14 Core Design System UI Elements',
-        toast_copy_tokens: 'Copied complete CSS variables!',
+        sec_1_title: '<i class="fa-solid fa-palette"></i> 1. Our Brand & Color Tokens',
+        sec_2_title: '<i class="fa-solid fa-wand-magic-sparkles"></i> 2. Visual Identity & Tactile UI',
+        sec_3_title: '<i class="fa-solid fa-cubes"></i> 3. 14 Core UI Elements',
+        sec_4_title: '<i class="fa-solid fa-code"></i> 4. Multi-Platform Resources',
+        toast_copy_tokens: 'Copied CSS Tokens!',
         toast_copied: 'Copied: '
       },
       km: {
-        lang_btn: 'English (EN)',
-        nav_tokens: '<i class="fa-solid fa-palette"></i> ថូខឹនពណ៌',
-        nav_tactile: '<i class="fa-solid fa-hand-pointer"></i> រូបវិទ្យាប៉ះ',
-        nav_elements: '<i class="fa-solid fa-cubes"></i> ធាតុ UI ទាំង ១៤',
-        btn_copy_tokens: '<i class="fa-solid fa-copy"></i> ចម្លងកូដ CSS Tokens',
+        lang_btn: 'Switch EN',
+        nav_brand: '<i class="fa-solid fa-flag"></i> ម៉ាកយីហោ (Our Brand)',
+        nav_identity: '<i class="fa-solid fa-wand-magic-sparkles"></i> អត្តសញ្ញាណ (Visual Identity)',
+        nav_elements: '<i class="fa-solid fa-cubes"></i> ធាតុ UI (UI Elements)',
+        nav_resources: '<i class="fa-solid fa-code"></i> ធនធាន (Resources)',
+        btn_copy_tokens: '<i class="fa-solid fa-copy"></i> ចម្លងថូខឹន (Copy Tokens)',
         header_badge: '<span class="badge-dot"></span> ប្រព័ន្ធរចនា Liquid Glass រឹងមាំ',
         header_title: 'ស្ទូឌីយោប្រព័ន្ធរចនា <span class="solid-emerald">ពេលវេលាជាក់ស្តែង</span>',
         header_subtitle: 'បរិស្ថានសិក្សាជាក់ស្តែងសម្រាប់ស្ថាបត្យកម្ម Solid Liquid Glass។ សិក្សាស្វែងយល់ធាតុផ្សំ UI ស្នូលទាំង ១៤ និងរូបវិទ្យាប៊ូតុងស្ទីគ័រប៉ះ ដោយគ្មានរូបភាពអារម្មណ៍ និងគ្មានជម្រាលពណ៌។',
-        sec_1_title: '<i class="fa-solid fa-palette"></i> ១. បញ្ជីឈ្មោះថូខឹនពណ៌រឹង (Solid Color Tokens)',
-        sec_2_title: '<i class="fa-solid fa-wand-magic-sparkles"></i> ២. បទដ្ឋានរូបវិទ្យាប៉ះ & គម្លាត Spacing របស់ Shiliaiwei',
-        sec_3_title: '<i class="fa-solid fa-cubes"></i> ៣. ធាតុផ្សំ UI ស្នូលទាំង ១៤ នៃប្រព័ន្ធរចនា',
-        toast_copy_tokens: 'បានចម្លងកូដអថេរ CSS ទាំងអស់ដោយជោគជ័យ!',
+        sec_1_title: '<i class="fa-solid fa-palette"></i> ១. ម៉ាកយីហោ & ថូខឹនពណ៌ (Our Brand)',
+        sec_2_title: '<i class="fa-solid fa-wand-magic-sparkles"></i> ២. អត្តសញ្ញាណ & រូបវិទ្យាប៉ះ (Visual Identity)',
+        sec_3_title: '<i class="fa-solid fa-cubes"></i> ៣. ធាតុផ្សំ UI ស្នូលទាំង ១៤ (UI Elements)',
+        sec_4_title: '<i class="fa-solid fa-code"></i> ៤. ធនធានកូដច្រើនវេទិកា (Resources)',
+        toast_copy_tokens: 'បានចម្លងកូដ CSS!',
         toast_copied: 'បានចម្លង៖ '
       }
     };
