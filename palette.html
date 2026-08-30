@@ -1535,6 +1535,111 @@
       white-space: pre-wrap;
     }
 
+  
+    /* Tactile Tag Chip Styles (Same tactile 3D sticker physics as buttons, compact tag chip format) */
+    .tactile-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 7px;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.05s ease, box-shadow 0.05s ease;
+      line-height: 1;
+    }
+
+    .tactile-chip:active {
+      transform: translateY(2px);
+    }
+
+    .tactile-chip-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* 1. Primary Emerald Chip (ACTIVE) */
+    .chip-primary {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      border: 1px solid var(--primary-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.50);
+      box-shadow: 0 2px 0 #059669;
+    }
+    .chip-primary:active {
+      box-shadow: 0 0 0 #059669;
+    }
+    .chip-primary .tactile-chip-dot {
+      background-color: #FFFFFF;
+    }
+
+    /* 2. Spark Blue Chip (v2.4.0) */
+    .chip-spark {
+      background-color: #F0F9FF;
+      color: #0284C7;
+      border: 1px solid #BAE6FD;
+      border-top: 1px solid #FFFFFF;
+      box-shadow: 0 2px 0 #93C5FD;
+    }
+    .chip-spark:active {
+      box-shadow: 0 0 0 #93C5FD;
+    }
+    .chip-spark .tactile-chip-dot {
+      background-color: #0284C7;
+    }
+
+    /* 3. Slate Monospace Chip (POSTGRESQL) */
+    .chip-slate {
+      background-color: #0F172A;
+      color: #FAFCFF;
+      border: 1px solid #1E293B;
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 2px 0 #020617;
+    }
+    .chip-slate:active {
+      box-shadow: 0 0 0 #020617;
+    }
+    .chip-slate .tactile-chip-dot {
+      background-color: #38BDF8;
+    }
+
+    /* 4. Crimson Danger Chip (PROD) */
+    .chip-crimson {
+      background-color: var(--accent-crimson);
+      color: #FFFFFF;
+      border: 1px solid #D60043;
+      border-top: 1px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 0 2px 0 #9F0736;
+    }
+    .chip-crimson:active {
+      box-shadow: 0 0 0 #9F0736;
+    }
+    .chip-crimson .tactile-chip-dot {
+      background-color: #FFFFFF;
+    }
+
+    /* 5. Glass White Chip */
+    .chip-glass {
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-top: 1px solid #FFFFFF;
+      box-shadow: 0 2px 0 #CBD5E1;
+    }
+    .chip-glass:active {
+      box-shadow: 0 0 0 #CBD5E1;
+    }
+    .chip-glass .tactile-chip-dot {
+      background-color: #10B981;
+    }
+
   </style>
 </head>
 <body>
@@ -1858,17 +1963,29 @@
             </div>
             <p class="comp-desc">High-contrast monospace code tokens, semantic status labels, and key badges.</p>
             <div class="comp-preview-box">
-              <div style="display: flex; justify-content: space-around; align-items: center; gap: 8px; flex-wrap: wrap;">
-                <span class="ui-badge badge-green">ACTIVE</span>
-                <span class="ui-badge badge-cyan">v2.4.0</span>
-                <span class="ui-badge" style="background-color: #F1F5F9; color: var(--text-main); font-family: var(--font-mono);">POSTGRESQL</span>
-                <span class="ui-badge badge-crimson">PROD</span>
+              <div style="display: flex; justify-content: space-around; align-items: center; gap: 8px; flex-wrap: wrap; padding: 4px 0;">
+                <div class="tactile-chip chip-primary" onclick="copyVal('ACTIVE', 'Copied Tag: ACTIVE')" title="Click to copy ACTIVE">
+                  <span class="tactile-chip-dot"></span>
+                  <span>ACTIVE</span>
+                </div>
+                <div class="tactile-chip chip-spark" onclick="copyVal('v2.4.0', 'Copied Tag: v2.4.0')" title="Click to copy v2.4.0">
+                  <span class="tactile-chip-dot"></span>
+                  <span>v2.4.0</span>
+                </div>
+                <div class="tactile-chip chip-slate" onclick="copyVal('POSTGRESQL', 'Copied Tag: POSTGRESQL')" title="Click to copy POSTGRESQL">
+                  <span class="tactile-chip-dot"></span>
+                  <span>POSTGRESQL</span>
+                </div>
+                <div class="tactile-chip chip-crimson" onclick="copyVal('PROD', 'Copied Tag: PROD')" title="Click to copy PROD">
+                  <span class="tactile-chip-dot"></span>
+                  <span>PROD</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="comp-footer">
             <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Tag Chip</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('Tag Chip Element', 'Copied Chip Code')">Copy Code</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('<div class="tactile-chip chip-primary"><span class="tactile-chip-dot"></span><span>ACTIVE</span></div>', 'Copied Chip Code')">Copy Code</button>
           </div>
         </div>
 
