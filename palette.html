@@ -2293,7 +2293,7 @@
 
         <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.72rem; color: var(--text-dim); border-top: 1px solid rgba(0,0,0,0.06); padding-top: 12px;">
           <span>Release v2.4.0 (Solid Architecture)</span>
-          <a href="https://github.com/shiliaiwei/shiliaiwei-design-dna" target="_blank" style="color: var(--primary-dark); font-weight: 700; text-decoration: none;">GitHub Repository ↗</a>
+          <span style="color: var(--primary-dark); font-weight: 700;">Shiliaiwei Design DNA</span>
         </div>
       </div>
     </div>
@@ -2332,120 +2332,241 @@
 
         
 
+        <!-- SECTION: VISUAL IDENTITY & COLOR SYSTEM TOKENS -->
         <section id="section-tactile" class="studio-view active" style="margin-bottom: 60px;">
-      <h2 class="section-title" data-i18n="sec_2_title">
-        Visual Identity & Tactile UI Standards
-      </h2>
-
-      <div style="background-color: var(--bg-surface); border: 1px solid var(--border-glass); border-radius: var(--radius-xl); padding: 24px; backdrop-filter: blur(16px);">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-          
-          <!-- Tactile Buttons Demo -->
-          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none; display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
             <div>
-              <div style="margin-bottom: 14px;">
-                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.053em;">
-                  Sticker Tactile Buttons (9px Radius)
-                </div>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
-                <button class="btn btn-eager" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 12px 20px;">
-                  Get Started
-                </button>
-                <button class="btn btn-spark" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 10px 20px;">
-                  Login Account
-                </button>
-              </div>
+              <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="sec_1_title">
+                Color System Tokens (8 of 8)
+              </h2>
+              <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 780px;" data-i18n="sec_1_desc">
+                The color layer of a design system — defining a closed palette that is purposeful, accessible, themeable, and expressed as tokens rather than raw values.
+              </p>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06);">
-              <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Tactile Buttons</span>
-              <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('tactile_buttons', this)">Prompt</button>
-            </div>
-          </div>
-
-          <!-- Spacing & Typography Rules -->
-          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="margin-bottom: 12px;">
-                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.053em;">
-                  4px Spacing Unit & Tracking Rules
-                </div>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.84rem; margin-bottom: 16px;">
-                <div style="display: flex; justify-content: space-between;">
-                  <span style="color: var(--text-muted);">Base Unit:</span>
-                  <span style="font-family: var(--font-mono); color: var(--color-eager-green); font-weight: 700;">4px Scale</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span style="color: var(--text-muted);">Display Headline Tracking:</span>
-                  <span style="font-family: var(--font-mono); color: var(--color-spark-blue); font-weight: 700;">-0.0200em</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span style="color: var(--text-muted);">Nav Label Uppercase Tracking:</span>
-                  <span style="font-family: var(--font-mono); color: var(--primary-dark); font-weight: 700;">+0.0530em</span>
-                </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span style="color: var(--text-muted);">Card Padding:</span>
-                  <span style="font-family: var(--font-mono); color: var(--text-main);">16px - 24px</span>
-                </div>
-              </div>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06);">
-              <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Spacing & Rhythm</span>
-              <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('spacing_rules', this)">Prompt</button>
-            </div>
-          </div>
-
-          <!-- Closed 6-Color Brand Palette Tokens -->
-          <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="margin-bottom: 14px;">
-                <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.053em;">
-                  Closed 6-Color Brand Palette Tokens
-                </div>
-              </div>
-              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px;">
-                <div onclick="copyVal('#10B981', 'Copied #10B981 (Primary Emerald)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
-                  <div style="height: 28px; background: #10B981; border-radius: 6px;"></div>
-                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Emerald</span>
-                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#10B981</span>
-                </div>
-                <div onclick="copyVal('#059669', 'Copied #059669 (Deep Emerald)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
-                  <div style="height: 28px; background: #059669; border-radius: 6px;"></div>
-                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Deep</span>
-                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#059669</span>
-                </div>
-                <div onclick="copyVal('#58CC02', 'Copied #58CC02 (Eager Green)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
-                  <div style="height: 28px; background: #58CC02; border-radius: 6px;"></div>
-                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Eager</span>
-                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#58CC02</span>
-                </div>
-                <div onclick="copyVal('#1CB0F6', 'Copied #1CB0F6 (Spark Blue)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
-                  <div style="height: 28px; background: #1CB0F6; border-radius: 6px;"></div>
-                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Spark</span>
-                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#1CB0F6</span>
-                </div>
-                <div onclick="copyVal('#0891B2', 'Copied #0891B2 (Accent Cyan)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
-                  <div style="height: 28px; background: #0891B2; border-radius: 6px;"></div>
-                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Cyan</span>
-                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#0891B2</span>
-                </div>
-                <div onclick="copyVal('#FF0050', 'Copied #FF0050 (Accent Crimson)', this)" style="cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: #FFFFFF; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);">
-                  <div style="height: 28px; background: #FF0050; border-radius: 6px;"></div>
-                  <span style="font-size: 0.72rem; font-weight: 700; color: #0F172A;">Crimson</span>
-                  <span style="font-size: 0.65rem; font-family: var(--font-mono); color: #64748B;">#FF0050</span>
-                </div>
-              </div>
-            </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06);">
-              <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Color Palette</span>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-primary btn-sm" onclick="copyAllTokens()">Tokens</button>
               <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('color_palette', this)">Prompt</button>
             </div>
           </div>
 
-        </div>
-      </div>
-    </section>
+          <!-- The Complete 8 Original Color Tokens Concept Cards Grid -->
+          <div class="palette-grid">
+            <!-- 1. Emerald Primary -->
+            <div class="color-card" onclick="copyVal('#10B981', 'Emerald Primary', this)" title="Click to copy #10B981">
+              <div class="swatch" style="background-color: #10B981;">
+                <span class="swatch-tag">#10B981</span>
+              </div>
+              <div class="color-info">
+                <h3 class="color-name">Emerald Primary</h3>
+                <p class="color-role">Main brand color, solid CTA buttons, active states, key interactive surfaces.</p>
+                <div class="code-row">
+                  <span class="code-label">HEX</span>
+                  <span class="code-val">#10B981</span>
+                </div>
+                <div class="code-row">
+                  <span class="code-label">RGB</span>
+                  <span class="code-val">16, 185, 129</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Emerald Dark -->
+            <div class="color-card" onclick="copyVal('#059669', 'Emerald Dark', this)" title="Click to copy #059669">
+              <div class="swatch" style="background-color: #059669;">
+                <span class="swatch-tag">#059669</span>
+              </div>
+              <div class="color-info">
+                <h3 class="color-name">Emerald Dark</h3>
+                <p class="color-role">3D button depth extrusion, active press states, deep contrast typography.</p>
+                <div class="code-row">
+                  <span class="code-label">HEX</span>
+                  <span class="code-val">#059669</span>
+                </div>
+                <div class="code-row">
+                  <span class="code-label">RGB</span>
+                  <span class="code-val">5, 150, 105</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Eager Green -->
+            <div class="color-card" onclick="copyVal('#58CC02', 'Shiliaiwei Eager Green', this)" title="Click to copy #58CC02">
+              <div class="swatch" style="background-color: #58CC02;">
+                <span class="swatch-tag">#58CC02</span>
+              </div>
+              <div class="color-info">
+                <h3 class="color-name">Eager Green</h3>
+                <p class="color-role">High-energy CTA fills, progress badges, and energetic status accents.</p>
+                <div class="code-row">
+                  <span class="code-label">HEX</span>
+                  <span class="code-val">#58CC02</span>
+                </div>
+                <div class="code-row">
+                  <span class="code-label">RGB</span>
+                  <span class="code-val">88, 204, 2</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Spark Blue -->
+            <div class="color-card" onclick="copyVal('#1CB0F6', 'Shiliaiwei Spark Blue', this)" title="Click to copy #1CB0F6">
+              <div class="swatch" style="background-color: #1CB0F6;">
+                <span class="swatch-tag">#1CB0F6</span>
+              </div>
+              <div class="color-info">
+                <h3 class="color-name">Spark Blue</h3>
+                <p class="color-role">Interactive secondary links, outlined tactile buttons, curiosity tags.</p>
+                <div class="code-row">
+                  <span class="code-label">HEX</span>
+                  <span class="code-val">#1CB0F6</span>
+                </div>
+                <div class="code-row">
+                  <span class="code-label">RGB</span>
+                  <span class="code-val">28, 176, 246</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Accent Cyan -->
+            <div class="color-card" onclick="copyVal('#0891B2', 'Accent Cyan', this)" title="Click to copy #0891B2">
+              <div class="swatch" style="background-color: #0891B2;">
+                <span class="swatch-tag">#0891B2</span>
+              </div>
+              <div class="color-info">
+                <h3 class="color-name">Accent Cyan</h3>
+                <p class="color-role">Technical accent, release tags, code tokens, secondary focus chips.</p>
+                <div class="code-row">
+                  <span class="code-label">HEX</span>
+                  <span class="code-val">#0891B2</span>
+                </div>
+                <div class="code-row">
+                  <span class="code-label">RGB</span>
+                  <span class="code-val">8, 145, 178</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. Accent Crimson -->
+            <div class="color-card" onclick="copyVal('#FF0050', 'Accent Crimson', this)" title="Click to copy #FF0050">
+              <div class="swatch" style="background-color: #FF0050;">
+                <span class="swatch-tag">#FF0050</span>
+              </div>
+              <div class="color-info">
+                <h3 class="color-name">Accent Crimson</h3>
+                <p class="color-role">High-priority alerts, hot badges, critical notification states.</p>
+                <div class="code-row">
+                  <span class="code-label">HEX</span>
+                  <span class="code-val">#FF0050</span>
+                </div>
+                <div class="code-row">
+                  <span class="code-label">RGB</span>
+                  <span class="code-val">255, 0, 80</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7. Canvas White -->
+            <div class="color-card" onclick="copyVal('#FAFCFF', 'Canvas White', this)" title="Click to copy #FAFCFF">
+              <div class="swatch" style="background-color: #FAFCFF; border-bottom: 1px solid rgba(0,0,0,0.08);">
+                <span class="swatch-tag">#FAFCFF</span>
+              </div>
+              <div class="color-info">
+                <h3 class="color-name">Canvas White</h3>
+                <p class="color-role">Master crisp light canvas background and frosted glass surface foundation.</p>
+                <div class="code-row">
+                  <span class="code-label">HEX</span>
+                  <span class="code-val">#FAFCFF</span>
+                </div>
+                <div class="code-row">
+                  <span class="code-label">RGB</span>
+                  <span class="code-val">250, 252, 255</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 8. Slate-900 Typography -->
+            <div class="color-card" onclick="copyVal('#0F172A', 'Slate-900 Typography', this)" title="Click to copy #0F172A">
+              <div class="swatch" style="background-color: #0F172A;">
+                <span class="swatch-tag">#0F172A</span>
+              </div>
+              <div class="color-info">
+                <h3 class="color-name">Slate-900 Typography</h3>
+                <p class="color-role">Master high-contrast text, solid borders, and slate accents (16.8:1 AAA contrast).</p>
+                <div class="code-row">
+                  <span class="code-label">HEX</span>
+                  <span class="code-val">#0F172A</span>
+                </div>
+                <div class="code-row">
+                  <span class="code-label">RGB</span>
+                  <span class="code-val">15, 23, 42</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tactile Standards & Spatial Rules Card Container -->
+          <div style="background-color: var(--bg-surface); border: 1px solid var(--border-glass); border-radius: var(--radius-xl); padding: 24px; backdrop-filter: blur(16px);">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+              
+              <!-- Tactile Buttons Demo -->
+              <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <div style="margin-bottom: 14px;">
+                    <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.053em;">
+                      Sticker Tactile Buttons (9px Radius)
+                    </div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
+                    <button class="btn btn-eager" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 12px 20px;">
+                      Get Started
+                    </button>
+                    <button class="btn btn-spark" style="justify-content: center; text-transform: uppercase; letter-spacing: 0.053em; padding: 10px 20px;">
+                      Login Account
+                    </button>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06);">
+                  <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Tactile Buttons</span>
+                  <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('tactile_buttons', this)">Prompt</button>
+                </div>
+              </div>
+
+              <!-- Spacing & Typography Rules -->
+              <div style="background-color: var(--bg-inner-glass); padding: 20px; border-radius: 14px; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: none; display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                  <div style="margin-bottom: 12px;">
+                    <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.053em;">
+                      4px Spacing Unit & Tracking Rules
+                    </div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.84rem; margin-bottom: 16px;">
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: var(--text-muted);">Base Unit:</span>
+                      <span style="font-family: var(--font-mono); color: var(--color-eager-green); font-weight: 700;">4px Scale</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: var(--text-muted);">Display Headline Tracking:</span>
+                      <span style="font-family: var(--font-mono); color: var(--color-spark-blue); font-weight: 700;">-0.0200em</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: var(--text-muted);">Nav Label Uppercase Tracking:</span>
+                      <span style="font-family: var(--font-mono); color: var(--primary-dark); font-weight: 700;">+0.0530em</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                      <span style="color: var(--text-muted);">Card Padding:</span>
+                      <span style="font-family: var(--font-mono); color: var(--text-main);">16px - 24px</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(0,0,0,0.06);">
+                  <span style="font-size: 0.75rem; color: var(--text-dim);">UI Element: Spacing & Rhythm</span>
+                  <button class="btn btn-glass btn-sm" onclick="copyComponentPrompt('spacing_rules', this)">Prompt</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
 
     <!-- CORE DESIGN SYSTEM UI ELEMENTS -->
     <section id="section-elements" class="studio-view" style="margin-bottom: 60px;">
@@ -3295,15 +3416,17 @@
     }
 
     const componentPrompts = {
-      color_palette: `/* Prompt: Shiliaiwei 6 Closed Color Palette Tokens */
-Directive: Implement the closed 6-token color system for Shiliaiwei Liquid Glass.
-- Primary Emerald: #10B981 (--primary) - Core brand interactive actions and confirmations.
-- Deep Emerald: #059669 (--primary-dark) - 3D depth extrusion and high-contrast text.
-- Eager Green: #58CC02 (--color-eager-green) - High-energy CTA buttons.
-- Spark Blue: #1CB0F6 (--color-spark-blue) - Secondary interactive accents.
-- Accent Cyan: #0891B2 (--accent-cyan) - Release tags and code chips.
-- Accent Crimson: #FF0050 (--accent-crimson) - Critical alerts and danger states.
-- Rule: 100% solid colors only, zero gradients, zero unlisted colors.`,
+      color_palette: `/* Prompt: Shiliaiwei 8 Closed Color System Tokens */
+Directive: Implement the closed 8-token color system for Shiliaiwei Liquid Glass.
+- 01. Emerald Primary: #10B981 (--primary) - Core brand interactive actions and confirmations.
+- 02. Emerald Dark: #059669 (--primary-dark) - 3D depth extrusion and high-contrast text.
+- 03. Eager Green: #58CC02 (--color-eager-green) - High-energy CTA buttons.
+- 04. Spark Blue: #1CB0F6 (--color-spark-blue) - Secondary interactive accents.
+- 05. Accent Cyan: #0891B2 (--accent-cyan) - Release tags and code chips.
+- 06. Accent Crimson: #FF0050 (--accent-crimson) - Critical alerts and danger states.
+- 07. Canvas White: #FAFCFF (--bg-main) - High-contrast canvas foundation.
+- 08. Slate-900 Typography: #0F172A (--text-main) - Master typography & solid borders (16.8:1 AAA contrast).
+- Rule: 100% solid colors only, zero gradients, zero unlisted colors, WCAG 2.2 AAA compliant.`,
 
       tactile_buttons: `/* Prompt: Shiliaiwei Tactile Sticker Buttons */
 Directive: Implement 9px border-radius sticker buttons with 3D bottom depth shadow.
