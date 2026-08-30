@@ -8,22 +8,13 @@ This document defines the permanent, immutable Design & Engineering DNA for all 
 
 ---
 
-## 1. The 11 Immutable Architectural Directives
+## 1. The 16 Immutable Architectural Directives
 
 1. **ZERO EMOJI POLICY**:
    - Emojis (e.g. smileys, checkmarks, fire, rockets, stars, sparkles, flags) are strictly forbidden across all UI code, HTML, CSS, JavaScript, Kotlin, Swift, Dart, markdown documentation, and assistant responses.
-2. **ZERO DECORATIVE SYMBOLS & ZERO SIGNS POLICY**:
-   - No arbitrary Unicode glyphs, no decorative symbols, and no traffic signs / caution tape signs.
-   - **Vector Icons Only**:
-     - **Font Awesome 6 (Primary)**:
-       - Solid / Filled: `<i class="fa-solid fa-..."></i>`
-       - Regular / Outline: `<i class="fa-regular fa-..."></i>`
-       - Brand Logos: `<i class="fa-brands fa-..."></i>`
-     - **Google Material Symbols (`https://fonts.google.com/icons`)**:
-       - Outlined (Default): `<span class="material-symbols-outlined">icon_name</span>`
-       - Filled / Solid: `<span class="material-symbols-outlined fill">icon_name</span>` or `<span class="material-symbols-fill">icon_name</span>`
-       - Rounded: `<span class="material-symbols-rounded">icon_name</span>`
-     - **Lucide Support**: Lucide SVG vector icons (`<i data-lucide="..."></i>`).
+2. **ZERO ICONS & ZERO DECORATIVE GLYPHS POLICY (PURE TYPOGRAPHY)**:
+   - No icon fonts (Font Awesome, Material Symbols, Lucide), no arbitrary Unicode glyphs, and no decorative symbols.
+   - Use high-contrast monospace code tokens, semantic status pills (`ACTIVE`, `PROD`, `VERIFIED`, `ENABLED`, `PENDING`), and pure typography labels.
 3. **ZERO GRAY (NO MUDDY/DULL GRAYS)**:
    - Generic dull or muddy grays (e.g., `#808080`, `#999999`, `#cccccc`) are strictly prohibited.
    - Use high-contrast crisp Canvas White `#FAFCFF` / `#FFFFFF` paired with deep Slate-900 typography `#0F172A`, frosted glass surfaces `rgba(255, 255, 255, 0.85)`, and crisp slate tokens (`#475569`, `#64748B`).
@@ -63,6 +54,18 @@ This document defines the permanent, immutable Design & Engineering DNA for all 
 13. **TEXT BOUNDARY LIMIT & AUTO-WRAP MANDATE**:
     - All text blocks, headings, cards, table cells, badges, and paragraphs must gracefully wrap when reaching container boundaries (`overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;`).
     - Horizontal clipping, unconstrained stretching, or container overflow is strictly prohibited.
+14. **WEB APP & 2FA APPLICATION ARCHITECTURE STANDARD**:
+    - **2FA Security**: Discrete 6-digit individual OTP input boxes with auto-tab progression, backspace retreat handling, and monospace secret backup key (`JBSWY3DPEHPK3PXP`) with 1-click copy.
+    - **Admin & RBAC**: User role matrices (`OWNER`, `ADMIN`, `MEMBER`) with seat utilization statistics and permission editing actions.
+    - **Billing & Subscriptions**: Plan tier comparison cards with active plan indicators and upgrade checkout triggers.
+    - **API Keys & Security Audit Log**: Secret token generators (`sk_live_...`), key revocation, and live IP-stamped security event tables.
+    - **Sprint Kanban & Timeline**: Multi-column sprint management (`Backlog`, `In Progress`, `Done`) with priority badges.
+    - **Live Team Chat & Activity Feed**: Real-time messaging conversation threads with self/received bubbles and tap-clear input composers.
+    - **Multi-Step Onboarding Form**: 4-stage visual progress tracker (`Profile` -> `Security 2FA` -> `Workspace` -> `Launch`) with validated step progression.
+15. **CONCISE 2–3 WORDS BUTTON TEXT MANDATE**:
+    - Every interactive button across all applications, modules, and dialogs must strictly use **two or three words maximum** (e.g. `Verify Code`, `Resend Code`, `Save Settings`, `Create Key`, `Export CSV`, `Next Step`, `Back Step`, `Confirm Payment`, `Send Message`, `Invite User`, `Delete Key`, `Switch KM`, `Copy Tokens`).
+16. **MANDATORY PERSISTENT DESIGN RECORD RULE**:
+    - Every design decision, component rule, physics standard, and platform specification must **ALWAYS** be permanently recorded into `DESIGN_DNA.md` and synchronized across all agent skills (`shiliaiwei-liquid-glass-standards` and `srievi-liquid-glass-standards`).
 
 ---
 

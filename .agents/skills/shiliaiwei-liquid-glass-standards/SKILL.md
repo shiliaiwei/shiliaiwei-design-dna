@@ -13,20 +13,14 @@ This skill provides authoritative architectural rules, strict visual directives,
 
 ---
 
-## 1. The 11 Immutable Directives
+## 1. The 16 Immutable Directives
 
 1. **Directive 1: ZERO EMOJI POLICY**
    - Emojis (smileys, flames, rockets, checks, sparkles, flags) are strictly forbidden across UI code, documentation, and assistant responses.
 
-2. **Directive 2: ZERO DECORATIVE SYMBOLS & ZERO SIGNS POLICY**
-   - No arbitrary Unicode glyphs, decorative shapes, or traffic/caution signs.
-   - **Vector Icons Only**:
-     - **Font Awesome 6 (Primary)**: `<i class="fa-solid fa-..."></i>`, `<i class="fa-regular fa-..."></i>`, `<i class="fa-brands fa-..."></i>`.
-     - **Google Material Symbols (`https://fonts.google.com/icons`)**:
-       - Outlined: `<span class="material-symbols-outlined">icon_name</span>`
-       - Filled / Solid: `<span class="material-symbols-outlined fill">icon_name</span>` or `<span class="material-symbols-fill">icon_name</span>`
-       - Rounded: `<span class="material-symbols-rounded">icon_name</span>`
-     - **Lucide Support**: `<i data-lucide="..."></i>`.
+2. **Directive 2: ZERO ICONS & ZERO DECORATIVE GLYPHS POLICY (PURE TYPOGRAPHY)**
+   - No icon fonts, no arbitrary Unicode glyphs, and no decorative symbols.
+   - Use high-contrast monospace code tokens, semantic status pills (`ACTIVE`, `PROD`, `VERIFIED`, `ENABLED`, `PENDING`), and pure typography labels.
 
 3. **Directive 3: ZERO GRAY (No Dull/Muddy Grays)**
    - No generic dull grays (`#808080`, `#999999`, `#cccccc`).
@@ -67,6 +61,21 @@ This skill provides authoritative architectural rules, strict visual directives,
 
 13. **Directive 13: TEXT BOUNDARY LIMIT & AUTO-WRAP MANDATE**
     - All text blocks, badges, table cells, and paragraphs must wrap naturally when reaching container limits (`overflow-wrap: break-word; word-wrap: break-word; word-break: break-word;`). Single-line overflow and clipping are forbidden.
+
+14. **Directive 14: WEB APP & 2FA APPLICATION ARCHITECTURE STANDARD**
+    - **2FA Security**: Discrete 6-digit individual OTP input boxes with auto-tab progression, backspace retreat handling, and monospace secret backup key (`JBSWY3DPEHPK3PXP`) with 1-click copy.
+    - **Admin & RBAC**: User role matrices (`OWNER`, `ADMIN`, `MEMBER`) with seat utilization statistics and permission editing actions.
+    - **Billing & Subscriptions**: Plan tier comparison cards with active plan indicators and upgrade checkout triggers.
+    - **API Keys & Security Audit Log**: Secret token generators (`sk_live_...`), key revocation, and live IP-stamped security event tables.
+    - **Sprint Kanban & Timeline**: Multi-column sprint management (`Backlog`, `In Progress`, `Done`) with priority badges.
+    - **Live Team Chat & Activity Feed**: Real-time messaging conversation threads with self/received bubbles and tap-clear input composers.
+    - **Multi-Step Onboarding Form**: 4-stage visual progress tracker (`Profile` -> `Security 2FA` -> `Workspace` -> `Launch`) with validated step progression.
+
+15. **Directive 15: CONCISE 2–3 WORDS BUTTON TEXT MANDATE**
+    - Every interactive button across all applications, modules, and dialogs must strictly use **two or three words maximum** (`Verify Code`, `Resend Code`, `Save Settings`, `Create Key`, `Export CSV`, `Next Step`, `Back Step`, `Confirm Payment`, `Send Message`, `Invite User`, `Delete Key`, `Switch KM`, `Copy Tokens`).
+
+16. **Directive 16: MANDATORY PERSISTENT DESIGN RECORD RULE**
+    - Every design decision, component rule, physics standard, and platform specification must **ALWAYS** be permanently recorded into `DESIGN_DNA.md` and synchronized across all agent skills.
 
 ---
 
