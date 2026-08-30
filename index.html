@@ -1312,9 +1312,6 @@
           <a href="#section-elements" class="dock-item" data-i18n="nav_elements">
             <i class="fa-solid fa-cubes"></i> UI Elements
           </a>
-          <a href="#section-resources" class="dock-item" data-i18n="nav_resources">
-            <i class="fa-solid fa-code"></i> Resources
-          </a>
         </nav>
 
         <div class="left-dock-footer">
@@ -1995,80 +1992,6 @@
       </div>
     </section>
 
-    <!-- SECTION 4: RESOURCES & EXPORT -->
-    <section id="section-resources" style="margin-bottom: 60px;">
-      <h2 class="section-title" data-i18n="sec_4_title">
-        <i class="fa-solid fa-code"></i> 4. Multi-Platform Resources & Cloudflare
-      </h2>
-
-      <div class="comp-grid">
-        <!-- Resource Card 1: Web CSS Tokens -->
-        <div class="comp-card">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i class="fa-brands fa-css3-alt"></i> Web CSS Tokens</h3>
-              <span class="comp-tag">Styling</span>
-            </div>
-            <p class="comp-desc">Full CSS variable token registry with solid liquid glass variables.</p>
-            <div class="comp-preview-box" style="padding: 12px; background-color: var(--bg-inner-glass); border-radius: 12px; border: 1px solid rgba(0,0,0,0.08);">
-              <code style="font-size: 0.80rem; color: var(--text-muted); font-family: monospace; display: block; white-space: pre-wrap;">:root {
-  --bg-main: #FAFCFF;
-  --primary: #10B981;
-  --primary-dark: #059669;
-  --shiliaiwei-green: #58CC02;
-  --shiliaiwei-blue: #1CB0F6;
-  --radius-buttons: 9px;
-}</code>
-            </div>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Resource: CSS Tokens</span>
-            <button class="btn btn-primary btn-sm" onclick="copyAllTokens()"><i class="fa-solid fa-copy"></i> Copy Tokens</button>
-          </div>
-        </div>
-
-        <!-- Resource Card 2: Cloudflare Deployment -->
-        <div class="comp-card">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i class="fa-solid fa-cloud"></i> Cloudflare Deploy</h3>
-              <span class="comp-tag">Production</span>
-            </div>
-            <p class="comp-desc">Instant CLI commands for deploying to Cloudflare Workers & Pages.</p>
-            <div class="comp-preview-box" style="padding: 12px; background-color: var(--bg-inner-glass); border-radius: 12px; border: 1px solid rgba(0,0,0,0.08);">
-              <code style="font-size: 0.80rem; color: var(--primary-dark); font-family: monospace; display: block; white-space: pre-wrap;">npx wrangler deploy
-npx wrangler pages deploy .</code>
-            </div>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">CLI: Cloudflare</span>
-            <button class="btn btn-glass btn-sm" onclick="copyVal('npx wrangler deploy', 'Copied Deploy Command')"><i class="fa-solid fa-terminal"></i> Copy Deploy</button>
-          </div>
-        </div>
-
-        <!-- Resource Card 3: Mobile & Native Blueprints -->
-        <div class="comp-card">
-          <div>
-            <div class="comp-header">
-              <h3 class="comp-title"><i class="fa-solid fa-mobile-screen"></i> Multi-Platform Specs</h3>
-              <span class="comp-tag">Native</span>
-            </div>
-            <p class="comp-desc">Implementation blueprints for Jetpack Compose, SwiftUI, and Flutter.</p>
-            <div class="comp-preview-box" style="padding: 12px; background-color: var(--bg-inner-glass); border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); display: flex; gap: 6px; flex-wrap: wrap;">
-              <span class="ui-badge emerald">Compose</span>
-              <span class="ui-badge cyan">SwiftUI</span>
-              <span class="ui-badge">Flutter</span>
-              <span class="ui-badge purple">Web CSS</span>
-            </div>
-          </div>
-          <div class="comp-footer">
-            <span style="font-size: 0.75rem; color: var(--text-dim);">Specs: Design DNA</span>
-            <button class="btn btn-eager btn-sm" onclick="copyVal('https://github.com/shiliaiwei/shiliaiwei-design-dna', 'Copied Repo Link')"><i class="fa-solid fa-book"></i> View Specs</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
       </main>
     </div>
   </div>
@@ -2150,7 +2073,7 @@ npx wrangler pages deploy .</code>
 }`;
       navigator.clipboard.writeText(css).then(() => {
         const isKm = (currentLang === 'km');
-        showToast(isKm ? "បានចម្លងកូដអថេរ CSS ទាំងអស់ដោយជោគជ័យ!" : "Copied complete CSS variables!");
+        showToast(isKm ? "បានចម្លងកូដ CSS!" : "Copied CSS Tokens!");
         if (button && button.tagName === 'BUTTON') {
           const originalHTML = button.innerHTML;
           button.innerHTML = `<i class="fa-solid fa-check"></i> ${isKm ? 'បានចម្លង!' : 'Copied!'}`;
@@ -2172,7 +2095,6 @@ npx wrangler pages deploy .</code>
         nav_brand: '<i class="fa-solid fa-flag"></i> Our Brand',
         nav_identity: '<i class="fa-solid fa-wand-magic-sparkles"></i> Visual Identity',
         nav_elements: '<i class="fa-solid fa-cubes"></i> UI Elements',
-        nav_resources: '<i class="fa-solid fa-code"></i> Resources',
         btn_copy_tokens: '<i class="fa-solid fa-copy"></i> Copy Tokens',
         header_badge: '<span class="badge-dot"></span> Solid Liquid Glass Design System',
         header_title: 'Real-Time <span class="solid-emerald">Design System Studio</span>',
@@ -2180,7 +2102,6 @@ npx wrangler pages deploy .</code>
         sec_1_title: '<i class="fa-solid fa-palette"></i> 1. Our Brand & Color Tokens',
         sec_2_title: '<i class="fa-solid fa-wand-magic-sparkles"></i> 2. Visual Identity & Tactile UI',
         sec_3_title: '<i class="fa-solid fa-cubes"></i> 3. 14 Core UI Elements',
-        sec_4_title: '<i class="fa-solid fa-code"></i> 4. Multi-Platform Resources',
         toast_copy_tokens: 'Copied CSS Tokens!',
         toast_copied: 'Copied: '
       },
@@ -2189,7 +2110,6 @@ npx wrangler pages deploy .</code>
         nav_brand: '<i class="fa-solid fa-flag"></i> ម៉ាកយីហោ (Our Brand)',
         nav_identity: '<i class="fa-solid fa-wand-magic-sparkles"></i> អត្តសញ្ញាណ (Visual Identity)',
         nav_elements: '<i class="fa-solid fa-cubes"></i> ធាតុ UI (UI Elements)',
-        nav_resources: '<i class="fa-solid fa-code"></i> ធនធាន (Resources)',
         btn_copy_tokens: '<i class="fa-solid fa-copy"></i> ចម្លងថូខឹន (Copy Tokens)',
         header_badge: '<span class="badge-dot"></span> ប្រព័ន្ធរចនា Liquid Glass រឹងមាំ',
         header_title: 'ស្ទូឌីយោប្រព័ន្ធរចនា <span class="solid-emerald">ពេលវេលាជាក់ស្តែង</span>',
@@ -2197,7 +2117,6 @@ npx wrangler pages deploy .</code>
         sec_1_title: '<i class="fa-solid fa-palette"></i> ១. ម៉ាកយីហោ & ថូខឹនពណ៌ (Our Brand)',
         sec_2_title: '<i class="fa-solid fa-wand-magic-sparkles"></i> ២. អត្តសញ្ញាណ & រូបវិទ្យាប៉ះ (Visual Identity)',
         sec_3_title: '<i class="fa-solid fa-cubes"></i> ៣. ធាតុផ្សំ UI ស្នូលទាំង ១៤ (UI Elements)',
-        sec_4_title: '<i class="fa-solid fa-code"></i> ៤. ធនធានកូដច្រើនវេទិកា (Resources)',
         toast_copy_tokens: 'បានចម្លងកូដ CSS!',
         toast_copied: 'បានចម្លង៖ '
       }
