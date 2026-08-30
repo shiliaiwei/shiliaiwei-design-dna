@@ -606,93 +606,61 @@
 
     
     /* ==========================================================================
-       Massive Screen-Fitting "វី" Iconic Hero Typography & Kinetic Animation
+       Pure Liquid Glass Massive "វី" Hero (Full-Screen Iconic Display)
        ========================================================================== */
-    .vi-hero-container {
-      text-align: center;
-      margin: 10px auto 36px;
-      max-width: 1000px;
-      padding: 0 12px;
+    .vi-pure-hero {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
+      margin: 12px auto 40px;
+      padding: 20px 10px;
+      text-align: center;
+      user-select: none;
+      position: relative;
+      overflow: visible;
     }
 
-    .vi-hero-badge {
+    .vi-glass-display {
+      position: relative;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 4px 14px;
-      background: #ECFDF5;
-      border: 1px solid #A7F3D0;
-      border-radius: var(--radius-pill);
-      font-size: 0.76rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      opacity: 0;
-      animation: viFadeIn 0.5s ease 0.05s forwards;
+      justify-content: center;
+      padding: 10px 40px;
+      border-radius: var(--radius-xl);
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .vi-hero-massive {
-      font-family: 'Google Sans', 'Kantumruy Pro', 'Outfit', sans-serif;
-      font-size: clamp(6.5rem, 22vw, 14rem);
+    .vi-glass-display:hover {
+      transform: scale(1.04);
+    }
+    .vi-glass-display:active {
+      transform: scale(0.97);
+    }
+
+    .vi-massive-char {
+      font-family: 'Google Sans', 'Kantumruy Pro', sans-serif;
+      font-size: clamp(10rem, 36vw, 24rem);
       font-weight: 900;
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-      color: var(--text-main);
-      margin: 0;
-      user-select: none;
+      line-height: 0.88;
+      letter-spacing: -0.06em;
+      color: var(--primary);
+      text-shadow: 0 4px 0 #059669;
       display: inline-block;
       opacity: 0;
-      transform: scale(0.85) translateY(40px);
-      filter: blur(16px);
-      animation: viHeroKineticReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
-      transition: transform 0.2s ease;
-    }
-    .vi-hero-massive:hover {
-      transform: scale(1.03);
+      transform: scale(0.70) translateY(50px);
+      filter: blur(28px);
+      animation: viLiquidEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards, viFloatBreath 5s ease-in-out 1.1s infinite alternate;
     }
 
-    .vi-hero-meta {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 6px;
-      font-family: var(--font-sans);
-      font-size: clamp(0.95rem, 2.2vw, 1.35rem);
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-main);
-      opacity: 0;
-      animation: viFadeIn 0.6s ease 0.45s forwards;
-    }
-
-    .vi-hero-meta .vi-accent {
-      color: var(--primary);
-    }
-
-    .vi-hero-desc {
-      font-family: var(--font-sans);
-      font-size: clamp(0.85rem, 1.8vw, 1.05rem);
-      color: var(--text-muted);
-      max-width: 680px;
-      margin: 12px auto 0;
-      line-height: 1.5;
-      opacity: 0;
-      animation: viFadeIn 0.6s ease 0.6s forwards;
-    }
-
-    @keyframes viHeroKineticReveal {
+    @keyframes viLiquidEntrance {
       0% {
         opacity: 0;
-        transform: scale(0.85) translateY(40px);
-        filter: blur(16px);
+        transform: scale(0.70) translateY(50px);
+        filter: blur(28px);
+      }
+      60% {
+        filter: blur(4px);
       }
       100% {
         opacity: 1;
@@ -701,8 +669,27 @@
       }
     }
 
-    @keyframes viFadeIn {
-      from { opacity: 0; transform: translateY(12px); }
+    @keyframes viFloatBreath {
+      0% {
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        transform: translateY(-10px) scale(1.02);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .vi-pure-hero {
+        margin: 6px auto 24px;
+        padding: 10px 4px;
+      }
+      .vi-glass-display {
+        padding: 6px 16px;
+      }
+      .vi-massive-char {
+        font-size: clamp(8.5rem, 42vw, 15rem);
+      }
+    }
       to { opacity: 1; transform: translateY(0); }
     }
       to { opacity: 1; transform: translateY(0); }
@@ -2105,26 +2092,11 @@
       <!-- Main Content Area -->
       <main class="main-content" style="max-width: 1200px; margin: 0 auto;">
         
-        <!-- Massive Screen-Fitting "វី" Hero Header -->
-        <header class="vi-hero-container">
-          <div class="vi-hero-badge">
-            <span class="badge-dot" style="width: 7px; height: 7px; background: var(--primary); border-radius: 50%;"></span>
-            <span>SRIEVI GUIDELINE DESIGN DNA</span>
+        <!-- Pure Liquid Glass Massive "វី" Hero Display -->
+        <header class="vi-pure-hero">
+          <div class="vi-glass-display" onclick="openBrandPopup()" title="Shiliaiwei / Srievi (វី) — Tap for Brand & Skill Export">
+            <h1 class="vi-massive-char">វី</h1>
           </div>
-
-          <h1 class="vi-hero-massive">
-            <span class="solid-emerald">វី</span>
-          </h1>
-
-          <div class="vi-hero-meta">
-            <span>SRIEVI</span>
-            <span class="vi-accent">•</span>
-            <span class="solid-emerald">DESIGN DNA STUDIO</span>
-          </div>
-
-          <p class="vi-hero-desc">
-            Solid Liquid Glass Design Architecture • 14 Core UI Elements • 9px Tactile Button Physics
-          </p>
         </header>
 
         
