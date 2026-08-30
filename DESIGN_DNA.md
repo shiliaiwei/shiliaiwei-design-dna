@@ -76,6 +76,16 @@ This document defines the permanent, immutable Design & Engineering DNA for all 
       6. **Monospace Code Tokens**: `JetBrains Mono`, `13px`, `font-weight: 500`, line-height `1.50` (API tokens, SQL).
       7. **Microcopy & Overline Captions**: `11px / 10px`, `font-weight: 700`, uppercase, letter-spacing `0.08em`.
       8. **Dual-Language Pairing (Outfit & Google Sans)**: Khmer requires line-height `1.45` to prevent diacritic clipping, paired seamlessly with English Outfit.
+18. **ACCESSIBILITY DESIGN SYSTEM & 8-PILLAR a11y STANDARD**:
+    - The accessibility foundation of the design system ensures every component and pattern is built inclusively from the start (8 out of 8 pillars):
+      1. **WCAG 2.2 AAA Contrast**: Canvas White `#FAFCFF` vs Slate-900 `#0F172A` achieves 16.8:1 ratio (exceeds 7:1 AAA standard).
+      2. **Visible Focus Rings**: High-visibility 2px solid `#10B981` outline with 2px offset on `:focus-visible`.
+      3. **ARIA Semantics & Live Regions**: Explicit `aria-live="polite"` and semantic `role="status"` on dynamic alerts and tabs.
+      4. **44x44px Touch Targets**: Minimum 44px tap targets on all mobile buttons and interactive links.
+      5. **Reduced Motion Compliance**: `@media (prefers-reduced-motion: reduce)` support eliminating non-essential motion.
+      6. **Semantic HTML5 Landmark Structure**: Sequential `header`, `nav`, `aside`, `main`, `section`, and `h1`-`h4`.
+      7. **Text Boundary Wrap & 200% Zoom Reflow**: `overflow-wrap: break-word` preventing horizontal overflow under 200% zoom.
+      8. **Dual-Language Khmer a11y**: Mandatory line-height `1.45` preventing stacked subscript (ជើង) and superscript vowel clipping.
 
 ---
 
