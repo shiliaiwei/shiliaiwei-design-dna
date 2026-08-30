@@ -604,6 +604,100 @@
       }
     }
 
+    
+    /* ==========================================================================
+       Creative Screen-Fitting Hero Headline & Entrance Animations
+       ========================================================================== */
+    .hero-container {
+      text-align: center;
+      margin: 18px auto 44px;
+      max-width: 1100px;
+      padding: 0 12px;
+    }
+
+    .hero-big-title {
+      font-size: clamp(2.2rem, 6.2vw, 4.6rem);
+      font-weight: 900;
+      letter-spacing: -0.045em;
+      line-height: 1.06;
+      color: var(--text-main);
+      margin: 0 auto 16px;
+      text-wrap: balance;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .hero-word-line {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.28em;
+      overflow: hidden;
+    }
+
+    .hero-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(35px) scale(0.96);
+      filter: blur(8px);
+      animation: heroWordReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-word.w1 { animation-delay: 0.08s; }
+    .hero-word.w2 { animation-delay: 0.18s; }
+    .hero-word.w3 { animation-delay: 0.28s; }
+    .hero-word.w4 { animation-delay: 0.38s; }
+    .hero-word.w5 { animation-delay: 0.48s; }
+
+    @keyframes heroWordReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(35px) scale(0.96);
+        filter: blur(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    .hero-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 14px;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      border-radius: var(--radius-pill);
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: heroFadeIn 0.6s ease 0.02s forwards;
+    }
+
+    .hero-lead-text {
+      color: var(--text-muted);
+      font-size: clamp(0.92rem, 1.8vw, 1.15rem);
+      line-height: 1.55;
+      max-width: 760px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: heroFadeIn 0.75s ease 0.45s forwards;
+    }
+
+    @keyframes heroFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* Header */
     .header {
       text-align: center;
@@ -2001,17 +2095,27 @@
       <!-- Main Content Area -->
       <main class="main-content" style="max-width: 1200px; margin: 0 auto;">
         
-        <!-- Header -->
-        <header class="header">
-          <div class="badge-pill" data-i18n="header_badge">
-            <span class="badge-dot"></span>
-            Shiliaiwei Guideline Design DNA Skill
+        <!-- Creative Screen-Fitting Hero Header -->
+        <header class="hero-container">
+          <div class="hero-badge-tag">
+            <span class="badge-dot" style="width: 7px; height: 7px; background: var(--primary); border-radius: 50%;"></span>
+            <span>SHILIAIWEI DESIGN SYSTEM</span>
           </div>
-          <h1 class="title" data-i18n="header_title">
-            Real-Time <span class="solid-emerald">Design System Studio</span>
+
+          <h1 class="hero-big-title">
+            <span class="hero-word-line">
+              <span class="hero-word w1">SHILIAIWEI</span>
+              <span class="hero-word w2">GUIDELINE</span>
+            </span>
+            <span class="hero-word-line">
+              <span class="hero-word w3 solid-emerald">DESIGN</span>
+              <span class="hero-word w4 solid-emerald">DNA</span>
+              <span class="hero-word w5">STUDIO</span>
+            </span>
           </h1>
-          <p class="subtitle" data-i18n="header_subtitle">
-            Interactive real-time learning environment for Solid Liquid Glass architecture. Master all 14 core UI components and tactile sticker button physics with zero emojis and zero gradients.
+
+          <p class="hero-lead-text" data-i18n="header_subtitle">
+            Authoritative tactile Solid Liquid Glass design architecture. Master all 14 core UI components, 9px tactile sticker button physics, closed single-color tokens, and multi-platform standards.
           </p>
         </header>
 
