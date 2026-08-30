@@ -1723,11 +1723,40 @@
           </p>
         </header>
 
-        <!-- SECTION 1: OUR BRAND & SOLID COLOR TOKENS -->
+        <!-- SECTION 1: COLOR SYSTEM DESIGN SYSTEM -->
         <section id="section-tokens" style="margin-bottom: 60px;">
-      <h2 class="section-title" data-i18n="sec_1_title">
-        1. Solid Color Tokens Registry
-      </h2>
+      <div style="background: var(--bg-surface); border: 1px solid var(--border-glass); border-top: 1px solid var(--border-glass-top); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span class="ui-badge badge-green" style="font-weight: 800; font-size: 0.82rem;">COLOR TOKENS</span>
+              <span class="ui-badge badge-cyan">8 OF 8 PILLARS</span>
+            </div>
+            <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="sec_1_title">
+              1. Color System Design System
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 780px;" data-i18n="sec_1_desc">
+              The color layer of a design system - defining a palette that is purposeful, accessible, themeable, and expressed as tokens rather than raw values.
+            </p>
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <button class="btn btn-primary btn-sm" onclick="copyAllTokens()">Copy Tokens</button>
+            <button class="btn btn-glass btn-sm" onclick="showToast('WCAG 2.2 AAA Contrast Verified')">Test Contrast</button>
+          </div>
+        </div>
+
+        <!-- 8 Color System Architecture Pillars Bar -->
+        <div style="display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; flex-wrap: wrap;">
+          <span class="ui-badge" style="font-size: 0.72rem;">01. Canvas White</span>
+          <span class="ui-badge badge-green" style="font-size: 0.72rem;">02. Primary Emerald</span>
+          <span class="ui-badge badge-cyan" style="font-size: 0.72rem;">03. Spark & Eager</span>
+          <span class="ui-badge badge-crimson" style="font-size: 0.72rem;">04. Semantic Status</span>
+          <span class="ui-badge" style="font-size: 0.72rem;">05. Slate-900 Type</span>
+          <span class="ui-badge" style="font-size: 0.72rem;">06. Specular Border</span>
+          <span class="ui-badge badge-green" style="font-size: 0.72rem;">07. Tint Inset Well</span>
+          <span class="ui-badge badge-cyan" style="font-size: 0.72rem;">08. Zero Gradient</span>
+        </div>
+      </div>
       
       <div class="palette-grid">
         <!-- 1. Emerald Primary -->
@@ -3494,7 +3523,8 @@
         header_badge: '<span class="badge-dot"></span> Solid Liquid Glass Design System',
         header_title: 'Real-Time <span class="solid-emerald">Design System Studio</span>',
         header_subtitle: 'Interactive real-time learning environment for Solid Liquid Glass architecture. Master all 14 core UI components and tactile sticker button physics with zero emojis and zero gradients.',
-        sec_1_title: '1. Our Brand & Color Tokens',
+        sec_1_title: '1. Color System Design System (8 of 8)',
+        sec_1_desc: 'The color layer of a design system - defining a palette that is purposeful, accessible, themeable, and expressed as tokens rather than raw values.',
         sec_2_title: '2. Visual Identity & Tactile UI',
         sec_3_title: '3. 14 Core UI Elements',
         toast_copy_tokens: 'Copied CSS Tokens!',
@@ -3520,7 +3550,8 @@
         header_badge: '<span class="badge-dot"></span> ប្រព័ន្ធរចនា Liquid Glass រឹងមាំ',
         header_title: 'ស្ទូឌីយោប្រព័ន្ធរចនា <span class="solid-emerald">ពេលវេលាជាក់ស្តែង</span>',
         header_subtitle: 'បរិស្ថានសិក្សាជាក់ស្តែងសម្រាប់ស្ថាបត្យកម្ម Solid Liquid Glass។ សិក្សាស្វែងយល់ធាតុផ្សំ UI ស្នូលទាំង ១៤ និងរូបវិទ្យាប៊ូតុងស្ទីគ័រប៉ះ ដោយគ្មានរូបភាពអារម្មណ៍ និងគ្មានជម្រាលពណ៌។',
-        sec_1_title: '១. ម៉ាកយីហោ & ថូខឹនពណ៌ (Our Brand)',
+        sec_1_title: '១. ប្រព័ន្ធពណ៌ Color System (៨ នៃ ៨)',
+        sec_1_desc: 'ស្រទាប់ពណ៌នៃប្រព័ន្ធរចនា ដែលកំណត់ក្ដារលាយពណ៌ប្រកបដោយគោលបំណង ងាយស្រួលចូលប្រើប្រាស់ អាចប្តូររចនាប័ទ្មបាន និងត្រូវបានបង្ហាញជាថូខឹន (Tokens) ជាជាងតម្លៃឆៅ។',
         sec_2_title: '២. អត្តសញ្ញាណ & រូបវិទ្យាប៉ះ (Visual Identity)',
         sec_3_title: '៣. ធាតុផ្សំ UI ស្នូលទាំង ១៤ (UI Elements)',
         toast_copy_tokens: 'បានចម្លងកូដ CSS!',

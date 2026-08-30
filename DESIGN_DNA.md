@@ -95,6 +95,16 @@ This document defines the permanent, immutable Design & Engineering DNA for all 
       5. **Flexbox & Grid Gap Scale**: Harmonic gaps (`gap: 6px`, `gap: 10px`, `gap: 16px`, `gap: 24px`) preventing collisions.
       6. **Viewport Breakpoints**: Mobile (`≤ 480px`), Tablet (`481px - 1023px`), Desktop (`≥ 1024px`).
       7. **Z-Index Layer Architecture**: Base (0), Sticky Dock (100), Dropdown (500), Modal (1000), Toast (9999).
+20. **COLOR SYSTEM DESIGN SYSTEM (8-LAYER TOKEN ARCHITECTURE)**:
+    - The color layer defines a purposeful, accessible, and themeable palette expressed strictly as semantic tokens (8 of 8 pillars):
+      1. **Pure Canvas Foundation**: `--bg-main` (`#FAFCFF`), `--bg-surface` (`rgba(255,255,255,0.85)`), `--bg-inner-glass` (`rgba(241,245,249,0.85)`), `--bg-elevated` (`#FFFFFF`).
+      2. **Primary Brand Actions**: `--primary` (`#10B981`), `--primary-dark` (`#059669` 3D tactile depth), `--primary-light` (`#065F46` AAA contrast text).
+      3. **Ecosystem Accents**: `--shiliaiwei-green` (`#58CC02` Eager CTA), `--shiliaiwei-blue` (`#1CB0F6` Spark Blue).
+      4. **Functional Semantic Status**: Success Mint (`#10B981`), Info Cyan (`#0891B2`), Danger Crimson (`#FF0050`), Pending Amber (`#F59E0B`).
+      5. **High-Contrast Slate Typography**: `--text-main` (`#0F172A` Slate-900), `--text-muted` (`#475569` Slate-600), `--text-dim` (`#64748B` Slate-500).
+      6. **Specular Liquid Glass Highlights**: `--border-glass` (`rgba(0,0,0,0.10)`), `--border-glass-top` (`#FFFFFF` 100% specular reflection lip).
+      7. **Soft Badge Fills & Tint Insets**: Mint (`#ECFDF5` / `#A7F3D0`), Cyan (`#E0F2FE` / `#BAE6FD`), Rose (`#FFF1F2` / `#FECDD3`).
+      8. **Strict Zero Gradient & Zero Mix Mandate**: 100% single-token solid fills per component, zero muddy grays, zero rainbow blends.
 
 ---
 

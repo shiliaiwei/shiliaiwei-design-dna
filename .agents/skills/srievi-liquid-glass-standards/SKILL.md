@@ -109,6 +109,17 @@ This skill provides authoritative architectural rules, strict visual directives,
       6. **Viewport Breakpoints**: Mobile (`≤ 480px`), Tablet (`481px - 1023px`), Desktop (`≥ 1024px`).
       7. **Z-Index Layer Architecture**: Base (0), Sticky Dock (100), Dropdown (500), Modal (1000), Toast (9999).
 
+20. **Directive 20: COLOR SYSTEM DESIGN SYSTEM (8-LAYER TOKEN ARCHITECTURE)**
+    - The color layer defines a purposeful, accessible, themeable palette expressed strictly as semantic tokens (8 of 8 pillars):
+      1. **Pure Canvas Foundation**: `--bg-main` (`#FAFCFF`), `--bg-surface` (`rgba(255,255,255,0.85)`), `--bg-inner-glass` (`rgba(241,245,249,0.85)`), `--bg-elevated` (`#FFFFFF`).
+      2. **Primary Brand Actions**: `--primary` (`#10B981`), `--primary-dark` (`#059669`), `--primary-light` (`#065F46`).
+      3. **Ecosystem Accents**: `--shiliaiwei-green` (`#58CC02`), `--shiliaiwei-blue` (`#1CB0F6`).
+      4. **Functional Semantic Status**: Success Mint (`#10B981`), Info Cyan (`#0891B2`), Danger Crimson (`#FF0050`), Pending Amber (`#F59E0B`).
+      5. **High-Contrast Slate Typography**: `--text-main` (`#0F172A`), `--text-muted` (`#475569`), `--text-dim` (`#64748B`).
+      6. **Specular Liquid Glass Highlights**: `--border-glass` (`rgba(0,0,0,0.10)`), `--border-glass-top` (`#FFFFFF`).
+      7. **Soft Badge Fills & Tint Insets**: Mint (`#ECFDF5`), Cyan (`#E0F2FE`), Rose (`#FFF1F2`).
+      8. **Strict Zero Gradient & Zero Mix Mandate**: 100% single-token solid fills, zero muddy grays.
+
 ---
 
 ## 2. Multi-Platform Implementation Guide
