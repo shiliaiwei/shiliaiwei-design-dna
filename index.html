@@ -1596,6 +1596,61 @@
       box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.20) !important;
     }
 
+  
+    /* Spacing & Grid Design System Styles */
+    .spacing-hero {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      border-top: 1px solid var(--border-glass-top);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .spatial-scale-visualizer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .spatial-box-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .spatial-bar {
+      background: var(--primary);
+      border-radius: 3px;
+      width: 100%;
+    }
+    .grid-12-demo {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 8px;
+      padding: 14px;
+      background: var(--bg-inner-glass);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(0,0,0,0.06);
+      margin: 14px 0;
+    }
+    .grid-col-demo {
+      background: #FFFFFF;
+      border: 1px solid rgba(16, 185, 129, 0.40);
+      border-radius: 4px;
+      padding: 8px 4px;
+      text-align: center;
+      font-size: 0.70rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--primary-dark);
+    }
+
   </style>
 </head>
 <body>
@@ -1626,6 +1681,9 @@
           </a>
           <a href="#section-a11y" class="dock-item" data-i18n="nav_a11y">
             Accessibility System
+          </a>
+          <a href="#section-spacing" class="dock-item" data-i18n="nav_spacing">
+            Spacing & Grid
           </a>
           <a href="#section-tactile" class="dock-item" data-i18n="nav_identity">
             Visual Identity
@@ -2239,6 +2297,222 @@
               </div>
             </div>
             <button class="btn btn-glass btn-sm" onclick="copyVal('body.lang-km { line-height: 1.45; font-family: Google Sans, sans-serif; }', 'Copied Khmer a11y Spec')">Copy Spec</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- SECTION 4: SPACING & GRID DESIGN SYSTEM -->
+    <section id="section-spacing" style="margin-bottom: 60px;">
+      <div class="spacing-hero">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+              <span class="ui-badge badge-cyan" style="font-weight: 800; font-size: 0.82rem;">4PX / 8PX BASE</span>
+              <span class="ui-badge badge-green">7 OF 7 PILLARS</span>
+            </div>
+            <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="sec_spacing_title">
+              4. Spacing / Grid Design System
+            </h2>
+            <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 780px;" data-i18n="sec_spacing_desc">
+              The spatial layer of a design system, defining a consistent scale for spacing, a grid for layout, and the rules that make both feel deliberate and coherent across all surfaces.
+            </p>
+          </div>
+          <div style="display: flex; gap: 6px;">
+            <button class="btn btn-primary btn-sm" onclick="copyVal(':root { --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px; }', 'Copied Spacing Scale Tokens')">Copy Spacing</button>
+            <button class="btn btn-glass btn-sm" onclick="copyVal(':root { --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xl: 22px; --radius-buttons: 9px; --radius-pill: 9999px; }', 'Copied Radius Scale Tokens')">Copy Radius</button>
+          </div>
+        </div>
+
+        <!-- 1. The 4px/8px Base Spacing Scale Visualizer -->
+        <div style="margin-top: 16px;">
+          <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-main); text-transform: uppercase;">01. Core 4px/8px Spacing Scale</span>
+          <div class="spatial-scale-visualizer">
+            <div class="spatial-box-card">
+              <div class="spatial-bar" style="height: 4px;"></div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;">4px</span>
+              <span style="font-size: 0.70rem; color: var(--text-dim);">--space-1</span>
+            </div>
+            <div class="spatial-box-card">
+              <div class="spatial-bar" style="height: 8px;"></div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;">8px</span>
+              <span style="font-size: 0.70rem; color: var(--text-dim);">--space-2</span>
+            </div>
+            <div class="spatial-box-card">
+              <div class="spatial-bar" style="height: 12px;"></div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;">12px</span>
+              <span style="font-size: 0.70rem; color: var(--text-dim);">--space-3</span>
+            </div>
+            <div class="spatial-box-card">
+              <div class="spatial-bar" style="height: 16px;"></div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;">16px</span>
+              <span style="font-size: 0.70rem; color: var(--text-dim);">--space-4</span>
+            </div>
+            <div class="spatial-box-card">
+              <div class="spatial-bar" style="height: 24px;"></div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;">24px</span>
+              <span style="font-size: 0.70rem; color: var(--text-dim);">--space-6</span>
+            </div>
+            <div class="spatial-box-card">
+              <div class="spatial-bar" style="height: 32px;"></div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;">32px</span>
+              <span style="font-size: 0.70rem; color: var(--text-dim);">--space-8</span>
+            </div>
+            <div class="spatial-box-card">
+              <div class="spatial-bar" style="height: 48px;"></div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;">48px</span>
+              <span style="font-size: 0.70rem; color: var(--text-dim);">--space-12</span>
+            </div>
+            <div class="spatial-box-card">
+              <div class="spatial-bar" style="height: 64px;"></div>
+              <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700;">64px</span>
+              <span style="font-size: 0.70rem; color: var(--text-dim);">--space-16</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Responsive 12-Column Grid Architecture -->
+        <div style="margin-top: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-main); text-transform: uppercase;">02. Responsive 12-Column Grid (16px/24px Gutters)</span>
+            <span class="ui-badge badge-green">FLUID 100%</span>
+          </div>
+          <div class="grid-12-demo">
+            <div class="grid-col-demo">1</div>
+            <div class="grid-col-demo">2</div>
+            <div class="grid-col-demo">3</div>
+            <div class="grid-col-demo">4</div>
+            <div class="grid-col-demo">5</div>
+            <div class="grid-col-demo">6</div>
+            <div class="grid-col-demo">7</div>
+            <div class="grid-col-demo">8</div>
+            <div class="grid-col-demo">9</div>
+            <div class="grid-col-demo">10</div>
+            <div class="grid-col-demo">11</div>
+            <div class="grid-col-demo">12</div>
+          </div>
+        </div>
+
+        <!-- 3 to 7 Spatial Pillars Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 20px;">
+          
+          <!-- Pillar 3: Inset & Padding Hierarchy -->
+          <div class="a11y-card">
+            <div>
+              <div class="a11y-card-header">
+                <div class="a11y-card-title">
+                  <span class="ui-badge badge-green">03</span>
+                  <span>Component Inset Hierarchy</span>
+                </div>
+                <span class="ui-badge badge-cyan">INSET SCALE</span>
+              </div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 8px 0;">
+                Strict internal padding standards across containers, wells, buttons, and badges.
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.78rem; font-family: var(--font-mono);">
+                <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: var(--bg-inner-glass); border-radius: 4px;">
+                  <span>Card Surface:</span><span>padding: 20px / 24px</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: var(--bg-inner-glass); border-radius: 4px;">
+                  <span>Recessed Well:</span><span>padding: 12px / 16px</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: var(--bg-inner-glass); border-radius: 4px;">
+                  <span>Button Standard:</span><span>padding: 8px 14px</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 4px 8px; background: var(--bg-inner-glass); border-radius: 4px;">
+                  <span>Status Badge:</span><span>padding: 3px 8px</span>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('/* Inset Scale */ card: 24px; well: 12px; btn: 8px 14px; badge: 3px 8px;', 'Copied Inset Spec')">Copy Spec</button>
+          </div>
+
+          <!-- Pillar 4: Squircle & Radius Scale -->
+          <div class="a11y-card">
+            <div>
+              <div class="a11y-card-header">
+                <div class="a11y-card-title">
+                  <span class="ui-badge badge-green">04</span>
+                  <span>Squircle & Radius Geometry</span>
+                </div>
+                <span class="ui-badge badge-green">9PX STICKER</span>
+              </div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 8px 0;">
+                Calculated curvature hierarchy ensuring outer/inner radius nesting harmony.
+              </p>
+              <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; padding: 4px 0;">
+                <span class="ui-badge" style="border-radius: 6px;">6px (sm)</span>
+                <span class="ui-badge badge-green" style="border-radius: 9px;">9px (btn)</span>
+                <span class="ui-badge badge-cyan" style="border-radius: 10px;">10px (md)</span>
+                <span class="ui-badge" style="border-radius: 16px;">16px (lg)</span>
+                <span class="ui-badge" style="border-radius: 9999px;">Pill</span>
+              </div>
+            </div>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('--radius-sm: 6px; --radius-buttons: 9px; --radius-md: 10px; --radius-lg: 16px;', 'Copied Radius Spec')">Copy Spec</button>
+          </div>
+
+          <!-- Pillar 5: Gap & Stacking Scale -->
+          <div class="a11y-card">
+            <div>
+              <div class="a11y-card-header">
+                <div class="a11y-card-title">
+                  <span class="ui-badge badge-green">05</span>
+                  <span>Flex & Grid Gap Scale</span>
+                </div>
+                <span class="ui-badge">AUTO-FLOW</span>
+              </div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 8px 0;">
+                Harmonic flexbox gaps (`gap: 6px`, `gap: 10px`, `gap: 16px`, `gap: 24px`) preventing cluttered collisions.
+              </p>
+              <code style="font-family: var(--font-mono); font-size: 0.78rem; background: var(--bg-inner-glass); padding: 8px 10px; border-radius: var(--radius-sm); display: block; color: var(--text-muted);">
+                display: flex; gap: var(--space-3);
+              </code>
+            </div>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('gap: var(--space-2); gap: var(--space-4);', 'Copied Gap Spec')">Copy Spec</button>
+          </div>
+
+          <!-- Pillar 6: Viewport Breakpoint Standards -->
+          <div class="a11y-card">
+            <div>
+              <div class="a11y-card-header">
+                <div class="a11y-card-title">
+                  <span class="ui-badge badge-green">06</span>
+                  <span>Viewport Breakpoints</span>
+                </div>
+                <span class="ui-badge badge-cyan">RESPONSIVE</span>
+              </div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 8px 0;">
+                Deterministic adaptive breakpoints for mobile, tablet, and widescreen desktop.
+              </p>
+              <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim); display: flex; flex-direction: column; gap: 4px;">
+                <div>Mobile: &lt; 480px (4 columns)</div>
+                <div>Tablet: 481px - 1023px (8 columns)</div>
+                <div>Desktop: &ge; 1024px (12 columns)</div>
+              </div>
+            </div>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('@media (max-width: 1024px) { ... } @media (max-width: 480px) { ... }', 'Copied Breakpoints Spec')">Copy Spec</button>
+          </div>
+
+          <!-- Pillar 7: Z-Index Layering Architecture -->
+          <div class="a11y-card">
+            <div>
+              <div class="a11y-card-header">
+                <div class="a11y-card-title">
+                  <span class="ui-badge badge-green">07</span>
+                  <span>Z-Index Layer Architecture</span>
+                </div>
+                <span class="ui-badge badge-green">PREDICTABLE</span>
+              </div>
+              <p style="font-size: 0.82rem; color: var(--text-muted); margin: 8px 0;">
+                Deterministic elevation stacking scale preventing clipping or dropdown bleed throughs.
+              </p>
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.75rem; padding: 4px 8px; background: var(--bg-inner-glass); border-radius: 4px;">
+                <span>Sticky Dock: 100</span><span>Modal: 1000</span><span>Toast: 9999</span>
+              </div>
+            </div>
+            <button class="btn btn-glass btn-sm" onclick="copyVal('--z-dock: 100; --z-dropdown: 500; --z-modal: 1000; --z-toast: 9999;', 'Copied Z-Index Spec')">Copy Spec</button>
           </div>
 
         </div>
@@ -3205,6 +3479,9 @@
         nav_brand: 'Our Brand',
         nav_typography: 'Typography System',
         nav_a11y: 'Accessibility System',
+        nav_spacing: 'Spacing & Grid',
+        sec_spacing_title: '4. Spacing / Grid Design System',
+        sec_spacing_desc: 'The spatial layer of a design system, defining a consistent scale for spacing, a grid for layout, and the rules that make both feel deliberate and coherent across all surfaces.',
         sec_a11y_title: '3. Accessibility Design System (a11y)',
         sec_a11y_desc: 'The accessibility foundation of a design system including the standards, tooling, and shared conventions that ensure every component and pattern is built inclusively from the start.',
         sec_typo_title: '2. Aa Typography Design System',
@@ -3228,6 +3505,9 @@
         nav_brand: 'ម៉ាកយីហោ (Our Brand)',
         nav_typography: 'ប្រព័ន្ធអក្សរ (Typography)',
         nav_a11y: 'ភាពងាយស្រួលប្រើ (Accessibility)',
+        nav_spacing: 'គម្លាត & ក្រឡាចត្រង្គ (Spacing & Grid)',
+        sec_spacing_title: '៤. ប្រព័ន្ធគម្លាត & ក្រឡាចត្រង្គ Spacing/Grid (៧ នៃ ៧)',
+        sec_spacing_desc: 'ស្រទាប់លំហនៃប្រព័ន្ធរចនា ដែលកំណត់ទំហំគម្លាតស្របគ្នា ក្រឡាចត្រង្គសម្រាប់ប្លង់ និងច្បាប់ដែលធ្វើឱ្យទាំងពីរមានអារម្មណ៍ច្បាស់លាស់ និងស៊ីសង្វាក់គ្នានៅលើគ្រប់ផ្ទៃទាំងអស់។',
         sec_a11y_title: '៣. ប្រព័ន្ធភាពងាយស្រួលប្រើប្រាស់ Accessibility (៨ នៃ ៨)',
         sec_a11y_desc: 'មូលដ្ឋានគ្រឹះនៃភាពងាយស្រួលប្រើប្រាស់នៃប្រព័ន្ធរចនា រួមទាំងស្តង់ដារ ឧបករណ៍ និងអនុសញ្ញារួមដែលធានាថារាល់សមាសធាតុ និងទម្រង់ទាំងអស់ត្រូវបានបង្កើតឡើងប្រកបដោយបរិយាប័ន្នតាំងពីដំបូង។',
         sec_typo_title: '២. ប្រព័ន្ធអក្សរ Aa Typography (៨ នៃ ៨)',

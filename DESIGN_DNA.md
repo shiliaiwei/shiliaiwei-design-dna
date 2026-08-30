@@ -86,6 +86,15 @@ This document defines the permanent, immutable Design & Engineering DNA for all 
       6. **Semantic HTML5 Landmark Structure**: Sequential `header`, `nav`, `aside`, `main`, `section`, and `h1`-`h4`.
       7. **Text Boundary Wrap & 200% Zoom Reflow**: `overflow-wrap: break-word` preventing horizontal overflow under 200% zoom.
       8. **Dual-Language Khmer a11y**: Mandatory line-height `1.45` preventing stacked subscript (ជើង) and superscript vowel clipping.
+19. **SPACING & GRID DESIGN SYSTEM (7-PILLAR SPATIAL STANDARD)**:
+    - The spatial layer defines a consistent scale for spacing, a grid for layout, and the rules that make both feel deliberate across all surfaces (7 of 7 pillars):
+      1. **4px / 8px Base Scale**: `--space-1` (4px), `--space-2` (8px), `--space-3` (12px), `--space-4` (16px), `--space-6` (24px), `--space-8` (32px), `--space-12` (48px), `--space-16` (64px).
+      2. **Responsive 12-Column Grid**: 12-column desktop layout with 16px/24px harmonic gutters and fluid percentage tracks.
+      3. **Component Inset Hierarchy**: Card padding (`20px`/`24px`), recessed wells (`12px`/`16px`), standard buttons (`8px 14px`), badges (`3px 8px`).
+      4. **Squircle & Radius Geometry Scale**: `--radius-sm` (6px), `--radius-buttons` (9px), `--radius-md` (10px), `--radius-lg` (16px), `--radius-xl` (22px), `--radius-pill` (9999px).
+      5. **Flexbox & Grid Gap Scale**: Harmonic gaps (`gap: 6px`, `gap: 10px`, `gap: 16px`, `gap: 24px`) preventing collisions.
+      6. **Viewport Breakpoints**: Mobile (`≤ 480px`), Tablet (`481px - 1023px`), Desktop (`≥ 1024px`).
+      7. **Z-Index Layer Architecture**: Base (0), Sticky Dock (100), Dropdown (500), Modal (1000), Toast (9999).
 
 ---
 
