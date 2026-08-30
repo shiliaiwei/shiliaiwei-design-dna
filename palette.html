@@ -1252,6 +1252,219 @@
         flex-wrap: wrap;
       }
     }
+  
+    /* Web App Suite & 2FA Styles */
+    .otp-grid {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin: 16px 0;
+      flex-wrap: wrap;
+    }
+    .otp-field {
+      width: 44px;
+      height: 52px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      border-top: 1px solid var(--border-glass-top);
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      outline: none;
+    }
+    .otp-field:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+      background-color: #FFFFFF;
+    }
+    .webapp-nav {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      scrollbar-width: thin;
+    }
+    .webapp-tab {
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-radius: var(--radius-pill);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .webapp-tab:hover {
+      color: var(--text-main);
+      border-color: rgba(0,0,0,0.20);
+    }
+    .webapp-tab.active {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary);
+      box-shadow: 0 2px 0 var(--primary-dark);
+    }
+    .webapp-view {
+      display: none;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-glass);
+      border-top: 1px solid var(--border-glass-top);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      animation: fadeIn 0.25s ease-out;
+    }
+    .webapp-view.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .metric-item {
+      padding: 14px;
+      background-color: var(--bg-inner-glass);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--radius-md);
+    }
+    .metric-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .metric-val {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 4px;
+    }
+    .kanban-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .kanban-column {
+      background-color: var(--bg-inner-glass);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: var(--radius-md);
+      padding: 12px;
+    }
+    .kanban-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .kanban-card {
+      background-color: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-sm);
+      padding: 10px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      height: 340px;
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: var(--radius-md);
+      background-color: var(--bg-inner-glass);
+      overflow: hidden;
+    }
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .chat-row {
+      display: flex;
+      gap: 8px;
+      max-width: 80%;
+    }
+    .chat-row.me {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+    .chat-bubble {
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      background-color: #FFFFFF;
+      color: var(--text-main);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .chat-row.me .chat-bubble {
+      background-color: var(--primary);
+      color: #FFFFFF;
+      border-color: var(--primary-dark);
+    }
+    .step-track {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .step-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      position: relative;
+      z-index: 2;
+    }
+    .step-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--bg-surface);
+      border: 2px solid var(--border-glass);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .step-node.active .step-circle {
+      background-color: var(--primary);
+      border-color: var(--primary-dark);
+      color: #FFFFFF;
+    }
+    .step-node.completed .step-circle {
+      background-color: var(--shiliaiwei-green);
+      border-color: #46A302;
+      color: #FFFFFF;
+    }
+    .step-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-dim);
+    }
+
   </style>
 </head>
 <body>
@@ -1282,6 +1495,9 @@
           </a>
           <a href="#section-elements" class="dock-item" data-i18n="nav_elements">
             UI Elements
+          </a>
+          <a href="#section-webapp" class="dock-item" data-i18n="nav_webapp">
+            Web App Suite
           </a>
         </nav>
 
@@ -1960,6 +2176,378 @@
       </div>
     </section>
 
+
+    <!-- SECTION 4: WEB APP & 2FA MULTI-MODULE SUITE -->
+    <section id="section-webapp" style="margin-bottom: 60px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+        <div>
+          <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="sec_4_title">
+            4. Web App 2FA & Multi-Module Application Suite
+          </h2>
+          <p style="color: var(--text-dim); font-size: 0.88rem;">
+            Production-ready interactive flows for authentication, 2FA security, billing, management, and workspace collaboration.
+          </p>
+        </div>
+        <span class="ui-badge badge-green">LIVE SUITE</span>
+      </div>
+
+      <!-- Web App View Navigation Tabs -->
+      <div class="webapp-nav">
+        <button class="webapp-tab active" onclick="switchWebAppTab('tab-2fa', this)">2FA Security</button>
+        <button class="webapp-tab" onclick="switchWebAppTab('tab-admin', this)">Admin & Users</button>
+        <button class="webapp-tab" onclick="switchWebAppTab('tab-billing', this)">Billing & Checkout</button>
+        <button class="webapp-tab" onclick="switchWebAppTab('tab-api', this)">API Keys & Logs</button>
+        <button class="webapp-tab" onclick="switchWebAppTab('tab-kanban', this)">Kanban & Timeline</button>
+        <button class="webapp-tab" onclick="switchWebAppTab('tab-chat', this)">Chat & Activity</button>
+        <button class="webapp-tab" onclick="switchWebAppTab('tab-wizard', this)">Multi-Step Form</button>
+        <button class="webapp-tab" onclick="switchWebAppTab('tab-analytics', this)">Analytics & Help</button>
+      </div>
+
+      <!-- TAB 1: 2FA (Two-Factor Authentication) -->
+      <div id="tab-2fa" class="webapp-view active">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">Two-Factor Authentication (2FA)</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted);">Enter the 6-digit verification code generated by your Authenticator app (Google Authenticator, Authy, or 1Password).</p>
+          </div>
+          <span class="ui-badge badge-green">ENFORCED</span>
+        </div>
+
+        <div style="max-width: 480px; margin: 0 auto; text-align: center; padding: 20px; background-color: var(--bg-inner-glass); border-radius: var(--radius-lg); border: 1px solid rgba(0,0,0,0.06);">
+          <span style="font-size: 0.78rem; font-weight: 600; color: var(--text-dim); text-transform: uppercase;">Enter Verification Code</span>
+          
+          <div class="otp-grid">
+            <input type="text" class="otp-field" maxlength="1" autofocus oninput="handleOtp(this, 0)" onkeydown="handleOtpKey(event, this, 0)">
+            <input type="text" class="otp-field" maxlength="1" oninput="handleOtp(this, 1)" onkeydown="handleOtpKey(event, this, 1)">
+            <input type="text" class="otp-field" maxlength="1" oninput="handleOtp(this, 2)" onkeydown="handleOtpKey(event, this, 2)">
+            <input type="text" class="otp-field" maxlength="1" oninput="handleOtp(this, 3)" onkeydown="handleOtpKey(event, this, 3)">
+            <input type="text" class="otp-field" maxlength="1" oninput="handleOtp(this, 4)" onkeydown="handleOtpKey(event, this, 4)">
+            <input type="text" class="otp-field" maxlength="1" oninput="handleOtp(this, 5)" onkeydown="handleOtpKey(event, this, 5)">
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 10px; margin-top: 16px; flex-wrap: wrap;">
+            <button class="btn btn-primary btn-sm" onclick="verifyOtp()">Verify Code</button>
+            <button class="btn btn-glass btn-sm" onclick="resendOtp()">Resend Code</button>
+          </div>
+
+          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,0.08); text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 0.78rem; font-weight: 700; color: var(--text-main);">Secret Backup Key</span>
+              <button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="copyVal('JBSWY3DPEHPK3PXP', 'Copied 2FA Secret Key')">Copy Key</button>
+            </div>
+            <code style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); background: #FFFFFF; padding: 6px 10px; border-radius: var(--radius-sm); border: 1px solid rgba(0,0,0,0.08); display: block;">JBSWY3DPEHPK3PXP</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: Admin & User Management -->
+      <div id="tab-admin" class="webapp-view">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">Admin Panel & User Management</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted);">Manage organization members, assign RBAC access roles, and invite collaborators.</p>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="showToast('Invite modal opened')">Invite User</button>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-item">
+            <div class="metric-label">Active Seats</div>
+            <div class="metric-val">14 / 20</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Super Admins</div>
+            <div class="metric-val">3</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Pending Invites</div>
+            <div class="metric-val">2</div>
+          </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="ui-table" style="margin-bottom: 0;">
+            <thead>
+              <tr>
+                <th>Member</th>
+                <th>Role</th>
+                <th>2FA Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>shiliaiwei@dev.kh</strong></td>
+                <td><span class="ui-badge">OWNER</span></td>
+                <td><span class="ui-badge badge-green">ENABLED</span></td>
+                <td><button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="showToast('Manage permissions')">Edit Role</button></td>
+              </tr>
+              <tr>
+                <td><strong>admin.chan@vibrand.dev</strong></td>
+                <td><span class="ui-badge badge-cyan">ADMIN</span></td>
+                <td><span class="ui-badge badge-green">ENABLED</span></td>
+                <td><button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="showToast('Manage permissions')">Edit Role</button></td>
+              </tr>
+              <tr>
+                <td><strong>developer.guest@org.io</strong></td>
+                <td><span class="ui-badge">MEMBER</span></td>
+                <td><span class="ui-badge badge-crimson">PENDING</span></td>
+                <td><button class="btn btn-glass btn-sm" style="padding: 2px 8px; font-size: 0.72rem;" onclick="showToast('Revoked user access')">Remove User</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 3: Billing & Checkout -->
+      <div id="tab-billing" class="webapp-view">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">Billing & Subscription Tiers</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted);">Manage your organization subscription plan, payment methods, and invoice history.</p>
+          </div>
+          <span class="ui-badge badge-green">ENTERPRISE PLAN</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-bottom: 24px;">
+          <div style="padding: 20px; background-color: var(--bg-inner-glass); border-radius: var(--radius-md); border: 2px solid var(--primary);">
+            <div style="display: flex; justify-content: space-between;">
+              <span class="ui-badge badge-green">CURRENT PLAN</span>
+              <span style="font-size: 1.25rem; font-weight: 700;">$49<span style="font-size: 0.8rem; font-weight: 500; color: var(--text-dim);">/mo</span></span>
+            </div>
+            <h4 style="margin-top: 10px; font-size: 1.1rem;">Pro Tier</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin: 8px 0 16px;">Unlimited edge deployments, custom domains, and automated 2FA enforcement.</p>
+            <button class="btn btn-primary btn-sm" onclick="showToast('Subscribed plan details')">Manage Plan</button>
+          </div>
+
+          <div style="padding: 20px; background-color: var(--bg-inner-glass); border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.08);">
+            <div style="display: flex; justify-content: space-between;">
+              <span class="ui-badge">UPGRADE</span>
+              <span style="font-size: 1.25rem; font-weight: 700;">$199<span style="font-size: 0.8rem; font-weight: 500; color: var(--text-dim);">/mo</span></span>
+            </div>
+            <h4 style="margin-top: 10px; font-size: 1.1rem;">Enterprise</h4>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin: 8px 0 16px;">Dedicated worker clusters, 99.99% SLA, and custom SSO integration.</p>
+            <button class="btn btn-eager btn-sm" onclick="showToast('Initiating enterprise upgrade')">Upgrade Plan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: API Keys & Audit Log -->
+      <div id="tab-api" class="webapp-view">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">API Keys & Security Audit Log</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted);">Generate secret tokens for programmatic API access and review real-time security events.</p>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="showToast('Generated new API Key: sk_live_89a7f3...')">Create Key</button>
+        </div>
+
+        <div style="margin-bottom: 20px; padding: 14px; background: var(--bg-inner-glass); border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.06);">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <div style="font-weight: 700; font-size: 0.85rem;">Production Edge Key</div>
+              <code style="font-family: var(--font-mono); font-size: 0.80rem; color: var(--text-dim);">sk_live_vibrand_89f4b23190e4</code>
+            </div>
+            <div style="display: flex; gap: 6px;">
+              <button class="btn btn-glass btn-sm" onclick="copyVal('sk_live_vibrand_89f4b23190e4', 'Copied Production Key')">Copy Key</button>
+              <button class="btn btn-glass btn-sm" style="color: var(--accent-crimson);" onclick="showToast('Revoked API Key')">Revoke Key</button>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="font-size: 0.92rem; font-weight: 700; margin-bottom: 10px;">Recent Security Events</h4>
+        <div style="overflow-x: auto;">
+          <table class="ui-table" style="margin-bottom: 0;">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Actor IP</th>
+                <th>Status</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>2FA_VERIFY_SUCCESS</strong></td>
+                <td><code>192.168.1.14</code></td>
+                <td><span class="ui-badge badge-green">SUCCESS</span></td>
+                <td>Just now</td>
+              </tr>
+              <tr>
+                <td><strong>API_KEY_CREATED</strong></td>
+                <td><code>10.0.4.88</code></td>
+                <td><span class="ui-badge badge-cyan">CREATED</span></td>
+                <td>5 mins ago</td>
+              </tr>
+              <tr>
+                <td><strong>CONFIG_PURGE_CACHE</strong></td>
+                <td><code>172.16.0.5</code></td>
+                <td><span class="ui-badge">PURGED</span></td>
+                <td>1 hour ago</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 5: Kanban & Timeline -->
+      <div id="tab-kanban" class="webapp-view">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">Kanban Board & Sprint Timeline</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted);">Track sprint roadmap milestones and deliver design tokens with 0 latency.</p>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="showToast('New Task Created')">Create Task</button>
+        </div>
+
+        <div class="kanban-board">
+          <div class="kanban-column">
+            <div class="kanban-title"><span>Backlog</span><span class="ui-badge">2</span></div>
+            <div class="kanban-card">
+              <div style="font-size: 0.72rem; color: var(--accent-cyan); font-weight: 700;">SECURITY</div>
+              <div style="font-weight: 600; font-size: 0.84rem; margin-top: 2px;">Audit 2FA WebAuthn keys</div>
+            </div>
+            <div class="kanban-card">
+              <div style="font-size: 0.72rem; color: var(--text-dim); font-weight: 700;">DOCS</div>
+              <div style="font-weight: 600; font-size: 0.84rem; margin-top: 2px;">Write Khmer typing guide</div>
+            </div>
+          </div>
+
+          <div class="kanban-column">
+            <div class="kanban-title"><span>In Progress</span><span class="ui-badge badge-cyan">1</span></div>
+            <div class="kanban-card" style="border-left: 3px solid var(--accent-cyan);">
+              <div style="font-size: 0.72rem; color: var(--accent-cyan); font-weight: 700;">SYSTEM</div>
+              <div style="font-weight: 600; font-size: 0.84rem; margin-top: 2px;">Implement 9px tactile buttons</div>
+            </div>
+          </div>
+
+          <div class="kanban-column">
+            <div class="kanban-title"><span>Done</span><span class="ui-badge badge-green">3</span></div>
+            <div class="kanban-card" style="border-left: 3px solid var(--primary);">
+              <div style="font-size: 0.72rem; color: var(--primary); font-weight: 700;">DEPLOY</div>
+              <div style="font-weight: 600; font-size: 0.84rem; margin-top: 2px;">Deploy to Cloudflare Pages</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 6: Chat & Activity Feed -->
+      <div id="tab-chat" class="webapp-view">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">Live Chat & Team Discussion</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted);">Real-time channel messaging for team review and instant coordination.</p>
+          </div>
+          <span class="ui-badge badge-green">3 ONLINE</span>
+        </div>
+
+        <div class="chat-container">
+          <div class="chat-messages" id="chatMsgBox">
+            <div class="chat-row">
+              <div class="chat-bubble">Welcome to VibrandHub! All 14 UI elements are synchronized.</div>
+            </div>
+            <div class="chat-row me">
+              <div class="chat-bubble">Two-Factor Authentication is fully active with 6-digit OTP fields.</div>
+            </div>
+            <div class="chat-row">
+              <div class="chat-bubble">Tested on mobile view - left dock collapses smoothly.</div>
+            </div>
+          </div>
+          <div style="padding: 10px; background: #FFFFFF; border-top: 1px solid rgba(0,0,0,0.08); display: flex; gap: 8px;">
+            <input type="text" id="chatInput" class="ui-input" placeholder="Type a message..." style="margin-bottom: 0;" onkeydown="if(event.key==='Enter') sendChatMessage()">
+            <button class="btn btn-primary btn-sm" onclick="sendChatMessage()">Send Message</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 7: Multi-Step Form Wizard -->
+      <div id="tab-wizard" class="webapp-view">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">Multi-Step Onboarding Wizard</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted);">Guided multi-stage registration with validation and automated setup.</p>
+          </div>
+          <span class="ui-badge">STEP 2 OF 4</span>
+        </div>
+
+        <div class="step-track">
+          <div class="step-node completed">
+            <div class="step-circle">1</div>
+            <span class="step-title">Profile</span>
+          </div>
+          <div class="step-node active">
+            <div class="step-circle">2</div>
+            <span class="step-title">Security 2FA</span>
+          </div>
+          <div class="step-node">
+            <div class="step-circle">3</div>
+            <span class="step-title">Workspace</span>
+          </div>
+          <div class="step-node">
+            <div class="step-circle">4</div>
+            <span class="step-title">Launch</span>
+          </div>
+        </div>
+
+        <div style="padding: 20px; background: var(--bg-inner-glass); border-radius: var(--radius-md); margin-bottom: 16px;">
+          <label style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">Workspace Subdomain</label>
+          <input type="text" class="ui-input" value="vibrandhub.pages.dev" style="margin-bottom: 12px;">
+          
+          <label style="display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 6px;">Primary Notification Email</label>
+          <input type="email" class="ui-input" value="shiliaiwei@dev.kh" style="margin-bottom: 0;">
+        </div>
+
+        <div style="display: flex; justify-content: space-between;">
+          <button class="btn btn-glass btn-sm" onclick="showToast('Returned to Step 1')">Back Step</button>
+          <button class="btn btn-primary btn-sm" onclick="showToast('Progressed to Step 3')">Next Step</button>
+        </div>
+      </div>
+
+      <!-- TAB 8: Analytics & Help Center -->
+      <div id="tab-analytics" class="webapp-view">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+          <div>
+            <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">Analytics & Help Center</h3>
+            <p style="font-size: 0.84rem; color: var(--text-muted);">Real-time traffic health metrics, search checklists, and common FAQs.</p>
+          </div>
+          <span class="ui-badge badge-green">HEALTHY</span>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-item">
+            <div class="metric-label">Edge Requests (24h)</div>
+            <div class="metric-val">48,290</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Cache Hit Ratio</div>
+            <div class="metric-val">99.4%</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-label">Avg Latency</div>
+            <div class="metric-val">12 ms</div>
+          </div>
+        </div>
+
+        <div style="padding: 16px; background: var(--bg-inner-glass); border-radius: var(--radius-md); border: 1px solid rgba(0,0,0,0.06);">
+          <h4 style="font-size: 0.88rem; font-weight: 700; margin-bottom: 8px;">Production Deployment Checklist</h4>
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem;">
+              <input type="checkbox" checked> Enforce Solid Colors Only (Zero Gradients)
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem;">
+              <input type="checkbox" checked> 9px Tactile Sticker Button Physics Active
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem;">
+              <input type="checkbox" checked> Mandatory Google Sans for Khmer
+            </label>
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.82rem;">
+              <input type="checkbox" checked> Cloudflare Pages Edge Deployment Live
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
       </main>
     </div>
   </div>
@@ -2062,6 +2650,8 @@
         nav_brand: 'Our Brand',
         nav_identity: 'Visual Identity',
         nav_elements: 'UI Elements',
+        nav_webapp: 'Web App Suite',
+        sec_4_title: '4. Web App 2FA & Multi-Module Application Suite',
         btn_copy_tokens: 'Copy Tokens',
         header_badge: '<span class="badge-dot"></span> Solid Liquid Glass Design System',
         header_title: 'Real-Time <span class="solid-emerald">Design System Studio</span>',
@@ -2077,6 +2667,8 @@
         nav_brand: 'ម៉ាកយីហោ (Our Brand)',
         nav_identity: 'អត្តសញ្ញាណ (Visual Identity)',
         nav_elements: 'ធាតុ UI (UI Elements)',
+        nav_webapp: 'ឈុតកម្មវិធី (Web App Suite)',
+        sec_4_title: '៤. ឈុតកម្មវិធី 2FA & ប្រព័ន្ធគ្រប់គ្រង (Web App Suite)',
         btn_copy_tokens: 'ចម្លងថូខឹន (Copy Tokens)',
         header_badge: '<span class="badge-dot"></span> ប្រព័ន្ធរចនា Liquid Glass រឹងមាំ',
         header_title: 'ស្ទូឌីយោប្រព័ន្ធរចនា <span class="solid-emerald">ពេលវេលាជាក់ស្តែង</span>',
@@ -2088,6 +2680,66 @@
         toast_copied: 'បានចម្លង៖ '
       }
     };
+
+
+    // WebApp Tab Switcher
+    function switchWebAppTab(tabId, btnEl) {
+      document.querySelectorAll('.webapp-tab').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.webapp-view').forEach(view => view.classList.remove('active'));
+      
+      if (btnEl) btnEl.classList.add('active');
+      const targetView = document.getElementById(tabId);
+      if (targetView) targetView.classList.add('active');
+    }
+
+    // 2FA OTP Input Handling
+    function handleOtp(el, index) {
+      el.value = el.value.replace(/[^0-9]/g, '');
+      if (el.value.length === 1 && index < 5) {
+        const next = el.nextElementSibling;
+        if (next && next.classList.contains('otp-field')) {
+          next.focus();
+        }
+      }
+    }
+
+    function handleOtpKey(event, el, index) {
+      if (event.key === 'Backspace' && el.value === '' && index > 0) {
+        const prev = el.previousElementSibling;
+        if (prev && prev.classList.contains('otp-field')) {
+          prev.focus();
+        }
+      }
+    }
+
+    function verifyOtp() {
+      const inputs = document.querySelectorAll('.otp-field');
+      let code = '';
+      inputs.forEach(inp => code += inp.value);
+      if (code.length === 6) {
+        showToast(currentLang === 'km' ? 'កូដ 2FA បានផ្ទៀងផ្ទាត់ដោយជោគជ័យ!' : '2FA Code verified successfully!');
+      } else {
+        showToast(currentLang === 'km' ? 'សូមបញ្ចូលកូដ ៦ ខ្ទង់ពេញលេញ' : 'Please enter full 6-digit code');
+      }
+    }
+
+    function resendOtp() {
+      showToast(currentLang === 'km' ? 'បានផ្ញើកូដ 2FA ថ្មីទៅកាន់ទូរស័ព្ទរបស់អ្នក!' : 'New 2FA code sent to your authenticator!');
+    }
+
+    function sendChatMessage() {
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+
+      const box = document.getElementById('chatMsgBox');
+      const row = document.createElement('div');
+      row.className = 'chat-row me';
+      row.innerHTML = `<div class="chat-bubble">${text}</div>`;
+      box.appendChild(row);
+      input.value = '';
+      box.scrollTop = box.scrollHeight;
+    }
 
     let currentLang = localStorage.getItem('shiliaiwei_lang') || 'en';
 
