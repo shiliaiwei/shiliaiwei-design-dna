@@ -7,13 +7,13 @@ name: srievi-liquid-glass-standards
 description: Authoritative design standard and architectural rules for Shiliaiwei Liquid Glass, 14 Design System UI Elements, 25 Website Concepts, 12px/9px tactile sticker button physics, strict SOLID COLORS ONLY, zero-emoji / zero-symbol / zero-signs / zero-gray / zero-shadow / zero-glow / zero-hover policy, multi-platform implementation (Web, React, Compose, SwiftUI, Flutter), and mandatory Google Sans for Khmer.
 ---
 
-# Shiliaiwei / VibrandHub Liquid Glass Design System Standard
+# Shiliaiwei Guideline Design DNA Skill
 
 - **Primary Live Production URL**: [`https://vibrandhub.pages.dev`](https://vibrandhub.pages.dev)
 - **GitHub Repository**: [`https://github.com/shiliaiwei/shiliaiwei-design-dna`](https://github.com/shiliaiwei/shiliaiwei-design-dna)
 - **Cloudflare Pages Project**: `vibrandhub`
 
-This skill provides authoritative architectural rules, strict visual directives, and multi-platform implementation blueprints (Web/CSS, Android/Compose, iOS/SwiftUI, Flutter/Dart) for **Shiliaiwei / VibrandHub Solid Liquid Glass** across all platforms, frameworks, and programming languages.
+This skill provides authoritative architectural rules, strict visual directives, and multi-platform implementation blueprints (Web/CSS, Android/Compose, iOS/SwiftUI, Flutter/Dart) for **Shiliaiwei Guideline Design DNA Skill** across all platforms, frameworks, and programming languages.
 
 ---
 
