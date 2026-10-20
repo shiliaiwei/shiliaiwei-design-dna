@@ -2,8 +2,8 @@
 
 This document defines the permanent, immutable Design & Engineering DNA for all **Shiliaiwei Guideline Design DNA Skill** digital products, interfaces, web applications, mobile platforms, and design system components across **ALL programming languages and frameworks** (Web/HTML/CSS, React/Next.js/Vue, Android/Compose, iOS/SwiftUI, and Flutter).
 
-- **Primary Live Production URL**: [`https://shiliaiwei.pages.dev`](https://shiliaiwei.pages.dev)
-- **Cloudflare Pages Project**: `shiliaiwei`
+- **Primary Live Production URL**: [`https://desigdna.shiliaiwei.workers.dev/`](https://desigdna.shiliaiwei.workers.dev/)
+- **Cloudflare Worker Project**: `desigdna`
 
 ---
 

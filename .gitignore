@@ -1,3 +1,25 @@
+# Environment & Secrets
+.env
+.env.*
+*.env
+*.pem
+*.key
+*.cert
+credentials.json
+*.secret
+
+# Cloudflare & Wrangler cache
 .wrangler/
+.wrangler-local/
+
+# Logs & System artifacts
+*.log
 .DS_Store
+Thumbs.db
+.vscode/
+
+# Dependencies & Build caches
 node_modules/
+dist/
+build/
+.cache/
