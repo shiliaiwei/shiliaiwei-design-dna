@@ -1,0 +1,65 @@
+name: Deploy Checkpoint
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  pre-deploy-checkpoint:
+    name: Pre-Deploy Checkpoint Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Checkpoint 1 - Verify Core Web Artifacts
+        run: |
+          test -s index.html
+          test -s palette.html
+          test -s script.js
+          test -s style.css
+          test -s wrangler.jsonc
+          node -c script.js
+          echo "Checkpoint 1 passed: All core web artifacts and scripts validated."
+
+      - name: Checkpoint 2 - Validate Cloudflare Wrangler Assets
+        run: |
+          npx --yes wrangler@4.151.2 deploy --dry-run
+          echo "Checkpoint 2 passed: Cloudflare Worker assets validated."
+
+      - name: Checkpoint 3 - Verify No Unwanted Heavy Media
+        run: |
+          echo "Scanning working tree for prohibited heavy files..."
+          FOUND_HEAVY=$(git ls-files | grep -E '\.(mov|mp4|pptx|ppt|zip|pdf|docx|wav|mp3|ogg|aac|db)$' || true)
+          if [ -n "$FOUND_HEAVY" ]; then
+            echo "Error: Heavy media files detected in repository tracking:"
+            echo "$FOUND_HEAVY"
+            exit 1
+          fi
+          echo "Checkpoint 3 passed: No prohibited heavy files tracked."
+
+  deploy-gate:
+    name: Production Deploy Approval Gate
+    needs: [pre-deploy-checkpoint]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deployment Checkpoint Passed
+        run: |
+          echo "All pre-deployment checkpoints passed successfully."
+          echo "Repository is verified and release-ready for deployment."
