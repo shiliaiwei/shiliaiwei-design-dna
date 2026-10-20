@@ -23,3 +23,20 @@ node_modules/
 dist/
 build/
 .cache/
+
+# Heavy Media & Documents (Strict Rule Exclusion)
+*.mov
+*.mp4
+*.pptx
+*.ppt
+*.zip
+*.pdf
+*.docx
+*.wav
+*.mp3
+*.ogg
+*.aac
+*.db
+assets/audio/
+assets/videos/
+
