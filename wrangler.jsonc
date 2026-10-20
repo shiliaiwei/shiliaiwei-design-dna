@@ -1,7 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "shiliaiwei",
-  "compatibility_date": "2026-08-30",
+  "name": "desigdna",
+  "compatibility_date": "2026-10-20",
   "pages_build_output_dir": "./",
   "observability": {
     "enabled": true
