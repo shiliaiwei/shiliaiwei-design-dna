@@ -201,3 +201,107 @@ function playMacNotificationSound() {
   } catch (err) {}
 }
 ```
+
+---
+
+## 3. The 360° Liquid Glass Border Design System Specification
+
+### 1. Architectural Core Principles
+The 360-degree Liquid Glass Border system simulates physical refractive glass under directional ambient illumination (top-left key light source). Every glass container, card, modal, or floating dock features differentiated reflection geometry across all four edges:
+
+```css
+/* 360° Directional Liquid Glass Border Formula */
+.liquid-glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  
+  /* 4-Edge Directional Lighting */
+  border-top: 1.5px solid rgba(255, 255, 255, 0.98);   /* Primary specular reflection */
+  border-left: 1.5px solid rgba(255, 255, 255, 0.70);  /* Secondary ambient reflection */
+  border-right: 1px solid rgba(226, 232, 240, 0.80);   /* Soft glass refraction edge */
+  border-bottom: 1.5px solid rgba(203, 213, 225, 0.75);/* Grounding shadow refraction */
+
+  /* Inset Glass Surface Sheen & Ambient Elevation */
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 1px 0 0 rgba(255, 255, 255, 0.50),
+    0 12px 32px -8px rgba(15, 23, 42, 0.06),
+    0 1px 3px rgba(15, 23, 42, 0.03);
+  
+  border-radius: 16px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.liquid-glass-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.92);
+  border-top: 1.5px solid #FFFFFF;
+  border-left: 1.5px solid rgba(255, 255, 255, 0.90);
+  box-shadow: 
+    inset 0 1px 0 #FFFFFF,
+    0 20px 42px -10px rgba(15, 23, 42, 0.12),
+    0 2px 6px rgba(15, 23, 42, 0.04);
+}
+```
+
+### 2. Recessed Liquid Glass Well (Inputs & Search)
+For inputs, searchbars, and recessed wells, the directional lighting is inverted to simulate physical concavity into the glass slab:
+
+```css
+.liquid-glass-input {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1.5px solid rgba(203, 213, 225, 0.90);   /* Inset top shadow */
+  border-left: 1px solid rgba(226, 232, 240, 0.85);
+  border-right: 1px solid rgba(226, 232, 240, 0.85);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.98);/* Bottom specular rim */
+  border-radius: 14px;
+  box-shadow: 
+    inset 0 2px 4px rgba(15, 23, 42, 0.04),
+    0 8px 24px -4px rgba(15, 23, 42, 0.04);
+}
+.liquid-glass-input:focus {
+  background: #FFFFFF;
+  border-color: #0071E3;
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.16);
+}
+```
+
+### 3. Tactile Sticker Buttons with 3D Depth & Specular Rim
+```css
+.btn-liquid-primary {
+  background: #0071E3;
+  color: #FFFFFF;
+  border-radius: 9px;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 
+    0 3px 0 #0051A2,
+    0 6px 14px rgba(0, 113, 227, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transition: all 0.15s ease;
+}
+.btn-liquid-primary:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #0051A2;
+}
+```
+
+### 4. Floating Capsule & Island Navigation Dock
+```css
+.liquid-glass-header {
+  position: sticky;
+  top: 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border-top: 1.5px solid rgba(255, 255, 255, 0.98);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.70);
+  border-right: 1px solid rgba(226, 232, 240, 0.80);
+  border-bottom: 1.5px solid rgba(203, 213, 225, 0.75);
+  box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.08), inset 0 1px 0 #FFFFFF;
+}
+```
