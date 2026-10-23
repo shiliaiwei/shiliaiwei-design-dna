@@ -305,3 +305,35 @@ For inputs, searchbars, and recessed wells, the directional lighting is inverted
   box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.08), inset 0 1px 0 #FFFFFF;
 }
 ```
+
+---
+
+## 4. macOS 3-Column Studio & Contextual Inspector Glass Architecture
+
+### 1. 3-Column Spatial Layout Specification
+- **Column 1: Vibrant Frosted Sidebar (`.liquid-glass-sidebar`)**:
+  - Width: `w-64 min-w-[256px]`, `background: rgba(248, 250, 252, 0.88)`, `backdrop-filter: blur(24px) saturate(170%)`.
+  - Border: `border-right: 1px solid rgba(15, 23, 42, 0.08)`, `box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.75)`.
+  - Features real-time streaming statistics, active filter cards, category/platform selectors, and persistent legal disclaimer footer.
+- **Column 2: Center Detail Canvas**:
+  - Window Chrome Header (`.liquid-glass-header`): Traffic lights (`#FF5F56`, `#FFBD2E`, `#27C93F`), live search input with Keyline vector search icon, sort dropdown, Table/Cards view switcher, export trigger, and Inspector toggle.
+  - Quick Filter Ribbon (`.liquid-glass-surface`): Single-tap platform chips, type pills, era segmented controls, and active filter dismiss buttons.
+  - Interactive Presentation: Grid of 360° Liquid Glass Cards (`.liquid-glass-card`) or Glass Data Table (`.ui-table`) with keyboard-friendly inspection.
+- **Column 3: Contextual Inspector Glass Pane (`.liquid-glass-inspector`)**:
+  - Width: `w-84 min-w-[336px] max-w-[360px]`, `background: rgba(255, 255, 255, 0.92)`, `backdrop-filter: blur(24px) saturate(180%)`.
+  - Border: `border-left: 1px solid rgba(15, 23, 42, 0.08)`, `box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.85), -4px 0 24px rgba(15, 23, 42, 0.06)`.
+  - Segmented Controls: Tabs for `Details`, `Raw Fields` (column index mapping), and `JSON` (pretty-printed with 1-click clipboard copy).
+
+### 2. Keyline Two-Tone Iconography Integration
+- Pure vector iconography via `@keyline-icons/react/two-tone` paired with Apple system typography.
+- Primary strokes rendered in solid semantic brand color (`#007AFF`, `#10B981`, `#0F172A`) with secondary geometric shapes in 30% alpha fill.
+- Zero emoji policy strictly enforced across all UI buttons, headers, status badges, and toolbars.
+
+### 3. Legal Defense & Credits Protocol
+- Every public catalog, developer tool, or archival explorer must feature a dedicated Credits & Legal Disclaimer modal (`.liquid-glass-dialog`) and persistent sidebar link:
+  1. **Non-Affiliation Notice**: Explicit declaration of zero official connection, endorsement, or sponsorship by referenced entities.
+  2. **Trademark Notice**: Comprehensive attribution of trademarks and registered marks to their respective owners.
+  3. **Content Rights & Source Credits**: Clear acknowledgment that documentation and intellectual property remain with original creators.
+  4. **Educational Fair Use**: Explicit non-commercial research, academic inquiry, and historical preservation mandate.
+  5. **Limitation of Liability**: Full "AS IS" warranty disclaimer and limitation of liability clauses.
+
