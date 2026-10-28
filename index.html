@@ -2218,6 +2218,251 @@
 
     
 
+  
+    /* ==========================================================================
+       SKILL: LIQUID GLASS MACOS SPLITVIEW DESIGN SYSTEM
+       Standard: Apple Human Interface Guidelines (macOS) + Liquid Glass Refraction
+       ========================================================================== */
+
+    :root {
+      /* --- 1. Base Canvas & Typography Tokens --- */
+      --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+      --font-split-mono: "SF Mono", Menlo, Monaco, Consolas, monospace;
+      --letter-spacing-ui: -0.01em;
+
+      --bg-canvas: #F8FAFC;
+      --bg-sidebar: rgba(248, 250, 252, 0.88);
+      --bg-surface: rgba(255, 255, 255, 0.80);
+      --bg-card: rgba(255, 255, 255, 0.75);
+      --bg-inspector: rgba(255, 255, 255, 0.92);
+
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #64748B;
+      --text-disabled: #94A3B8;
+
+      /* --- 2. macOS Semantic Accent Tokens --- */
+      --accent-blue: #007AFF;
+      --accent-blue-gradient: linear-gradient(180deg, #0A84FF 0%, #0066CC 100%);
+      --accent-green: #34C759;
+      --accent-orange: #FF9500;
+      --accent-red: #FF3B30;
+
+      /* --- 3. Refraction Border Tokens --- */
+      --border-specular-bright: 1px solid rgba(255, 255, 255, 0.95);
+      --border-specular-mid: 1px solid rgba(255, 255, 255, 0.65);
+      --border-specular-soft: 1px solid rgba(255, 255, 255, 0.40);
+      --border-shadow-rim: 1px solid rgba(15, 23, 42, 0.12);
+      --border-divider: 1px solid rgba(15, 23, 42, 0.08);
+
+      /* --- 4. Elevation & Specular Reflection Shadows --- */
+      --shadow-specular-surface: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.90),
+        inset 1px 0 0 rgba(255, 255, 255, 0.50),
+        inset -1px 0 0 rgba(255, 255, 255, 0.30),
+        inset 0 -1px 0 rgba(15, 23, 42, 0.08),
+        0 4px 20px -2px rgba(15, 23, 42, 0.05);
+
+      --shadow-specular-card: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.90),
+        inset 1px 0 0 rgba(255, 255, 255, 0.45),
+        inset -1px 0 0 rgba(255, 255, 255, 0.25),
+        inset 0 -1px 0 rgba(15, 23, 42, 0.06),
+        0 2px 10px rgba(15, 23, 42, 0.04);
+
+      --shadow-specular-card-hover: 
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 1px 0 0 rgba(255, 255, 255, 0.70),
+        inset -1px 0 0 rgba(255, 255, 255, 0.40),
+        inset 0 -1px 0 rgba(15, 23, 42, 0.10),
+        0 8px 24px -4px rgba(15, 23, 42, 0.08);
+
+      --shadow-primary-button: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+        0 2px 8px rgba(0, 122, 255, 0.35);
+
+      /* --- 5. Layout Dimension Tokens --- */
+      --sidebar-width: 260px;
+      --inspector-width: 360px;
+      --header-height: 52px;
+      --radius-card: 14px;
+      --radius-button: 8px;
+      --radius-pill: 9999px;
+    }
+
+    /* Production Utility Classes */
+    .liquid-glass-header {
+      height: var(--header-height);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: var(--border-divider);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+    }
+
+    .liquid-glass-sidebar {
+      width: var(--sidebar-width);
+      background: var(--bg-sidebar);
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+      border-right: var(--border-divider);
+      box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.75);
+    }
+
+    .liquid-glass-inspector {
+      width: var(--inspector-width);
+      background: var(--bg-inspector);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-left: var(--border-divider);
+      box-shadow: 
+        inset 1px 0 0 rgba(255, 255, 255, 0.85),
+        -4px 0 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .liquid-glass-surface {
+      background: var(--bg-surface);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-top: var(--border-specular-bright);
+      border-left: var(--border-specular-mid);
+      border-right: var(--border-specular-soft);
+      border-bottom: var(--border-shadow-rim);
+      box-shadow: var(--shadow-specular-surface);
+    }
+
+    .liquid-glass-card {
+      border-radius: var(--radius-card);
+      background: var(--bg-card);
+      backdrop-filter: blur(16px) saturate(170%);
+      -webkit-backdrop-filter: blur(16px) saturate(170%);
+      border-top: var(--border-specular-bright);
+      border-left: var(--border-specular-mid);
+      border-right: var(--border-specular-soft);
+      border-bottom: var(--border-shadow-rim);
+      box-shadow: var(--shadow-specular-card);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .liquid-glass-card:hover {
+      background: rgba(255, 255, 255, 0.95);
+      border-top: 1px solid #FFFFFF;
+      border-left: 1px solid rgba(255, 255, 255, 0.85);
+      border-right: 1px solid rgba(255, 255, 255, 0.60);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.18);
+      box-shadow: var(--shadow-specular-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .liquid-glass-card-selected {
+      background: rgba(240, 246, 255, 0.92) !important;
+      border-top: 1px solid #FFFFFF !important;
+      border-left: 1px solid rgba(0, 122, 255, 0.70) !important;
+      border-right: 1px solid rgba(0, 122, 255, 0.50) !important;
+      border-bottom: 1px solid rgba(0, 122, 255, 0.85) !important;
+      box-shadow: 
+        inset 0 1px 0 #FFFFFF,
+        inset 1px 0 0 rgba(0, 122, 255, 0.40),
+        inset -1px 0 0 rgba(0, 122, 255, 0.30),
+        0 0 0 1.5px rgba(0, 122, 255, 0.60),
+        0 4px 16px -2px rgba(0, 122, 255, 0.18) !important;
+    }
+
+    .liquid-glass-button {
+      border-radius: var(--radius-button);
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: var(--border-specular-bright);
+      border-left: var(--border-specular-mid);
+      border-right: var(--border-specular-soft);
+      border-bottom: var(--border-shadow-rim);
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        inset 0 -1px 0 rgba(15, 23, 42, 0.05),
+        0 1px 3px rgba(15, 23, 42, 0.04);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .liquid-glass-button:hover {
+      background: rgba(255, 255, 255, 0.95);
+      border-top: 1px solid #FFFFFF;
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.95),
+        inset 0 -1px 0 rgba(15, 23, 42, 0.08),
+        0 2px 6px rgba(15, 23, 42, 0.06);
+    }
+
+    .liquid-glass-button:active {
+      background: rgba(241, 245, 249, 0.85);
+      border-top: 1px solid rgba(15, 23, 42, 0.10);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.90);
+      box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.08);
+      transform: translateY(1px);
+    }
+
+    .liquid-glass-primary {
+      border-radius: var(--radius-button);
+      background: var(--accent-blue-gradient);
+      color: #FFFFFF;
+      border-top: 1px solid rgba(255, 255, 255, 0.45);
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+      border-right: 1px solid rgba(255, 255, 255, 0.15);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+      box-shadow: var(--shadow-primary-button);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .liquid-glass-pill {
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.70);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: var(--border-specular-bright);
+      border-left: var(--border-specular-mid);
+      border-right: var(--border-specular-soft);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.80),
+        0 1px 2px rgba(15, 23, 42, 0.03);
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+
+    .liquid-glass-pill-active {
+      background: var(--accent-blue-gradient) !important;
+      color: #FFFFFF !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.50) !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.35) !important;
+      box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        0 2px 8px rgba(0, 122, 255, 0.30) !important;
+    }
+
+    .liquid-glass-input {
+      border-radius: var(--radius-button);
+      background: rgba(248, 250, 252, 0.70);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(15, 23, 42, 0.08);
+      border-left: 1px solid rgba(15, 23, 42, 0.05);
+      border-right: 1px solid rgba(255, 255, 255, 0.70);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.95);
+      box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04);
+      transition: all 0.15s ease;
+    }
+
+    .liquid-glass-input:focus {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(0, 122, 255, 0.60);
+      box-shadow: 
+        inset 0 1px 2px rgba(0, 122, 255, 0.08),
+        0 0 0 3px rgba(0, 122, 255, 0.15);
+      outline: none;
+    }
   </style>
 </head>
 <body>
@@ -2228,16 +2473,12 @@
     <div class="apple-dock-wrapper">
       <nav class="apple-dock" id="appleDock">
         
-        <!-- Left: Avatar Brand Pill (Taps open Brand & Export Popup) -->
+        <!-- Left: Pure Typography Brand Pill (Taps open Brand & Export Popup) -->
         <div class="apple-dock-brand" onclick="handleAppIconTap(event)" title="Click for Shiliaiwei Brand & Skill Actions">
-          <div class="dock-avatar-box">
-            <img src="https://github.com/shiliaiwei.png" alt="Shiliaiwei" class="dock-avatar-img">
-            <span class="dock-status-dot"></span>
-          </div>
           <span class="dock-brand-title">SHILIAIWEI</span>
         </div>
 
-        <!-- Center: 3 Capsule Segmented Tabs (Strict 1-Word Pure Typography) -->
+        <!-- Center: 4 Capsule Segmented Tabs (Strict 1-Word Pure Typography) -->
         <div class="apple-dock-nav">
           <button class="dock-tab active" onclick="switchStudioView('identity', this)" data-view="identity" data-i18n="nav_identity">
             Identity
@@ -2247,6 +2488,9 @@
           </button>
           <button class="dock-tab" onclick="switchStudioView('webapp', this)" data-view="webapp" data-i18n="nav_webapp">
             Apps
+          </button>
+          <button class="dock-tab" onclick="switchStudioView('concept', this)" data-view="concept" data-i18n="nav_concept">
+            Concept
           </button>
         </div>
       </nav>
@@ -2295,28 +2539,8 @@
       <!-- Main Content Area -->
       <main class="main-content" style="max-width: 1200px; margin: 0 auto;">
         
-        <!-- Authentic Apple iPhone & macOS Desktop App Icon Hero (Liquid Glass Bezel) -->
-        <header class="hero-brand-app-section">
-          <div class="ios-app-icon-wrapper" id="draggableViMark" onclick="handleAppIconTap(event)" title="SHILIAIWEI (វី) — Tap to view details or drag with physics!">
-            <!-- Outer Liquid Glass Frame -->
-            <div class="ios-app-glass-frame">
-              <!-- Inner Solid Emerald App Canvas -->
-              <div class="ios-app-inner-canvas">
-                <!-- Apple Icon Geometry Grid -->
-                <div class="ios-app-grid">
-                  <div class="ios-app-grid-circle"></div>
-                  <div class="ios-app-grid-crosshair-h"></div>
-                  <div class="ios-app-grid-crosshair-v"></div>
-                </div>
-                
-                <!-- 3D Core Plate -->
-                <div class="ios-app-core-plate">
-                  <span class="ios-app-emblem">វី</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
+        <!-- Pure Typography Brand Header (Zero Logo / Zero Decorative Mark) -->
+        <header class="hero-brand-app-section" style="padding: 24px 10px 16px;">
           <div class="hero-brand-text">
             <h1 class="hero-brand-title">SHILIAIWEI</h1>
             <p class="hero-brand-subtitle" data-i18n="hero_brand_sub">Guideline Design DNA Skill</p>
@@ -3365,6 +3589,222 @@
       </div>
     </section>
 
+    <!-- SECTION: CONCEPT - LIQUID GLASS MACOS SPLITVIEW -->
+    <section id="section-concept" class="studio-view" style="margin-bottom: 60px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 9999px; background: rgba(0, 122, 255, 0.08); border: 1px solid rgba(0, 122, 255, 0.20); margin-bottom: 8px;">
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #007AFF;"></span>
+            <span style="font-size: 0.72rem; font-weight: 700; color: #007AFF; letter-spacing: 0.06em; text-transform: uppercase;">macOS Human Interface Guidelines Standard</span>
+          </div>
+          <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="sec_concept_title">
+            Liquid Glass macOS SplitView Design System
+          </h2>
+          <p style="color: var(--text-dim); font-size: 0.88rem; max-width: 820px;" data-i18n="sec_concept_desc">
+            Production-grade 3-column SplitView layout synthesizing native Apple window ergonomics with 360-degree specular liquid glass refraction, directional specular rim lighting, and responsive tactile controls.
+          </p>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="btn btn-primary btn-sm" onclick="copySplitViewTokens()">Copy Tokens</button>
+          <button class="btn btn-glass btn-sm" onclick="copySplitViewUtilities()">Copy Utilities</button>
+        </div>
+      </div>
+
+      <!-- Live Interactive 3-Column macOS Window Mockup -->
+      <div class="liquid-glass-dialog" style="border-radius: 18px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.12); border: 1px solid rgba(15, 23, 42, 0.10);">
+        <!-- Window Chrome / Titlebar -->
+        <div class="liquid-glass-header" style="height: 48px; display: flex; align-items: center; justify-content: space-between; padding: 0 16px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #FF5F56; border: 1px solid rgba(224, 68, 62, 0.6); display: inline-block;"></span>
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #FFBD2E; border: 1px solid rgba(222, 161, 35, 0.6); display: inline-block;"></span>
+            <span style="width: 12px; height: 12px; border-radius: 50%; background: #27C93F; border: 1px solid rgba(26, 171, 41, 0.6); display: inline-block;"></span>
+            <span style="font-size: 0.78rem; font-weight: 700; color: #0F172A; margin-left: 12px; letter-spacing: -0.01em;">macOS SplitView Preview</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="liquid-glass-pill" style="padding: 4px 10px; font-size: 0.72rem; font-weight: 600; color: #007AFF;">SF Pro Standard</span>
+            <span class="liquid-glass-pill" style="padding: 4px 10px; font-size: 0.72rem; font-weight: 600; color: #64748B;">Live Refraction</span>
+          </div>
+        </div>
+
+        <!-- 3-Column SplitView Body -->
+        <div style="display: flex; min-height: 440px; background: #F8FAFC;">
+          <!-- Column 1: Primary Sidebar (Left, 220px) -->
+          <div class="liquid-glass-sidebar" style="width: 220px; padding: 16px 12px; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;">
+            <div style="font-size: 0.70rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em; padding: 0 8px; margin-bottom: 4px;">Navigation</div>
+            <div class="liquid-glass-pill-active" style="padding: 8px 12px; font-size: 0.82rem; font-weight: 600; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+              <span>Documents</span>
+              <span style="font-size: 0.70rem; opacity: 0.85;">5,219</span>
+            </div>
+            <div class="liquid-glass-pill" style="padding: 8px 12px; font-size: 0.82rem; font-weight: 500; color: #0F172A; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+              <span>Frameworks</span>
+              <span style="font-size: 0.70rem; color: #64748B;">84</span>
+            </div>
+            <div class="liquid-glass-pill" style="padding: 8px 12px; font-size: 0.82rem; font-weight: 500; color: #0F172A; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+              <span>Sample Code</span>
+              <span style="font-size: 0.70rem; color: #64748B;">1,420</span>
+            </div>
+            <div class="liquid-glass-pill" style="padding: 8px 12px; font-size: 0.82rem; font-weight: 500; color: #0F172A; border-radius: 8px; display: flex; align-items: center; justify-content: space-between;">
+              <span>Release Notes</span>
+              <span style="font-size: 0.70rem; color: #64748B;">312</span>
+            </div>
+            <div style="margin-top: auto; padding-top: 12px; border-top: 1px solid rgba(15, 23, 42, 0.08);">
+              <input type="text" class="liquid-glass-input" placeholder="Quick filter..." style="width: 100%; padding: 7px 10px; font-size: 0.76rem; color: #0F172A; outline: none;">
+            </div>
+          </div>
+
+          <!-- Column 2: Center Detail Canvas (Flexible) -->
+          <div style="flex: 1; padding: 18px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h3 style="font-size: 0.95rem; font-weight: 700; color: #0F172A; margin-bottom: 2px;">Apple Developer Library Archive</h3>
+                <p style="font-size: 0.76rem; color: #64748B;">Real-time upstream navigation index explorer</p>
+              </div>
+              <button class="liquid-glass-primary" style="padding: 7px 14px; font-size: 0.78rem; font-weight: 600;">Download Index</button>
+            </div>
+
+            <!-- Interactive Specular Cards Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+              <!-- Card 1: Selected -->
+              <div class="liquid-glass-card liquid-glass-card-selected" style="padding: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                  <span style="font-size: 0.70rem; font-weight: 700; color: #007AFF; text-transform: uppercase;">SELECTED ACTIVE</span>
+                  <span style="font-size: 0.72rem; color: #64748B;">macOS 15</span>
+                </div>
+                <div style="font-size: 0.88rem; font-weight: 700; color: #0F172A; margin-bottom: 4px;">AppKit Framework</div>
+                <p style="font-size: 0.76rem; color: #475569; line-height: 1.4;">Construct and manage modern Cocoa user interfaces, windows, events, and app menus.</p>
+              </div>
+
+              <!-- Card 2: Interactive Hover -->
+              <div class="liquid-glass-card" style="padding: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                  <span style="font-size: 0.70rem; font-weight: 700; color: #34C759; text-transform: uppercase;">FRAMEWORK</span>
+                  <span style="font-size: 0.72rem; color: #64748B;">iOS 18</span>
+                </div>
+                <div style="font-size: 0.88rem; font-weight: 700; color: #0F172A; margin-bottom: 4px;">UIKit & SwiftUI</div>
+                <p style="font-size: 0.76rem; color: #475569; line-height: 1.4;">Declarative views, fluid spring physics, animations, and cross-platform design tokens.</p>
+              </div>
+
+              <!-- Card 3: Interactive Hover -->
+              <div class="liquid-glass-card" style="padding: 14px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                  <span style="font-size: 0.70rem; font-weight: 700; color: #FF9500; text-transform: uppercase;">GRAPHICS</span>
+                  <span style="font-size: 0.72rem; color: #64748B;">Metal 3</span>
+                </div>
+                <div style="font-size: 0.88rem; font-weight: 700; color: #0F172A; margin-bottom: 4px;">Metal Shading Language</div>
+                <p style="font-size: 0.76rem; color: #475569; line-height: 1.4;">Low-overhead GPU acceleration for compute shaders, machine learning, and graphics.</p>
+              </div>
+            </div>
+
+            <!-- Bottom Action Row -->
+            <div style="display: flex; gap: 8px; align-items: center; margin-top: auto; padding-top: 10px;">
+              <button class="liquid-glass-button" style="padding: 6px 12px; font-size: 0.76rem; font-weight: 600; color: #0F172A;">Inspect Node</button>
+              <button class="liquid-glass-button" style="padding: 6px 12px; font-size: 0.76rem; font-weight: 600; color: #0F172A;">Export JSON</button>
+              <span style="font-size: 0.72rem; color: #64748B; margin-left: auto;">Sub-millisecond Edge Response</span>
+            </div>
+          </div>
+
+          <!-- Column 3: Inspector Pane (Right, 240px) -->
+          <div class="liquid-glass-inspector" style="width: 240px; padding: 16px 14px; display: flex; flex-direction: column; gap: 12px; flex-shrink: 0;">
+            <div style="font-size: 0.72rem; font-weight: 800; color: #64748B; text-transform: uppercase; letter-spacing: 0.08em;">Inspector Telemetry</div>
+            <div style="background: rgba(255, 255, 255, 0.70); padding: 10px; border-radius: 8px; border: 1px solid rgba(15, 23, 42, 0.08);">
+              <div style="font-size: 0.70rem; color: #64748B; margin-bottom: 2px;">Runtime Engine</div>
+              <div style="font-size: 0.80rem; font-weight: 700; color: #0F172A;">Cloudflare Workers + OpenNext</div>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.70); padding: 10px; border-radius: 8px; border: 1px solid rgba(15, 23, 42, 0.08);">
+              <div style="font-size: 0.70rem; color: #64748B; margin-bottom: 2px;">Typography Standard</div>
+              <div style="font-size: 0.80rem; font-weight: 700; color: #0F172A;">SF Pro Text & Display</div>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.70); padding: 10px; border-radius: 8px; border: 1px solid rgba(15, 23, 42, 0.08);">
+              <div style="font-size: 0.70rem; color: #64748B; margin-bottom: 2px;">Refraction Layer</div>
+              <div style="font-size: 0.80rem; font-weight: 700; color: #007AFF;">360° Specular Rim Light</div>
+            </div>
+            <div style="margin-top: auto; font-size: 0.70rem; color: #94A3B8; line-height: 1.4;">
+              Zero emoji policy strictly enforced. High-contrast Slate-900 foundation.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Complete Token Code Block -->
+      <div style="background: #0F172A; border-radius: 14px; padding: 20px; color: #F8FAFC; position: relative; overflow-x: auto; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid rgba(255, 255, 255, 0.10); padding-bottom: 10px;">
+          <span style="font-size: 0.78rem; font-family: var(--font-mono); color: #38BDF8; font-weight: 600;">tokens.css — Liquid Glass macOS SplitView Specification</span>
+          <button class="btn btn-primary btn-sm" onclick="copySplitViewTokens()">Copy Tokens</button>
+        </div>
+        <pre style="font-family: var(--font-mono); font-size: 0.78rem; line-height: 1.6; color: #E2E8F0; margin: 0; white-space: pre-wrap;"><code>/* ==========================================================================
+   SKILL: LIQUID GLASS MACOS SPLITVIEW DESIGN SYSTEM
+   Standard: Apple Human Interface Guidelines (macOS) + Liquid Glass Refraction
+   ========================================================================== */
+
+:root {
+  /* --- 1. Base Canvas & Typography Tokens --- */
+  --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --letter-spacing-ui: -0.01em;
+
+  --bg-canvas: #F8FAFC;
+  --bg-sidebar: rgba(248, 250, 252, 0.88);
+  --bg-surface: rgba(255, 255, 255, 0.80);
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --bg-inspector: rgba(255, 255, 255, 0.92);
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-disabled: #94A3B8;
+
+  /* --- 2. macOS Semantic Accent Tokens --- */
+  --accent-blue: #007AFF;
+  --accent-blue-gradient: linear-gradient(180deg, #0A84FF 0%, #0066CC 100%);
+  --accent-green: #34C759;
+  --accent-orange: #FF9500;
+  --accent-red: #FF3B30;
+
+  /* --- 3. Refraction Border Tokens --- */
+  --border-specular-bright: 1px solid rgba(255, 255, 255, 0.95);
+  --border-specular-mid: 1px solid rgba(255, 255, 255, 0.65);
+  --border-specular-soft: 1px solid rgba(255, 255, 255, 0.40);
+  --border-shadow-rim: 1px solid rgba(15, 23, 42, 0.12);
+  --border-divider: 1px solid rgba(15, 23, 42, 0.08);
+
+  /* --- 4. Elevation & Specular Reflection Shadows --- */
+  --shadow-specular-surface: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    inset 1px 0 0 rgba(255, 255, 255, 0.50),
+    inset -1px 0 0 rgba(255, 255, 255, 0.30),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.08),
+    0 4px 20px -2px rgba(15, 23, 42, 0.05);
+
+  --shadow-specular-card: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    inset 1px 0 0 rgba(255, 255, 255, 0.45),
+    inset -1px 0 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.06),
+    0 2px 10px rgba(15, 23, 42, 0.04);
+
+  --shadow-specular-card-hover: 
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 1px 0 0 rgba(255, 255, 255, 0.70),
+    inset -1px 0 0 rgba(255, 255, 255, 0.40),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.10),
+    0 8px 24px -4px rgba(15, 23, 42, 0.08);
+
+  --shadow-primary-button: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+    0 2px 8px rgba(0, 122, 255, 0.35);
+
+  /* --- 5. Layout Dimension Tokens --- */
+  --sidebar-width: 260px;
+  --inspector-width: 360px;
+  --header-height: 52px;
+  --radius-card: 14px;
+  --radius-button: 8px;
+  --radius-pill: 9999px;
+}</code></pre>
+      </div>
+    </section>
+
       </main>
     </div>
   </div>
@@ -3606,6 +4046,9 @@ Directive: Floating selection dropdown panel with keyboard shortcuts.
         nav_identity: 'Identity',
         nav_elements: 'Elements',
         nav_webapp: 'Apps',
+        nav_concept: 'Concept',
+        sec_concept_title: 'Liquid Glass macOS SplitView Design System',
+        sec_concept_desc: 'Production-grade 3-column SplitView layout synthesizing native Apple window ergonomics with 360-degree specular liquid glass refraction, directional specular rim lighting, and responsive tactile controls.',
         tab_identity: 'Visual Identity',
         tab_elements: 'UI Elements',
         tab_webapp: 'Web App Suite',
@@ -3640,6 +4083,9 @@ Directive: Floating selection dropdown panel with keyboard shortcuts.
         nav_identity: 'Identity',
         nav_elements: 'Elements',
         nav_webapp: 'Apps',
+        nav_concept: 'ទស្សនទាន (Concept)',
+        sec_concept_title: 'ប្រព័ន្ធរចនា Liquid Glass macOS SplitView',
+        sec_concept_desc: 'លក្ខណៈបច្ចេកទេសរចនាសំយោគគោលការណ៍ Apple HIG និងថូខឹនកញ្ចក់រាវ Refraction 360 ដឺក្រេ។',
         tab_identity: 'អត្តសញ្ញាណ (Identity)',
         tab_elements: 'សមាសធាតុ UI (Elements)',
         tab_webapp: 'កម្មវិធី Web App Suite',
@@ -3875,7 +4321,8 @@ export const tokens = {
       const views = {
         identity: document.getElementById('section-tactile'),
         elements: document.getElementById('section-elements'),
-        webapp: document.getElementById('section-webapp')
+        webapp: document.getElementById('section-webapp'),
+        concept: document.getElementById('section-concept')
       };
 
       Object.keys(views).forEach(k => {
@@ -3927,6 +4374,250 @@ export const tokens = {
       setTimeout(() => window.scrollTo(0, 0), 10);
     });
 
+
+    
+    function copySplitViewTokens() {
+      const tokens = `/* ==========================================================================
+   SKILL: LIQUID GLASS MACOS SPLITVIEW DESIGN SYSTEM
+   Standard: Apple Human Interface Guidelines (macOS) + Liquid Glass Refraction
+   ========================================================================== */
+
+:root {
+  /* --- 1. Base Canvas & Typography Tokens --- */
+  --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --letter-spacing-ui: -0.01em;
+
+  --bg-canvas: #F8FAFC;
+  --bg-sidebar: rgba(248, 250, 252, 0.88);
+  --bg-surface: rgba(255, 255, 255, 0.80);
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --bg-inspector: rgba(255, 255, 255, 0.92);
+
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-disabled: #94A3B8;
+
+  /* --- 2. macOS Semantic Accent Tokens --- */
+  --accent-blue: #007AFF;
+  --accent-blue-gradient: linear-gradient(180deg, #0A84FF 0%, #0066CC 100%);
+  --accent-green: #34C759;
+  --accent-orange: #FF9500;
+  --accent-red: #FF3B30;
+
+  /* --- 3. Refraction Border Tokens --- */
+  --border-specular-bright: 1px solid rgba(255, 255, 255, 0.95);
+  --border-specular-mid: 1px solid rgba(255, 255, 255, 0.65);
+  --border-specular-soft: 1px solid rgba(255, 255, 255, 0.40);
+  --border-shadow-rim: 1px solid rgba(15, 23, 42, 0.12);
+  --border-divider: 1px solid rgba(15, 23, 42, 0.08);
+
+  /* --- 4. Elevation & Specular Reflection Shadows --- */
+  --shadow-specular-surface: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    inset 1px 0 0 rgba(255, 255, 255, 0.50),
+    inset -1px 0 0 rgba(255, 255, 255, 0.30),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.08),
+    0 4px 20px -2px rgba(15, 23, 42, 0.05);
+
+  --shadow-specular-card: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    inset 1px 0 0 rgba(255, 255, 255, 0.45),
+    inset -1px 0 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.06),
+    0 2px 10px rgba(15, 23, 42, 0.04);
+
+  --shadow-specular-card-hover: 
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 1px 0 0 rgba(255, 255, 255, 0.70),
+    inset -1px 0 0 rgba(255, 255, 255, 0.40),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.10),
+    0 8px 24px -4px rgba(15, 23, 42, 0.08);
+
+  --shadow-primary-button: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+    0 2px 8px rgba(0, 122, 255, 0.35);
+
+  /* --- 5. Layout Dimension Tokens --- */
+  --sidebar-width: 260px;
+  --inspector-width: 360px;
+  --header-height: 52px;
+  --radius-card: 14px;
+  --radius-button: 8px;
+  --radius-pill: 9999px;
+}`;
+      navigator.clipboard.writeText(tokens).then(() => {
+        showToast(currentLang === 'km' ? 'បានចម្លងថូខឹន SplitView!' : 'Copied Liquid Glass SplitView tokens!');
+      });
+    }
+
+    function copySplitViewUtilities() {
+      const utils = `/* Production Utility Classes */
+.liquid-glass-header {
+  height: 52px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.liquid-glass-sidebar {
+  width: 260px;
+  background: rgba(248, 250, 252, 0.88);
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border-right: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.75);
+}
+
+.liquid-glass-inspector {
+  width: 360px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-left: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 
+    inset 1px 0 0 rgba(255, 255, 255, 0.85),
+    -4px 0 24px rgba(15, 23, 42, 0.06);
+}
+
+.liquid-glass-surface {
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid rgba(255, 255, 255, 0.95);
+  border-left: 1px solid rgba(255, 255, 255, 0.65);
+  border-right: 1px solid rgba(255, 255, 255, 0.40);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    inset 1px 0 0 rgba(255, 255, 255, 0.50),
+    inset -1px 0 0 rgba(255, 255, 255, 0.30),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.08),
+    0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+.liquid-glass-card {
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px) saturate(170%);
+  -webkit-backdrop-filter: blur(16px) saturate(170%);
+  border-top: 1px solid rgba(255, 255, 255, 0.95);
+  border-left: 1px solid rgba(255, 255, 255, 0.65);
+  border-right: 1px solid rgba(255, 255, 255, 0.45);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    inset 1px 0 0 rgba(255, 255, 255, 0.45),
+    inset -1px 0 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.06),
+    0 2px 10px rgba(15, 23, 42, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-card:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 1px solid #FFFFFF;
+  border-left: 1px solid rgba(255, 255, 255, 0.85);
+  border-right: 1px solid rgba(255, 255, 255, 0.60);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.18);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 1px 0 0 rgba(255, 255, 255, 0.70),
+    inset -1px 0 0 rgba(255, 255, 255, 0.40),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.10),
+    0 8px 24px -4px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+.liquid-glass-card-selected {
+  background: rgba(240, 246, 255, 0.92) !important;
+  border-top: 1px solid #FFFFFF !important;
+  border-left: 1px solid rgba(0, 122, 255, 0.70) !important;
+  border-right: 1px solid rgba(0, 122, 255, 0.50) !important;
+  border-bottom: 1px solid rgba(0, 122, 255, 0.85) !important;
+  box-shadow: 
+    inset 0 1px 0 #FFFFFF,
+    inset 1px 0 0 rgba(0, 122, 255, 0.40),
+    inset -1px 0 0 rgba(0, 122, 255, 0.30),
+    0 0 0 1.5px rgba(0, 122, 255, 0.60),
+    0 4px 16px -2px rgba(0, 122, 255, 0.18) !important;
+}
+
+.liquid-glass-button {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.95);
+  border-left: 1px solid rgba(255, 255, 255, 0.65);
+  border-right: 1px solid rgba(255, 255, 255, 0.40);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 rgba(15, 23, 42, 0.05),
+    0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.liquid-glass-primary {
+  border-radius: 8px;
+  background: linear-gradient(180deg, #0A84FF 0%, #0066CC 100%);
+  color: #FFFFFF;
+  border-top: 1px solid rgba(255, 255, 255, 0.45);
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+    0 2px 8px rgba(0, 122, 255, 0.35);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.liquid-glass-pill {
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.95);
+  border-left: 1px solid rgba(255, 255, 255, 0.60);
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.10);
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.80),
+    0 1px 2px rgba(15, 23, 42, 0.03);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.liquid-glass-pill-active {
+  background: linear-gradient(180deg, #0A84FF 0%, #0066CC 100%) !important;
+  color: #FFFFFF !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.50) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 2px 8px rgba(0, 122, 255, 0.30) !important;
+}
+
+.liquid-glass-input {
+  border-radius: 8px;
+  background: rgba(248, 250, 252, 0.70);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  border-left: 1px solid rgba(15, 23, 42, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.70);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04);
+  transition: all 0.15s ease;
+}
 
     function getFullSkillMarkdown() {
       return `---
