@@ -2463,6 +2463,140 @@
         0 0 0 3px rgba(0, 122, 255, 0.15);
       outline: none;
     }
+
+    /* ==========================================================================
+       STANDARD LOCAL FONT STORE @FONT-FACE DEFINITIONS
+       ========================================================================== */
+    @font-face {
+      font-family: 'FontMoul';
+      src: url('./fonts/01_Khmer_Display_Title/Moul-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontKhMuol';
+      src: url('./fonts/01_Khmer_Display_Title/Kh-Muol.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontKoulen';
+      src: url('./fonts/01_Khmer_Display_Title/Koulen-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontBokor';
+      src: url('./fonts/01_Khmer_Display_Title/Bokor-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontBayon';
+      src: url('./fonts/01_Khmer_Display_Title/Bayon-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontDangrek';
+      src: url('./fonts/01_Khmer_Display_Title/Dangrek-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontFasthand';
+      src: url('./fonts/01_Khmer_Display_Title/Fasthand-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontPreahvihear';
+      src: url('./fonts/01_Khmer_Display_Title/Preahvihear-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontBattambang';
+      src: url('./fonts/02_Khmer_Body_Text/Battambang-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontBattambangBold';
+      src: url('./fonts/02_Khmer_Body_Text/Battambang-Bold.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontContent';
+      src: url('./fonts/02_Khmer_Body_Text/Content-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontSiemreap';
+      src: url('./fonts/02_Khmer_Body_Text/Siemreap-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontHanuman';
+      src: url('./fonts/02_Khmer_Body_Text/Hanuman-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontKdamThmor';
+      src: url('./fonts/02_Khmer_Body_Text/KdamThmor-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontKantumruy';
+      src: url('./fonts/02_Khmer_Body_Text/Kantumruy-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontMEF1';
+      src: url('./fonts/03_Khmer_Institutional_Official/khmer_mef1.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontMEF2';
+      src: url('./fonts/03_Khmer_Institutional_Official/khmer_mef2.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontKhmerOS';
+      src: url('./fonts/03_Khmer_Institutional_Official/khmeros.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontKhmerOSBattambang';
+      src: url('./fonts/03_Khmer_Institutional_Official/KhmerOSBattambang-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontInter';
+      src: url('./fonts/04_Latin_Modern_UI/inter_regular.otf') format('opentype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontInterMedium';
+      src: url('./fonts/04_Latin_Modern_UI/inter_medium.otf') format('opentype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontInterBold';
+      src: url('./fonts/04_Latin_Modern_UI/inter_bold.otf') format('opentype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontMonaSans';
+      src: url('./fonts/04_Latin_Modern_UI/monasans_regular.otf') format('opentype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontTTFirsNeue';
+      src: url('./fonts/04_Latin_Modern_UI/tt_firs_neue_normal.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontRoboto';
+      src: url('./fonts/04_Latin_Modern_UI/roboto-regular.ttf') format('truetype');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'FontRobotoMono';
+      src: url('./fonts/05_Monospace_Code/RobotoMono-Regular.ttf') format('truetype');
+      font-display: swap;
+    }
   </style>
 </head>
 <body>
@@ -2488,6 +2622,9 @@
           </button>
           <button class="dock-tab" onclick="switchStudioView('webapp', this)" data-view="webapp" data-i18n="nav_webapp">
             Apps
+          </button>
+          <button class="dock-tab" onclick="switchStudioView('fonts', this)" data-view="fonts" data-i18n="nav_fonts">
+            Fonts
           </button>
           <button class="dock-tab" onclick="switchStudioView('concept', this)" data-view="concept" data-i18n="nav_concept">
             Concept
@@ -3589,6 +3726,364 @@
       </div>
     </section>
 
+
+    <!-- SECTION: STANDARD FONT STORE & TYPOGRAPHY ASSETS -->
+    <section id="section-fonts" class="studio-view" style="margin-bottom: 60px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 9999px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.20); margin-bottom: 8px;">
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #10B981;"></span>
+            <span style="font-size: 0.72rem; font-weight: 700; color: #10B981; letter-spacing: 0.06em; text-transform: uppercase;">Standard Typography Repository</span>
+          </div>
+          <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="sec_fonts_title">
+            Standard Font Store & Specimen Studio
+          </h2>
+          <p style="color: var(--text-dim); font-size: 0.88rem; max-width: 820px;" data-i18n="sec_fonts_desc">
+            Directly test, preview, and download authoritative local font assets across Khmer Titles, High-Legibility Body Text, Official Institutional Standards, Modern Latin UI, and Monospace Code.
+          </p>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="btn btn-primary btn-sm" onclick="copyAllFontCSS()">Copy All @font-face</button>
+          <button class="btn btn-glass btn-sm" onclick="copyFontSystemDoc()">Copy Font Guide</button>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills & Search Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; padding: 14px 18px; background: rgba(255, 255, 255, 0.80); border-radius: 14px; border: 1px solid rgba(15, 23, 42, 0.08); backdrop-filter: blur(16px);">
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;" id="fontCategoryFilters">
+          <button class="liquid-glass-pill liquid-glass-pill-active font-filter-btn" onclick="filterFontCards('all', this)" style="padding: 6px 14px; font-size: 0.76rem; font-weight: 600;">All Fonts (24)</button>
+          <button class="liquid-glass-pill font-filter-btn" onclick="filterFontCards('khmer-title', this)" style="padding: 6px 14px; font-size: 0.76rem; font-weight: 600; color: #0F172A;">Khmer Titles (8)</button>
+          <button class="liquid-glass-pill font-filter-btn" onclick="filterFontCards('khmer-body', this)" style="padding: 6px 14px; font-size: 0.76rem; font-weight: 600; color: #0F172A;">Khmer Body (7)</button>
+          <button class="liquid-glass-pill font-filter-btn" onclick="filterFontCards('official', this)" style="padding: 6px 14px; font-size: 0.76rem; font-weight: 600; color: #0F172A;">Institutional (4)</button>
+          <button class="liquid-glass-pill font-filter-btn" onclick="filterFontCards('latin', this)" style="padding: 6px 14px; font-size: 0.76rem; font-weight: 600; color: #0F172A;">Latin Modern UI (6)</button>
+          <button class="liquid-glass-pill font-filter-btn" onclick="filterFontCards('mono', this)" style="padding: 6px 14px; font-size: 0.76rem; font-weight: 600; color: #0F172A;">Monospace (1)</button>
+        </div>
+        <div style="position: relative; min-width: 240px; flex: 1; max-width: 320px;">
+          <input type="text" id="fontSearchInput" oninput="searchFontCards(this.value)" placeholder="Search font by name..." class="liquid-glass-input" style="width: 100%; padding: 8px 12px; font-size: 0.78rem; color: #0F172A; outline: none;">
+        </div>
+      </div>
+
+      <!-- Font Cards Grid -->
+      <div id="fontCardsGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px;">
+
+        <!-- 1. Moul Regular -->
+        <div class="font-specimen-card liquid-glass-card" data-category="khmer-title" data-name="moul regular khmer display" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">01 • Khmer Display Title</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Moul Regular</h3>
+            </div>
+            <span class="ui-badge badge-green" style="font-size: 0.68rem;">TTF • 234 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontMoul', serif; font-size: 1.25rem; color: #0F172A; line-height: 1.5; outline: none;" title="Editable live specimen">
+              ព្រះរាជាណាចក្រកម្ពុជា ជាតិ សាសនា ព្រះមហាក្សត្រ
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Royal decrees, ceremonial headers, temple inscriptions</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontMoul', './fonts/01_Khmer_Display_Title/Moul-Regular.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/01_Khmer_Display_Title/Moul-Regular.ttf" download="Moul-Regular.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 2. Koulen Regular -->
+        <div class="font-specimen-card liquid-glass-card" data-category="khmer-title" data-name="koulen regular modern headline" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">01 • Khmer Display Title</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Koulen Regular</h3>
+            </div>
+            <span class="ui-badge badge-green" style="font-size: 0.68rem;">TTF • 188 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontKoulen', sans-serif; font-size: 1.35rem; color: #0F172A; line-height: 1.4; outline: none;">
+              សុវត្ថិភាពចរាចរណ៍ ផ្តើមចេញពីយើងទាំងអស់គ្នា!
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Modern bold impact headlines, road safety campaigns</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontKoulen', './fonts/01_Khmer_Display_Title/Koulen-Regular.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/01_Khmer_Display_Title/Koulen-Regular.ttf" download="Koulen-Regular.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 3. Bokor Regular -->
+        <div class="font-specimen-card liquid-glass-card" data-category="khmer-title" data-name="bokor regular slab headline" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">01 • Khmer Display Title</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Bokor Regular</h3>
+            </div>
+            <span class="ui-badge badge-green" style="font-size: 0.68rem;">TTF • 196 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontBokor', cursive; font-size: 1.30rem; color: #0F172A; line-height: 1.4; outline: none;">
+              ដំណើរផ្សងព្រេង និងការអភិវឌ្ឍនវានុវត្តន៍ឌីជីថល
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Rustic retro slabs, game posters, cultural narratives</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontBokor', './fonts/01_Khmer_Display_Title/Bokor-Regular.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/01_Khmer_Display_Title/Bokor-Regular.ttf" download="Bokor-Regular.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 4. Bayon Regular -->
+        <div class="font-specimen-card liquid-glass-card" data-category="khmer-title" data-name="bayon regular architectural display" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #059669; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">01 • Khmer Display Title</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Bayon Regular</h3>
+            </div>
+            <span class="ui-badge badge-green" style="font-size: 0.68rem;">TTF • 212 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontBayon', sans-serif; font-size: 1.25rem; color: #0F172A; line-height: 1.4; outline: none;">
+              បេតិកភណ្ឌប្រវត្តិសាស្ត្រ និងស្ថាបត្យកម្មខ្មែរ
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Monumental architecture, heritage exhibitions</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontBayon', './fonts/01_Khmer_Display_Title/Bayon-Regular.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/01_Khmer_Display_Title/Bayon-Regular.ttf" download="Bayon-Regular.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 5. Battambang Regular -->
+        <div class="font-specimen-card liquid-glass-card" data-category="khmer-body" data-name="battambang regular khmer body text" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #0284C7; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">02 • Khmer Body Text</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Battambang Regular</h3>
+            </div>
+            <span class="ui-badge badge-cyan" style="font-size: 0.68rem;">TTF • 142 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontBattambang', sans-serif; font-size: 0.98rem; color: #0F172A; line-height: 1.6; outline: none;">
+              ការអប់រំ និងការផ្សព្វផ្សាយច្បាប់ស្តីពីចរាចរណ៍ផ្លូវគោក គឺដើម្បីការពារអាយុជីវិតមនុស្ស។
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Ultra-clear screen reading, mobile UI, multi-line copy</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontBattambang', './fonts/02_Khmer_Body_Text/Battambang-Regular.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/02_Khmer_Body_Text/Battambang-Regular.ttf" download="Battambang-Regular.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 6. Content Regular -->
+        <div class="font-specimen-card liquid-glass-card" data-category="khmer-body" data-name="content regular editorial body" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #0284C7; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">02 • Khmer Body Text</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Content Regular</h3>
+            </div>
+            <span class="ui-badge badge-cyan" style="font-size: 0.68rem;">TTF • 138 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontContent', serif; font-size: 0.98rem; color: #0F172A; line-height: 1.6; outline: none;">
+              សេចក្តីណែនាំបច្ចេកទេស និងបទប្បញ្ញត្តិស្តង់ដារសម្រាប់យានយន្តគ្រប់ប្រភេទ។
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Balanced editorial body, articles, reading books</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontContent', './fonts/02_Khmer_Body_Text/Content-Regular.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/02_Khmer_Body_Text/Content-Regular.ttf" download="Content-Regular.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 7. Siemreap Regular -->
+        <div class="font-specimen-card liquid-glass-card" data-category="khmer-body" data-name="siemreap regular ui sans" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #0284C7; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">02 • Khmer Body Text</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Siemreap Regular</h3>
+            </div>
+            <span class="ui-badge badge-cyan" style="font-size: 0.68rem;">TTF • 146 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontSiemreap', sans-serif; font-size: 0.98rem; color: #0F172A; line-height: 1.6; outline: none;">
+              ប្រព័ន្ធគ្រប់គ្រងទិន្នន័យ និងកាតាឡុកសញ្ញាចរាចរណ៍ផ្លូវគោកកម្ពុជា។
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Clean high-legibility menus, buttons, system UI</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontSiemreap', './fonts/02_Khmer_Body_Text/Siemreap-Regular.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/02_Khmer_Body_Text/Siemreap-Regular.ttf" download="Siemreap-Regular.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 8. Hanuman Regular -->
+        <div class="font-specimen-card liquid-glass-card" data-category="khmer-body" data-name="hanuman regular elegant serif" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #0284C7; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">02 • Khmer Body Text</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Hanuman Regular</h3>
+            </div>
+            <span class="ui-badge badge-cyan" style="font-size: 0.68rem;">TTF • 154 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontHanuman', serif; font-size: 0.98rem; color: #0F172A; line-height: 1.6; outline: none;">
+              កំណាព្យ អក្សរសិល្ប៍ និងឯកសារស្រាវជ្រាវប្រវត្តិសាស្ត្រជាតិ។
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Elegant serif literature, academic thesis, official reports</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontHanuman', './fonts/02_Khmer_Body_Text/Hanuman-Regular.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/02_Khmer_Body_Text/Hanuman-Regular.ttf" download="Hanuman-Regular.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 9. Khmer MEF 1 -->
+        <div class="font-specimen-card liquid-glass-card" data-category="official" data-name="khmer mef1 ministry economy finance standard" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #7C3AED; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">03 • Institutional Official</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Khmer MEF 1</h3>
+            </div>
+            <span class="ui-badge badge-purple" style="font-size: 0.68rem;">TTF • 248 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontMEF1', sans-serif; font-size: 1.10rem; color: #0F172A; line-height: 1.5; outline: none;">
+              ក្រសួងសេដ្ឋកិច្ច និងហិរញ្ញវត្ថុ នៃព្រះរាជាណាចក្រកម្ពុជា
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Ministry of Economy & Finance formal government notices</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontMEF1', './fonts/03_Khmer_Institutional_Official/khmer_mef1.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/03_Khmer_Institutional_Official/khmer_mef1.ttf" download="khmer_mef1.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 10. Khmer MEF 2 -->
+        <div class="font-specimen-card liquid-glass-card" data-category="official" data-name="khmer mef2 ministry economy finance title" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #7C3AED; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">03 • Institutional Official</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Khmer MEF 2</h3>
+            </div>
+            <span class="ui-badge badge-purple" style="font-size: 0.68rem;">TTF • 256 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontMEF2', serif; font-size: 1.20rem; color: #0F172A; line-height: 1.5; outline: none;">
+              ប្រកាសអន្តរក្រសួង និងសារាចរណែនាំផ្លូវការ
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Formal ministry titles, certifications, legal decrees</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontMEF2', './fonts/03_Khmer_Institutional_Official/khmer_mef2.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/03_Khmer_Institutional_Official/khmer_mef2.ttf" download="khmer_mef2.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 11. KhmerOS Standard -->
+        <div class="font-specimen-card liquid-glass-card" data-category="official" data-name="khmeros standard government font" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #7C3AED; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">03 • Institutional Official</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">KhmerOS Standard</h3>
+            </div>
+            <span class="ui-badge badge-purple" style="font-size: 0.68rem;">TTF • 298 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontKhmerOS', sans-serif; font-size: 0.98rem; color: #0F172A; line-height: 1.6; outline: none;">
+              បទបញ្ញត្តិស្តង់ដាររដ្ឋបាល និងឯកសាររដ្ឋបាលសាធារណៈ។
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Classic open government standard, public sector documents</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontKhmerOS', './fonts/03_Khmer_Institutional_Official/khmeros.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/03_Khmer_Institutional_Official/khmeros.ttf" download="khmeros.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 12. Inter Regular -->
+        <div class="font-specimen-card liquid-glass-card" data-category="latin" data-name="inter regular modern ui latin" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #2563EB; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">04 • Latin Modern UI</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Inter Regular</h3>
+            </div>
+            <span class="ui-badge badge-blue" style="font-size: 0.68rem;">OTF • 312 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontInter', sans-serif; font-size: 1.05rem; color: #0F172A; line-height: 1.5; outline: none;">
+              The quick brown fox jumps over the lazy dog. 1234567890
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: High-end web dashboards, software apps, clean interface typography</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontInter', './fonts/04_Latin_Modern_UI/inter_regular.otf', 'opentype')">Copy CSS</button>
+            <a href="./fonts/04_Latin_Modern_UI/inter_regular.otf" download="inter_regular.otf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download OTF</a>
+          </div>
+        </div>
+
+        <!-- 13. Mona Sans -->
+        <div class="font-specimen-card liquid-glass-card" data-category="latin" data-name="mona sans tech branding modern" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #2563EB; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">04 • Latin Modern UI</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Mona Sans</h3>
+            </div>
+            <span class="ui-badge badge-blue" style="font-size: 0.68rem;">OTF • 284 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontMonaSans', sans-serif; font-size: 1.05rem; color: #0F172A; line-height: 1.5; outline: none;">
+              Engineered for frontier developer tools and cyber architecture.
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Tech product branding, developer portals, GitHub design standards</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontMonaSans', './fonts/04_Latin_Modern_UI/monasans_regular.otf', 'opentype')">Copy CSS</button>
+            <a href="./fonts/04_Latin_Modern_UI/monasans_regular.otf" download="monasans_regular.otf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download OTF</a>
+          </div>
+        </div>
+
+        <!-- 14. TT Firs Neue -->
+        <div class="font-specimen-card liquid-glass-card" data-category="latin" data-name="tt firs neue nordic sans geometric" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #2563EB; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">04 • Latin Modern UI</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">TT Firs Neue</h3>
+            </div>
+            <span class="ui-badge badge-blue" style="font-size: 0.68rem;">TTF • 268 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontTTFirsNeue', sans-serif; font-size: 1.05rem; color: #0F172A; line-height: 1.5; outline: none;">
+              Nordic minimalism, architectural precision, tactile geometry.
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: High-end luxury typography, tech design DNA, minimalist interfaces</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontTTFirsNeue', './fonts/04_Latin_Modern_UI/tt_firs_neue_normal.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/04_Latin_Modern_UI/tt_firs_neue_normal.ttf" download="tt_firs_neue_normal.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+        <!-- 15. Roboto Mono Regular -->
+        <div class="font-specimen-card liquid-glass-card" data-category="mono" data-name="roboto mono regular monospace code" style="padding: 20px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div style="font-size: 0.70rem; font-weight: 800; color: #D97706; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px;">05 • Monospace & Code</div>
+              <h3 style="font-size: 1.05rem; font-weight: 700; color: #0F172A;">Roboto Mono</h3>
+            </div>
+            <span class="ui-badge" style="background: rgba(217, 119, 6, 0.1); color: #D97706; border: 1px solid rgba(217, 119, 6, 0.25); font-size: 0.68rem;">TTF • 172 KB</span>
+          </div>
+          <div style="background: rgba(248, 250, 252, 0.90); padding: 14px; border-radius: 10px; border: 1px solid rgba(15, 23, 42, 0.08);">
+            <div contenteditable="true" style="font-family: 'FontRobotoMono', monospace; font-size: 0.92rem; color: #0F172A; line-height: 1.5; outline: none;">
+              const repo = new FontStore({ path: './fonts/' });
+            </div>
+            <div style="font-size: 0.70rem; color: #64748B; margin-top: 8px;">Role: Terminal consoles, code blocks, tabular metrics, hashes</div>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 6px;">
+            <button class="btn btn-glass btn-sm" onclick="copySingleFontCSS('FontRobotoMono', './fonts/05_Monospace_Code/RobotoMono-Regular.ttf', 'truetype')">Copy CSS</button>
+            <a href="./fonts/05_Monospace_Code/RobotoMono-Regular.ttf" download="RobotoMono-Regular.ttf" class="btn btn-primary btn-sm" style="text-decoration: none;">Download TTF</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- SECTION: CONCEPT - LIQUID GLASS MACOS SPLITVIEW -->
     <section id="section-concept" class="studio-view" style="margin-bottom: 60px;">
       <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 14px;">
@@ -4046,7 +4541,10 @@ Directive: Floating selection dropdown panel with keyboard shortcuts.
         nav_identity: 'Identity',
         nav_elements: 'Elements',
         nav_webapp: 'Apps',
+        nav_fonts: 'Fonts',
         nav_concept: 'Concept',
+        sec_fonts_title: 'Standard Font Store & Specimen Studio',
+        sec_fonts_desc: 'Directly test, preview, and download authoritative local font assets across Khmer Titles, High-Legibility Body Text, Official Institutional Standards, Modern Latin UI, and Monospace Code.',
         sec_concept_title: 'Liquid Glass macOS SplitView Design System',
         sec_concept_desc: 'Production-grade 3-column SplitView layout synthesizing native Apple window ergonomics with 360-degree specular liquid glass refraction, directional specular rim lighting, and responsive tactile controls.',
         tab_identity: 'Visual Identity',
@@ -4083,7 +4581,10 @@ Directive: Floating selection dropdown panel with keyboard shortcuts.
         nav_identity: 'Identity',
         nav_elements: 'Elements',
         nav_webapp: 'Apps',
+        nav_fonts: 'ពុម្ពអក្សរ (Fonts)',
         nav_concept: 'ទស្សនទាន (Concept)',
+        sec_fonts_title: 'បណ្ណាល័យពុម្ពអក្សរស្តង់ដារ (Standard Font Store)',
+        sec_fonts_desc: 'សាកល្បង មើលគំរូជាក់ស្តែង និងទាញយកពុម្ពអក្សរផ្លូវការខ្មែរ-ឡាតាំង សម្រាប់ចំណងជើង អត្ថបទរដ្ឋបាល និងកូដ។',
         sec_concept_title: 'ប្រព័ន្ធរចនា Liquid Glass macOS SplitView',
         sec_concept_desc: 'លក្ខណៈបច្ចេកទេសរចនាសំយោគគោលការណ៍ Apple HIG និងថូខឹនកញ្ចក់រាវ Refraction 360 ដឺក្រេ។',
         tab_identity: 'អត្តសញ្ញាណ (Identity)',
@@ -4322,6 +4823,7 @@ export const tokens = {
         identity: document.getElementById('section-tactile'),
         elements: document.getElementById('section-elements'),
         webapp: document.getElementById('section-webapp'),
+        fonts: document.getElementById('section-fonts'),
         concept: document.getElementById('section-concept')
       };
 
@@ -4376,6 +4878,105 @@ export const tokens = {
 
 
     
+    
+    // Font Store Filtering & Search Engine
+    function filterFontCards(category, btnEl) {
+      document.querySelectorAll('#fontCategoryFilters .font-filter-btn').forEach(btn => {
+        btn.classList.remove('liquid-glass-pill-active');
+        btn.style.color = '#0F172A';
+      });
+      if (btnEl) {
+        btnEl.classList.add('liquid-glass-pill-active');
+        btnEl.style.color = '#FFFFFF';
+      }
+
+      const cards = document.querySelectorAll('.font-specimen-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function searchFontCards(query) {
+      const q = query.toLowerCase().trim();
+      const cards = document.querySelectorAll('.font-specimen-card');
+      cards.forEach(card => {
+        const name = (card.getAttribute('data-name') || '').toLowerCase();
+        if (!q || name.includes(q)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function copySingleFontCSS(fontName, fontPath, format) {
+      const css = `@font-face {\n  font-family: '${fontName}';\n  src: url('${fontPath}') format('${format}');\n  font-display: swap;\n}`;
+      navigator.clipboard.writeText(css).then(() => {
+        showToast(currentLang === 'km' ? `បានចម្លង CSS សម្រាប់ ${fontName}!` : `Copied @font-face for ${fontName}!`);
+      });
+    }
+
+    function copyAllFontCSS() {
+      const allCSS = `/* Standard Authoritative Local Fonts @font-face */
+@font-face {
+  font-family: 'KhmerMoul';
+  src: url('./fonts/01_Khmer_Display_Title/Moul-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KhmerKoulen';
+  src: url('./fonts/01_Khmer_Display_Title/Koulen-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KhmerBattambang';
+  src: url('./fonts/02_Khmer_Body_Text/Battambang-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KhmerContent';
+  src: url('./fonts/02_Khmer_Body_Text/Content-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KhmerMEF1';
+  src: url('./fonts/03_Khmer_Institutional_Official/khmer_mef1.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'InterUI';
+  src: url('./fonts/04_Latin_Modern_UI/inter_regular.otf') format('opentype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('./fonts/05_Monospace_Code/RobotoMono-Regular.ttf') format('truetype');
+  font-display: swap;
+}`;
+      navigator.clipboard.writeText(allCSS).then(() => {
+        showToast(currentLang === 'km' ? 'បានចម្លង @font-face ទាំងអស់!' : 'Copied all @font-face rules!');
+      });
+    }
+
+    function copyFontSystemDoc() {
+      const doc = `# Standard Typography & Local Font Repository
+Repository Path: ./fonts/ (or /Users/Apple16/Desktop/ttt/FONTS/)
+
+## Category Structure:
+1. 01_Khmer_Display_Title (Moul, Koulen, Bokor, Bayon, Dangrek)
+2. 02_Khmer_Body_Text (Battambang, Content, Siemreap, Hanuman, KdamThmor)
+3. 03_Khmer_Institutional_Official (khmer_mef1, khmer_mef2, khmeros)
+4. 04_Latin_Modern_UI (Inter, Mona Sans, TT Firs Neue, Roboto)
+5. 05_Monospace_Code (Roboto Mono)`;
+      navigator.clipboard.writeText(doc).then(() => {
+        showToast(currentLang === 'km' ? 'បានចម្លងឯកសារ Font Guide!' : 'Copied Font Guide!');
+      });
+    }
+
     function copySplitViewTokens() {
       const tokens = `/* ==========================================================================
    SKILL: LIQUID GLASS MACOS SPLITVIEW DESIGN SYSTEM
@@ -4677,65 +5278,6 @@ description: Authoritative design standard and architectural rules for Shiliaiwe
       showToast(currentLang === 'km' ? 'បានទាញយកឯកសារ SKILL.md ដោយជោគជ័យ!' : 'Downloaded Agent SKILL.md file!');
     }
 
-    // Authentic Apple macOS Glass Notification Chime Synthesizer (Web Audio API)
-    function playMacNotificationSound() {
-      try {
-        const AudioCtx = window.AudioContext || window.webkitAudioContext;
-        if (!AudioCtx) return;
-        const ctx = new AudioCtx();
-        if (ctx.state === 'suspended') {
-          ctx.resume();
-        }
-
-        const now = ctx.currentTime;
-
-        // Primary E6 -> A6 glass tone (Dual-harmonic ping)
-        const osc1 = ctx.createOscillator();
-        const gain1 = ctx.createGain();
-        osc1.type = 'sine';
-        osc1.frequency.setValueAtTime(1318.51, now); // E6
-        osc1.frequency.exponentialRampToValueAtTime(1760.00, now + 0.08); // A6
-
-        gain1.gain.setValueAtTime(0.32, now);
-        gain1.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
-
-        osc1.connect(gain1);
-        gain1.connect(ctx.destination);
-
-        // High crystal shimmer overtone E7
-        const osc2 = ctx.createOscillator();
-        const gain2 = ctx.createGain();
-        osc2.type = 'sine';
-        osc2.frequency.setValueAtTime(2637.02, now); // E7
-
-        gain2.gain.setValueAtTime(0.18, now);
-        gain2.gain.exponentialRampToValueAtTime(0.0001, now + 0.35);
-
-        osc2.connect(gain2);
-        gain2.connect(ctx.destination);
-
-        // Tactile bass pop
-        const osc3 = ctx.createOscillator();
-        const gain3 = ctx.createGain();
-        osc3.type = 'triangle';
-        osc3.frequency.setValueAtTime(220, now);
-        osc3.frequency.exponentialRampToValueAtTime(110, now + 0.06);
-
-        gain3.gain.setValueAtTime(0.22, now);
-        gain3.gain.exponentialRampToValueAtTime(0.0001, now + 0.08);
-
-        osc3.connect(gain3);
-        gain3.connect(ctx.destination);
-
-        osc1.start(now);
-        osc2.start(now);
-        osc3.start(now);
-        osc1.stop(now + 0.45);
-        osc2.stop(now + 0.35);
-        osc3.stop(now + 0.08);
-      } catch (err) {}
-    }
-
     // Brand & Export Popup Controls
     function openBrandPopup() {
       const modal = document.getElementById('brandPopupModal');
@@ -4753,14 +5295,11 @@ description: Authoritative design standard and architectural rules for Shiliaiwe
       }
     }
 
-    // Interactive App Icon Tap & macOS Notification Transition
+    // Interactive App Icon Tap & macOS Notification Transition (Zero Sound Effects)
     function handleAppIconTap(e) {
       if (e) {
         if (typeof e.stopPropagation === 'function') e.stopPropagation();
       }
-      
-      // Play crisp glass chime
-      playMacNotificationSound();
 
       // Trigger spring ripple animation on the glass bezel
       const frame = document.querySelector('.ios-app-glass-frame');

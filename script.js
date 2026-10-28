@@ -14,69 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. SOUND & AUDIO ENGINE
+   1. SOUND & AUDIO ENGINE (REMOVED)
    ========================================================================== */
-let soundEnabled = true;
-let ambientPlaying = false;
-
-const soundClick = document.getElementById('soundClick');
-const soundTransit = document.getElementById('soundTransit');
-const soundWhoosh = document.getElementById('soundWhoosh');
-const soundAmbient = document.getElementById('soundAmbient');
-
 function initSoundEngine() {
-  const soundToggleBtn = document.getElementById('soundToggleBtn');
-  const soundIcon = document.getElementById('soundIcon');
-  const ambientPlayBtn = document.getElementById('ambientPlayBtn');
-  const ambientIcon = document.getElementById('ambientIcon');
-
-  // Sound FX toggle
-  if (soundToggleBtn) {
-    soundToggleBtn.addEventListener('click', () => {
-      soundEnabled = !soundEnabled;
-      if (soundEnabled) {
-        soundIcon.className = 'fa-solid fa-volume-high';
-        playSound(soundClick);
-      } else {
-        soundIcon.className = 'fa-solid fa-volume-xmark';
-      }
-    });
-  }
-
-  // Ambient Track toggle
-  if (ambientPlayBtn && soundAmbient) {
-    ambientPlayBtn.addEventListener('click', () => {
-      if (ambientPlaying) {
-        soundAmbient.pause();
-        ambientPlaying = false;
-        ambientIcon.className = 'fa-solid fa-play';
-      } else {
-        soundAmbient.volume = 0.35;
-        soundAmbient.play().then(() => {
-          ambientPlaying = true;
-          ambientIcon.className = 'fa-solid fa-pause';
-        }).catch(err => {
-          console.log('Audio autoplay prevented:', err);
-        });
-      }
-    });
-  }
-
-  // Attach sound to interactive buttons
-  document.querySelectorAll('.sound-click').forEach(elem => {
-    elem.addEventListener('click', () => {
-      playSound(soundClick);
-    });
-  });
+  // All sound effects removed per authoritative design standard
 }
 
 function playSound(audioElem) {
-  if (!soundEnabled || !audioElem) return;
-  try {
-    audioElem.currentTime = 0;
-    audioElem.volume = 0.4;
-    audioElem.play().catch(() => {});
-  } catch (e) {}
+  // Sound effects disabled
+  return;
 }
 
 /* ==========================================================================
